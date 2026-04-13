@@ -1,0 +1,15 @@
+
+
+# V1SecretKeySelector
+
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**key** | **String** |  |  [optional] |
+|**name** | **String** |  |  [optional] |
+|**optional** | **Boolean** |  |  [optional] |
+
+
+

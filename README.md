@@ -22,14 +22,18 @@ mvn clean install
 
 ### Maven users
 
-Add this dependency to your project's POM:
-
 ```xml
+
+<repository>
+    <id>synbox</id>
+    <url>https://registryhub.synbox.gg/repository/synbox/</url>
+</repository>
+
 <dependency>
-  <groupId>org.openapitools</groupId>
-  <artifactId>openapi-java-client</artifactId>
-  <version>v1</version>
-  <scope>compile</scope>
+    <groupId>de.synbox.api</groupId>
+    <artifactId>openapi-java-client</artifactId>
+    <version>v1</version>
+    <scope>compile</scope>
 </dependency>
 ```
 
@@ -42,11 +46,10 @@ import de.synbox.model.*;
 import java.net.URI;
 import java.util.List;
 
-import static gg.synbox.pserver.PServer.synbox;
 
 void main() {
   try {
-    //ApiFacade synbox = new ApiFacade("https://synbox.cloud:8080", "API-KEY");
+    ApiFacade synbox = new ApiFacade("https://synbox.cloud:8080", "API-KEY");
 
     // get current user
     UserDTO user = synbox.userManagement().getUserInformation();

@@ -99,6 +99,9 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.BackupModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.BalanceInvoiceModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.BaseDTO.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.CloudServerCreateDTO.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.CloudServerCreateDTOEnvs.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.CloudServerDTO.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.CloudServerModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.CloudServerModelEnvs.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.ContainerProvider.CustomTypeAdapterFactory());
@@ -115,6 +118,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.ScheduleModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.StartStopTimeDTO.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.UploadFileRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.UserDTO.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.V1ConfigMapKeySelector.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.V1EnvVar.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.V1EnvVarSource.CustomTypeAdapterFactory());

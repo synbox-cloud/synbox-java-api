@@ -86,10 +86,10 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call addMemberCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull OrganizationAddMemberDTO organizationAddMemberDTO, final ApiCallback _callback) throws ApiException {
@@ -165,10 +165,10 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public Object addMember(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull OrganizationAddMemberDTO organizationAddMemberDTO) throws ApiException {
@@ -187,10 +187,10 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Object> addMemberWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull OrganizationAddMemberDTO organizationAddMemberDTO) throws ApiException {
@@ -211,10 +211,10 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call addMemberAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull OrganizationAddMemberDTO organizationAddMemberDTO, final ApiCallback<Object> _callback) throws ApiException {
@@ -234,8 +234,8 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
      </table>
      */
@@ -305,8 +305,8 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
      </table>
      */
@@ -325,8 +325,8 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
      </table>
      */
@@ -347,8 +347,8 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
      </table>
      */
@@ -362,7 +362,7 @@ public class OrganizationApi {
     /**
      * Build call for requestMagicLink
      * @param id ID der Organisation (required)
-     * @param magicLinkRequestDTO Email and CallbackUrl. CallbackUrl erhält json mit magicLink (required)
+     * @param magicLinkRequestDTO Email und CallbackUrl. Die callbackUrl erhält JSON mit dem magicLink. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -372,8 +372,8 @@ public class OrganizationApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage (z.B. fehlende/ungueltige E-Mail) </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call requestMagicLinkCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull MagicLinkRequestDTO magicLinkRequestDTO, final ApiCallback _callback) throws ApiException {
@@ -442,7 +442,7 @@ public class OrganizationApi {
      * Magic-Link fuer ein Organisations-Mitglied anfordern
      * Fordert fuer die angegebene E-Mail-Adresse einen Magic-Link (Token-Login) bei SynBox an. Nur admin/owner duerfen diese Aktion ausfuehren.
      * @param id ID der Organisation (required)
-     * @param magicLinkRequestDTO Email and CallbackUrl. CallbackUrl erhält json mit magicLink (required)
+     * @param magicLinkRequestDTO Email und CallbackUrl. Die callbackUrl erhält JSON mit dem magicLink. (required)
      * @return BaseDTO
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -451,8 +451,8 @@ public class OrganizationApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage (z.B. fehlende/ungueltige E-Mail) </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public BaseDTO requestMagicLink(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull MagicLinkRequestDTO magicLinkRequestDTO) throws ApiException {
@@ -464,7 +464,7 @@ public class OrganizationApi {
      * Magic-Link fuer ein Organisations-Mitglied anfordern
      * Fordert fuer die angegebene E-Mail-Adresse einen Magic-Link (Token-Login) bei SynBox an. Nur admin/owner duerfen diese Aktion ausfuehren.
      * @param id ID der Organisation (required)
-     * @param magicLinkRequestDTO Email and CallbackUrl. CallbackUrl erhält json mit magicLink (required)
+     * @param magicLinkRequestDTO Email und CallbackUrl. Die callbackUrl erhält JSON mit dem magicLink. (required)
      * @return ApiResponse&lt;BaseDTO&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -473,8 +473,8 @@ public class OrganizationApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage (z.B. fehlende/ungueltige E-Mail) </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseDTO> requestMagicLinkWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull MagicLinkRequestDTO magicLinkRequestDTO) throws ApiException {
@@ -487,7 +487,7 @@ public class OrganizationApi {
      * Magic-Link fuer ein Organisations-Mitglied anfordern (asynchronously)
      * Fordert fuer die angegebene E-Mail-Adresse einen Magic-Link (Token-Login) bei SynBox an. Nur admin/owner duerfen diese Aktion ausfuehren.
      * @param id ID der Organisation (required)
-     * @param magicLinkRequestDTO Email and CallbackUrl. CallbackUrl erhält json mit magicLink (required)
+     * @param magicLinkRequestDTO Email und CallbackUrl. Die callbackUrl erhält JSON mit dem magicLink. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -497,8 +497,8 @@ public class OrganizationApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage (z.B. fehlende/ungueltige E-Mail) </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call requestMagicLinkAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull MagicLinkRequestDTO magicLinkRequestDTO, final ApiCallback<BaseDTO> _callback) throws ApiException {

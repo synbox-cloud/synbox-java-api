@@ -49,8 +49,8 @@ import de.synbox.invoker.JSON;
 /**
  * Request-DTO zum Anfordern eines Magic-Links für eine E-Mail-Adresse. Die callbackUrl erhält das JSON mit dem Magic-Link.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:27:12.908677685Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
-public class MagicLinkRequestDTO {
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-13T16:11:27.874328840Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+public class MagicLinkRequest {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   @jakarta.annotation.Nonnull
@@ -61,10 +61,10 @@ public class MagicLinkRequestDTO {
   @jakarta.annotation.Nonnull
   private URI callbackUrl;
 
-  public MagicLinkRequestDTO() {
+  public MagicLinkRequest() {
   }
 
-  public MagicLinkRequestDTO email(@jakarta.annotation.Nonnull String email) {
+  public MagicLinkRequest email(@jakarta.annotation.Nonnull String email) {
     this.email = email;
     return this;
   }
@@ -83,7 +83,7 @@ public class MagicLinkRequestDTO {
   }
 
 
-  public MagicLinkRequestDTO callbackUrl(@jakarta.annotation.Nonnull URI callbackUrl) {
+  public MagicLinkRequest callbackUrl(@jakarta.annotation.Nonnull URI callbackUrl) {
     this.callbackUrl = callbackUrl;
     return this;
   }
@@ -111,9 +111,9 @@ public class MagicLinkRequestDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MagicLinkRequestDTO magicLinkRequestDTO = (MagicLinkRequestDTO) o;
-    return Objects.equals(this.email, magicLinkRequestDTO.email) &&
-        Objects.equals(this.callbackUrl, magicLinkRequestDTO.callbackUrl);
+    MagicLinkRequest magicLinkRequest = (MagicLinkRequest) o;
+    return Objects.equals(this.email, magicLinkRequest.email) &&
+        Objects.equals(this.callbackUrl, magicLinkRequest.callbackUrl);
   }
 
   @Override
@@ -124,7 +124,7 @@ public class MagicLinkRequestDTO {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MagicLinkRequestDTO {\n");
+    sb.append("class MagicLinkRequest {\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
     sb.append("}");
@@ -155,25 +155,25 @@ public class MagicLinkRequestDTO {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to MagicLinkRequestDTO
+   * @throws IOException if the JSON Element is invalid with respect to MagicLinkRequest
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!MagicLinkRequestDTO.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MagicLinkRequestDTO is not found in the empty JSON string", MagicLinkRequestDTO.openapiRequiredFields.toString()));
+        if (!MagicLinkRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MagicLinkRequest is not found in the empty JSON string", MagicLinkRequest.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!MagicLinkRequestDTO.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `MagicLinkRequestDTO` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!MagicLinkRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `MagicLinkRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : MagicLinkRequestDTO.openapiRequiredFields) {
+      for (String requiredField : MagicLinkRequest.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -191,22 +191,22 @@ public class MagicLinkRequestDTO {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!MagicLinkRequestDTO.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'MagicLinkRequestDTO' and its subtypes
+       if (!MagicLinkRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MagicLinkRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<MagicLinkRequestDTO> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(MagicLinkRequestDTO.class));
+       final TypeAdapter<MagicLinkRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MagicLinkRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<MagicLinkRequestDTO>() {
+       return (TypeAdapter<T>) new TypeAdapter<MagicLinkRequest>() {
            @Override
-           public void write(JsonWriter out, MagicLinkRequestDTO value) throws IOException {
+           public void write(JsonWriter out, MagicLinkRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public MagicLinkRequestDTO read(JsonReader in) throws IOException {
+           public MagicLinkRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -217,18 +217,18 @@ public class MagicLinkRequestDTO {
   }
 
   /**
-   * Create an instance of MagicLinkRequestDTO given an JSON string
+   * Create an instance of MagicLinkRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of MagicLinkRequestDTO
-   * @throws IOException if the JSON string is invalid with respect to MagicLinkRequestDTO
+   * @return An instance of MagicLinkRequest
+   * @throws IOException if the JSON string is invalid with respect to MagicLinkRequest
    */
-  public static MagicLinkRequestDTO fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, MagicLinkRequestDTO.class);
+  public static MagicLinkRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MagicLinkRequest.class);
   }
 
   /**
-   * Convert an instance of MagicLinkRequestDTO to an JSON string
+   * Convert an instance of MagicLinkRequest to an JSON string
    *
    * @return JSON string
    */

@@ -23,7 +23,7 @@ import de.synbox.api.ServerManagementApi;
 import de.synbox.api.SftpManagementApi;
 import de.synbox.api.StartStopManagementApi;
 import de.synbox.api.TransactionControllerApi;
-import de.synbox.api.UserControllerApi;
+import de.synbox.api.UserManagementApi;
 import de.synbox.api.UserShareManagementApi;
 import de.synbox.api.VersionManagementApi;
 
@@ -52,7 +52,7 @@ public class ApiFacade {
   private SftpManagementApi _sftpManagement;
   private StartStopManagementApi _startStopManagement;
   private TransactionControllerApi _transactionController;
-  private UserControllerApi _userController;
+  private UserManagementApi _userManagement;
   private UserShareManagementApi _userShareManagement;
   private VersionManagementApi _versionManagement;
 
@@ -154,9 +154,9 @@ public class ApiFacade {
     if (_transactionController == null) _transactionController = new TransactionControllerApi(client);
     return _transactionController;
   }
-  public UserControllerApi userController() {
-    if (_userController == null) _userController = new UserControllerApi(client);
-    return _userController;
+  public UserManagementApi userManagement() {
+    if (_userManagement == null) _userManagement = new UserManagementApi(client);
+    return _userManagement;
   }
   public UserShareManagementApi userShareManagement() {
     if (_userShareManagement == null) _userShareManagement = new UserShareManagementApi(client);

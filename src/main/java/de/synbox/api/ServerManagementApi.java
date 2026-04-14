@@ -27,6 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import de.synbox.model.BaseDTO;
+import de.synbox.model.CloudServerCreateDTO;
+import de.synbox.model.CloudServerDTO;
 import de.synbox.model.CloudServerModel;
 
 import java.lang.reflect.Type;
@@ -74,7 +77,7 @@ public class ServerManagementApi {
 
     /**
      * Build call for createContainer
-     * @param cloudServerModel  (required)
+     * @param cloudServerCreateDTO Container creation parameters including powerLevel, provider, displayName, and optional organization assignment (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -82,11 +85,12 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully created container </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Various error codes: USER_NOT_FOUND, NOT_ENOUGH_TOKENS, NOT_ENABLED, HYTALE_FREE_LIMIT, ORGANIZATION_NOT_PRESENT, MEMBER_NOT_IN_ORGANIZATION, ORGANIZATION_NOT_PERMITTET </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createContainerCall(@jakarta.annotation.Nonnull CloudServerModel cloudServerModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createContainerCall(@jakarta.annotation.Nonnull CloudServerCreateDTO cloudServerCreateDTO, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -100,7 +104,7 @@ public class ServerManagementApi {
             basePath = null;
         }
 
-        Object localVarPostBody = cloudServerModel;
+        Object localVarPostBody = cloudServerCreateDTO;
 
         // create path and map variables
         String localVarPath = "/api/containers/create";
@@ -132,59 +136,61 @@ public class ServerManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createContainerValidateBeforeCall(@jakarta.annotation.Nonnull CloudServerModel cloudServerModel, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'cloudServerModel' is set
-        if (cloudServerModel == null) {
-            throw new ApiException("Missing the required parameter 'cloudServerModel' when calling createContainer(Async)");
+    private okhttp3.Call createContainerValidateBeforeCall(@jakarta.annotation.Nonnull CloudServerCreateDTO cloudServerCreateDTO, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'cloudServerCreateDTO' is set
+        if (cloudServerCreateDTO == null) {
+            throw new ApiException("Missing the required parameter 'cloudServerCreateDTO' when calling createContainer(Async)");
         }
 
-        return createContainerCall(cloudServerModel, _callback);
+        return createContainerCall(cloudServerCreateDTO, _callback);
 
     }
 
     /**
      * Create a new container
-     * Creates a new container for the authenticated user.
-     * @param cloudServerModel  (required)
-     * @return String
+     * Creates a new game server container for the authenticated user. Can optionally be assigned to an organization if the user has ADMIN or OWNER role.
+     * @param cloudServerCreateDTO Container creation parameters including powerLevel, provider, displayName, and optional organization assignment (required)
+     * @return CloudServerDTO
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully created container </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Various error codes: USER_NOT_FOUND, NOT_ENOUGH_TOKENS, NOT_ENABLED, HYTALE_FREE_LIMIT, ORGANIZATION_NOT_PRESENT, MEMBER_NOT_IN_ORGANIZATION, ORGANIZATION_NOT_PERMITTET </td><td>  -  </td></tr>
      </table>
      */
-    public String createContainer(@jakarta.annotation.Nonnull CloudServerModel cloudServerModel) throws ApiException {
-        ApiResponse<String> localVarResp = createContainerWithHttpInfo(cloudServerModel);
+    public CloudServerDTO createContainer(@jakarta.annotation.Nonnull CloudServerCreateDTO cloudServerCreateDTO) throws ApiException {
+        ApiResponse<CloudServerDTO> localVarResp = createContainerWithHttpInfo(cloudServerCreateDTO);
         return localVarResp.getData();
     }
 
     /**
      * Create a new container
-     * Creates a new container for the authenticated user.
-     * @param cloudServerModel  (required)
-     * @return ApiResponse&lt;String&gt;
+     * Creates a new game server container for the authenticated user. Can optionally be assigned to an organization if the user has ADMIN or OWNER role.
+     * @param cloudServerCreateDTO Container creation parameters including powerLevel, provider, displayName, and optional organization assignment (required)
+     * @return ApiResponse&lt;CloudServerDTO&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully created container </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Various error codes: USER_NOT_FOUND, NOT_ENOUGH_TOKENS, NOT_ENABLED, HYTALE_FREE_LIMIT, ORGANIZATION_NOT_PRESENT, MEMBER_NOT_IN_ORGANIZATION, ORGANIZATION_NOT_PERMITTET </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> createContainerWithHttpInfo(@jakarta.annotation.Nonnull CloudServerModel cloudServerModel) throws ApiException {
-        okhttp3.Call localVarCall = createContainerValidateBeforeCall(cloudServerModel, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+    public ApiResponse<CloudServerDTO> createContainerWithHttpInfo(@jakarta.annotation.Nonnull CloudServerCreateDTO cloudServerCreateDTO) throws ApiException {
+        okhttp3.Call localVarCall = createContainerValidateBeforeCall(cloudServerCreateDTO, null);
+        Type localVarReturnType = new TypeToken<CloudServerDTO>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create a new container (asynchronously)
-     * Creates a new container for the authenticated user.
-     * @param cloudServerModel  (required)
+     * Creates a new game server container for the authenticated user. Can optionally be assigned to an organization if the user has ADMIN or OWNER role.
+     * @param cloudServerCreateDTO Container creation parameters including powerLevel, provider, displayName, and optional organization assignment (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -192,14 +198,15 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully created container </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Various error codes: USER_NOT_FOUND, NOT_ENOUGH_TOKENS, NOT_ENABLED, HYTALE_FREE_LIMIT, ORGANIZATION_NOT_PRESENT, MEMBER_NOT_IN_ORGANIZATION, ORGANIZATION_NOT_PERMITTET </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createContainerAsync(@jakarta.annotation.Nonnull CloudServerModel cloudServerModel, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call createContainerAsync(@jakarta.annotation.Nonnull CloudServerCreateDTO cloudServerCreateDTO, final ApiCallback<CloudServerDTO> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createContainerValidateBeforeCall(cloudServerModel, _callback);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        okhttp3.Call localVarCall = createContainerValidateBeforeCall(cloudServerCreateDTO, _callback);
+        Type localVarReturnType = new TypeToken<CloudServerDTO>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -213,7 +220,7 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - No delete permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully deleted container </td><td>  -  </td></tr>
      </table>
@@ -276,7 +283,7 @@ public class ServerManagementApi {
 
     /**
      * Delete a container
-     * Deletes a specific container.
+     * Deletes a specific container permanently. This will stop the server, delete all data and remove it from the database.
      * @param id ID of the container (required)
      * @return CloudServerModel
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -284,7 +291,7 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - No delete permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully deleted container </td><td>  -  </td></tr>
      </table>
@@ -296,7 +303,7 @@ public class ServerManagementApi {
 
     /**
      * Delete a container
-     * Deletes a specific container.
+     * Deletes a specific container permanently. This will stop the server, delete all data and remove it from the database.
      * @param id ID of the container (required)
      * @return ApiResponse&lt;CloudServerModel&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -304,7 +311,7 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - No delete permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully deleted container </td><td>  -  </td></tr>
      </table>
@@ -317,7 +324,7 @@ public class ServerManagementApi {
 
     /**
      * Delete a container (asynchronously)
-     * Deletes a specific container.
+     * Deletes a specific container permanently. This will stop the server, delete all data and remove it from the database.
      * @param id ID of the container (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -326,7 +333,7 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - No delete permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully deleted container </td><td>  -  </td></tr>
      </table>
@@ -348,7 +355,7 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - No access permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
      </table>
@@ -413,19 +420,19 @@ public class ServerManagementApi {
      * Get container details
      * Retrieves the details of a specific container.
      * @param id ID of the container (required)
-     * @return CloudServerModel
+     * @return CloudServerDTO
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - No access permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
      </table>
      */
-    public CloudServerModel getContainer(@jakarta.annotation.Nonnull String id) throws ApiException {
-        ApiResponse<CloudServerModel> localVarResp = getContainerWithHttpInfo(id);
+    public CloudServerDTO getContainer(@jakarta.annotation.Nonnull String id) throws ApiException {
+        ApiResponse<CloudServerDTO> localVarResp = getContainerWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -433,20 +440,20 @@ public class ServerManagementApi {
      * Get container details
      * Retrieves the details of a specific container.
      * @param id ID of the container (required)
-     * @return ApiResponse&lt;CloudServerModel&gt;
+     * @return ApiResponse&lt;CloudServerDTO&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - No access permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CloudServerModel> getContainerWithHttpInfo(@jakarta.annotation.Nonnull String id) throws ApiException {
+    public ApiResponse<CloudServerDTO> getContainerWithHttpInfo(@jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getContainerValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<CloudServerModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<CloudServerDTO>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -461,15 +468,15 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - No access permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getContainerAsync(@jakarta.annotation.Nonnull String id, final ApiCallback<CloudServerModel> _callback) throws ApiException {
+    public okhttp3.Call getContainerAsync(@jakarta.annotation.Nonnull String id, final ApiCallback<CloudServerDTO> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getContainerValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<CloudServerModel>(){}.getType();
+        Type localVarReturnType = new TypeToken<CloudServerDTO>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -482,8 +489,8 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved containers </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getContainersCall(final ApiCallback _callback) throws ApiException {
@@ -537,45 +544,45 @@ public class ServerManagementApi {
     }
 
     /**
-     * Get all containers for a user
-     * Retrieves a list of all containers for the authenticated user.
-     * @return Object
+     * Get all containers
+     * Retrieves all containers owned by the authenticated user.
+     * @return List&lt;CloudServerDTO&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved containers </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
      </table>
      */
-    public Object getContainers() throws ApiException {
-        ApiResponse<Object> localVarResp = getContainersWithHttpInfo();
+    public List<CloudServerDTO> getContainers() throws ApiException {
+        ApiResponse<List<CloudServerDTO>> localVarResp = getContainersWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
-     * Get all containers for a user
-     * Retrieves a list of all containers for the authenticated user.
-     * @return ApiResponse&lt;Object&gt;
+     * Get all containers
+     * Retrieves all containers owned by the authenticated user.
+     * @return ApiResponse&lt;List&lt;CloudServerDTO&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved containers </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> getContainersWithHttpInfo() throws ApiException {
+    public ApiResponse<List<CloudServerDTO>> getContainersWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getContainersValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<CloudServerDTO>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Get all containers for a user (asynchronously)
-     * Retrieves a list of all containers for the authenticated user.
+     * Get all containers (asynchronously)
+     * Retrieves all containers owned by the authenticated user.
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -583,20 +590,20 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved containers </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getContainersAsync(final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call getContainersAsync(final ApiCallback<List<CloudServerDTO>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getContainersValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<CloudServerDTO>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for suspendContainer
-     * @param serverId ID of the container (required)
+     * @param serverId ID of the container to suspend (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -604,8 +611,8 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully suspended container </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully suspended container - backup created and local data deleted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request - User is not the owner of the container </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call suspendContainerCall(@jakarta.annotation.Nonnull String serverId, final ApiCallback _callback) throws ApiException {
@@ -666,16 +673,16 @@ public class ServerManagementApi {
 
     /**
      * Suspend a container
-     * Suspends a specific container. (Testing endpoint)
-     * @param serverId ID of the container (required)
+     * Suspends a specific container by creating a suspend backup and deleting local data to free up disk space. The server can be restored later using the unsuspend endpoint. (Testing endpoint - will be removed)
+     * @param serverId ID of the container to suspend (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully suspended container </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully suspended container - backup created and local data deleted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request - User is not the owner of the container </td><td>  -  </td></tr>
      </table>
      */
     public Object suspendContainer(@jakarta.annotation.Nonnull String serverId) throws ApiException {
@@ -685,16 +692,16 @@ public class ServerManagementApi {
 
     /**
      * Suspend a container
-     * Suspends a specific container. (Testing endpoint)
-     * @param serverId ID of the container (required)
+     * Suspends a specific container by creating a suspend backup and deleting local data to free up disk space. The server can be restored later using the unsuspend endpoint. (Testing endpoint - will be removed)
+     * @param serverId ID of the container to suspend (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully suspended container </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully suspended container - backup created and local data deleted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request - User is not the owner of the container </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Object> suspendContainerWithHttpInfo(@jakarta.annotation.Nonnull String serverId) throws ApiException {
@@ -705,8 +712,8 @@ public class ServerManagementApi {
 
     /**
      * Suspend a container (asynchronously)
-     * Suspends a specific container. (Testing endpoint)
-     * @param serverId ID of the container (required)
+     * Suspends a specific container by creating a suspend backup and deleting local data to free up disk space. The server can be restored later using the unsuspend endpoint. (Testing endpoint - will be removed)
+     * @param serverId ID of the container to suspend (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -714,8 +721,8 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully suspended container </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully suspended container - backup created and local data deleted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request - User is not the owner of the container </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call suspendContainerAsync(@jakarta.annotation.Nonnull String serverId, final ApiCallback<Object> _callback) throws ApiException {
@@ -727,7 +734,7 @@ public class ServerManagementApi {
     }
     /**
      * Build call for unsuspendContainer
-     * @param serverId ID of the container (required)
+     * @param serverId ID of the container to unsuspend (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -735,8 +742,8 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully unsuspended container </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully started unsuspend process - container will be restored asynchronously </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request - User is not the owner of the container </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call unsuspendContainerCall(@jakarta.annotation.Nonnull String serverId, final ApiCallback _callback) throws ApiException {
@@ -797,16 +804,16 @@ public class ServerManagementApi {
 
     /**
      * Unsuspend a container
-     * Unsuspends a specific container. (Testing endpoint)
-     * @param serverId ID of the container (required)
+     * Unsuspends a previously suspended container by restoring it from the suspend backup. This operation is executed asynchronously. (Testing endpoint - will be removed)
+     * @param serverId ID of the container to unsuspend (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully unsuspended container </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully started unsuspend process - container will be restored asynchronously </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request - User is not the owner of the container </td><td>  -  </td></tr>
      </table>
      */
     public Object unsuspendContainer(@jakarta.annotation.Nonnull String serverId) throws ApiException {
@@ -816,16 +823,16 @@ public class ServerManagementApi {
 
     /**
      * Unsuspend a container
-     * Unsuspends a specific container. (Testing endpoint)
-     * @param serverId ID of the container (required)
+     * Unsuspends a previously suspended container by restoring it from the suspend backup. This operation is executed asynchronously. (Testing endpoint - will be removed)
+     * @param serverId ID of the container to unsuspend (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully unsuspended container </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully started unsuspend process - container will be restored asynchronously </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request - User is not the owner of the container </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Object> unsuspendContainerWithHttpInfo(@jakarta.annotation.Nonnull String serverId) throws ApiException {
@@ -836,8 +843,8 @@ public class ServerManagementApi {
 
     /**
      * Unsuspend a container (asynchronously)
-     * Unsuspends a specific container. (Testing endpoint)
-     * @param serverId ID of the container (required)
+     * Unsuspends a previously suspended container by restoring it from the suspend backup. This operation is executed asynchronously. (Testing endpoint - will be removed)
+     * @param serverId ID of the container to unsuspend (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -845,8 +852,8 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully unsuspended container </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully started unsuspend process - container will be restored asynchronously </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request - User is not the owner of the container </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call unsuspendContainerAsync(@jakarta.annotation.Nonnull String serverId, final ApiCallback<Object> _callback) throws ApiException {

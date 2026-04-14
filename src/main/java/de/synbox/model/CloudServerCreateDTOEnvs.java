@@ -49,16 +49,16 @@ import de.synbox.invoker.JSON;
  * Environment variables as key-value pairs
  */
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:27:12.908677685Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
-public class Document {
+public class CloudServerCreateDTOEnvs {
   public static final String SERIALIZED_NAME_EMPTY = "empty";
   @SerializedName(SERIALIZED_NAME_EMPTY)
   @jakarta.annotation.Nullable
   private Boolean empty;
 
-  public Document() {
+  public CloudServerCreateDTOEnvs() {
   }
 
-  public Document empty(@jakarta.annotation.Nullable Boolean empty) {
+  public CloudServerCreateDTOEnvs empty(@jakarta.annotation.Nullable Boolean empty) {
     this.empty = empty;
     return this;
   }
@@ -89,9 +89,9 @@ public class Document {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the Document instance itself
+   * @return the CloudServerCreateDTOEnvs instance itself
    */
-  public Document putAdditionalProperty(String key, Object value) {
+  public CloudServerCreateDTOEnvs putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -130,9 +130,9 @@ public class Document {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Document document = (Document) o;
-    return Objects.equals(this.empty, document.empty)&&
-        Objects.equals(this.additionalProperties, document.additionalProperties);
+    CloudServerCreateDTOEnvs cloudServerCreateDTOEnvs = (CloudServerCreateDTOEnvs) o;
+    return Objects.equals(this.empty, cloudServerCreateDTOEnvs.empty)&&
+        Objects.equals(this.additionalProperties, cloudServerCreateDTOEnvs.additionalProperties);
   }
 
   @Override
@@ -143,7 +143,7 @@ public class Document {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Document {\n");
+    sb.append("class CloudServerCreateDTOEnvs {\n");
     sb.append("    empty: ").append(toIndentedString(empty)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -174,12 +174,12 @@ public class Document {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Document
+   * @throws IOException if the JSON Element is invalid with respect to CloudServerCreateDTOEnvs
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!Document.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Document is not found in the empty JSON string", Document.openapiRequiredFields.toString()));
+        if (!CloudServerCreateDTOEnvs.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CloudServerCreateDTOEnvs is not found in the empty JSON string", CloudServerCreateDTOEnvs.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -189,16 +189,16 @@ public class Document {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Document.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Document' and its subtypes
+       if (!CloudServerCreateDTOEnvs.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CloudServerCreateDTOEnvs' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Document> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Document.class));
+       final TypeAdapter<CloudServerCreateDTOEnvs> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CloudServerCreateDTOEnvs.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Document>() {
+       return (TypeAdapter<T>) new TypeAdapter<CloudServerCreateDTOEnvs>() {
            @Override
-           public void write(JsonWriter out, Document value) throws IOException {
+           public void write(JsonWriter out, CloudServerCreateDTOEnvs value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -226,12 +226,12 @@ public class Document {
            }
 
            @Override
-           public Document read(JsonReader in) throws IOException {
+           public CloudServerCreateDTOEnvs read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             Document instance = thisAdapter.fromJsonTree(jsonObj);
+             CloudServerCreateDTOEnvs instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -258,18 +258,18 @@ public class Document {
   }
 
   /**
-   * Create an instance of Document given an JSON string
+   * Create an instance of CloudServerCreateDTOEnvs given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Document
-   * @throws IOException if the JSON string is invalid with respect to Document
+   * @return An instance of CloudServerCreateDTOEnvs
+   * @throws IOException if the JSON string is invalid with respect to CloudServerCreateDTOEnvs
    */
-  public static Document fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Document.class);
+  public static CloudServerCreateDTOEnvs fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CloudServerCreateDTOEnvs.class);
   }
 
   /**
-   * Convert an instance of Document to an JSON string
+   * Convert an instance of CloudServerCreateDTOEnvs to an JSON string
    *
    * @return JSON string
    */

@@ -46,9 +46,9 @@ import java.util.Set;
 import de.synbox.invoker.JSON;
 
 /**
- * ScheduleModel
+ * Scheduled action configuration for a server
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-13T16:00:00.303862003Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:27:12.908677685Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class ScheduleModel {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -56,7 +56,7 @@ public class ScheduleModel {
   private String id;
 
   /**
-   * Gets or Sets dayModel
+   * Day(s) when the schedule should run
    */
   @JsonAdapter(DayModelEnum.Adapter.class)
   public enum DayModelEnum {
@@ -125,7 +125,7 @@ public class ScheduleModel {
   private DayModelEnum dayModel;
 
   /**
-   * Gets or Sets action
+   * Action to perform when the schedule triggers
    */
   @JsonAdapter(ActionEnum.Adapter.class)
   public enum ActionEnum {
@@ -209,7 +209,7 @@ public class ScheduleModel {
   }
 
   /**
-   * Get id
+   * Unique identifier for the schedule
    * @return id
    */
   @jakarta.annotation.Nullable
@@ -228,7 +228,7 @@ public class ScheduleModel {
   }
 
   /**
-   * Get dayModel
+   * Day(s) when the schedule should run
    * @return dayModel
    */
   @jakarta.annotation.Nullable
@@ -247,7 +247,7 @@ public class ScheduleModel {
   }
 
   /**
-   * Get action
+   * Action to perform when the schedule triggers
    * @return action
    */
   @jakarta.annotation.Nullable
@@ -266,7 +266,7 @@ public class ScheduleModel {
   }
 
   /**
-   * Get time
+   * Time when the schedule should run (HH:mm format)
    * @return time
    */
   @jakarta.annotation.Nullable
@@ -285,7 +285,7 @@ public class ScheduleModel {
   }
 
   /**
-   * Get data
+   * Additional data for the scheduled action
    * @return data
    */
   @jakarta.annotation.Nullable
@@ -304,7 +304,7 @@ public class ScheduleModel {
   }
 
   /**
-   * Get lastRun
+   * Timestamp of the last execution
    * @return lastRun
    */
   @jakarta.annotation.Nullable

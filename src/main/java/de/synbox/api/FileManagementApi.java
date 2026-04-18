@@ -27,9 +27,17 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import de.synbox.model.FileBodyModel;
-import de.synbox.model.RemoteFiles;
+import de.synbox.model.ChmodRequest;
+import de.synbox.model.CompressFilesRequest;
+import de.synbox.model.CopyFileRequest;
+import de.synbox.model.CreateDirectoryRequest;
+import de.synbox.model.CreateFileRequest;
+import de.synbox.model.DecompressFileRequest;
+import de.synbox.model.DeleteFilesRequest;
+import de.synbox.model.DownloadFileRequest;
+import de.synbox.model.RenameFilesRequest;
 import de.synbox.model.UploadFileRequest;
+import de.synbox.model.WriteFileRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -77,7 +85,7 @@ public class FileManagementApi {
     /**
      * Build call for chmod
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param chmodRequest Payload for changing permissions. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -91,7 +99,7 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call chmodCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call chmodCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ChmodRequest chmodRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -105,7 +113,7 @@ public class FileManagementApi {
             basePath = null;
         }
 
-        Object localVarPostBody = body;
+        Object localVarPostBody = chmodRequest;
 
         // create path and map variables
         String localVarPath = "/api/containers/{serverId}/files/chmod"
@@ -138,18 +146,18 @@ public class FileManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call chmodValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call chmodValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ChmodRequest chmodRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
             throw new ApiException("Missing the required parameter 'serverId' when calling chmod(Async)");
         }
 
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling chmod(Async)");
+        // verify the required parameter 'chmodRequest' is set
+        if (chmodRequest == null) {
+            throw new ApiException("Missing the required parameter 'chmodRequest' when calling chmod(Async)");
         }
 
-        return chmodCall(serverId, body, _callback);
+        return chmodCall(serverId, chmodRequest, _callback);
 
     }
 
@@ -157,7 +165,7 @@ public class FileManagementApi {
      * Change file permissions
      * Changes the permissions of a file in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param chmodRequest Payload for changing permissions. (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -170,8 +178,8 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public String chmod(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        ApiResponse<String> localVarResp = chmodWithHttpInfo(serverId, body);
+    public String chmod(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ChmodRequest chmodRequest) throws ApiException {
+        ApiResponse<String> localVarResp = chmodWithHttpInfo(serverId, chmodRequest);
         return localVarResp.getData();
     }
 
@@ -179,7 +187,7 @@ public class FileManagementApi {
      * Change file permissions
      * Changes the permissions of a file in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param chmodRequest Payload for changing permissions. (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -192,8 +200,8 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> chmodWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        okhttp3.Call localVarCall = chmodValidateBeforeCall(serverId, body, null);
+    public ApiResponse<String> chmodWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ChmodRequest chmodRequest) throws ApiException {
+        okhttp3.Call localVarCall = chmodValidateBeforeCall(serverId, chmodRequest, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -202,7 +210,7 @@ public class FileManagementApi {
      * Change file permissions (asynchronously)
      * Changes the permissions of a file in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param chmodRequest Payload for changing permissions. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -216,9 +224,9 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call chmodAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call chmodAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ChmodRequest chmodRequest, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = chmodValidateBeforeCall(serverId, body, _callback);
+        okhttp3.Call localVarCall = chmodValidateBeforeCall(serverId, chmodRequest, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -226,7 +234,7 @@ public class FileManagementApi {
     /**
      * Build call for compressFile
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param compressFilesRequest Payload for compressing files into a zip archive. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -240,7 +248,7 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call compressFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call compressFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CompressFilesRequest compressFilesRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -254,7 +262,7 @@ public class FileManagementApi {
             basePath = null;
         }
 
-        Object localVarPostBody = body;
+        Object localVarPostBody = compressFilesRequest;
 
         // create path and map variables
         String localVarPath = "/api/containers/{serverId}/files/compress"
@@ -287,18 +295,18 @@ public class FileManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call compressFileValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call compressFileValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CompressFilesRequest compressFilesRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
             throw new ApiException("Missing the required parameter 'serverId' when calling compressFile(Async)");
         }
 
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling compressFile(Async)");
+        // verify the required parameter 'compressFilesRequest' is set
+        if (compressFilesRequest == null) {
+            throw new ApiException("Missing the required parameter 'compressFilesRequest' when calling compressFile(Async)");
         }
 
-        return compressFileCall(serverId, body, _callback);
+        return compressFileCall(serverId, compressFilesRequest, _callback);
 
     }
 
@@ -306,7 +314,7 @@ public class FileManagementApi {
      * Compress files
      * Compresses files in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param compressFilesRequest Payload for compressing files into a zip archive. (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -319,8 +327,8 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public String compressFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        ApiResponse<String> localVarResp = compressFileWithHttpInfo(serverId, body);
+    public String compressFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CompressFilesRequest compressFilesRequest) throws ApiException {
+        ApiResponse<String> localVarResp = compressFileWithHttpInfo(serverId, compressFilesRequest);
         return localVarResp.getData();
     }
 
@@ -328,7 +336,7 @@ public class FileManagementApi {
      * Compress files
      * Compresses files in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param compressFilesRequest Payload for compressing files into a zip archive. (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -341,8 +349,8 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> compressFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        okhttp3.Call localVarCall = compressFileValidateBeforeCall(serverId, body, null);
+    public ApiResponse<String> compressFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CompressFilesRequest compressFilesRequest) throws ApiException {
+        okhttp3.Call localVarCall = compressFileValidateBeforeCall(serverId, compressFilesRequest, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -351,7 +359,7 @@ public class FileManagementApi {
      * Compress files (asynchronously)
      * Compresses files in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param compressFilesRequest Payload for compressing files into a zip archive. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -365,9 +373,9 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call compressFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call compressFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CompressFilesRequest compressFilesRequest, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = compressFileValidateBeforeCall(serverId, body, _callback);
+        okhttp3.Call localVarCall = compressFileValidateBeforeCall(serverId, compressFilesRequest, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -375,7 +383,7 @@ public class FileManagementApi {
     /**
      * Build call for copyFile
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param copyFileRequest Payload for copying one file. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -389,7 +397,7 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call copyFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call copyFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CopyFileRequest copyFileRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -403,7 +411,7 @@ public class FileManagementApi {
             basePath = null;
         }
 
-        Object localVarPostBody = body;
+        Object localVarPostBody = copyFileRequest;
 
         // create path and map variables
         String localVarPath = "/api/containers/{serverId}/files/copy"
@@ -436,18 +444,18 @@ public class FileManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call copyFileValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call copyFileValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CopyFileRequest copyFileRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
             throw new ApiException("Missing the required parameter 'serverId' when calling copyFile(Async)");
         }
 
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling copyFile(Async)");
+        // verify the required parameter 'copyFileRequest' is set
+        if (copyFileRequest == null) {
+            throw new ApiException("Missing the required parameter 'copyFileRequest' when calling copyFile(Async)");
         }
 
-        return copyFileCall(serverId, body, _callback);
+        return copyFileCall(serverId, copyFileRequest, _callback);
 
     }
 
@@ -455,7 +463,7 @@ public class FileManagementApi {
      * Copy a file
      * Copies a file in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param copyFileRequest Payload for copying one file. (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -468,8 +476,8 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public String copyFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        ApiResponse<String> localVarResp = copyFileWithHttpInfo(serverId, body);
+    public String copyFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CopyFileRequest copyFileRequest) throws ApiException {
+        ApiResponse<String> localVarResp = copyFileWithHttpInfo(serverId, copyFileRequest);
         return localVarResp.getData();
     }
 
@@ -477,7 +485,7 @@ public class FileManagementApi {
      * Copy a file
      * Copies a file in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param copyFileRequest Payload for copying one file. (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -490,8 +498,8 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> copyFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        okhttp3.Call localVarCall = copyFileValidateBeforeCall(serverId, body, null);
+    public ApiResponse<String> copyFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CopyFileRequest copyFileRequest) throws ApiException {
+        okhttp3.Call localVarCall = copyFileValidateBeforeCall(serverId, copyFileRequest, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -500,7 +508,7 @@ public class FileManagementApi {
      * Copy a file (asynchronously)
      * Copies a file in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param copyFileRequest Payload for copying one file. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -514,9 +522,9 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call copyFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call copyFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CopyFileRequest copyFileRequest, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = copyFileValidateBeforeCall(serverId, body, _callback);
+        okhttp3.Call localVarCall = copyFileValidateBeforeCall(serverId, copyFileRequest, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -524,7 +532,7 @@ public class FileManagementApi {
     /**
      * Build call for createDirectory
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param createDirectoryRequest Payload for creating a new directory. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -538,7 +546,7 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createDirectoryCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createDirectoryCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CreateDirectoryRequest createDirectoryRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -552,7 +560,7 @@ public class FileManagementApi {
             basePath = null;
         }
 
-        Object localVarPostBody = body;
+        Object localVarPostBody = createDirectoryRequest;
 
         // create path and map variables
         String localVarPath = "/api/containers/{serverId}/files/create-directory"
@@ -585,18 +593,18 @@ public class FileManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createDirectoryValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createDirectoryValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CreateDirectoryRequest createDirectoryRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
             throw new ApiException("Missing the required parameter 'serverId' when calling createDirectory(Async)");
         }
 
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling createDirectory(Async)");
+        // verify the required parameter 'createDirectoryRequest' is set
+        if (createDirectoryRequest == null) {
+            throw new ApiException("Missing the required parameter 'createDirectoryRequest' when calling createDirectory(Async)");
         }
 
-        return createDirectoryCall(serverId, body, _callback);
+        return createDirectoryCall(serverId, createDirectoryRequest, _callback);
 
     }
 
@@ -604,7 +612,7 @@ public class FileManagementApi {
      * Create a directory
      * Creates a directory in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param createDirectoryRequest Payload for creating a new directory. (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -617,8 +625,8 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public String createDirectory(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        ApiResponse<String> localVarResp = createDirectoryWithHttpInfo(serverId, body);
+    public String createDirectory(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CreateDirectoryRequest createDirectoryRequest) throws ApiException {
+        ApiResponse<String> localVarResp = createDirectoryWithHttpInfo(serverId, createDirectoryRequest);
         return localVarResp.getData();
     }
 
@@ -626,7 +634,7 @@ public class FileManagementApi {
      * Create a directory
      * Creates a directory in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param createDirectoryRequest Payload for creating a new directory. (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -639,8 +647,8 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> createDirectoryWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        okhttp3.Call localVarCall = createDirectoryValidateBeforeCall(serverId, body, null);
+    public ApiResponse<String> createDirectoryWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CreateDirectoryRequest createDirectoryRequest) throws ApiException {
+        okhttp3.Call localVarCall = createDirectoryValidateBeforeCall(serverId, createDirectoryRequest, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -649,7 +657,7 @@ public class FileManagementApi {
      * Create a directory (asynchronously)
      * Creates a directory in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param createDirectoryRequest Payload for creating a new directory. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -663,9 +671,9 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createDirectoryAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call createDirectoryAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CreateDirectoryRequest createDirectoryRequest, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createDirectoryValidateBeforeCall(serverId, body, _callback);
+        okhttp3.Call localVarCall = createDirectoryValidateBeforeCall(serverId, createDirectoryRequest, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -673,7 +681,7 @@ public class FileManagementApi {
     /**
      * Build call for createFile
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param createFileRequest Payload for creating an empty file. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -687,7 +695,7 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CreateFileRequest createFileRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -701,7 +709,7 @@ public class FileManagementApi {
             basePath = null;
         }
 
-        Object localVarPostBody = body;
+        Object localVarPostBody = createFileRequest;
 
         // create path and map variables
         String localVarPath = "/api/containers/{serverId}/files/create-file"
@@ -734,18 +742,18 @@ public class FileManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createFileValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createFileValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CreateFileRequest createFileRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
             throw new ApiException("Missing the required parameter 'serverId' when calling createFile(Async)");
         }
 
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling createFile(Async)");
+        // verify the required parameter 'createFileRequest' is set
+        if (createFileRequest == null) {
+            throw new ApiException("Missing the required parameter 'createFileRequest' when calling createFile(Async)");
         }
 
-        return createFileCall(serverId, body, _callback);
+        return createFileCall(serverId, createFileRequest, _callback);
 
     }
 
@@ -753,7 +761,7 @@ public class FileManagementApi {
      * Create a File
      * Creates a File in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param createFileRequest Payload for creating an empty file. (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -766,8 +774,8 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public String createFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        ApiResponse<String> localVarResp = createFileWithHttpInfo(serverId, body);
+    public String createFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CreateFileRequest createFileRequest) throws ApiException {
+        ApiResponse<String> localVarResp = createFileWithHttpInfo(serverId, createFileRequest);
         return localVarResp.getData();
     }
 
@@ -775,7 +783,7 @@ public class FileManagementApi {
      * Create a File
      * Creates a File in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param createFileRequest Payload for creating an empty file. (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -788,8 +796,8 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> createFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        okhttp3.Call localVarCall = createFileValidateBeforeCall(serverId, body, null);
+    public ApiResponse<String> createFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CreateFileRequest createFileRequest) throws ApiException {
+        okhttp3.Call localVarCall = createFileValidateBeforeCall(serverId, createFileRequest, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -798,7 +806,7 @@ public class FileManagementApi {
      * Create a File (asynchronously)
      * Creates a File in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param createFileRequest Payload for creating an empty file. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -812,9 +820,9 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call createFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CreateFileRequest createFileRequest, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createFileValidateBeforeCall(serverId, body, _callback);
+        okhttp3.Call localVarCall = createFileValidateBeforeCall(serverId, createFileRequest, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -822,7 +830,7 @@ public class FileManagementApi {
     /**
      * Build call for decompressFile
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param decompressFileRequest Payload for extracting a zip file. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -836,7 +844,7 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call decompressFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call decompressFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DecompressFileRequest decompressFileRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -850,7 +858,7 @@ public class FileManagementApi {
             basePath = null;
         }
 
-        Object localVarPostBody = body;
+        Object localVarPostBody = decompressFileRequest;
 
         // create path and map variables
         String localVarPath = "/api/containers/{serverId}/files/decompress"
@@ -883,18 +891,18 @@ public class FileManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call decompressFileValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call decompressFileValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DecompressFileRequest decompressFileRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
             throw new ApiException("Missing the required parameter 'serverId' when calling decompressFile(Async)");
         }
 
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling decompressFile(Async)");
+        // verify the required parameter 'decompressFileRequest' is set
+        if (decompressFileRequest == null) {
+            throw new ApiException("Missing the required parameter 'decompressFileRequest' when calling decompressFile(Async)");
         }
 
-        return decompressFileCall(serverId, body, _callback);
+        return decompressFileCall(serverId, decompressFileRequest, _callback);
 
     }
 
@@ -902,7 +910,7 @@ public class FileManagementApi {
      * Decompress a file
      * Decompresses a file in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param decompressFileRequest Payload for extracting a zip file. (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -915,8 +923,8 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public String decompressFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        ApiResponse<String> localVarResp = decompressFileWithHttpInfo(serverId, body);
+    public String decompressFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DecompressFileRequest decompressFileRequest) throws ApiException {
+        ApiResponse<String> localVarResp = decompressFileWithHttpInfo(serverId, decompressFileRequest);
         return localVarResp.getData();
     }
 
@@ -924,7 +932,7 @@ public class FileManagementApi {
      * Decompress a file
      * Decompresses a file in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param decompressFileRequest Payload for extracting a zip file. (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -937,8 +945,8 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> decompressFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        okhttp3.Call localVarCall = decompressFileValidateBeforeCall(serverId, body, null);
+    public ApiResponse<String> decompressFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DecompressFileRequest decompressFileRequest) throws ApiException {
+        okhttp3.Call localVarCall = decompressFileValidateBeforeCall(serverId, decompressFileRequest, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -947,7 +955,7 @@ public class FileManagementApi {
      * Decompress a file (asynchronously)
      * Decompresses a file in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param decompressFileRequest Payload for extracting a zip file. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -961,9 +969,9 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call decompressFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call decompressFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DecompressFileRequest decompressFileRequest, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = decompressFileValidateBeforeCall(serverId, body, _callback);
+        okhttp3.Call localVarCall = decompressFileValidateBeforeCall(serverId, decompressFileRequest, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -971,7 +979,7 @@ public class FileManagementApi {
     /**
      * Build call for deleteFile
      * @param serverId ID of the container (required)
-     * @param remoteFiles  (required)
+     * @param deleteFilesRequest Payload describing which files/directories to delete. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -985,7 +993,7 @@ public class FileManagementApi {
         <tr><td> 200 </td><td> Successfully deleted files </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull RemoteFiles remoteFiles, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DeleteFilesRequest deleteFilesRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -999,7 +1007,7 @@ public class FileManagementApi {
             basePath = null;
         }
 
-        Object localVarPostBody = remoteFiles;
+        Object localVarPostBody = deleteFilesRequest;
 
         // create path and map variables
         String localVarPath = "/api/containers/{serverId}/files/delete"
@@ -1032,18 +1040,18 @@ public class FileManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteFileValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull RemoteFiles remoteFiles, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteFileValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DeleteFilesRequest deleteFilesRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
             throw new ApiException("Missing the required parameter 'serverId' when calling deleteFile(Async)");
         }
 
-        // verify the required parameter 'remoteFiles' is set
-        if (remoteFiles == null) {
-            throw new ApiException("Missing the required parameter 'remoteFiles' when calling deleteFile(Async)");
+        // verify the required parameter 'deleteFilesRequest' is set
+        if (deleteFilesRequest == null) {
+            throw new ApiException("Missing the required parameter 'deleteFilesRequest' when calling deleteFile(Async)");
         }
 
-        return deleteFileCall(serverId, remoteFiles, _callback);
+        return deleteFileCall(serverId, deleteFilesRequest, _callback);
 
     }
 
@@ -1051,7 +1059,7 @@ public class FileManagementApi {
      * Delete files
      * Deletes files in a container.
      * @param serverId ID of the container (required)
-     * @param remoteFiles  (required)
+     * @param deleteFilesRequest Payload describing which files/directories to delete. (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1064,8 +1072,8 @@ public class FileManagementApi {
         <tr><td> 200 </td><td> Successfully deleted files </td><td>  -  </td></tr>
      </table>
      */
-    public String deleteFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull RemoteFiles remoteFiles) throws ApiException {
-        ApiResponse<String> localVarResp = deleteFileWithHttpInfo(serverId, remoteFiles);
+    public String deleteFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DeleteFilesRequest deleteFilesRequest) throws ApiException {
+        ApiResponse<String> localVarResp = deleteFileWithHttpInfo(serverId, deleteFilesRequest);
         return localVarResp.getData();
     }
 
@@ -1073,7 +1081,7 @@ public class FileManagementApi {
      * Delete files
      * Deletes files in a container.
      * @param serverId ID of the container (required)
-     * @param remoteFiles  (required)
+     * @param deleteFilesRequest Payload describing which files/directories to delete. (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1086,8 +1094,8 @@ public class FileManagementApi {
         <tr><td> 200 </td><td> Successfully deleted files </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> deleteFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull RemoteFiles remoteFiles) throws ApiException {
-        okhttp3.Call localVarCall = deleteFileValidateBeforeCall(serverId, remoteFiles, null);
+    public ApiResponse<String> deleteFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DeleteFilesRequest deleteFilesRequest) throws ApiException {
+        okhttp3.Call localVarCall = deleteFileValidateBeforeCall(serverId, deleteFilesRequest, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1096,7 +1104,7 @@ public class FileManagementApi {
      * Delete files (asynchronously)
      * Deletes files in a container.
      * @param serverId ID of the container (required)
-     * @param remoteFiles  (required)
+     * @param deleteFilesRequest Payload describing which files/directories to delete. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1110,9 +1118,9 @@ public class FileManagementApi {
         <tr><td> 200 </td><td> Successfully deleted files </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull RemoteFiles remoteFiles, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call deleteFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DeleteFilesRequest deleteFilesRequest, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteFileValidateBeforeCall(serverId, remoteFiles, _callback);
+        okhttp3.Call localVarCall = deleteFileValidateBeforeCall(serverId, deleteFilesRequest, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1120,7 +1128,7 @@ public class FileManagementApi {
     /**
      * Build call for downloadFile
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param downloadFileRequest Payload for downloading one file. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1136,7 +1144,7 @@ public class FileManagementApi {
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call downloadFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call downloadFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DownloadFileRequest downloadFileRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1150,7 +1158,7 @@ public class FileManagementApi {
             basePath = null;
         }
 
-        Object localVarPostBody = body;
+        Object localVarPostBody = downloadFileRequest;
 
         // create path and map variables
         String localVarPath = "/api/containers/{serverId}/download"
@@ -1183,18 +1191,18 @@ public class FileManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call downloadFileValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call downloadFileValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DownloadFileRequest downloadFileRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
             throw new ApiException("Missing the required parameter 'serverId' when calling downloadFile(Async)");
         }
 
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling downloadFile(Async)");
+        // verify the required parameter 'downloadFileRequest' is set
+        if (downloadFileRequest == null) {
+            throw new ApiException("Missing the required parameter 'downloadFileRequest' when calling downloadFile(Async)");
         }
 
-        return downloadFileCall(serverId, body, _callback);
+        return downloadFileCall(serverId, downloadFileRequest, _callback);
 
     }
 
@@ -1202,7 +1210,7 @@ public class FileManagementApi {
      * Download a file
      * Downloads a file from a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param downloadFileRequest Payload for downloading one file. (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1217,8 +1225,8 @@ public class FileManagementApi {
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
      </table>
      */
-    public String downloadFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        ApiResponse<String> localVarResp = downloadFileWithHttpInfo(serverId, body);
+    public String downloadFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DownloadFileRequest downloadFileRequest) throws ApiException {
+        ApiResponse<String> localVarResp = downloadFileWithHttpInfo(serverId, downloadFileRequest);
         return localVarResp.getData();
     }
 
@@ -1226,7 +1234,7 @@ public class FileManagementApi {
      * Download a file
      * Downloads a file from a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param downloadFileRequest Payload for downloading one file. (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1241,8 +1249,8 @@ public class FileManagementApi {
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> downloadFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        okhttp3.Call localVarCall = downloadFileValidateBeforeCall(serverId, body, null);
+    public ApiResponse<String> downloadFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DownloadFileRequest downloadFileRequest) throws ApiException {
+        okhttp3.Call localVarCall = downloadFileValidateBeforeCall(serverId, downloadFileRequest, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1251,7 +1259,7 @@ public class FileManagementApi {
      * Download a file (asynchronously)
      * Downloads a file from a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param downloadFileRequest Payload for downloading one file. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1267,9 +1275,9 @@ public class FileManagementApi {
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call downloadFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call downloadFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DownloadFileRequest downloadFileRequest, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = downloadFileValidateBeforeCall(serverId, body, _callback);
+        okhttp3.Call localVarCall = downloadFileValidateBeforeCall(serverId, downloadFileRequest, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1581,7 +1589,7 @@ public class FileManagementApi {
     /**
      * Build call for renameFile
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param renameFilesRequest Payload with one or multiple rename operations. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1595,7 +1603,7 @@ public class FileManagementApi {
         <tr><td> 200 </td><td> Successfully renamed file </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call renameFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call renameFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull RenameFilesRequest renameFilesRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1609,7 +1617,7 @@ public class FileManagementApi {
             basePath = null;
         }
 
-        Object localVarPostBody = body;
+        Object localVarPostBody = renameFilesRequest;
 
         // create path and map variables
         String localVarPath = "/api/containers/{serverId}/files/rename"
@@ -1642,18 +1650,18 @@ public class FileManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call renameFileValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call renameFileValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull RenameFilesRequest renameFilesRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
             throw new ApiException("Missing the required parameter 'serverId' when calling renameFile(Async)");
         }
 
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling renameFile(Async)");
+        // verify the required parameter 'renameFilesRequest' is set
+        if (renameFilesRequest == null) {
+            throw new ApiException("Missing the required parameter 'renameFilesRequest' when calling renameFile(Async)");
         }
 
-        return renameFileCall(serverId, body, _callback);
+        return renameFileCall(serverId, renameFilesRequest, _callback);
 
     }
 
@@ -1661,7 +1669,7 @@ public class FileManagementApi {
      * Rename a file
      * Renames a file in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param renameFilesRequest Payload with one or multiple rename operations. (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1674,8 +1682,8 @@ public class FileManagementApi {
         <tr><td> 200 </td><td> Successfully renamed file </td><td>  -  </td></tr>
      </table>
      */
-    public String renameFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        ApiResponse<String> localVarResp = renameFileWithHttpInfo(serverId, body);
+    public String renameFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull RenameFilesRequest renameFilesRequest) throws ApiException {
+        ApiResponse<String> localVarResp = renameFileWithHttpInfo(serverId, renameFilesRequest);
         return localVarResp.getData();
     }
 
@@ -1683,7 +1691,7 @@ public class FileManagementApi {
      * Rename a file
      * Renames a file in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param renameFilesRequest Payload with one or multiple rename operations. (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1696,8 +1704,8 @@ public class FileManagementApi {
         <tr><td> 200 </td><td> Successfully renamed file </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> renameFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        okhttp3.Call localVarCall = renameFileValidateBeforeCall(serverId, body, null);
+    public ApiResponse<String> renameFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull RenameFilesRequest renameFilesRequest) throws ApiException {
+        okhttp3.Call localVarCall = renameFileValidateBeforeCall(serverId, renameFilesRequest, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1706,7 +1714,7 @@ public class FileManagementApi {
      * Rename a file (asynchronously)
      * Renames a file in a container.
      * @param serverId ID of the container (required)
-     * @param body  (required)
+     * @param renameFilesRequest Payload with one or multiple rename operations. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1720,9 +1728,9 @@ public class FileManagementApi {
         <tr><td> 200 </td><td> Successfully renamed file </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call renameFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call renameFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull RenameFilesRequest renameFilesRequest, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = renameFileValidateBeforeCall(serverId, body, _callback);
+        okhttp3.Call localVarCall = renameFileValidateBeforeCall(serverId, renameFilesRequest, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1730,7 +1738,7 @@ public class FileManagementApi {
     /**
      * Build call for saveFile
      * @param serverId ID of the container (required)
-     * @param fileBodyModel  (required)
+     * @param writeFileRequest Payload for writing file contents. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1744,7 +1752,7 @@ public class FileManagementApi {
         <tr><td> 200 </td><td> Successfully wrote to file </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call saveFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull FileBodyModel fileBodyModel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call saveFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull WriteFileRequest writeFileRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1758,7 +1766,7 @@ public class FileManagementApi {
             basePath = null;
         }
 
-        Object localVarPostBody = fileBodyModel;
+        Object localVarPostBody = writeFileRequest;
 
         // create path and map variables
         String localVarPath = "/api/containers/{serverId}/files/write"
@@ -1791,18 +1799,18 @@ public class FileManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call saveFileValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull FileBodyModel fileBodyModel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call saveFileValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull WriteFileRequest writeFileRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
             throw new ApiException("Missing the required parameter 'serverId' when calling saveFile(Async)");
         }
 
-        // verify the required parameter 'fileBodyModel' is set
-        if (fileBodyModel == null) {
-            throw new ApiException("Missing the required parameter 'fileBodyModel' when calling saveFile(Async)");
+        // verify the required parameter 'writeFileRequest' is set
+        if (writeFileRequest == null) {
+            throw new ApiException("Missing the required parameter 'writeFileRequest' when calling saveFile(Async)");
         }
 
-        return saveFileCall(serverId, fileBodyModel, _callback);
+        return saveFileCall(serverId, writeFileRequest, _callback);
 
     }
 
@@ -1810,7 +1818,7 @@ public class FileManagementApi {
      * Write to a file
      * Writes content to a file in a container.
      * @param serverId ID of the container (required)
-     * @param fileBodyModel  (required)
+     * @param writeFileRequest Payload for writing file contents. (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1823,8 +1831,8 @@ public class FileManagementApi {
         <tr><td> 200 </td><td> Successfully wrote to file </td><td>  -  </td></tr>
      </table>
      */
-    public String saveFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull FileBodyModel fileBodyModel) throws ApiException {
-        ApiResponse<String> localVarResp = saveFileWithHttpInfo(serverId, fileBodyModel);
+    public String saveFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull WriteFileRequest writeFileRequest) throws ApiException {
+        ApiResponse<String> localVarResp = saveFileWithHttpInfo(serverId, writeFileRequest);
         return localVarResp.getData();
     }
 
@@ -1832,7 +1840,7 @@ public class FileManagementApi {
      * Write to a file
      * Writes content to a file in a container.
      * @param serverId ID of the container (required)
-     * @param fileBodyModel  (required)
+     * @param writeFileRequest Payload for writing file contents. (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1845,8 +1853,8 @@ public class FileManagementApi {
         <tr><td> 200 </td><td> Successfully wrote to file </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> saveFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull FileBodyModel fileBodyModel) throws ApiException {
-        okhttp3.Call localVarCall = saveFileValidateBeforeCall(serverId, fileBodyModel, null);
+    public ApiResponse<String> saveFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull WriteFileRequest writeFileRequest) throws ApiException {
+        okhttp3.Call localVarCall = saveFileValidateBeforeCall(serverId, writeFileRequest, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1855,7 +1863,7 @@ public class FileManagementApi {
      * Write to a file (asynchronously)
      * Writes content to a file in a container.
      * @param serverId ID of the container (required)
-     * @param fileBodyModel  (required)
+     * @param writeFileRequest Payload for writing file contents. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1869,9 +1877,9 @@ public class FileManagementApi {
         <tr><td> 200 </td><td> Successfully wrote to file </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call saveFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull FileBodyModel fileBodyModel, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call saveFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull WriteFileRequest writeFileRequest, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = saveFileValidateBeforeCall(serverId, fileBodyModel, _callback);
+        okhttp3.Call localVarCall = saveFileValidateBeforeCall(serverId, writeFileRequest, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

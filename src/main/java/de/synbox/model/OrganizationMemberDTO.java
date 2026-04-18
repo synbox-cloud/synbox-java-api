@@ -48,7 +48,7 @@ import de.synbox.invoker.JSON;
 /**
  * OrganizationMemberDTO
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:27:12.908677685Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-18T21:35:36.766166031Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class OrganizationMemberDTO {
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)
@@ -59,6 +59,11 @@ public class OrganizationMemberDTO {
   @SerializedName(SERIALIZED_NAME_ID)
   @jakarta.annotation.Nullable
   private String id;
+
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  @jakarta.annotation.Nullable
+  private String email;
 
   public OrganizationMemberDTO() {
   }
@@ -101,6 +106,25 @@ public class OrganizationMemberDTO {
   }
 
 
+  public OrganizationMemberDTO email(@jakarta.annotation.Nullable String email) {
+    this.email = email;
+    return this;
+  }
+
+  /**
+   * Get email
+   * @return email
+   */
+  @jakarta.annotation.Nullable
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(@jakarta.annotation.Nullable String email) {
+    this.email = email;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -112,12 +136,13 @@ public class OrganizationMemberDTO {
     }
     OrganizationMemberDTO organizationMemberDTO = (OrganizationMemberDTO) o;
     return Objects.equals(this.role, organizationMemberDTO.role) &&
-        Objects.equals(this.id, organizationMemberDTO.id);
+        Objects.equals(this.id, organizationMemberDTO.id) &&
+        Objects.equals(this.email, organizationMemberDTO.email);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(role, id);
+    return Objects.hash(role, id, email);
   }
 
   @Override
@@ -126,6 +151,7 @@ public class OrganizationMemberDTO {
     sb.append("class OrganizationMemberDTO {\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -144,7 +170,7 @@ public class OrganizationMemberDTO {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("role", "id"));
+    openapiFields = new HashSet<String>(Arrays.asList("role", "id", "email"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -176,6 +202,9 @@ public class OrganizationMemberDTO {
       }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
   }
 

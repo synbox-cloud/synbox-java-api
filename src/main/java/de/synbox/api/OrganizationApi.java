@@ -86,8 +86,8 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
@@ -159,20 +159,20 @@ public class OrganizationApi {
      * Fuegt ein Mitglied anhand von E-Mail und optionaler Rolle zur angegebenen Organisation hinzu. Nur admin/owner duerfen diese Aktion ausfuehren.
      * @param id ID der Organisation (required)
      * @param organizationAddMemberDTO Mitgliedsdaten (E-Mail, optionale Rolle) (required)
-     * @return Object
+     * @return OrganizationMemberDTO
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
-    public Object addMember(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull OrganizationAddMemberDTO organizationAddMemberDTO) throws ApiException {
-        ApiResponse<Object> localVarResp = addMemberWithHttpInfo(id, organizationAddMemberDTO);
+    public OrganizationMemberDTO addMember(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull OrganizationAddMemberDTO organizationAddMemberDTO) throws ApiException {
+        ApiResponse<OrganizationMemberDTO> localVarResp = addMemberWithHttpInfo(id, organizationAddMemberDTO);
         return localVarResp.getData();
     }
 
@@ -181,21 +181,21 @@ public class OrganizationApi {
      * Fuegt ein Mitglied anhand von E-Mail und optionaler Rolle zur angegebenen Organisation hinzu. Nur admin/owner duerfen diese Aktion ausfuehren.
      * @param id ID der Organisation (required)
      * @param organizationAddMemberDTO Mitgliedsdaten (E-Mail, optionale Rolle) (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;OrganizationMemberDTO&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> addMemberWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull OrganizationAddMemberDTO organizationAddMemberDTO) throws ApiException {
+    public ApiResponse<OrganizationMemberDTO> addMemberWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull OrganizationAddMemberDTO organizationAddMemberDTO) throws ApiException {
         okhttp3.Call localVarCall = addMemberValidateBeforeCall(id, organizationAddMemberDTO, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationMemberDTO>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -211,22 +211,23 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call addMemberAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull OrganizationAddMemberDTO organizationAddMemberDTO, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call addMemberAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull OrganizationAddMemberDTO organizationAddMemberDTO, final ApiCallback<OrganizationMemberDTO> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addMemberValidateBeforeCall(id, organizationAddMemberDTO, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrganizationMemberDTO>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for listMembers
      * @param id ID der Organisation (required)
+     * @param email Optionale exakte Filterung nach E-Mail-Adresse (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -234,12 +235,12 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listMembersCall(@jakarta.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listMembersCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable String email, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -265,6 +266,10 @@ public class OrganizationApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (email != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("email", email));
+        }
+
         final String[] localVarAccepts = {
             "*/*"
         };
@@ -285,61 +290,64 @@ public class OrganizationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listMembersValidateBeforeCall(@jakarta.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listMembersValidateBeforeCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable String email, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling listMembers(Async)");
         }
 
-        return listMembersCall(id, _callback);
+        return listMembersCall(id, email, _callback);
 
     }
 
     /**
      * Mitglieder einer Organisation auflisten
-     * Liefert alle Mitglieder der angegebenen Organisation. Nur admin/owner duerfen diese Aktion ausfuehren.
+     * Liefert alle Mitglieder der angegebenen Organisation. Optional kann nach E-Mail gefiltert werden. Nur Admins oder Owner dürfen diese Aktion ausführen.
      * @param id ID der Organisation (required)
+     * @param email Optionale exakte Filterung nach E-Mail-Adresse (optional)
      * @return List&lt;OrganizationMemberDTO&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
      </table>
      */
-    public List<OrganizationMemberDTO> listMembers(@jakarta.annotation.Nonnull String id) throws ApiException {
-        ApiResponse<List<OrganizationMemberDTO>> localVarResp = listMembersWithHttpInfo(id);
+    public List<OrganizationMemberDTO> listMembers(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable String email) throws ApiException {
+        ApiResponse<List<OrganizationMemberDTO>> localVarResp = listMembersWithHttpInfo(id, email);
         return localVarResp.getData();
     }
 
     /**
      * Mitglieder einer Organisation auflisten
-     * Liefert alle Mitglieder der angegebenen Organisation. Nur admin/owner duerfen diese Aktion ausfuehren.
+     * Liefert alle Mitglieder der angegebenen Organisation. Optional kann nach E-Mail gefiltert werden. Nur Admins oder Owner dürfen diese Aktion ausführen.
      * @param id ID der Organisation (required)
+     * @param email Optionale exakte Filterung nach E-Mail-Adresse (optional)
      * @return ApiResponse&lt;List&lt;OrganizationMemberDTO&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<OrganizationMemberDTO>> listMembersWithHttpInfo(@jakarta.annotation.Nonnull String id) throws ApiException {
-        okhttp3.Call localVarCall = listMembersValidateBeforeCall(id, null);
+    public ApiResponse<List<OrganizationMemberDTO>> listMembersWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable String email) throws ApiException {
+        okhttp3.Call localVarCall = listMembersValidateBeforeCall(id, email, null);
         Type localVarReturnType = new TypeToken<List<OrganizationMemberDTO>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Mitglieder einer Organisation auflisten (asynchronously)
-     * Liefert alle Mitglieder der angegebenen Organisation. Nur admin/owner duerfen diese Aktion ausfuehren.
+     * Liefert alle Mitglieder der angegebenen Organisation. Optional kann nach E-Mail gefiltert werden. Nur Admins oder Owner dürfen diese Aktion ausführen.
      * @param id ID der Organisation (required)
+     * @param email Optionale exakte Filterung nach E-Mail-Adresse (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -347,14 +355,14 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listMembersAsync(@jakarta.annotation.Nonnull String id, final ApiCallback<List<OrganizationMemberDTO>> _callback) throws ApiException {
+    public okhttp3.Call listMembersAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable String email, final ApiCallback<List<OrganizationMemberDTO>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listMembersValidateBeforeCall(id, _callback);
+        okhttp3.Call localVarCall = listMembersValidateBeforeCall(id, email, _callback);
         Type localVarReturnType = new TypeToken<List<OrganizationMemberDTO>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -370,9 +378,9 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage (z.B. fehlende/ungueltige E-Mail) </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
@@ -449,9 +457,9 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage (z.B. fehlende/ungueltige E-Mail) </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
@@ -471,9 +479,9 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage (z.B. fehlende/ungueltige E-Mail) </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
@@ -495,9 +503,9 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage (z.B. fehlende/ungueltige E-Mail) </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */

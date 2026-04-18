@@ -99,21 +99,30 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.BackupModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.BalanceInvoiceModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.BaseDTO.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.ChmodFileEntry.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.ChmodRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.CloudServerCreateDTO.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.CloudServerCreateDTOEnvs.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.CloudServerDTO.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.CloudServerModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.CloudServerModelEnvs.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.CompressFilesRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.ContainerProvider.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.CopyFileRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.CreateDirectoryRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.CreateFileRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.CreateReq.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.DecompressFileRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.DeleteFilesRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.Document.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.FileBodyModel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.DownloadFileRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.MagicLinkRequestDTO.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.OrganizationAddMemberDTO.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.OrganizationMemberDTO.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.PowerStatusDTO.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.Quantity.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.RemoteFiles.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.RenameFileEntry.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.RenameFilesRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.ResourceUsage.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.ScheduleModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.StartStopTimeDTO.CustomTypeAdapterFactory());
@@ -126,6 +135,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.V1ObjectFieldSelector.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.V1ResourceFieldSelector.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.V1SecretKeySelector.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.Webhook.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.WebhookRemoveRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.WebhookRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.WriteFileRequest.CustomTypeAdapterFactory());
         gson = gsonBuilder.create();
     }
 

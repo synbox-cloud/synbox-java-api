@@ -24,6 +24,7 @@ import de.synbox.model.CloudServerModelEnvs;
 import de.synbox.model.ContainerProvider;
 import de.synbox.model.Document;
 import de.synbox.model.ScheduleModel;
+import de.synbox.model.Webhook;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,7 +56,7 @@ import de.synbox.invoker.JSON;
 /**
  * CloudServerModel
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-14T14:27:12.908677685Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-18T21:35:36.766166031Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerModel {
   public static final String SERIALIZED_NAME_PROVIDER = "provider";
   @SerializedName(SERIALIZED_NAME_PROVIDER)
@@ -229,6 +230,16 @@ public class CloudServerModel {
   @SerializedName(SERIALIZED_NAME_ORGANIZATION)
   @jakarta.annotation.Nullable
   private String organization;
+
+  public static final String SERIALIZED_NAME_WEBHOOKS = "webhooks";
+  @SerializedName(SERIALIZED_NAME_WEBHOOKS)
+  @jakarta.annotation.Nullable
+  private List<Webhook> webhooks = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_ADDITIONAL_PORT = "additionalPort";
+  @SerializedName(SERIALIZED_NAME_ADDITIONAL_PORT)
+  @jakarta.annotation.Nullable
+  private String additionalPort;
 
   public static final String SERIALIZED_NAME_CONTAINER_PROVIDER = "containerProvider";
   @SerializedName(SERIALIZED_NAME_CONTAINER_PROVIDER)
@@ -671,6 +682,52 @@ public class CloudServerModel {
   }
 
 
+  public CloudServerModel webhooks(@jakarta.annotation.Nullable List<Webhook> webhooks) {
+    this.webhooks = webhooks;
+    return this;
+  }
+
+  public CloudServerModel addWebhooksItem(Webhook webhooksItem) {
+    if (this.webhooks == null) {
+      this.webhooks = new ArrayList<>();
+    }
+    this.webhooks.add(webhooksItem);
+    return this;
+  }
+
+  /**
+   * Get webhooks
+   * @return webhooks
+   */
+  @jakarta.annotation.Nullable
+  public List<Webhook> getWebhooks() {
+    return webhooks;
+  }
+
+  public void setWebhooks(@jakarta.annotation.Nullable List<Webhook> webhooks) {
+    this.webhooks = webhooks;
+  }
+
+
+  public CloudServerModel additionalPort(@jakarta.annotation.Nullable String additionalPort) {
+    this.additionalPort = additionalPort;
+    return this;
+  }
+
+  /**
+   * Get additionalPort
+   * @return additionalPort
+   */
+  @jakarta.annotation.Nullable
+  public String getAdditionalPort() {
+    return additionalPort;
+  }
+
+  public void setAdditionalPort(@jakarta.annotation.Nullable String additionalPort) {
+    this.additionalPort = additionalPort;
+  }
+
+
   public CloudServerModel containerProvider(@jakarta.annotation.Nullable ContainerProvider containerProvider) {
     this.containerProvider = containerProvider;
     return this;
@@ -759,6 +816,8 @@ public class CloudServerModel {
         Objects.equals(this.port, cloudServerModel.port) &&
         Objects.equals(this.publicIp, cloudServerModel.publicIp) &&
         Objects.equals(this.organization, cloudServerModel.organization) &&
+        Objects.equals(this.webhooks, cloudServerModel.webhooks) &&
+        Objects.equals(this.additionalPort, cloudServerModel.additionalPort) &&
         Objects.equals(this.containerProvider, cloudServerModel.containerProvider) &&
         Objects.equals(this.deltaTillStart, cloudServerModel.deltaTillStart) &&
         Objects.equals(this.accountId, cloudServerModel.accountId);
@@ -766,7 +825,7 @@ public class CloudServerModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(provider, start, stop, enableAutoPowerControl, owner, displayName, ip, suspended, cpuType, powerLevel, scheduleModels, backups, startVolume, serverId, moneyPoolId, volumes, envs, permissions, port, publicIp, organization, containerProvider, deltaTillStart, accountId);
+    return Objects.hash(provider, start, stop, enableAutoPowerControl, owner, displayName, ip, suspended, cpuType, powerLevel, scheduleModels, backups, startVolume, serverId, moneyPoolId, volumes, envs, permissions, port, publicIp, organization, webhooks, additionalPort, containerProvider, deltaTillStart, accountId);
   }
 
   @Override
@@ -794,6 +853,8 @@ public class CloudServerModel {
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    publicIp: ").append(toIndentedString(publicIp)).append("\n");
     sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
+    sb.append("    webhooks: ").append(toIndentedString(webhooks)).append("\n");
+    sb.append("    additionalPort: ").append(toIndentedString(additionalPort)).append("\n");
     sb.append("    containerProvider: ").append(toIndentedString(containerProvider)).append("\n");
     sb.append("    deltaTillStart: ").append(toIndentedString(deltaTillStart)).append("\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
@@ -815,7 +876,7 @@ public class CloudServerModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("provider", "start", "stop", "enableAutoPowerControl", "owner", "displayName", "ip", "suspended", "cpu_type", "powerLevel", "scheduleModels", "backups", "startVolume", "server_id", "money_pool_id", "volumes", "envs", "permissions", "port", "publicIp", "organization", "containerProvider", "deltaTillStart", "account_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("provider", "start", "stop", "enableAutoPowerControl", "owner", "displayName", "ip", "suspended", "cpu_type", "powerLevel", "scheduleModels", "backups", "startVolume", "server_id", "money_pool_id", "volumes", "envs", "permissions", "port", "publicIp", "organization", "webhooks", "additionalPort", "containerProvider", "deltaTillStart", "account_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -919,6 +980,23 @@ public class CloudServerModel {
       }
       if ((jsonObj.get("organization") != null && !jsonObj.get("organization").isJsonNull()) && !jsonObj.get("organization").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `organization` to be a primitive type in the JSON string but got `%s`", jsonObj.get("organization").toString()));
+      }
+      if (jsonObj.get("webhooks") != null && !jsonObj.get("webhooks").isJsonNull()) {
+        JsonArray jsonArraywebhooks = jsonObj.getAsJsonArray("webhooks");
+        if (jsonArraywebhooks != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("webhooks").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `webhooks` to be an array in the JSON string but got `%s`", jsonObj.get("webhooks").toString()));
+          }
+
+          // validate the optional field `webhooks` (array)
+          for (int i = 0; i < jsonArraywebhooks.size(); i++) {
+            Webhook.validateJsonElement(jsonArraywebhooks.get(i));
+          };
+        }
+      }
+      if ((jsonObj.get("additionalPort") != null && !jsonObj.get("additionalPort").isJsonNull()) && !jsonObj.get("additionalPort").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `additionalPort` to be a primitive type in the JSON string but got `%s`", jsonObj.get("additionalPort").toString()));
       }
       // validate the optional field `containerProvider`
       if (jsonObj.get("containerProvider") != null && !jsonObj.get("containerProvider").isJsonNull()) {

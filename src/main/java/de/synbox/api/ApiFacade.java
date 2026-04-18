@@ -26,6 +26,7 @@ import de.synbox.api.TransactionControllerApi;
 import de.synbox.api.UserManagementApi;
 import de.synbox.api.UserShareManagementApi;
 import de.synbox.api.VersionManagementApi;
+import de.synbox.api.WebhookManagementApi;
 
 public class ApiFacade {
   private final ApiClient client;
@@ -55,6 +56,7 @@ public class ApiFacade {
   private UserManagementApi _userManagement;
   private UserShareManagementApi _userShareManagement;
   private VersionManagementApi _versionManagement;
+  private WebhookManagementApi _webhookManagement;
 
   public ApiFacade(String baseUrl, String bearerToken) {
     this.client = new ApiClient();
@@ -165,5 +167,9 @@ public class ApiFacade {
   public VersionManagementApi versionManagement() {
     if (_versionManagement == null) _versionManagement = new VersionManagementApi(client);
     return _versionManagement;
+  }
+  public WebhookManagementApi webhookManagement() {
+    if (_webhookManagement == null) _webhookManagement = new WebhookManagementApi(client);
+    return _webhookManagement;
   }
 }

@@ -49,7 +49,7 @@ import de.synbox.invoker.JSON;
 /**
  * V1ResourceFieldSelector
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-18T21:35:36.766166031Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-18T23:06:21.672224203Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class V1ResourceFieldSelector {
   public static final String SERIALIZED_NAME_CONTAINER_NAME = "containerName";
   @SerializedName(SERIALIZED_NAME_CONTAINER_NAME)

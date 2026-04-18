@@ -126,7 +126,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.ResourceUsage.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.ScheduleModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.StartStopTimeDTO.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.UploadFileRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.UserDTO.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.V1ConfigMapKeySelector.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.V1EnvVar.CustomTypeAdapterFactory());

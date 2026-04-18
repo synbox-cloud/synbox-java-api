@@ -49,7 +49,7 @@ import de.synbox.invoker.JSON;
 /**
  * UploadFileRequest
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-18T21:35:36.766166031Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-18T22:55:19.863735503Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class UploadFileRequest {
   public static final String SERIALIZED_NAME_FILE = "file";
   @SerializedName(SERIALIZED_NAME_FILE)

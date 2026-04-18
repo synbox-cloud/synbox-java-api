@@ -35,8 +35,8 @@ import de.synbox.model.CreateFileRequest;
 import de.synbox.model.DecompressFileRequest;
 import de.synbox.model.DeleteFilesRequest;
 import de.synbox.model.DownloadFileRequest;
+import java.io.File;
 import de.synbox.model.RenameFilesRequest;
-import de.synbox.model.UploadFileRequest;
 import de.synbox.model.WriteFileRequest;
 
 import java.lang.reflect.Type;
@@ -1888,7 +1888,7 @@ public class FileManagementApi {
      * Build call for uploadFile
      * @param serverId ID of the container (required)
      * @param directory Directory to upload to (required)
-     * @param uploadFileRequest  (optional)
+     * @param _file  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1897,12 +1897,13 @@ public class FileManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully uploaded file </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String directory, @jakarta.annotation.Nullable UploadFileRequest uploadFileRequest, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call uploadFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String directory, @jakarta.annotation.Nonnull File _file, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1916,7 +1917,7 @@ public class FileManagementApi {
             basePath = null;
         }
 
-        Object localVarPostBody = uploadFileRequest;
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/api/containers/{serverId}/files/upload"
@@ -1929,7 +1930,11 @@ public class FileManagementApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         if (directory != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("directory", directory));
+            localVarFormParams.put("directory", directory);
+        }
+
+        if (_file != null) {
+            localVarFormParams.put("file", _file);
         }
 
         final String[] localVarAccepts = {
@@ -1941,7 +1946,7 @@ public class FileManagementApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "multipart/form-data"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1953,7 +1958,7 @@ public class FileManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call uploadFileValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String directory, @jakarta.annotation.Nullable UploadFileRequest uploadFileRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call uploadFileValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String directory, @jakarta.annotation.Nonnull File _file, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
             throw new ApiException("Missing the required parameter 'serverId' when calling uploadFile(Async)");
@@ -1964,7 +1969,12 @@ public class FileManagementApi {
             throw new ApiException("Missing the required parameter 'directory' when calling uploadFile(Async)");
         }
 
-        return uploadFileCall(serverId, directory, uploadFileRequest, _callback);
+        // verify the required parameter '_file' is set
+        if (_file == null) {
+            throw new ApiException("Missing the required parameter '_file' when calling uploadFile(Async)");
+        }
+
+        return uploadFileCall(serverId, directory, _file, _callback);
 
     }
 
@@ -1973,7 +1983,7 @@ public class FileManagementApi {
      * Uploads a file to a container.
      * @param serverId ID of the container (required)
      * @param directory Directory to upload to (required)
-     * @param uploadFileRequest  (optional)
+     * @param _file  (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1981,13 +1991,14 @@ public class FileManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully uploaded file </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public String uploadFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String directory, @jakarta.annotation.Nullable UploadFileRequest uploadFileRequest) throws ApiException {
-        ApiResponse<String> localVarResp = uploadFileWithHttpInfo(serverId, directory, uploadFileRequest);
+    public String uploadFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String directory, @jakarta.annotation.Nonnull File _file) throws ApiException {
+        ApiResponse<String> localVarResp = uploadFileWithHttpInfo(serverId, directory, _file);
         return localVarResp.getData();
     }
 
@@ -1996,7 +2007,7 @@ public class FileManagementApi {
      * Uploads a file to a container.
      * @param serverId ID of the container (required)
      * @param directory Directory to upload to (required)
-     * @param uploadFileRequest  (optional)
+     * @param _file  (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2004,13 +2015,14 @@ public class FileManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully uploaded file </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> uploadFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String directory, @jakarta.annotation.Nullable UploadFileRequest uploadFileRequest) throws ApiException {
-        okhttp3.Call localVarCall = uploadFileValidateBeforeCall(serverId, directory, uploadFileRequest, null);
+    public ApiResponse<String> uploadFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String directory, @jakarta.annotation.Nonnull File _file) throws ApiException {
+        okhttp3.Call localVarCall = uploadFileValidateBeforeCall(serverId, directory, _file, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2020,7 +2032,7 @@ public class FileManagementApi {
      * Uploads a file to a container.
      * @param serverId ID of the container (required)
      * @param directory Directory to upload to (required)
-     * @param uploadFileRequest  (optional)
+     * @param _file  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2029,14 +2041,15 @@ public class FileManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully uploaded file </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call uploadFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String directory, @jakarta.annotation.Nullable UploadFileRequest uploadFileRequest, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call uploadFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String directory, @jakarta.annotation.Nonnull File _file, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = uploadFileValidateBeforeCall(serverId, directory, uploadFileRequest, _callback);
+        okhttp3.Call localVarCall = uploadFileValidateBeforeCall(serverId, directory, _file, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

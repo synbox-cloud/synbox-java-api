@@ -86,10 +86,10 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call addMemberCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull OrganizationAddMemberDTO organizationAddMemberDTO, final ApiCallback _callback) throws ApiException {
@@ -165,10 +165,10 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
      </table>
      */
     public OrganizationMemberDTO addMember(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull OrganizationAddMemberDTO organizationAddMemberDTO) throws ApiException {
@@ -187,10 +187,10 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<OrganizationMemberDTO> addMemberWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull OrganizationAddMemberDTO organizationAddMemberDTO) throws ApiException {
@@ -211,10 +211,10 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call addMemberAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull OrganizationAddMemberDTO organizationAddMemberDTO, final ApiCallback<OrganizationMemberDTO> _callback) throws ApiException {
@@ -235,9 +235,9 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listMembersCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable String email, final ApiCallback _callback) throws ApiException {
@@ -311,9 +311,9 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public List<OrganizationMemberDTO> listMembers(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable String email) throws ApiException {
@@ -332,9 +332,9 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<OrganizationMemberDTO>> listMembersWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable String email) throws ApiException {
@@ -355,9 +355,9 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listMembersAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable String email, final ApiCallback<List<OrganizationMemberDTO>> _callback) throws ApiException {
@@ -378,10 +378,10 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage (z.B. fehlende/ungueltige E-Mail) </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call requestMagicLinkCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull MagicLinkRequestDTO magicLinkRequestDTO, final ApiCallback _callback) throws ApiException {
@@ -457,10 +457,10 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage (z.B. fehlende/ungueltige E-Mail) </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
      </table>
      */
     public BaseDTO requestMagicLink(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull MagicLinkRequestDTO magicLinkRequestDTO) throws ApiException {
@@ -479,10 +479,10 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage (z.B. fehlende/ungueltige E-Mail) </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseDTO> requestMagicLinkWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull MagicLinkRequestDTO magicLinkRequestDTO) throws ApiException {
@@ -503,10 +503,10 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage (z.B. fehlende/ungueltige E-Mail) </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call requestMagicLinkAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull MagicLinkRequestDTO magicLinkRequestDTO, final ApiCallback<BaseDTO> _callback) throws ApiException {

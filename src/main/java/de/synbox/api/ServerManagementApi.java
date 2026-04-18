@@ -85,9 +85,9 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully created container </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - Various error codes: USER_NOT_FOUND, NOT_ENOUGH_TOKENS, NOT_ENABLED, HYTALE_FREE_LIMIT, ORGANIZATION_NOT_PRESENT, MEMBER_NOT_IN_ORGANIZATION, ORGANIZATION_NOT_PERMITTET </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully created container </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createContainerCall(@jakarta.annotation.Nonnull CloudServerCreateDTO cloudServerCreateDTO, final ApiCallback _callback) throws ApiException {
@@ -156,9 +156,9 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully created container </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - Various error codes: USER_NOT_FOUND, NOT_ENOUGH_TOKENS, NOT_ENABLED, HYTALE_FREE_LIMIT, ORGANIZATION_NOT_PRESENT, MEMBER_NOT_IN_ORGANIZATION, ORGANIZATION_NOT_PERMITTET </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully created container </td><td>  -  </td></tr>
      </table>
      */
     public CloudServerDTO createContainer(@jakarta.annotation.Nonnull CloudServerCreateDTO cloudServerCreateDTO) throws ApiException {
@@ -176,9 +176,9 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully created container </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - Various error codes: USER_NOT_FOUND, NOT_ENOUGH_TOKENS, NOT_ENABLED, HYTALE_FREE_LIMIT, ORGANIZATION_NOT_PRESENT, MEMBER_NOT_IN_ORGANIZATION, ORGANIZATION_NOT_PERMITTET </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully created container </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CloudServerDTO> createContainerWithHttpInfo(@jakarta.annotation.Nonnull CloudServerCreateDTO cloudServerCreateDTO) throws ApiException {
@@ -198,9 +198,9 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully created container </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - Various error codes: USER_NOT_FOUND, NOT_ENOUGH_TOKENS, NOT_ENABLED, HYTALE_FREE_LIMIT, ORGANIZATION_NOT_PRESENT, MEMBER_NOT_IN_ORGANIZATION, ORGANIZATION_NOT_PERMITTET </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully created container </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createContainerAsync(@jakarta.annotation.Nonnull CloudServerCreateDTO cloudServerCreateDTO, final ApiCallback<CloudServerDTO> _callback) throws ApiException {
@@ -355,8 +355,8 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No access permission </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
      </table>
      */
@@ -426,8 +426,8 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No access permission </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
      </table>
      */
@@ -446,8 +446,8 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No access permission </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
      </table>
      */
@@ -468,8 +468,8 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No access permission </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
      </table>
      */
@@ -489,8 +489,8 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved containers </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getContainersCall(final ApiCallback _callback) throws ApiException {
@@ -552,8 +552,8 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved containers </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
      </table>
      */
     public List<CloudServerDTO> getContainers() throws ApiException {
@@ -570,8 +570,8 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved containers </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<CloudServerDTO>> getContainersWithHttpInfo() throws ApiException {
@@ -590,8 +590,8 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved containers </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getContainersAsync(final ApiCallback<List<CloudServerDTO>> _callback) throws ApiException {

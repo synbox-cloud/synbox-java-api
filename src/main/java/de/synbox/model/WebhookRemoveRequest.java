@@ -20,7 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -47,29 +46,31 @@ import java.util.Set;
 import de.synbox.invoker.JSON;
 
 /**
- * Quantity
+ * Request to remove a webhook from a server
  */
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:02:15.291689248Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
-public class Quantity {
-  public static final String SERIALIZED_NAME_NUMBER = "number";
-  @SerializedName(SERIALIZED_NAME_NUMBER)
+public class WebhookRemoveRequest {
+  public static final String SERIALIZED_NAME_URI = "uri";
+  @SerializedName(SERIALIZED_NAME_URI)
   @jakarta.annotation.Nullable
-  private BigDecimal number;
+  private String uri;
 
   /**
-   * Gets or Sets format
+   * The event type of the webhook to remove
    */
-  @JsonAdapter(FormatEnum.Adapter.class)
-  public enum FormatEnum {
-    DECIMAL_EXPONENT("DECIMAL_EXPONENT"),
+  @JsonAdapter(EventEnum.Adapter.class)
+  public enum EventEnum {
+    SERVER_START("SERVER_START"),
     
-    DECIMAL_SI("DECIMAL_SI"),
+    SERVER_STOP("SERVER_STOP"),
     
-    BINARY_SI("BINARY_SI");
+    SERVER_RESTART("SERVER_RESTART"),
+    
+    SERVER_KILL("SERVER_KILL");
 
     private String value;
 
-    FormatEnum(String value) {
+    EventEnum(String value) {
       this.value = value;
     }
 
@@ -82,8 +83,8 @@ public class Quantity {
       return String.valueOf(value);
     }
 
-    public static FormatEnum fromValue(String value) {
-      for (FormatEnum b : FormatEnum.values()) {
+    public static EventEnum fromValue(String value) {
+      for (EventEnum b : EventEnum.values()) {
         if (b.value.equals(value)) {
           return b;
         }
@@ -91,68 +92,68 @@ public class Quantity {
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 
-    public static class Adapter extends TypeAdapter<FormatEnum> {
+    public static class Adapter extends TypeAdapter<EventEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final FormatEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final EventEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public FormatEnum read(final JsonReader jsonReader) throws IOException {
+      public EventEnum read(final JsonReader jsonReader) throws IOException {
         String value =  jsonReader.nextString();
-        return FormatEnum.fromValue(value);
+        return EventEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       String value = jsonElement.getAsString();
-      FormatEnum.fromValue(value);
+      EventEnum.fromValue(value);
     }
   }
 
-  public static final String SERIALIZED_NAME_FORMAT = "format";
-  @SerializedName(SERIALIZED_NAME_FORMAT)
+  public static final String SERIALIZED_NAME_EVENT = "event";
+  @SerializedName(SERIALIZED_NAME_EVENT)
   @jakarta.annotation.Nullable
-  private FormatEnum format;
+  private EventEnum event;
 
-  public Quantity() {
+  public WebhookRemoveRequest() {
   }
 
-  public Quantity number(@jakarta.annotation.Nullable BigDecimal number) {
-    this.number = number;
+  public WebhookRemoveRequest uri(@jakarta.annotation.Nullable String uri) {
+    this.uri = uri;
     return this;
   }
 
   /**
-   * Get number
-   * @return number
+   * The URI of the webhook to remove
+   * @return uri
    */
   @jakarta.annotation.Nullable
-  public BigDecimal getNumber() {
-    return number;
+  public String getUri() {
+    return uri;
   }
 
-  public void setNumber(@jakarta.annotation.Nullable BigDecimal number) {
-    this.number = number;
+  public void setUri(@jakarta.annotation.Nullable String uri) {
+    this.uri = uri;
   }
 
 
-  public Quantity format(@jakarta.annotation.Nullable FormatEnum format) {
-    this.format = format;
+  public WebhookRemoveRequest event(@jakarta.annotation.Nullable EventEnum event) {
+    this.event = event;
     return this;
   }
 
   /**
-   * Get format
-   * @return format
+   * The event type of the webhook to remove
+   * @return event
    */
   @jakarta.annotation.Nullable
-  public FormatEnum getFormat() {
-    return format;
+  public EventEnum getEvent() {
+    return event;
   }
 
-  public void setFormat(@jakarta.annotation.Nullable FormatEnum format) {
-    this.format = format;
+  public void setEvent(@jakarta.annotation.Nullable EventEnum event) {
+    this.event = event;
   }
 
 
@@ -165,22 +166,22 @@ public class Quantity {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Quantity quantity = (Quantity) o;
-    return Objects.equals(this.number, quantity.number) &&
-        Objects.equals(this.format, quantity.format);
+    WebhookRemoveRequest webhookRemoveRequest = (WebhookRemoveRequest) o;
+    return Objects.equals(this.uri, webhookRemoveRequest.uri) &&
+        Objects.equals(this.event, webhookRemoveRequest.event);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(number, format);
+    return Objects.hash(uri, event);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Quantity {\n");
-    sb.append("    number: ").append(toIndentedString(number)).append("\n");
-    sb.append("    format: ").append(toIndentedString(format)).append("\n");
+    sb.append("class WebhookRemoveRequest {\n");
+    sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
+    sb.append("    event: ").append(toIndentedString(event)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -199,7 +200,7 @@ public class Quantity {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("number", "format"));
+    openapiFields = new HashSet<String>(Arrays.asList("uri", "event"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -209,29 +210,32 @@ public class Quantity {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Quantity
+   * @throws IOException if the JSON Element is invalid with respect to WebhookRemoveRequest
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!Quantity.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Quantity is not found in the empty JSON string", Quantity.openapiRequiredFields.toString()));
+        if (!WebhookRemoveRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in WebhookRemoveRequest is not found in the empty JSON string", WebhookRemoveRequest.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!Quantity.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Quantity` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!WebhookRemoveRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `WebhookRemoveRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("format") != null && !jsonObj.get("format").isJsonNull()) && !jsonObj.get("format").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("format").toString()));
+      if ((jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonNull()) && !jsonObj.get("uri").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uri").toString()));
       }
-      // validate the optional field `format`
-      if (jsonObj.get("format") != null && !jsonObj.get("format").isJsonNull()) {
-        FormatEnum.validateJsonElement(jsonObj.get("format"));
+      if ((jsonObj.get("event") != null && !jsonObj.get("event").isJsonNull()) && !jsonObj.get("event").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `event` to be a primitive type in the JSON string but got `%s`", jsonObj.get("event").toString()));
+      }
+      // validate the optional field `event`
+      if (jsonObj.get("event") != null && !jsonObj.get("event").isJsonNull()) {
+        EventEnum.validateJsonElement(jsonObj.get("event"));
       }
   }
 
@@ -239,22 +243,22 @@ public class Quantity {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Quantity.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Quantity' and its subtypes
+       if (!WebhookRemoveRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WebhookRemoveRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Quantity> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Quantity.class));
+       final TypeAdapter<WebhookRemoveRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WebhookRemoveRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Quantity>() {
+       return (TypeAdapter<T>) new TypeAdapter<WebhookRemoveRequest>() {
            @Override
-           public void write(JsonWriter out, Quantity value) throws IOException {
+           public void write(JsonWriter out, WebhookRemoveRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public Quantity read(JsonReader in) throws IOException {
+           public WebhookRemoveRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -265,18 +269,18 @@ public class Quantity {
   }
 
   /**
-   * Create an instance of Quantity given an JSON string
+   * Create an instance of WebhookRemoveRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of Quantity
-   * @throws IOException if the JSON string is invalid with respect to Quantity
+   * @return An instance of WebhookRemoveRequest
+   * @throws IOException if the JSON string is invalid with respect to WebhookRemoveRequest
    */
-  public static Quantity fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Quantity.class);
+  public static WebhookRemoveRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WebhookRemoveRequest.class);
   }
 
   /**
-   * Convert an instance of Quantity to an JSON string
+   * Convert an instance of WebhookRemoveRequest to an JSON string
    *
    * @return JSON string
    */

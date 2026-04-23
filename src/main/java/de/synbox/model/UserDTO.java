@@ -48,7 +48,7 @@ import de.synbox.invoker.JSON;
 /**
  * UserDTO
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-18T23:06:21.672224203Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:02:15.291689248Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class UserDTO {
   public static final String SERIALIZED_NAME_USERID = "userid";
   @SerializedName(SERIALIZED_NAME_USERID)

@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import de.synbox.model.V1EnvVarSource;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -47,35 +46,30 @@ import java.util.Set;
 import de.synbox.invoker.JSON;
 
 /**
- * V1EnvVar
+ * Request body for creating an empty file.
  */
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:02:15.291689248Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
-public class V1EnvVar {
+public class CreateFileRequest {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @jakarta.annotation.Nullable
   private String name;
 
-  public static final String SERIALIZED_NAME_VALUE = "value";
-  @SerializedName(SERIALIZED_NAME_VALUE)
+  public static final String SERIALIZED_NAME_PATH = "path";
+  @SerializedName(SERIALIZED_NAME_PATH)
   @jakarta.annotation.Nullable
-  private String value;
+  private String path;
 
-  public static final String SERIALIZED_NAME_VALUE_FROM = "valueFrom";
-  @SerializedName(SERIALIZED_NAME_VALUE_FROM)
-  @jakarta.annotation.Nullable
-  private V1EnvVarSource valueFrom;
-
-  public V1EnvVar() {
+  public CreateFileRequest() {
   }
 
-  public V1EnvVar name(@jakarta.annotation.Nullable String name) {
+  public CreateFileRequest name(@jakarta.annotation.Nullable String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * Get name
+   * File name including extension.
    * @return name
    */
   @jakarta.annotation.Nullable
@@ -88,41 +82,22 @@ public class V1EnvVar {
   }
 
 
-  public V1EnvVar value(@jakarta.annotation.Nullable String value) {
-    this.value = value;
+  public CreateFileRequest path(@jakarta.annotation.Nullable String path) {
+    this.path = path;
     return this;
   }
 
   /**
-   * Get value
-   * @return value
+   * Target path where the file should be created.
+   * @return path
    */
   @jakarta.annotation.Nullable
-  public String getValue() {
-    return value;
+  public String getPath() {
+    return path;
   }
 
-  public void setValue(@jakarta.annotation.Nullable String value) {
-    this.value = value;
-  }
-
-
-  public V1EnvVar valueFrom(@jakarta.annotation.Nullable V1EnvVarSource valueFrom) {
-    this.valueFrom = valueFrom;
-    return this;
-  }
-
-  /**
-   * Get valueFrom
-   * @return valueFrom
-   */
-  @jakarta.annotation.Nullable
-  public V1EnvVarSource getValueFrom() {
-    return valueFrom;
-  }
-
-  public void setValueFrom(@jakarta.annotation.Nullable V1EnvVarSource valueFrom) {
-    this.valueFrom = valueFrom;
+  public void setPath(@jakarta.annotation.Nullable String path) {
+    this.path = path;
   }
 
 
@@ -135,24 +110,22 @@ public class V1EnvVar {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    V1EnvVar v1EnvVar = (V1EnvVar) o;
-    return Objects.equals(this.name, v1EnvVar.name) &&
-        Objects.equals(this.value, v1EnvVar.value) &&
-        Objects.equals(this.valueFrom, v1EnvVar.valueFrom);
+    CreateFileRequest createFileRequest = (CreateFileRequest) o;
+    return Objects.equals(this.name, createFileRequest.name) &&
+        Objects.equals(this.path, createFileRequest.path);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value, valueFrom);
+    return Objects.hash(name, path);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class V1EnvVar {\n");
+    sb.append("class CreateFileRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    valueFrom: ").append(toIndentedString(valueFrom)).append("\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -171,7 +144,7 @@ public class V1EnvVar {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "value", "valueFrom"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "path"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -181,32 +154,28 @@ public class V1EnvVar {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to V1EnvVar
+   * @throws IOException if the JSON Element is invalid with respect to CreateFileRequest
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!V1EnvVar.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in V1EnvVar is not found in the empty JSON string", V1EnvVar.openapiRequiredFields.toString()));
+        if (!CreateFileRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CreateFileRequest is not found in the empty JSON string", CreateFileRequest.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!V1EnvVar.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `V1EnvVar` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!CreateFileRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CreateFileRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
-      }
-      // validate the optional field `valueFrom`
-      if (jsonObj.get("valueFrom") != null && !jsonObj.get("valueFrom").isJsonNull()) {
-        V1EnvVarSource.validateJsonElement(jsonObj.get("valueFrom"));
+      if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull()) && !jsonObj.get("path").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
       }
   }
 
@@ -214,22 +183,22 @@ public class V1EnvVar {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!V1EnvVar.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'V1EnvVar' and its subtypes
+       if (!CreateFileRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CreateFileRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<V1EnvVar> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(V1EnvVar.class));
+       final TypeAdapter<CreateFileRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CreateFileRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<V1EnvVar>() {
+       return (TypeAdapter<T>) new TypeAdapter<CreateFileRequest>() {
            @Override
-           public void write(JsonWriter out, V1EnvVar value) throws IOException {
+           public void write(JsonWriter out, CreateFileRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public V1EnvVar read(JsonReader in) throws IOException {
+           public CreateFileRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -240,18 +209,18 @@ public class V1EnvVar {
   }
 
   /**
-   * Create an instance of V1EnvVar given an JSON string
+   * Create an instance of CreateFileRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of V1EnvVar
-   * @throws IOException if the JSON string is invalid with respect to V1EnvVar
+   * @return An instance of CreateFileRequest
+   * @throws IOException if the JSON string is invalid with respect to CreateFileRequest
    */
-  public static V1EnvVar fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, V1EnvVar.class);
+  public static CreateFileRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateFileRequest.class);
   }
 
   /**
-   * Convert an instance of V1EnvVar to an JSON string
+   * Convert an instance of CreateFileRequest to an JSON string
    *
    * @return JSON string
    */

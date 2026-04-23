@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import de.synbox.model.RenameFileEntry;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,58 +49,42 @@ import java.util.Set;
 import de.synbox.invoker.JSON;
 
 /**
- * OrganizationAddMemberDTO
+ * Request body for renaming or moving files.
  */
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:02:15.291689248Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
-public class OrganizationAddMemberDTO {
-  public static final String SERIALIZED_NAME_ROLE = "role";
-  @SerializedName(SERIALIZED_NAME_ROLE)
+public class RenameFilesRequest {
+  public static final String SERIALIZED_NAME_FILES = "files";
+  @SerializedName(SERIALIZED_NAME_FILES)
   @jakarta.annotation.Nullable
-  private String role;
+  private List<RenameFileEntry> files = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  @jakarta.annotation.Nullable
-  private String email;
-
-  public OrganizationAddMemberDTO() {
+  public RenameFilesRequest() {
   }
 
-  public OrganizationAddMemberDTO role(@jakarta.annotation.Nullable String role) {
-    this.role = role;
+  public RenameFilesRequest files(@jakarta.annotation.Nullable List<RenameFileEntry> files) {
+    this.files = files;
+    return this;
+  }
+
+  public RenameFilesRequest addFilesItem(RenameFileEntry filesItem) {
+    if (this.files == null) {
+      this.files = new ArrayList<>();
+    }
+    this.files.add(filesItem);
     return this;
   }
 
   /**
-   * Get role
-   * @return role
+   * Files to rename or move.
+   * @return files
    */
   @jakarta.annotation.Nullable
-  public String getRole() {
-    return role;
+  public List<RenameFileEntry> getFiles() {
+    return files;
   }
 
-  public void setRole(@jakarta.annotation.Nullable String role) {
-    this.role = role;
-  }
-
-
-  public OrganizationAddMemberDTO email(@jakarta.annotation.Nullable String email) {
-    this.email = email;
-    return this;
-  }
-
-  /**
-   * Get email
-   * @return email
-   */
-  @jakarta.annotation.Nullable
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(@jakarta.annotation.Nullable String email) {
-    this.email = email;
+  public void setFiles(@jakarta.annotation.Nullable List<RenameFileEntry> files) {
+    this.files = files;
   }
 
 
@@ -110,22 +97,20 @@ public class OrganizationAddMemberDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrganizationAddMemberDTO organizationAddMemberDTO = (OrganizationAddMemberDTO) o;
-    return Objects.equals(this.role, organizationAddMemberDTO.role) &&
-        Objects.equals(this.email, organizationAddMemberDTO.email);
+    RenameFilesRequest renameFilesRequest = (RenameFilesRequest) o;
+    return Objects.equals(this.files, renameFilesRequest.files);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(role, email);
+    return Objects.hash(files);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrganizationAddMemberDTO {\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("class RenameFilesRequest {\n");
+    sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -144,7 +129,7 @@ public class OrganizationAddMemberDTO {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("role", "email"));
+    openapiFields = new HashSet<String>(Arrays.asList("files"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -154,28 +139,36 @@ public class OrganizationAddMemberDTO {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to OrganizationAddMemberDTO
+   * @throws IOException if the JSON Element is invalid with respect to RenameFilesRequest
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!OrganizationAddMemberDTO.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in OrganizationAddMemberDTO is not found in the empty JSON string", OrganizationAddMemberDTO.openapiRequiredFields.toString()));
+        if (!RenameFilesRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in RenameFilesRequest is not found in the empty JSON string", RenameFilesRequest.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!OrganizationAddMemberDTO.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `OrganizationAddMemberDTO` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!RenameFilesRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RenameFilesRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
-      }
-      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      if (jsonObj.get("files") != null && !jsonObj.get("files").isJsonNull()) {
+        JsonArray jsonArrayfiles = jsonObj.getAsJsonArray("files");
+        if (jsonArrayfiles != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("files").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `files` to be an array in the JSON string but got `%s`", jsonObj.get("files").toString()));
+          }
+
+          // validate the optional field `files` (array)
+          for (int i = 0; i < jsonArrayfiles.size(); i++) {
+            RenameFileEntry.validateJsonElement(jsonArrayfiles.get(i));
+          };
+        }
       }
   }
 
@@ -183,22 +176,22 @@ public class OrganizationAddMemberDTO {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!OrganizationAddMemberDTO.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'OrganizationAddMemberDTO' and its subtypes
+       if (!RenameFilesRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'RenameFilesRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<OrganizationAddMemberDTO> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(OrganizationAddMemberDTO.class));
+       final TypeAdapter<RenameFilesRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(RenameFilesRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<OrganizationAddMemberDTO>() {
+       return (TypeAdapter<T>) new TypeAdapter<RenameFilesRequest>() {
            @Override
-           public void write(JsonWriter out, OrganizationAddMemberDTO value) throws IOException {
+           public void write(JsonWriter out, RenameFilesRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public OrganizationAddMemberDTO read(JsonReader in) throws IOException {
+           public RenameFilesRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -209,18 +202,18 @@ public class OrganizationAddMemberDTO {
   }
 
   /**
-   * Create an instance of OrganizationAddMemberDTO given an JSON string
+   * Create an instance of RenameFilesRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of OrganizationAddMemberDTO
-   * @throws IOException if the JSON string is invalid with respect to OrganizationAddMemberDTO
+   * @return An instance of RenameFilesRequest
+   * @throws IOException if the JSON string is invalid with respect to RenameFilesRequest
    */
-  public static OrganizationAddMemberDTO fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, OrganizationAddMemberDTO.class);
+  public static RenameFilesRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, RenameFilesRequest.class);
   }
 
   /**
-   * Convert an instance of OrganizationAddMemberDTO to an JSON string
+   * Convert an instance of RenameFilesRequest to an JSON string
    *
    * @return JSON string
    */

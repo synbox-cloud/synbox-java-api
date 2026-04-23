@@ -8,6 +8,7 @@ import de.synbox.api.BalanceControllerApi;
 import de.synbox.api.BetterAuthMagicLinkWebhookApi;
 import de.synbox.api.CloudServerStatusWebhookControllerApi;
 import de.synbox.api.ConsoleAuthApi;
+import de.synbox.api.ContainerEnvironmentApi;
 import de.synbox.api.ContainerLogRestApi;
 import de.synbox.api.ContainerPowerManagementApi;
 import de.synbox.api.ContainerVolumesApi;
@@ -38,6 +39,7 @@ public class ApiFacade {
   private BetterAuthMagicLinkWebhookApi _betterAuthMagicLinkWebhook;
   private CloudServerStatusWebhookControllerApi _cloudServerStatusWebhookController;
   private ConsoleAuthApi _consoleAuth;
+  private ContainerEnvironmentApi _containerEnvironment;
   private ContainerLogRestApi _containerLogRest;
   private ContainerPowerManagementApi _containerPowerManagement;
   private ContainerVolumesApi _containerVolumes;
@@ -95,6 +97,10 @@ public class ApiFacade {
   public ConsoleAuthApi consoleAuth() {
     if (_consoleAuth == null) _consoleAuth = new ConsoleAuthApi(client);
     return _consoleAuth;
+  }
+  public ContainerEnvironmentApi containerEnvironment() {
+    if (_containerEnvironment == null) _containerEnvironment = new ContainerEnvironmentApi(client);
+    return _containerEnvironment;
   }
   public ContainerLogRestApi containerLogRest() {
     if (_containerLogRest == null) _containerLogRest = new ContainerLogRestApi(client);

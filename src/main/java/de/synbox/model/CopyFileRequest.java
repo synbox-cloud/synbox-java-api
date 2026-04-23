@@ -46,34 +46,34 @@ import java.util.Set;
 import de.synbox.invoker.JSON;
 
 /**
- * CreateReq
+ * Request body for copying a file.
  */
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:02:15.291689248Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
-public class CreateReq {
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
+public class CopyFileRequest {
+  public static final String SERIALIZED_NAME_LOCATION = "location";
+  @SerializedName(SERIALIZED_NAME_LOCATION)
   @jakarta.annotation.Nullable
-  private String name;
+  private String location;
 
-  public CreateReq() {
+  public CopyFileRequest() {
   }
 
-  public CreateReq name(@jakarta.annotation.Nullable String name) {
-    this.name = name;
+  public CopyFileRequest location(@jakarta.annotation.Nullable String location) {
+    this.location = location;
     return this;
   }
 
   /**
-   * Get name
-   * @return name
+   * Source file location to copy.
+   * @return location
    */
   @jakarta.annotation.Nullable
-  public String getName() {
-    return name;
+  public String getLocation() {
+    return location;
   }
 
-  public void setName(@jakarta.annotation.Nullable String name) {
-    this.name = name;
+  public void setLocation(@jakarta.annotation.Nullable String location) {
+    this.location = location;
   }
 
 
@@ -86,20 +86,20 @@ public class CreateReq {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateReq createReq = (CreateReq) o;
-    return Objects.equals(this.name, createReq.name);
+    CopyFileRequest copyFileRequest = (CopyFileRequest) o;
+    return Objects.equals(this.location, copyFileRequest.location);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name);
+    return Objects.hash(location);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateReq {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("class CopyFileRequest {\n");
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -118,7 +118,7 @@ public class CreateReq {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name"));
+    openapiFields = new HashSet<String>(Arrays.asList("location"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -128,25 +128,25 @@ public class CreateReq {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to CreateReq
+   * @throws IOException if the JSON Element is invalid with respect to CopyFileRequest
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!CreateReq.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CreateReq is not found in the empty JSON string", CreateReq.openapiRequiredFields.toString()));
+        if (!CopyFileRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CopyFileRequest is not found in the empty JSON string", CopyFileRequest.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!CreateReq.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CreateReq` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!CopyFileRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CopyFileRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      if ((jsonObj.get("location") != null && !jsonObj.get("location").isJsonNull()) && !jsonObj.get("location").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `location` to be a primitive type in the JSON string but got `%s`", jsonObj.get("location").toString()));
       }
   }
 
@@ -154,22 +154,22 @@ public class CreateReq {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreateReq.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateReq' and its subtypes
+       if (!CopyFileRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CopyFileRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreateReq> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreateReq.class));
+       final TypeAdapter<CopyFileRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CopyFileRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CreateReq>() {
+       return (TypeAdapter<T>) new TypeAdapter<CopyFileRequest>() {
            @Override
-           public void write(JsonWriter out, CreateReq value) throws IOException {
+           public void write(JsonWriter out, CopyFileRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public CreateReq read(JsonReader in) throws IOException {
+           public CopyFileRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -180,18 +180,18 @@ public class CreateReq {
   }
 
   /**
-   * Create an instance of CreateReq given an JSON string
+   * Create an instance of CopyFileRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CreateReq
-   * @throws IOException if the JSON string is invalid with respect to CreateReq
+   * @return An instance of CopyFileRequest
+   * @throws IOException if the JSON string is invalid with respect to CopyFileRequest
    */
-  public static CreateReq fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateReq.class);
+  public static CopyFileRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CopyFileRequest.class);
   }
 
   /**
-   * Convert an instance of CreateReq to an JSON string
+   * Convert an instance of CopyFileRequest to an JSON string
    *
    * @return JSON string
    */

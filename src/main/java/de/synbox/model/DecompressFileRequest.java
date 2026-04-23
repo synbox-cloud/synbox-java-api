@@ -46,58 +46,58 @@ import java.util.Set;
 import de.synbox.invoker.JSON;
 
 /**
- * OrganizationAddMemberDTO
+ * Request body for extracting a zip file.
  */
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:02:15.291689248Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
-public class OrganizationAddMemberDTO {
-  public static final String SERIALIZED_NAME_ROLE = "role";
-  @SerializedName(SERIALIZED_NAME_ROLE)
+public class DecompressFileRequest {
+  public static final String SERIALIZED_NAME_ROOT = "root";
+  @SerializedName(SERIALIZED_NAME_ROOT)
   @jakarta.annotation.Nullable
-  private String role;
+  private String root;
 
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
+  public static final String SERIALIZED_NAME_FILE = "file";
+  @SerializedName(SERIALIZED_NAME_FILE)
   @jakarta.annotation.Nullable
-  private String email;
+  private String _file;
 
-  public OrganizationAddMemberDTO() {
+  public DecompressFileRequest() {
   }
 
-  public OrganizationAddMemberDTO role(@jakarta.annotation.Nullable String role) {
-    this.role = role;
+  public DecompressFileRequest root(@jakarta.annotation.Nullable String root) {
+    this.root = root;
     return this;
   }
 
   /**
-   * Get role
-   * @return role
+   * Root folder where the archive is located and where files will be extracted.
+   * @return root
    */
   @jakarta.annotation.Nullable
-  public String getRole() {
-    return role;
+  public String getRoot() {
+    return root;
   }
 
-  public void setRole(@jakarta.annotation.Nullable String role) {
-    this.role = role;
+  public void setRoot(@jakarta.annotation.Nullable String root) {
+    this.root = root;
   }
 
 
-  public OrganizationAddMemberDTO email(@jakarta.annotation.Nullable String email) {
-    this.email = email;
+  public DecompressFileRequest _file(@jakarta.annotation.Nullable String _file) {
+    this._file = _file;
     return this;
   }
 
   /**
-   * Get email
-   * @return email
+   * Name of the zip file to extract.
+   * @return _file
    */
   @jakarta.annotation.Nullable
-  public String getEmail() {
-    return email;
+  public String getFile() {
+    return _file;
   }
 
-  public void setEmail(@jakarta.annotation.Nullable String email) {
-    this.email = email;
+  public void setFile(@jakarta.annotation.Nullable String _file) {
+    this._file = _file;
   }
 
 
@@ -110,22 +110,22 @@ public class OrganizationAddMemberDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrganizationAddMemberDTO organizationAddMemberDTO = (OrganizationAddMemberDTO) o;
-    return Objects.equals(this.role, organizationAddMemberDTO.role) &&
-        Objects.equals(this.email, organizationAddMemberDTO.email);
+    DecompressFileRequest decompressFileRequest = (DecompressFileRequest) o;
+    return Objects.equals(this.root, decompressFileRequest.root) &&
+        Objects.equals(this._file, decompressFileRequest._file);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(role, email);
+    return Objects.hash(root, _file);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrganizationAddMemberDTO {\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("class DecompressFileRequest {\n");
+    sb.append("    root: ").append(toIndentedString(root)).append("\n");
+    sb.append("    _file: ").append(toIndentedString(_file)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -144,7 +144,7 @@ public class OrganizationAddMemberDTO {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("role", "email"));
+    openapiFields = new HashSet<String>(Arrays.asList("root", "file"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -154,28 +154,28 @@ public class OrganizationAddMemberDTO {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to OrganizationAddMemberDTO
+   * @throws IOException if the JSON Element is invalid with respect to DecompressFileRequest
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!OrganizationAddMemberDTO.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in OrganizationAddMemberDTO is not found in the empty JSON string", OrganizationAddMemberDTO.openapiRequiredFields.toString()));
+        if (!DecompressFileRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in DecompressFileRequest is not found in the empty JSON string", DecompressFileRequest.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!OrganizationAddMemberDTO.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `OrganizationAddMemberDTO` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!DecompressFileRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `DecompressFileRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
+      if ((jsonObj.get("root") != null && !jsonObj.get("root").isJsonNull()) && !jsonObj.get("root").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `root` to be a primitive type in the JSON string but got `%s`", jsonObj.get("root").toString()));
       }
-      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      if ((jsonObj.get("file") != null && !jsonObj.get("file").isJsonNull()) && !jsonObj.get("file").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file").toString()));
       }
   }
 
@@ -183,22 +183,22 @@ public class OrganizationAddMemberDTO {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!OrganizationAddMemberDTO.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'OrganizationAddMemberDTO' and its subtypes
+       if (!DecompressFileRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DecompressFileRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<OrganizationAddMemberDTO> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(OrganizationAddMemberDTO.class));
+       final TypeAdapter<DecompressFileRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DecompressFileRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<OrganizationAddMemberDTO>() {
+       return (TypeAdapter<T>) new TypeAdapter<DecompressFileRequest>() {
            @Override
-           public void write(JsonWriter out, OrganizationAddMemberDTO value) throws IOException {
+           public void write(JsonWriter out, DecompressFileRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public OrganizationAddMemberDTO read(JsonReader in) throws IOException {
+           public DecompressFileRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -209,18 +209,18 @@ public class OrganizationAddMemberDTO {
   }
 
   /**
-   * Create an instance of OrganizationAddMemberDTO given an JSON string
+   * Create an instance of DecompressFileRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of OrganizationAddMemberDTO
-   * @throws IOException if the JSON string is invalid with respect to OrganizationAddMemberDTO
+   * @return An instance of DecompressFileRequest
+   * @throws IOException if the JSON string is invalid with respect to DecompressFileRequest
    */
-  public static OrganizationAddMemberDTO fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, OrganizationAddMemberDTO.class);
+  public static DecompressFileRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DecompressFileRequest.class);
   }
 
   /**
-   * Convert an instance of OrganizationAddMemberDTO to an JSON string
+   * Convert an instance of DecompressFileRequest to an JSON string
    *
    * @return JSON string
    */

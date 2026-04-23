@@ -46,58 +46,58 @@ import java.util.Set;
 import de.synbox.invoker.JSON;
 
 /**
- * OrganizationAddMemberDTO
+ * File permission change instruction.
  */
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:02:15.291689248Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
-public class OrganizationAddMemberDTO {
-  public static final String SERIALIZED_NAME_ROLE = "role";
-  @SerializedName(SERIALIZED_NAME_ROLE)
+public class ChmodFileEntry {
+  public static final String SERIALIZED_NAME_FILE = "file";
+  @SerializedName(SERIALIZED_NAME_FILE)
   @jakarta.annotation.Nullable
-  private String role;
+  private String _file;
 
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
+  public static final String SERIALIZED_NAME_MODE = "mode";
+  @SerializedName(SERIALIZED_NAME_MODE)
   @jakarta.annotation.Nullable
-  private String email;
+  private String mode;
 
-  public OrganizationAddMemberDTO() {
+  public ChmodFileEntry() {
   }
 
-  public OrganizationAddMemberDTO role(@jakarta.annotation.Nullable String role) {
-    this.role = role;
+  public ChmodFileEntry _file(@jakarta.annotation.Nullable String _file) {
+    this._file = _file;
     return this;
   }
 
   /**
-   * Get role
-   * @return role
+   * File path relative to the request root.
+   * @return _file
    */
   @jakarta.annotation.Nullable
-  public String getRole() {
-    return role;
+  public String getFile() {
+    return _file;
   }
 
-  public void setRole(@jakarta.annotation.Nullable String role) {
-    this.role = role;
+  public void setFile(@jakarta.annotation.Nullable String _file) {
+    this._file = _file;
   }
 
 
-  public OrganizationAddMemberDTO email(@jakarta.annotation.Nullable String email) {
-    this.email = email;
+  public ChmodFileEntry mode(@jakarta.annotation.Nullable String mode) {
+    this.mode = mode;
     return this;
   }
 
   /**
-   * Get email
-   * @return email
+   * Numeric permission mode to apply.
+   * @return mode
    */
   @jakarta.annotation.Nullable
-  public String getEmail() {
-    return email;
+  public String getMode() {
+    return mode;
   }
 
-  public void setEmail(@jakarta.annotation.Nullable String email) {
-    this.email = email;
+  public void setMode(@jakarta.annotation.Nullable String mode) {
+    this.mode = mode;
   }
 
 
@@ -110,22 +110,22 @@ public class OrganizationAddMemberDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrganizationAddMemberDTO organizationAddMemberDTO = (OrganizationAddMemberDTO) o;
-    return Objects.equals(this.role, organizationAddMemberDTO.role) &&
-        Objects.equals(this.email, organizationAddMemberDTO.email);
+    ChmodFileEntry chmodFileEntry = (ChmodFileEntry) o;
+    return Objects.equals(this._file, chmodFileEntry._file) &&
+        Objects.equals(this.mode, chmodFileEntry.mode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(role, email);
+    return Objects.hash(_file, mode);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OrganizationAddMemberDTO {\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("class ChmodFileEntry {\n");
+    sb.append("    _file: ").append(toIndentedString(_file)).append("\n");
+    sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -144,7 +144,7 @@ public class OrganizationAddMemberDTO {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("role", "email"));
+    openapiFields = new HashSet<String>(Arrays.asList("file", "mode"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -154,28 +154,28 @@ public class OrganizationAddMemberDTO {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to OrganizationAddMemberDTO
+   * @throws IOException if the JSON Element is invalid with respect to ChmodFileEntry
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!OrganizationAddMemberDTO.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in OrganizationAddMemberDTO is not found in the empty JSON string", OrganizationAddMemberDTO.openapiRequiredFields.toString()));
+        if (!ChmodFileEntry.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ChmodFileEntry is not found in the empty JSON string", ChmodFileEntry.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!OrganizationAddMemberDTO.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `OrganizationAddMemberDTO` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!ChmodFileEntry.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ChmodFileEntry` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
+      if ((jsonObj.get("file") != null && !jsonObj.get("file").isJsonNull()) && !jsonObj.get("file").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file").toString()));
       }
-      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      if ((jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonNull()) && !jsonObj.get("mode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mode").toString()));
       }
   }
 
@@ -183,22 +183,22 @@ public class OrganizationAddMemberDTO {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!OrganizationAddMemberDTO.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'OrganizationAddMemberDTO' and its subtypes
+       if (!ChmodFileEntry.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ChmodFileEntry' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<OrganizationAddMemberDTO> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(OrganizationAddMemberDTO.class));
+       final TypeAdapter<ChmodFileEntry> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ChmodFileEntry.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<OrganizationAddMemberDTO>() {
+       return (TypeAdapter<T>) new TypeAdapter<ChmodFileEntry>() {
            @Override
-           public void write(JsonWriter out, OrganizationAddMemberDTO value) throws IOException {
+           public void write(JsonWriter out, ChmodFileEntry value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public OrganizationAddMemberDTO read(JsonReader in) throws IOException {
+           public ChmodFileEntry read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -209,18 +209,18 @@ public class OrganizationAddMemberDTO {
   }
 
   /**
-   * Create an instance of OrganizationAddMemberDTO given an JSON string
+   * Create an instance of ChmodFileEntry given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of OrganizationAddMemberDTO
-   * @throws IOException if the JSON string is invalid with respect to OrganizationAddMemberDTO
+   * @return An instance of ChmodFileEntry
+   * @throws IOException if the JSON string is invalid with respect to ChmodFileEntry
    */
-  public static OrganizationAddMemberDTO fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, OrganizationAddMemberDTO.class);
+  public static ChmodFileEntry fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ChmodFileEntry.class);
   }
 
   /**
-   * Convert an instance of OrganizationAddMemberDTO to an JSON string
+   * Convert an instance of ChmodFileEntry to an JSON string
    *
    * @return JSON string
    */

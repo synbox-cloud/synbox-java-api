@@ -152,7 +152,7 @@ public class PowerLevelControllerApi {
      * 
      * @param serverId  (required)
      * @param body  (required)
-     * @return String
+     * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -161,8 +161,8 @@ public class PowerLevelControllerApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public String changePowerLevel(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        ApiResponse<String> localVarResp = changePowerLevelWithHttpInfo(serverId, body);
+    public Object changePowerLevel(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
+        ApiResponse<Object> localVarResp = changePowerLevelWithHttpInfo(serverId, body);
         return localVarResp.getData();
     }
 
@@ -171,7 +171,7 @@ public class PowerLevelControllerApi {
      * 
      * @param serverId  (required)
      * @param body  (required)
-     * @return ApiResponse&lt;String&gt;
+     * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -180,9 +180,9 @@ public class PowerLevelControllerApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> changePowerLevelWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
+    public ApiResponse<Object> changePowerLevelWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
         okhttp3.Call localVarCall = changePowerLevelValidateBeforeCall(serverId, body, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -201,10 +201,10 @@ public class PowerLevelControllerApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call changePowerLevelAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call changePowerLevelAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = changePowerLevelValidateBeforeCall(serverId, body, _callback);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

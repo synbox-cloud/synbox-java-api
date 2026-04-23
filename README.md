@@ -40,7 +40,7 @@ mvn clean install
 ## Getting Started
 
 ```java
-
+import de.synbox.api.ApiFacade;
 import de.synbox.model.*;
 
 import java.net.URI;
@@ -48,65 +48,70 @@ import java.util.List;
 
 
 void main() {
-  try {
-    ApiFacade synbox = new ApiFacade("https://synbox.cloud:8080", "API-KEY");
+    try {
+        ApiFacade synbox = new ApiFacade("https://synbox.cloud:8080", "API-KEY");
 
-    // get current user
-    UserDTO user = synbox.userManagement().getUserInformation();
-    String userId = user.getUserid();
+        // get current user
+        UserDTO user = synbox.userManagement().getUserInformation();
+        String userId = user.getUserid();
 
-    // get organizations
-    final String organizationId = "";
+        // get organizations
+        final String organizationId = "";
 
-    List<OrganizationMemberDTO> organizationMemberDTOS = synbox.organization().listMembers(organizationId);
-    String organizationMemberAccountId = organizationMemberDTOS.getFirst().getId(); // -> accountId
-    // invite or create a new user
-    synbox.organization().addMember(organizationId, new OrganizationAddMemberDTO().email("mail").role("member"));
+        List<OrganizationMemberDTO> organizationMemberDTOS = synbox.organization().listMembers(organizationId, "example@member.org");
+        String organizationMemberAccountId = organizationMemberDTOS.getFirst().getId(); // -> accountId
+        // invite or create a new user
+        synbox.organization().addMember(organizationId, new OrganizationAddMemberDTO().email("mail").role("member"));
 
-    // request magic link for organization login -> response at callbackUrl: {"url":"<magic-link-url>"}
-    synbox.organization().requestMagicLink(organizationId, new MagicLinkRequestDTO().email("mail").callbackUrl(URI.create("url")));
+        // request magic link for organization login -> response at callbackUrl: {"url":"<magic-link-url>"}
+        synbox.organization().requestMagicLink(organizationId, new MagicLinkRequestDTO().email("mail").callbackUrl(URI.create("url")));
 
-    // create new server (without organization, user = apikey owner)
-    synbox.serverManagement().createContainer(new CloudServerCreateDTO()
-            .displayName("test-server-1")
-            .enableAutoPowerControl(false)
-            .envs(new CloudServerCreateDTOEnvs().putAdditionalProperty("VERSION", "1.21.10"))
-            .powerLevel(CloudServerCreateDTO.PowerLevelEnum.LARGE_COMPUTE)
-            .provider("papermc")
-            .start("00:00")
-            .stop("00:10")
-            .startVolume("default")
-            .volumes(List.of("default"))
-    );
+        // create new server (without organization, user = apikey owner)
+        synbox.serverManagement().createContainer(new CloudServerCreateDTO()
+                .displayName("test-server-1")
+                .enableAutoPowerControl(false)
+                .envs(new CloudServerCreateDTOEnvs().putAdditionalProperty("VERSION", "1.21.10"))
+                .powerLevel(CloudServerCreateDTO.PowerLevelEnum.LARGE_COMPUTE)
+                .provider("papermc")
+                .start("00:00")
+                .stop("00:10")
+                .startVolume("default")
+                .volumes(List.of("default"))
+        );
 
-    // create new server (with organization, user = useraccountId)
-    synbox.serverManagement().createContainer(new CloudServerCreateDTO()
-            .organization("organization-id") // <- server will be assigned to this organization
-            .accountId(userId) // <- server owner must be an organization member
-            .displayName("test-server-1")
-            .enableAutoPowerControl(false)
-            .envs(new CloudServerCreateDTOEnvs().putAdditionalProperty("VERSION", "1.21.10"))
-            .powerLevel(CloudServerCreateDTO.PowerLevelEnum.LARGE_COMPUTE)
-            .provider("papermc")
-            .start("00:00")
-            .stop("00:10")
-            .startVolume("default")
-            .volumes(List.of("default"))
-    );
+        // create new server (with organization, user = useraccountId)
+        synbox.serverManagement().createContainer(new CloudServerCreateDTO()
+                .organization("organization-id") // <- server will be assigned to this organization
+                .accountId(userId) // <- server owner must be an organization member
+                .displayName("test-server-1")
+                .enableAutoPowerControl(false)
+                .envs(new CloudServerCreateDTOEnvs().putAdditionalProperty("VERSION", "1.21.10"))
+                .powerLevel(CloudServerCreateDTO.PowerLevelEnum.LARGE_COMPUTE)
+                .provider("papermc")
+                .start("00:00")
+                .stop("00:10")
+                .startVolume("default")
+                .volumes(List.of("default"))
+        );
 
-    List<CloudServerDTO> cloudServerDTOList = synbox.serverManagement().getContainers();
+        // the user's server and the servers they have access to
+        List<CloudServerDTO> cloudServerDTOList = synbox.serverManagement().getContainers(null);
 
-    for (CloudServerDTO server : cloudServerDTOList) {
-      System.out.println(server);
-      //synbox.containerPowerManagement().startContainer(server.getServerId());
-      //synbox.containerPowerManagement().stopContainer(server.getServerId());
-      //synbox.containerPowerManagement().killContainer(server.getServerId());
+        // only servers within any organization (organization >= 1)
+        List<CloudServerDTO> cloudServerDTOList_filtered = synbox.serverManagement().getContainers(List.of(ContainerFilter.ORGANIZATION));
 
+
+        for (CloudServerDTO server : cloudServerDTOList) {
+            System.out.println(server);
+            //synbox.containerPowerManagement().startContainer(server.getServerId());
+            //synbox.containerPowerManagement().stopContainer(server.getServerId());
+            //synbox.containerPowerManagement().killContainer(server.getServerId());
+
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
     }
-
-  } catch (Exception e) {
-    e.printStackTrace();
-  }
 }
 
 ```

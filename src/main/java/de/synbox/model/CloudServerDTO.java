@@ -55,7 +55,7 @@ import de.synbox.invoker.JSON;
 /**
  * CloudServerDTO
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:02:15.291689248Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-18T13:31:45.754121145Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerDTO {
   public static final String SERIALIZED_NAME_SERVER_ID = "serverId";
   @SerializedName(SERIALIZED_NAME_SERVER_ID)
@@ -74,8 +74,6 @@ public class CloudServerDTO {
     LARGE_COMPUTE("LARGE_COMPUTE"),
     
     HEAVY_COMPUTE("HEAVY_COMPUTE"),
-    
-    HYTALE_FREE("HYTALE_FREE"),
     
     SMALL_RAM("SMALL_RAM"),
     

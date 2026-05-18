@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import de.synbox.model.BaseDTO;
+import de.synbox.model.Document;
 import de.synbox.model.MagicLinkRequestDTO;
 import de.synbox.model.OrganizationAddMemberDTO;
 import de.synbox.model.OrganizationMemberDTO;
@@ -86,10 +87,10 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call addMemberCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull OrganizationAddMemberDTO organizationAddMemberDTO, final ApiCallback _callback) throws ApiException {
@@ -165,10 +166,10 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public OrganizationMemberDTO addMember(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull OrganizationAddMemberDTO organizationAddMemberDTO) throws ApiException {
@@ -187,10 +188,10 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<OrganizationMemberDTO> addMemberWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull OrganizationAddMemberDTO organizationAddMemberDTO) throws ApiException {
@@ -211,16 +212,300 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call addMemberAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull OrganizationAddMemberDTO organizationAddMemberDTO, final ApiCallback<OrganizationMemberDTO> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addMemberValidateBeforeCall(id, organizationAddMemberDTO, _callback);
         Type localVarReturnType = new TypeToken<OrganizationMemberDTO>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteSettings
+     * @param id ID der Organisation (required)
+     * @param document Zu loeschende Settings. Beispiele: &#x60;{ \&quot;keys\&quot;: [\&quot;USER_SERVER_LIMIT\&quot;] }&#x60; oder &#x60;{ \&quot;USER_SERVER_LIMIT\&quot;: true }&#x60;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Settings erfolgreich aktualisiert </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Organisation nicht gefunden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Ungueltiger Request-Body </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSettingsCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Document document, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = document;
+
+        // create path and map variables
+        String localVarPath = "/api/organization/{id}/settings"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteSettingsValidateBeforeCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Document document, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteSettings(Async)");
+        }
+
+        // verify the required parameter 'document' is set
+        if (document == null) {
+            throw new ApiException("Missing the required parameter 'document' when calling deleteSettings(Async)");
+        }
+
+        return deleteSettingsCall(id, document, _callback);
+
+    }
+
+    /**
+     * Organisationseinstellungen loeschen
+     * Loescht gezielt Settings-Keys der angegebenen Organisation. Als Request-Body wird ein JSON-Objekt (&#x60;Document&#x60;) erwartet. Entweder &#x60;{\&quot;keys\&quot;: [\&quot;KEY\&quot;]}&#x60; oder ein Objekt, dessen Top-Level-Keys entfernt werden. Nur admin/owner duerfen diese Aktion ausfuehren.
+     * @param id ID der Organisation (required)
+     * @param document Zu loeschende Settings. Beispiele: &#x60;{ \&quot;keys\&quot;: [\&quot;USER_SERVER_LIMIT\&quot;] }&#x60; oder &#x60;{ \&quot;USER_SERVER_LIMIT\&quot;: true }&#x60;. (required)
+     * @return Document
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Settings erfolgreich aktualisiert </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Organisation nicht gefunden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Ungueltiger Request-Body </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+     </table>
+     */
+    public Document deleteSettings(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Document document) throws ApiException {
+        ApiResponse<Document> localVarResp = deleteSettingsWithHttpInfo(id, document);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Organisationseinstellungen loeschen
+     * Loescht gezielt Settings-Keys der angegebenen Organisation. Als Request-Body wird ein JSON-Objekt (&#x60;Document&#x60;) erwartet. Entweder &#x60;{\&quot;keys\&quot;: [\&quot;KEY\&quot;]}&#x60; oder ein Objekt, dessen Top-Level-Keys entfernt werden. Nur admin/owner duerfen diese Aktion ausfuehren.
+     * @param id ID der Organisation (required)
+     * @param document Zu loeschende Settings. Beispiele: &#x60;{ \&quot;keys\&quot;: [\&quot;USER_SERVER_LIMIT\&quot;] }&#x60; oder &#x60;{ \&quot;USER_SERVER_LIMIT\&quot;: true }&#x60;. (required)
+     * @return ApiResponse&lt;Document&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Settings erfolgreich aktualisiert </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Organisation nicht gefunden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Ungueltiger Request-Body </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Document> deleteSettingsWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Document document) throws ApiException {
+        okhttp3.Call localVarCall = deleteSettingsValidateBeforeCall(id, document, null);
+        Type localVarReturnType = new TypeToken<Document>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Organisationseinstellungen loeschen (asynchronously)
+     * Loescht gezielt Settings-Keys der angegebenen Organisation. Als Request-Body wird ein JSON-Objekt (&#x60;Document&#x60;) erwartet. Entweder &#x60;{\&quot;keys\&quot;: [\&quot;KEY\&quot;]}&#x60; oder ein Objekt, dessen Top-Level-Keys entfernt werden. Nur admin/owner duerfen diese Aktion ausfuehren.
+     * @param id ID der Organisation (required)
+     * @param document Zu loeschende Settings. Beispiele: &#x60;{ \&quot;keys\&quot;: [\&quot;USER_SERVER_LIMIT\&quot;] }&#x60; oder &#x60;{ \&quot;USER_SERVER_LIMIT\&quot;: true }&#x60;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Settings erfolgreich aktualisiert </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Organisation nicht gefunden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Ungueltiger Request-Body </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSettingsAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Document document, final ApiCallback<Document> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteSettingsValidateBeforeCall(id, document, _callback);
+        Type localVarReturnType = new TypeToken<Document>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getSettings
+     * @param id ID der Organisation (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Settings erfolgreich geladen </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Organisation nicht gefunden </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSettingsCall(@jakarta.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/organization/{id}/settings"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSettingsValidateBeforeCall(@jakarta.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getSettings(Async)");
+        }
+
+        return getSettingsCall(id, _callback);
+
+    }
+
+    /**
+     * Organisationseinstellungen lesen
+     * Liefert das komplette Settings-Dokument der angegebenen Organisation. Nur admin/owner duerfen diese Aktion ausfuehren.
+     * @param id ID der Organisation (required)
+     * @return Document
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Settings erfolgreich geladen </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Organisation nicht gefunden </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+     </table>
+     */
+    public Document getSettings(@jakarta.annotation.Nonnull String id) throws ApiException {
+        ApiResponse<Document> localVarResp = getSettingsWithHttpInfo(id);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Organisationseinstellungen lesen
+     * Liefert das komplette Settings-Dokument der angegebenen Organisation. Nur admin/owner duerfen diese Aktion ausfuehren.
+     * @param id ID der Organisation (required)
+     * @return ApiResponse&lt;Document&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Settings erfolgreich geladen </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Organisation nicht gefunden </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Document> getSettingsWithHttpInfo(@jakarta.annotation.Nonnull String id) throws ApiException {
+        okhttp3.Call localVarCall = getSettingsValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<Document>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Organisationseinstellungen lesen (asynchronously)
+     * Liefert das komplette Settings-Dokument der angegebenen Organisation. Nur admin/owner duerfen diese Aktion ausfuehren.
+     * @param id ID der Organisation (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Settings erfolgreich geladen </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Organisation nicht gefunden </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSettingsAsync(@jakarta.annotation.Nonnull String id, final ApiCallback<Document> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSettingsValidateBeforeCall(id, _callback);
+        Type localVarReturnType = new TypeToken<Document>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -235,9 +520,9 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listMembersCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable String email, final ApiCallback _callback) throws ApiException {
@@ -311,9 +596,9 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public List<OrganizationMemberDTO> listMembers(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable String email) throws ApiException {
@@ -332,9 +617,9 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<OrganizationMemberDTO>> listMembersWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable String email) throws ApiException {
@@ -355,9 +640,9 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Interner Fehler </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglieder erfolgreich geladen </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listMembersAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable String email, final ApiCallback<List<OrganizationMemberDTO>> _callback) throws ApiException {
@@ -378,10 +663,10 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage (z.B. fehlende/ungueltige E-Mail) </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call requestMagicLinkCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull MagicLinkRequestDTO magicLinkRequestDTO, final ApiCallback _callback) throws ApiException {
@@ -457,10 +742,10 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage (z.B. fehlende/ungueltige E-Mail) </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public BaseDTO requestMagicLink(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull MagicLinkRequestDTO magicLinkRequestDTO) throws ApiException {
@@ -479,10 +764,10 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage (z.B. fehlende/ungueltige E-Mail) </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseDTO> requestMagicLinkWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull MagicLinkRequestDTO magicLinkRequestDTO) throws ApiException {
@@ -503,16 +788,165 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Magic-Link erfolgreich angefordert </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler oder Fehler beim Weiterleiten an SynBox </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage (z.B. fehlende/ungueltige E-Mail) </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call requestMagicLinkAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull MagicLinkRequestDTO magicLinkRequestDTO, final ApiCallback<BaseDTO> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = requestMagicLinkValidateBeforeCall(id, magicLinkRequestDTO, _callback);
         Type localVarReturnType = new TypeToken<BaseDTO>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for setSettings
+     * @param id ID der Organisation (required)
+     * @param document Settings-Update der Organisation als JSON-Objekt. Keys werden hinzugefuegt oder ueberschrieben. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Settings erfolgreich aktualisiert </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Organisation nicht gefunden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Ungueltiger Request-Body </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setSettingsCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Document document, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = document;
+
+        // create path and map variables
+        String localVarPath = "/api/organization/{id}/settings"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call setSettingsValidateBeforeCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Document document, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling setSettings(Async)");
+        }
+
+        // verify the required parameter 'document' is set
+        if (document == null) {
+            throw new ApiException("Missing the required parameter 'document' when calling setSettings(Async)");
+        }
+
+        return setSettingsCall(id, document, _callback);
+
+    }
+
+    /**
+     * Organisationseinstellungen aktualisieren
+     * Aktualisiert das Settings-Dokument der angegebenen Organisation. Neue Keys werden hinzugefuegt, bestehende ueberschrieben, andere bleiben unveraendert. Als Request-Body wird ein JSON-Objekt (&#x60;Document&#x60;) erwartet. Nur admin/owner duerfen diese Aktion ausfuehren.
+     * @param id ID der Organisation (required)
+     * @param document Settings-Update der Organisation als JSON-Objekt. Keys werden hinzugefuegt oder ueberschrieben. (required)
+     * @return Document
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Settings erfolgreich aktualisiert </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Organisation nicht gefunden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Ungueltiger Request-Body </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+     </table>
+     */
+    public Document setSettings(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Document document) throws ApiException {
+        ApiResponse<Document> localVarResp = setSettingsWithHttpInfo(id, document);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Organisationseinstellungen aktualisieren
+     * Aktualisiert das Settings-Dokument der angegebenen Organisation. Neue Keys werden hinzugefuegt, bestehende ueberschrieben, andere bleiben unveraendert. Als Request-Body wird ein JSON-Objekt (&#x60;Document&#x60;) erwartet. Nur admin/owner duerfen diese Aktion ausfuehren.
+     * @param id ID der Organisation (required)
+     * @param document Settings-Update der Organisation als JSON-Objekt. Keys werden hinzugefuegt oder ueberschrieben. (required)
+     * @return ApiResponse&lt;Document&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Settings erfolgreich aktualisiert </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Organisation nicht gefunden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Ungueltiger Request-Body </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Document> setSettingsWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Document document) throws ApiException {
+        okhttp3.Call localVarCall = setSettingsValidateBeforeCall(id, document, null);
+        Type localVarReturnType = new TypeToken<Document>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Organisationseinstellungen aktualisieren (asynchronously)
+     * Aktualisiert das Settings-Dokument der angegebenen Organisation. Neue Keys werden hinzugefuegt, bestehende ueberschrieben, andere bleiben unveraendert. Als Request-Body wird ein JSON-Objekt (&#x60;Document&#x60;) erwartet. Nur admin/owner duerfen diese Aktion ausfuehren.
+     * @param id ID der Organisation (required)
+     * @param document Settings-Update der Organisation als JSON-Objekt. Keys werden hinzugefuegt oder ueberschrieben. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Settings erfolgreich aktualisiert </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Organisation nicht gefunden </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Ungueltiger Request-Body </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setSettingsAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Document document, final ApiCallback<Document> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = setSettingsValidateBeforeCall(id, document, _callback);
+        Type localVarReturnType = new TypeToken<Document>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

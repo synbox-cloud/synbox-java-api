@@ -50,8 +50,13 @@ import de.synbox.invoker.JSON;
 /**
  * Request body for compressing multiple files into a zip archive.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:02:15.291689248Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-18T13:31:45.754121145Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CompressFilesRequest {
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  @jakarta.annotation.Nullable
+  private String name;
+
   public static final String SERIALIZED_NAME_ROOT = "root";
   @SerializedName(SERIALIZED_NAME_ROOT)
   @jakarta.annotation.Nullable
@@ -64,6 +69,25 @@ public class CompressFilesRequest {
 
   public CompressFilesRequest() {
   }
+
+  public CompressFilesRequest name(@jakarta.annotation.Nullable String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Name of the zip file
+   * @return name
+   */
+  @jakarta.annotation.Nullable
+  public String getName() {
+    return name;
+  }
+
+  public void setName(@jakarta.annotation.Nullable String name) {
+    this.name = name;
+  }
+
 
   public CompressFilesRequest root(@jakarta.annotation.Nullable String root) {
     this.root = root;
@@ -121,19 +145,21 @@ public class CompressFilesRequest {
       return false;
     }
     CompressFilesRequest compressFilesRequest = (CompressFilesRequest) o;
-    return Objects.equals(this.root, compressFilesRequest.root) &&
+    return Objects.equals(this.name, compressFilesRequest.name) &&
+        Objects.equals(this.root, compressFilesRequest.root) &&
         Objects.equals(this.files, compressFilesRequest.files);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(root, files);
+    return Objects.hash(name, root, files);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CompressFilesRequest {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    root: ").append(toIndentedString(root)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("}");
@@ -154,7 +180,7 @@ public class CompressFilesRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("root", "files"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "root", "files"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -181,6 +207,9 @@ public class CompressFilesRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
       if ((jsonObj.get("root") != null && !jsonObj.get("root").isJsonNull()) && !jsonObj.get("root").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `root` to be a primitive type in the JSON string but got `%s`", jsonObj.get("root").toString()));
       }

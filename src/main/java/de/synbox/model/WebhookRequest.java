@@ -48,7 +48,7 @@ import de.synbox.invoker.JSON;
 /**
  * Request to add a webhook to a server
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:02:15.291689248Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-18T13:31:45.754121145Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class WebhookRequest {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)

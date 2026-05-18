@@ -51,7 +51,7 @@ import de.synbox.invoker.JSON;
 /**
  * Container provider for the server
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:02:15.291689248Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-18T13:31:45.754121145Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class ContainerProvider {
   /**
    * Gets or Sets availablePowerLevels
@@ -65,8 +65,6 @@ public class ContainerProvider {
     LARGE_COMPUTE("LARGE_COMPUTE"),
     
     HEAVY_COMPUTE("HEAVY_COMPUTE"),
-    
-    HYTALE_FREE("HYTALE_FREE"),
     
     SMALL_RAM("SMALL_RAM"),
     
@@ -135,11 +133,6 @@ public class ContainerProvider {
   @SerializedName(SERIALIZED_NAME_GAME_NAME)
   @jakarta.annotation.Nullable
   private String gameName;
-
-  public static final String SERIALIZED_NAME_IMAGE = "image";
-  @SerializedName(SERIALIZED_NAME_IMAGE)
-  @jakarta.annotation.Nullable
-  private String image;
 
   public static final String SERIALIZED_NAME_CONTAINER_PORT = "containerPort";
   @SerializedName(SERIALIZED_NAME_CONTAINER_PORT)
@@ -291,25 +284,6 @@ public class ContainerProvider {
   }
 
 
-  public ContainerProvider image(@jakarta.annotation.Nullable String image) {
-    this.image = image;
-    return this;
-  }
-
-  /**
-   * Get image
-   * @return image
-   */
-  @jakarta.annotation.Nullable
-  public String getImage() {
-    return image;
-  }
-
-  public void setImage(@jakarta.annotation.Nullable String image) {
-    this.image = image;
-  }
-
-
   public ContainerProvider containerPort(@jakarta.annotation.Nullable Integer containerPort) {
     this.containerPort = containerPort;
     return this;
@@ -399,7 +373,6 @@ public class ContainerProvider {
     return Objects.equals(this.availablePowerLevels, containerProvider.availablePowerLevels) &&
         Objects.equals(this.envs, containerProvider.envs) &&
         Objects.equals(this.gameName, containerProvider.gameName) &&
-        Objects.equals(this.image, containerProvider.image) &&
         Objects.equals(this.containerPort, containerProvider.containerPort) &&
         Objects.equals(this.mountPath, containerProvider.mountPath) &&
         Objects.equals(this.networkType, containerProvider.networkType) &&
@@ -408,7 +381,7 @@ public class ContainerProvider {
 
   @Override
   public int hashCode() {
-    return Objects.hash(availablePowerLevels, envs, gameName, image, containerPort, mountPath, networkType, stopCommand);
+    return Objects.hash(availablePowerLevels, envs, gameName, containerPort, mountPath, networkType, stopCommand);
   }
 
   @Override
@@ -418,7 +391,6 @@ public class ContainerProvider {
     sb.append("    availablePowerLevels: ").append(toIndentedString(availablePowerLevels)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    gameName: ").append(toIndentedString(gameName)).append("\n");
-    sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    containerPort: ").append(toIndentedString(containerPort)).append("\n");
     sb.append("    mountPath: ").append(toIndentedString(mountPath)).append("\n");
     sb.append("    networkType: ").append(toIndentedString(networkType)).append("\n");
@@ -441,7 +413,7 @@ public class ContainerProvider {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("availablePowerLevels", "envs", "gameName", "image", "containerPort", "mountPath", "networkType", "stopCommand"));
+    openapiFields = new HashSet<String>(Arrays.asList("availablePowerLevels", "envs", "gameName", "containerPort", "mountPath", "networkType", "stopCommand"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -488,9 +460,6 @@ public class ContainerProvider {
       }
       if ((jsonObj.get("gameName") != null && !jsonObj.get("gameName").isJsonNull()) && !jsonObj.get("gameName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gameName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gameName").toString()));
-      }
-      if ((jsonObj.get("image") != null && !jsonObj.get("image").isJsonNull()) && !jsonObj.get("image").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj.get("image").toString()));
       }
       if ((jsonObj.get("mountPath") != null && !jsonObj.get("mountPath").isJsonNull()) && !jsonObj.get("mountPath").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mountPath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mountPath").toString()));

@@ -51,7 +51,7 @@ import de.synbox.invoker.JSON;
 /**
  * DTO for creating a new cloud server container
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-19T21:02:15.291689248Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-18T13:31:45.754121145Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerCreateDTO {
   /**
    * Power level configuration for the server
@@ -65,8 +65,6 @@ public class CloudServerCreateDTO {
     LARGE_COMPUTE("LARGE_COMPUTE"),
     
     HEAVY_COMPUTE("HEAVY_COMPUTE"),
-    
-    HYTALE_FREE("HYTALE_FREE"),
     
     SMALL_RAM("SMALL_RAM"),
     
@@ -133,7 +131,7 @@ public class CloudServerCreateDTO {
 
   public static final String SERIALIZED_NAME_PROVIDER = "provider";
   @SerializedName(SERIALIZED_NAME_PROVIDER)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String provider;
 
   public static final String SERIALIZED_NAME_ENVS = "envs";
@@ -143,18 +141,23 @@ public class CloudServerCreateDTO {
 
   public static final String SERIALIZED_NAME_START = "start";
   @SerializedName(SERIALIZED_NAME_START)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String start;
 
   public static final String SERIALIZED_NAME_STOP = "stop";
   @SerializedName(SERIALIZED_NAME_STOP)
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   private String stop;
 
   public static final String SERIALIZED_NAME_DISPLAY_NAME = "displayName";
   @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
   @jakarta.annotation.Nonnull
   private String displayName;
+
+  public static final String SERIALIZED_NAME_TEMPLATE = "template";
+  @SerializedName(SERIALIZED_NAME_TEMPLATE)
+  @jakarta.annotation.Nullable
+  private String template;
 
   public static final String SERIALIZED_NAME_ORGANIZATION = "organization";
   @SerializedName(SERIALIZED_NAME_ORGANIZATION)
@@ -217,7 +220,7 @@ public class CloudServerCreateDTO {
   }
 
 
-  public CloudServerCreateDTO provider(@jakarta.annotation.Nullable String provider) {
+  public CloudServerCreateDTO provider(@jakarta.annotation.Nonnull String provider) {
     this.provider = provider;
     return this;
   }
@@ -226,12 +229,12 @@ public class CloudServerCreateDTO {
    * Provider identifier
    * @return provider
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getProvider() {
     return provider;
   }
 
-  public void setProvider(@jakarta.annotation.Nullable String provider) {
+  public void setProvider(@jakarta.annotation.Nonnull String provider) {
     this.provider = provider;
   }
 
@@ -255,7 +258,7 @@ public class CloudServerCreateDTO {
   }
 
 
-  public CloudServerCreateDTO start(@jakarta.annotation.Nullable String start) {
+  public CloudServerCreateDTO start(@jakarta.annotation.Nonnull String start) {
     this.start = start;
     return this;
   }
@@ -264,17 +267,17 @@ public class CloudServerCreateDTO {
    * Start time for auto power control (HH:mm format)
    * @return start
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getStart() {
     return start;
   }
 
-  public void setStart(@jakarta.annotation.Nullable String start) {
+  public void setStart(@jakarta.annotation.Nonnull String start) {
     this.start = start;
   }
 
 
-  public CloudServerCreateDTO stop(@jakarta.annotation.Nullable String stop) {
+  public CloudServerCreateDTO stop(@jakarta.annotation.Nonnull String stop) {
     this.stop = stop;
     return this;
   }
@@ -283,12 +286,12 @@ public class CloudServerCreateDTO {
    * Stop time for auto power control (HH:mm format)
    * @return stop
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   public String getStop() {
     return stop;
   }
 
-  public void setStop(@jakarta.annotation.Nullable String stop) {
+  public void setStop(@jakarta.annotation.Nonnull String stop) {
     this.stop = stop;
   }
 
@@ -309,6 +312,25 @@ public class CloudServerCreateDTO {
 
   public void setDisplayName(@jakarta.annotation.Nonnull String displayName) {
     this.displayName = displayName;
+  }
+
+
+  public CloudServerCreateDTO template(@jakarta.annotation.Nullable String template) {
+    this.template = template;
+    return this;
+  }
+
+  /**
+   * Template to copy before creating server
+   * @return template
+   */
+  @jakarta.annotation.Nullable
+  public String getTemplate() {
+    return template;
+  }
+
+  public void setTemplate(@jakarta.annotation.Nullable String template) {
+    this.template = template;
   }
 
 
@@ -413,6 +435,7 @@ public class CloudServerCreateDTO {
         Objects.equals(this.start, cloudServerCreateDTO.start) &&
         Objects.equals(this.stop, cloudServerCreateDTO.stop) &&
         Objects.equals(this.displayName, cloudServerCreateDTO.displayName) &&
+        Objects.equals(this.template, cloudServerCreateDTO.template) &&
         Objects.equals(this.organization, cloudServerCreateDTO.organization) &&
         Objects.equals(this.enableAutoPowerControl, cloudServerCreateDTO.enableAutoPowerControl) &&
         Objects.equals(this.volumes, cloudServerCreateDTO.volumes) &&
@@ -421,7 +444,7 @@ public class CloudServerCreateDTO {
 
   @Override
   public int hashCode() {
-    return Objects.hash(powerLevel, startVolume, provider, envs, start, stop, displayName, organization, enableAutoPowerControl, volumes, accountId);
+    return Objects.hash(powerLevel, startVolume, provider, envs, start, stop, displayName, template, organization, enableAutoPowerControl, volumes, accountId);
   }
 
   @Override
@@ -435,6 +458,7 @@ public class CloudServerCreateDTO {
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    stop: ").append(toIndentedString(stop)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
     sb.append("    enableAutoPowerControl: ").append(toIndentedString(enableAutoPowerControl)).append("\n");
     sb.append("    volumes: ").append(toIndentedString(volumes)).append("\n");
@@ -457,10 +481,10 @@ public class CloudServerCreateDTO {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("powerLevel", "startVolume", "provider", "envs", "start", "stop", "displayName", "organization", "enableAutoPowerControl", "volumes", "account_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("powerLevel", "startVolume", "provider", "envs", "start", "stop", "displayName", "template", "organization", "enableAutoPowerControl", "volumes", "account_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("powerLevel", "displayName"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("powerLevel", "provider", "start", "stop", "displayName"));
   }
 
   /**
@@ -499,17 +523,20 @@ public class CloudServerCreateDTO {
       if ((jsonObj.get("startVolume") != null && !jsonObj.get("startVolume").isJsonNull()) && !jsonObj.get("startVolume").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `startVolume` to be a primitive type in the JSON string but got `%s`", jsonObj.get("startVolume").toString()));
       }
-      if ((jsonObj.get("provider") != null && !jsonObj.get("provider").isJsonNull()) && !jsonObj.get("provider").isJsonPrimitive()) {
+      if (!jsonObj.get("provider").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("provider").toString()));
       }
-      if ((jsonObj.get("start") != null && !jsonObj.get("start").isJsonNull()) && !jsonObj.get("start").isJsonPrimitive()) {
+      if (!jsonObj.get("start").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `start` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start").toString()));
       }
-      if ((jsonObj.get("stop") != null && !jsonObj.get("stop").isJsonNull()) && !jsonObj.get("stop").isJsonPrimitive()) {
+      if (!jsonObj.get("stop").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `stop` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stop").toString()));
       }
       if (!jsonObj.get("displayName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `displayName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayName").toString()));
+      }
+      if ((jsonObj.get("template") != null && !jsonObj.get("template").isJsonNull()) && !jsonObj.get("template").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("template").toString()));
       }
       if ((jsonObj.get("organization") != null && !jsonObj.get("organization").isJsonNull()) && !jsonObj.get("organization").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `organization` to be a primitive type in the JSON string but got `%s`", jsonObj.get("organization").toString()));

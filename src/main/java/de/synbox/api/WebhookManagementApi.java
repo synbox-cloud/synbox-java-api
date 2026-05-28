@@ -369,8 +369,8 @@ public class WebhookManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Webhook successfully removed </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Webhook successfully removed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Server or webhook not found </td><td>  -  </td></tr>
      </table>
      */
@@ -447,8 +447,8 @@ public class WebhookManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Webhook successfully removed </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Webhook successfully removed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Server or webhook not found </td><td>  -  </td></tr>
      </table>
      */
@@ -468,8 +468,8 @@ public class WebhookManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Webhook successfully removed </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Webhook successfully removed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Server or webhook not found </td><td>  -  </td></tr>
      </table>
      */
@@ -491,8 +491,8 @@ public class WebhookManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Webhook successfully removed </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Webhook successfully removed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Server or webhook not found </td><td>  -  </td></tr>
      </table>
      */

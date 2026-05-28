@@ -87,8 +87,8 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
@@ -166,8 +166,8 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
@@ -188,8 +188,8 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>
@@ -212,8 +212,8 @@ public class OrganizationApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Mitglied erfolgreich hinzugefuegt </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Fehler beim Weiterleiten der Anfrage </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Ungueltige Anfrage </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung </td><td>  -  </td></tr>
      </table>

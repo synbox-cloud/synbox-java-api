@@ -48,7 +48,7 @@ import de.synbox.invoker.JSON;
 /**
  * Document
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-18T13:31:45.754121145Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-28T20:21:57.322351588Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class Document {
   public static final String SERIALIZED_NAME_EMPTY = "empty";
   @SerializedName(SERIALIZED_NAME_EMPTY)

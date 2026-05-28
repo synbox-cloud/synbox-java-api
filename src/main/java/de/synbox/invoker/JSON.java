@@ -99,6 +99,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.BackupModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.BalanceInvoiceModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.BaseDTO.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.ChangeVersionDTO.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.ChmodFileEntry.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.ChmodRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new de.synbox.model.CloudServerCreateDTO.CustomTypeAdapterFactory());

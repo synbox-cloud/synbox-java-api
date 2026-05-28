@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import de.synbox.model.ChangeVersionDTO;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -74,7 +75,7 @@ public class VersionManagementApi {
     /**
      * Build call for changeVersion
      * @param serverId ID of the server (required)
-     * @param body  (required)
+     * @param changeVersionDTO  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -86,7 +87,7 @@ public class VersionManagementApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call changeVersionCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call changeVersionCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ChangeVersionDTO changeVersionDTO, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -100,7 +101,7 @@ public class VersionManagementApi {
             basePath = null;
         }
 
-        Object localVarPostBody = body;
+        Object localVarPostBody = changeVersionDTO;
 
         // create path and map variables
         String localVarPath = "/api/containers/{server_id}/settings/changeVersion"
@@ -133,18 +134,18 @@ public class VersionManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call changeVersionValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call changeVersionValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ChangeVersionDTO changeVersionDTO, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
             throw new ApiException("Missing the required parameter 'serverId' when calling changeVersion(Async)");
         }
 
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling changeVersion(Async)");
+        // verify the required parameter 'changeVersionDTO' is set
+        if (changeVersionDTO == null) {
+            throw new ApiException("Missing the required parameter 'changeVersionDTO' when calling changeVersion(Async)");
         }
 
-        return changeVersionCall(serverId, body, _callback);
+        return changeVersionCall(serverId, changeVersionDTO, _callback);
 
     }
 
@@ -152,7 +153,7 @@ public class VersionManagementApi {
      * Change server version
      * Changes the version of a specific server.
      * @param serverId ID of the server (required)
-     * @param body  (required)
+     * @param changeVersionDTO  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -163,8 +164,8 @@ public class VersionManagementApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public Object changeVersion(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        ApiResponse<Object> localVarResp = changeVersionWithHttpInfo(serverId, body);
+    public Object changeVersion(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ChangeVersionDTO changeVersionDTO) throws ApiException {
+        ApiResponse<Object> localVarResp = changeVersionWithHttpInfo(serverId, changeVersionDTO);
         return localVarResp.getData();
     }
 
@@ -172,7 +173,7 @@ public class VersionManagementApi {
      * Change server version
      * Changes the version of a specific server.
      * @param serverId ID of the server (required)
-     * @param body  (required)
+     * @param changeVersionDTO  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -183,8 +184,8 @@ public class VersionManagementApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> changeVersionWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
-        okhttp3.Call localVarCall = changeVersionValidateBeforeCall(serverId, body, null);
+    public ApiResponse<Object> changeVersionWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ChangeVersionDTO changeVersionDTO) throws ApiException {
+        okhttp3.Call localVarCall = changeVersionValidateBeforeCall(serverId, changeVersionDTO, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -193,7 +194,7 @@ public class VersionManagementApi {
      * Change server version (asynchronously)
      * Changes the version of a specific server.
      * @param serverId ID of the server (required)
-     * @param body  (required)
+     * @param changeVersionDTO  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -205,9 +206,9 @@ public class VersionManagementApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call changeVersionAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call changeVersionAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ChangeVersionDTO changeVersionDTO, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = changeVersionValidateBeforeCall(serverId, body, _callback);
+        okhttp3.Call localVarCall = changeVersionValidateBeforeCall(serverId, changeVersionDTO, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

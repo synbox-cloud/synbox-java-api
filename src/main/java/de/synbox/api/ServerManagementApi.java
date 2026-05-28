@@ -356,9 +356,9 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No access permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getContainerCall(@jakarta.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
@@ -427,9 +427,9 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No access permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
      </table>
      */
     public CloudServerDTO getContainer(@jakarta.annotation.Nonnull String id) throws ApiException {
@@ -447,9 +447,9 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No access permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CloudServerDTO> getContainerWithHttpInfo(@jakarta.annotation.Nonnull String id) throws ApiException {
@@ -469,9 +469,9 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No access permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved container details </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getContainerAsync(@jakarta.annotation.Nonnull String id, final ApiCallback<CloudServerDTO> _callback) throws ApiException {

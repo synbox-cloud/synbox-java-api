@@ -82,8 +82,8 @@ public class NameManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Invalid name format </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully changed server name </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid name format </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
@@ -160,8 +160,8 @@ public class NameManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Invalid name format </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully changed server name </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid name format </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
@@ -181,8 +181,8 @@ public class NameManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Invalid name format </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully changed server name </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid name format </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
@@ -204,8 +204,8 @@ public class NameManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Invalid name format </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully changed server name </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid name format </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */

@@ -19,7 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import de.synbox.model.CloudServerCreateDTOEnvs;
+import de.synbox.model.Document;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,7 +51,7 @@ import de.synbox.invoker.JSON;
 /**
  * DTO for creating a new cloud server container
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-28T20:21:57.322351588Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-30T17:21:49.974498957Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerCreateDTO {
   /**
    * Power level configuration for the server
@@ -134,10 +134,15 @@ public class CloudServerCreateDTO {
   @jakarta.annotation.Nonnull
   private String provider;
 
+  public static final String SERIALIZED_NAME_DELETE_ON_STOP = "deleteOnStop";
+  @SerializedName(SERIALIZED_NAME_DELETE_ON_STOP)
+  @jakarta.annotation.Nullable
+  private Boolean deleteOnStop = false;
+
   public static final String SERIALIZED_NAME_ENVS = "envs";
   @SerializedName(SERIALIZED_NAME_ENVS)
   @jakarta.annotation.Nullable
-  private CloudServerCreateDTOEnvs envs;
+  private Document envs;
 
   public static final String SERIALIZED_NAME_START = "start";
   @SerializedName(SERIALIZED_NAME_START)
@@ -239,21 +244,40 @@ public class CloudServerCreateDTO {
   }
 
 
-  public CloudServerCreateDTO envs(@jakarta.annotation.Nullable CloudServerCreateDTOEnvs envs) {
+  public CloudServerCreateDTO deleteOnStop(@jakarta.annotation.Nullable Boolean deleteOnStop) {
+    this.deleteOnStop = deleteOnStop;
+    return this;
+  }
+
+  /**
+   * Delete Server on Stop/Kill Event
+   * @return deleteOnStop
+   */
+  @jakarta.annotation.Nullable
+  public Boolean getDeleteOnStop() {
+    return deleteOnStop;
+  }
+
+  public void setDeleteOnStop(@jakarta.annotation.Nullable Boolean deleteOnStop) {
+    this.deleteOnStop = deleteOnStop;
+  }
+
+
+  public CloudServerCreateDTO envs(@jakarta.annotation.Nullable Document envs) {
     this.envs = envs;
     return this;
   }
 
   /**
-   * Get envs
+   * Environment variables as key-value pairs
    * @return envs
    */
   @jakarta.annotation.Nullable
-  public CloudServerCreateDTOEnvs getEnvs() {
+  public Document getEnvs() {
     return envs;
   }
 
-  public void setEnvs(@jakarta.annotation.Nullable CloudServerCreateDTOEnvs envs) {
+  public void setEnvs(@jakarta.annotation.Nullable Document envs) {
     this.envs = envs;
   }
 
@@ -431,6 +455,7 @@ public class CloudServerCreateDTO {
     return Objects.equals(this.powerLevel, cloudServerCreateDTO.powerLevel) &&
         Objects.equals(this.startVolume, cloudServerCreateDTO.startVolume) &&
         Objects.equals(this.provider, cloudServerCreateDTO.provider) &&
+        Objects.equals(this.deleteOnStop, cloudServerCreateDTO.deleteOnStop) &&
         Objects.equals(this.envs, cloudServerCreateDTO.envs) &&
         Objects.equals(this.start, cloudServerCreateDTO.start) &&
         Objects.equals(this.stop, cloudServerCreateDTO.stop) &&
@@ -444,7 +469,7 @@ public class CloudServerCreateDTO {
 
   @Override
   public int hashCode() {
-    return Objects.hash(powerLevel, startVolume, provider, envs, start, stop, displayName, template, organization, enableAutoPowerControl, volumes, accountId);
+    return Objects.hash(powerLevel, startVolume, provider, deleteOnStop, envs, start, stop, displayName, template, organization, enableAutoPowerControl, volumes, accountId);
   }
 
   @Override
@@ -454,6 +479,7 @@ public class CloudServerCreateDTO {
     sb.append("    powerLevel: ").append(toIndentedString(powerLevel)).append("\n");
     sb.append("    startVolume: ").append(toIndentedString(startVolume)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+    sb.append("    deleteOnStop: ").append(toIndentedString(deleteOnStop)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    stop: ").append(toIndentedString(stop)).append("\n");
@@ -481,7 +507,7 @@ public class CloudServerCreateDTO {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("powerLevel", "startVolume", "provider", "envs", "start", "stop", "displayName", "template", "organization", "enableAutoPowerControl", "volumes", "account_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("powerLevel", "startVolume", "provider", "deleteOnStop", "envs", "start", "stop", "displayName", "template", "organization", "enableAutoPowerControl", "volumes", "account_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("powerLevel", "provider", "start", "stop", "displayName"));

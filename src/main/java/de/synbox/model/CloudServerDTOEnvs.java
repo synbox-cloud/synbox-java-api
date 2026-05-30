@@ -48,17 +48,17 @@ import de.synbox.invoker.JSON;
 /**
  * Environment variables as key-value pairs
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-28T20:21:57.322351588Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
-public class CloudServerCreateDTOEnvs {
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-30T17:21:49.974498957Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+public class CloudServerDTOEnvs {
   public static final String SERIALIZED_NAME_EMPTY = "empty";
   @SerializedName(SERIALIZED_NAME_EMPTY)
   @jakarta.annotation.Nullable
   private Boolean empty;
 
-  public CloudServerCreateDTOEnvs() {
+  public CloudServerDTOEnvs() {
   }
 
-  public CloudServerCreateDTOEnvs empty(@jakarta.annotation.Nullable Boolean empty) {
+  public CloudServerDTOEnvs empty(@jakarta.annotation.Nullable Boolean empty) {
     this.empty = empty;
     return this;
   }
@@ -89,9 +89,9 @@ public class CloudServerCreateDTOEnvs {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the CloudServerCreateDTOEnvs instance itself
+   * @return the CloudServerDTOEnvs instance itself
    */
-  public CloudServerCreateDTOEnvs putAdditionalProperty(String key, Object value) {
+  public CloudServerDTOEnvs putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -130,9 +130,9 @@ public class CloudServerCreateDTOEnvs {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CloudServerCreateDTOEnvs cloudServerCreateDTOEnvs = (CloudServerCreateDTOEnvs) o;
-    return Objects.equals(this.empty, cloudServerCreateDTOEnvs.empty)&&
-        Objects.equals(this.additionalProperties, cloudServerCreateDTOEnvs.additionalProperties);
+    CloudServerDTOEnvs cloudServerDTOEnvs = (CloudServerDTOEnvs) o;
+    return Objects.equals(this.empty, cloudServerDTOEnvs.empty)&&
+        Objects.equals(this.additionalProperties, cloudServerDTOEnvs.additionalProperties);
   }
 
   @Override
@@ -143,7 +143,7 @@ public class CloudServerCreateDTOEnvs {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CloudServerCreateDTOEnvs {\n");
+    sb.append("class CloudServerDTOEnvs {\n");
     sb.append("    empty: ").append(toIndentedString(empty)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -174,12 +174,12 @@ public class CloudServerCreateDTOEnvs {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to CloudServerCreateDTOEnvs
+   * @throws IOException if the JSON Element is invalid with respect to CloudServerDTOEnvs
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!CloudServerCreateDTOEnvs.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CloudServerCreateDTOEnvs is not found in the empty JSON string", CloudServerCreateDTOEnvs.openapiRequiredFields.toString()));
+        if (!CloudServerDTOEnvs.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CloudServerDTOEnvs is not found in the empty JSON string", CloudServerDTOEnvs.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -189,16 +189,16 @@ public class CloudServerCreateDTOEnvs {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CloudServerCreateDTOEnvs.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CloudServerCreateDTOEnvs' and its subtypes
+       if (!CloudServerDTOEnvs.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CloudServerDTOEnvs' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CloudServerCreateDTOEnvs> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CloudServerCreateDTOEnvs.class));
+       final TypeAdapter<CloudServerDTOEnvs> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CloudServerDTOEnvs.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CloudServerCreateDTOEnvs>() {
+       return (TypeAdapter<T>) new TypeAdapter<CloudServerDTOEnvs>() {
            @Override
-           public void write(JsonWriter out, CloudServerCreateDTOEnvs value) throws IOException {
+           public void write(JsonWriter out, CloudServerDTOEnvs value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -226,12 +226,12 @@ public class CloudServerCreateDTOEnvs {
            }
 
            @Override
-           public CloudServerCreateDTOEnvs read(JsonReader in) throws IOException {
+           public CloudServerDTOEnvs read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             CloudServerCreateDTOEnvs instance = thisAdapter.fromJsonTree(jsonObj);
+             CloudServerDTOEnvs instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -258,18 +258,18 @@ public class CloudServerCreateDTOEnvs {
   }
 
   /**
-   * Create an instance of CloudServerCreateDTOEnvs given an JSON string
+   * Create an instance of CloudServerDTOEnvs given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CloudServerCreateDTOEnvs
-   * @throws IOException if the JSON string is invalid with respect to CloudServerCreateDTOEnvs
+   * @return An instance of CloudServerDTOEnvs
+   * @throws IOException if the JSON string is invalid with respect to CloudServerDTOEnvs
    */
-  public static CloudServerCreateDTOEnvs fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CloudServerCreateDTOEnvs.class);
+  public static CloudServerDTOEnvs fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CloudServerDTOEnvs.class);
   }
 
   /**
-   * Convert an instance of CloudServerCreateDTOEnvs to an JSON string
+   * Convert an instance of CloudServerDTOEnvs to an JSON string
    *
    * @return JSON string
    */

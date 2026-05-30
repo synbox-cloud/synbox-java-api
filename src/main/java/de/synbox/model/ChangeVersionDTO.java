@@ -48,22 +48,22 @@ import de.synbox.invoker.JSON;
 /**
  * DTO for changing the gameserver version
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-28T20:21:57.322351588Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-30T17:21:49.974498957Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class ChangeVersionDTO {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   @jakarta.annotation.Nonnull
   private String type;
 
+  public static final String SERIALIZED_NAME_MODRINTH_MODPACK = "modrinthModpack";
+  @SerializedName(SERIALIZED_NAME_MODRINTH_MODPACK)
+  @jakarta.annotation.Nullable
+  private String modrinthModpack;
+
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
   @jakarta.annotation.Nonnull
   private String version;
-
-  public static final String SERIALIZED_NAME_MODRINTH_M_O_D_P_A_C_K = "modrinth_MODPACK";
-  @SerializedName(SERIALIZED_NAME_MODRINTH_M_O_D_P_A_C_K)
-  @jakarta.annotation.Nullable
-  private String modrinthMODPACK;
 
   public ChangeVersionDTO() {
   }
@@ -87,6 +87,25 @@ public class ChangeVersionDTO {
   }
 
 
+  public ChangeVersionDTO modrinthModpack(@jakarta.annotation.Nullable String modrinthModpack) {
+    this.modrinthModpack = modrinthModpack;
+    return this;
+  }
+
+  /**
+   * modpack identifier
+   * @return modrinthModpack
+   */
+  @jakarta.annotation.Nullable
+  public String getModrinthModpack() {
+    return modrinthModpack;
+  }
+
+  public void setModrinthModpack(@jakarta.annotation.Nullable String modrinthModpack) {
+    this.modrinthModpack = modrinthModpack;
+  }
+
+
   public ChangeVersionDTO version(@jakarta.annotation.Nonnull String version) {
     this.version = version;
     return this;
@@ -106,25 +125,6 @@ public class ChangeVersionDTO {
   }
 
 
-  public ChangeVersionDTO modrinthMODPACK(@jakarta.annotation.Nullable String modrinthMODPACK) {
-    this.modrinthMODPACK = modrinthMODPACK;
-    return this;
-  }
-
-  /**
-   * Get modrinthMODPACK
-   * @return modrinthMODPACK
-   */
-  @jakarta.annotation.Nullable
-  public String getModrinthMODPACK() {
-    return modrinthMODPACK;
-  }
-
-  public void setModrinthMODPACK(@jakarta.annotation.Nullable String modrinthMODPACK) {
-    this.modrinthMODPACK = modrinthMODPACK;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -136,13 +136,13 @@ public class ChangeVersionDTO {
     }
     ChangeVersionDTO changeVersionDTO = (ChangeVersionDTO) o;
     return Objects.equals(this.type, changeVersionDTO.type) &&
-        Objects.equals(this.version, changeVersionDTO.version) &&
-        Objects.equals(this.modrinthMODPACK, changeVersionDTO.modrinthMODPACK);
+        Objects.equals(this.modrinthModpack, changeVersionDTO.modrinthModpack) &&
+        Objects.equals(this.version, changeVersionDTO.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, version, modrinthMODPACK);
+    return Objects.hash(type, modrinthModpack, version);
   }
 
   @Override
@@ -150,8 +150,8 @@ public class ChangeVersionDTO {
     StringBuilder sb = new StringBuilder();
     sb.append("class ChangeVersionDTO {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    modrinthModpack: ").append(toIndentedString(modrinthModpack)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    modrinthMODPACK: ").append(toIndentedString(modrinthMODPACK)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -170,7 +170,7 @@ public class ChangeVersionDTO {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("type", "version", "modrinth_MODPACK"));
+    openapiFields = new HashSet<String>(Arrays.asList("type", "modrinthModpack", "version"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "version"));
@@ -207,11 +207,11 @@ public class ChangeVersionDTO {
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
+      if ((jsonObj.get("modrinthModpack") != null && !jsonObj.get("modrinthModpack").isJsonNull()) && !jsonObj.get("modrinthModpack").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `modrinthModpack` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modrinthModpack").toString()));
+      }
       if (!jsonObj.get("version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
-      }
-      if ((jsonObj.get("modrinth_MODPACK") != null && !jsonObj.get("modrinth_MODPACK").isJsonNull()) && !jsonObj.get("modrinth_MODPACK").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `modrinth_MODPACK` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modrinth_MODPACK").toString()));
       }
   }
 

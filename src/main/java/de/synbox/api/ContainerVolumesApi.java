@@ -81,8 +81,8 @@ public class ContainerVolumesApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Volumes retrieved successfully </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getVolumesCall(@jakarta.annotation.Nonnull String serverId, final ApiCallback _callback) throws ApiException {
@@ -151,8 +151,8 @@ public class ContainerVolumesApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Volumes retrieved successfully </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public String getVolumes(@jakarta.annotation.Nonnull String serverId) throws ApiException {
@@ -170,8 +170,8 @@ public class ContainerVolumesApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Volumes retrieved successfully </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<String> getVolumesWithHttpInfo(@jakarta.annotation.Nonnull String serverId) throws ApiException {
@@ -191,8 +191,8 @@ public class ContainerVolumesApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Volumes retrieved successfully </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getVolumesAsync(@jakarta.annotation.Nonnull String serverId, final ApiCallback<String> _callback) throws ApiException {
@@ -213,8 +213,8 @@ public class ContainerVolumesApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Volume selected successfully </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call selectVolumeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
@@ -290,8 +290,8 @@ public class ContainerVolumesApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Volume selected successfully </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public String selectVolume(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String id) throws ApiException {
@@ -310,8 +310,8 @@ public class ContainerVolumesApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Volume selected successfully </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<String> selectVolumeWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String id) throws ApiException {
@@ -332,8 +332,8 @@ public class ContainerVolumesApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Volume selected successfully </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call selectVolumeAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String id, final ApiCallback<String> _callback) throws ApiException {

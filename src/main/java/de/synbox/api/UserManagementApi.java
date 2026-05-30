@@ -321,7 +321,7 @@ public class UserManagementApi {
         return localVarCall;
     }
     /**
-     * Build call for getUsers
+     * Build call for getUsers1
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -333,7 +333,7 @@ public class UserManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUsersCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUsers1Call(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -378,8 +378,8 @@ public class UserManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUsersValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return getUsersCall(_callback);
+    private okhttp3.Call getUsers1ValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        return getUsers1Call(_callback);
 
     }
 
@@ -396,8 +396,8 @@ public class UserManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public String getUsers() throws ApiException {
-        ApiResponse<String> localVarResp = getUsersWithHttpInfo();
+    public String getUsers1() throws ApiException {
+        ApiResponse<String> localVarResp = getUsers1WithHttpInfo();
         return localVarResp.getData();
     }
 
@@ -414,8 +414,8 @@ public class UserManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> getUsersWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = getUsersValidateBeforeCall(null);
+    public ApiResponse<String> getUsers1WithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getUsers1ValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -434,9 +434,9 @@ public class UserManagementApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUsersAsync(final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call getUsers1Async(final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUsersValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = getUsers1ValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -453,8 +453,8 @@ public class UserManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully updated user status </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateUserEnabledCall(@jakarta.annotation.Nonnull String accountId, @jakarta.annotation.Nonnull Boolean body, final ApiCallback _callback) throws ApiException {
@@ -531,8 +531,8 @@ public class UserManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully updated user status </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
      </table>
      */
     public Boolean updateUserEnabled(@jakarta.annotation.Nonnull String accountId, @jakarta.annotation.Nonnull Boolean body) throws ApiException {
@@ -552,8 +552,8 @@ public class UserManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully updated user status </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Boolean> updateUserEnabledWithHttpInfo(@jakarta.annotation.Nonnull String accountId, @jakarta.annotation.Nonnull Boolean body) throws ApiException {
@@ -575,8 +575,8 @@ public class UserManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully updated user status </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateUserEnabledAsync(@jakarta.annotation.Nonnull String accountId, @jakarta.annotation.Nonnull Boolean body, final ApiCallback<Boolean> _callback) throws ApiException {
@@ -598,8 +598,8 @@ public class UserManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully updated user tokens </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateUserTokensCall(@jakarta.annotation.Nonnull String accountId, @jakarta.annotation.Nonnull Double body, final ApiCallback _callback) throws ApiException {
@@ -676,8 +676,8 @@ public class UserManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully updated user tokens </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
      </table>
      */
     public Double updateUserTokens(@jakarta.annotation.Nonnull String accountId, @jakarta.annotation.Nonnull Double body) throws ApiException {
@@ -697,8 +697,8 @@ public class UserManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully updated user tokens </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Double> updateUserTokensWithHttpInfo(@jakarta.annotation.Nonnull String accountId, @jakarta.annotation.Nonnull Double body) throws ApiException {
@@ -720,8 +720,8 @@ public class UserManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully updated user tokens </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> User not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateUserTokensAsync(@jakarta.annotation.Nonnull String accountId, @jakarta.annotation.Nonnull Double body, final ApiCallback<Double> _callback) throws ApiException {

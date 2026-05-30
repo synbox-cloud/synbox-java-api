@@ -83,8 +83,8 @@ public class ScheduleManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully created schedule </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createSchedulesCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ScheduleModel scheduleModel, final ApiCallback _callback) throws ApiException {
@@ -160,8 +160,8 @@ public class ScheduleManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully created schedule </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public String createSchedules(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ScheduleModel scheduleModel) throws ApiException {
@@ -180,8 +180,8 @@ public class ScheduleManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully created schedule </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<String> createSchedulesWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ScheduleModel scheduleModel) throws ApiException {
@@ -202,8 +202,8 @@ public class ScheduleManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully created schedule </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createSchedulesAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ScheduleModel scheduleModel, final ApiCallback<String> _callback) throws ApiException {
@@ -496,8 +496,8 @@ public class ScheduleManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully updated schedule </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateSchedulesCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ScheduleModel scheduleModel, final ApiCallback _callback) throws ApiException {
@@ -573,8 +573,8 @@ public class ScheduleManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully updated schedule </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public String updateSchedules(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ScheduleModel scheduleModel) throws ApiException {
@@ -593,8 +593,8 @@ public class ScheduleManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully updated schedule </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<String> updateSchedulesWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ScheduleModel scheduleModel) throws ApiException {
@@ -615,8 +615,8 @@ public class ScheduleManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully updated schedule </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateSchedulesAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ScheduleModel scheduleModel, final ApiCallback<String> _callback) throws ApiException {

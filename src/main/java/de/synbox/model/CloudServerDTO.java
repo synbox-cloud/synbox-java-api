@@ -20,8 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import de.synbox.model.BackupModel;
-import de.synbox.model.CloudServerCreateDTOEnvs;
-import de.synbox.model.ContainerProvider;
+import de.synbox.model.CloudServerDTOEnvs;
 import de.synbox.model.Document;
 import de.synbox.model.ScheduleModel;
 import java.io.IOException;
@@ -55,7 +54,7 @@ import de.synbox.invoker.JSON;
 /**
  * CloudServerDTO
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-28T20:21:57.322351588Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-30T17:21:49.974498957Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerDTO {
   public static final String SERIALIZED_NAME_SERVER_ID = "serverId";
   @SerializedName(SERIALIZED_NAME_SERVER_ID)
@@ -146,7 +145,7 @@ public class CloudServerDTO {
   public static final String SERIALIZED_NAME_ENVS = "envs";
   @SerializedName(SERIALIZED_NAME_ENVS)
   @jakarta.annotation.Nullable
-  private CloudServerCreateDTOEnvs envs;
+  private CloudServerDTOEnvs envs;
 
   public static final String SERIALIZED_NAME_START = "start";
   @SerializedName(SERIALIZED_NAME_START)
@@ -217,11 +216,6 @@ public class CloudServerDTO {
   @SerializedName(SERIALIZED_NAME_STATUS)
   @jakarta.annotation.Nullable
   private String status;
-
-  public static final String SERIALIZED_NAME_CONTAINER_PROVIDER = "containerProvider";
-  @SerializedName(SERIALIZED_NAME_CONTAINER_PROVIDER)
-  @jakarta.annotation.Nullable
-  private ContainerProvider containerProvider;
 
   public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
@@ -307,7 +301,7 @@ public class CloudServerDTO {
   }
 
 
-  public CloudServerDTO envs(@jakarta.annotation.Nullable CloudServerCreateDTOEnvs envs) {
+  public CloudServerDTO envs(@jakarta.annotation.Nullable CloudServerDTOEnvs envs) {
     this.envs = envs;
     return this;
   }
@@ -317,11 +311,11 @@ public class CloudServerDTO {
    * @return envs
    */
   @jakarta.annotation.Nullable
-  public CloudServerCreateDTOEnvs getEnvs() {
+  public CloudServerDTOEnvs getEnvs() {
     return envs;
   }
 
-  public void setEnvs(@jakarta.annotation.Nullable CloudServerCreateDTOEnvs envs) {
+  public void setEnvs(@jakarta.annotation.Nullable CloudServerDTOEnvs envs) {
     this.envs = envs;
   }
 
@@ -508,7 +502,7 @@ public class CloudServerDTO {
   }
 
   /**
-   * Get permissions
+   * Permission settings as key-value pairs
    * @return permissions
    */
   @jakarta.annotation.Nullable
@@ -616,25 +610,6 @@ public class CloudServerDTO {
   }
 
 
-  public CloudServerDTO containerProvider(@jakarta.annotation.Nullable ContainerProvider containerProvider) {
-    this.containerProvider = containerProvider;
-    return this;
-  }
-
-  /**
-   * Get containerProvider
-   * @return containerProvider
-   */
-  @jakarta.annotation.Nullable
-  public ContainerProvider getContainerProvider() {
-    return containerProvider;
-  }
-
-  public void setContainerProvider(@jakarta.annotation.Nullable ContainerProvider containerProvider) {
-    this.containerProvider = containerProvider;
-  }
-
-
   public CloudServerDTO accountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
     return this;
@@ -683,13 +658,12 @@ public class CloudServerDTO {
         Objects.equals(this.ip, cloudServerDTO.ip) &&
         Objects.equals(this.metrics, cloudServerDTO.metrics) &&
         Objects.equals(this.status, cloudServerDTO.status) &&
-        Objects.equals(this.containerProvider, cloudServerDTO.containerProvider) &&
         Objects.equals(this.accountId, cloudServerDTO.accountId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serverId, powerLevel, startVolume, provider, envs, start, stop, displayName, organization, enableAutoPowerControl, volumes, schedules, backups, permissions, owner, port, ip, metrics, status, containerProvider, accountId);
+    return Objects.hash(serverId, powerLevel, startVolume, provider, envs, start, stop, displayName, organization, enableAutoPowerControl, volumes, schedules, backups, permissions, owner, port, ip, metrics, status, accountId);
   }
 
   @Override
@@ -715,7 +689,6 @@ public class CloudServerDTO {
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    containerProvider: ").append(toIndentedString(containerProvider)).append("\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -735,7 +708,7 @@ public class CloudServerDTO {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("serverId", "powerLevel", "startVolume", "provider", "envs", "start", "stop", "displayName", "organization", "enableAutoPowerControl", "volumes", "schedules", "backups", "permissions", "owner", "port", "ip", "metrics", "status", "containerProvider", "account_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("serverId", "powerLevel", "startVolume", "provider", "envs", "start", "stop", "displayName", "organization", "enableAutoPowerControl", "volumes", "schedules", "backups", "permissions", "owner", "port", "ip", "metrics", "status", "account_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("powerLevel"));
@@ -838,10 +811,6 @@ public class CloudServerDTO {
       }
       if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-      }
-      // validate the optional field `containerProvider`
-      if (jsonObj.get("containerProvider") != null && !jsonObj.get("containerProvider").isJsonNull()) {
-        ContainerProvider.validateJsonElement(jsonObj.get("containerProvider"));
       }
       if ((jsonObj.get("account_id") != null && !jsonObj.get("account_id").isJsonNull()) && !jsonObj.get("account_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_id").toString()));

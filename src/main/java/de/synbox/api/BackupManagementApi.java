@@ -82,9 +82,9 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Backup-Erstellung gestartet </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Backup konnte nicht gestartet werden oder Server ist gesperrt </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung zum Erstellen von Backups </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Backup-Erstellung gestartet </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call backupContainerCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String volume, final ApiCallback _callback) throws ApiException {
@@ -115,8 +115,8 @@ public class BackupManagementApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "*/*",
-            "application/json"
+            "application/json",
+            "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -161,9 +161,9 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Backup-Erstellung gestartet </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Backup konnte nicht gestartet werden oder Server ist gesperrt </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung zum Erstellen von Backups </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Backup-Erstellung gestartet </td><td>  -  </td></tr>
      </table>
      */
     public String backupContainer(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String volume) throws ApiException {
@@ -182,9 +182,9 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Backup-Erstellung gestartet </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Backup konnte nicht gestartet werden oder Server ist gesperrt </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung zum Erstellen von Backups </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Backup-Erstellung gestartet </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<String> backupContainerWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String volume) throws ApiException {
@@ -205,9 +205,9 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Backup-Erstellung gestartet </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Backup konnte nicht gestartet werden oder Server ist gesperrt </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung zum Erstellen von Backups </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Backup-Erstellung gestartet </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call backupContainerAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String volume, final ApiCallback<String> _callback) throws ApiException {
@@ -369,9 +369,9 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Ungültige Download-ID oder keine Berechtigung </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Backup existiert nicht oder Server ist gesperrt </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Backup-Download gestartet </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Backup existiert nicht oder Server ist gesperrt </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Ungültige Download-ID oder keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call downloadBackUpCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String downloadId, final ApiCallback _callback) throws ApiException {
@@ -402,8 +402,8 @@ public class BackupManagementApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "*/*",
-            "application/octet-stream"
+            "application/octet-stream",
+            "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -447,9 +447,9 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Ungültige Download-ID oder keine Berechtigung </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Backup existiert nicht oder Server ist gesperrt </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Backup-Download gestartet </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Backup existiert nicht oder Server ist gesperrt </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Ungültige Download-ID oder keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public void downloadBackUp(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String downloadId) throws ApiException {
@@ -467,9 +467,9 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Ungültige Download-ID oder keine Berechtigung </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Backup existiert nicht oder Server ist gesperrt </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Backup-Download gestartet </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Backup existiert nicht oder Server ist gesperrt </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Ungültige Download-ID oder keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> downloadBackUpWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String downloadId) throws ApiException {
@@ -489,9 +489,9 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Ungültige Download-ID oder keine Berechtigung </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Backup existiert nicht oder Server ist gesperrt </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Backup-Download gestartet </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Backup existiert nicht oder Server ist gesperrt </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Ungültige Download-ID oder keine Berechtigung </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call downloadBackUpAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String downloadId, final ApiCallback<Void> _callback) throws ApiException {
@@ -510,8 +510,8 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung zum Anzeigen von Backups </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Liste der Backups </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung zum Anzeigen von Backups </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listAllBackupsCall(@jakarta.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
@@ -541,8 +541,8 @@ public class BackupManagementApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "*/*",
-            "application/json"
+            "application/json",
+            "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -580,8 +580,8 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung zum Anzeigen von Backups </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Liste der Backups </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung zum Anzeigen von Backups </td><td>  -  </td></tr>
      </table>
      */
     public void listAllBackups(@jakarta.annotation.Nonnull String id) throws ApiException {
@@ -598,8 +598,8 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung zum Anzeigen von Backups </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Liste der Backups </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung zum Anzeigen von Backups </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> listAllBackupsWithHttpInfo(@jakarta.annotation.Nonnull String id) throws ApiException {
@@ -618,8 +618,8 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung zum Anzeigen von Backups </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Liste der Backups </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung zum Anzeigen von Backups </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call listAllBackupsAsync(@jakarta.annotation.Nonnull String id, final ApiCallback<Void> _callback) throws ApiException {
@@ -639,9 +639,9 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Download-ID erfolgreich generiert </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Backup existiert nicht oder Server ist gesperrt </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung zum Zugriff auf Backups </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Download-ID erfolgreich generiert </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call requestBackupCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String backupId, final ApiCallback _callback) throws ApiException {
@@ -672,8 +672,8 @@ public class BackupManagementApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "*/*",
-            "application/json"
+            "application/json",
+            "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -718,9 +718,9 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Download-ID erfolgreich generiert </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Backup existiert nicht oder Server ist gesperrt </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung zum Zugriff auf Backups </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Download-ID erfolgreich generiert </td><td>  -  </td></tr>
      </table>
      */
     public String requestBackup(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String backupId) throws ApiException {
@@ -739,9 +739,9 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Download-ID erfolgreich generiert </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Backup existiert nicht oder Server ist gesperrt </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung zum Zugriff auf Backups </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Download-ID erfolgreich generiert </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<String> requestBackupWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String backupId) throws ApiException {
@@ -762,9 +762,9 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Download-ID erfolgreich generiert </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Backup existiert nicht oder Server ist gesperrt </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Keine Berechtigung zum Zugriff auf Backups </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Download-ID erfolgreich generiert </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call requestBackupAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String backupId, final ApiCallback<String> _callback) throws ApiException {
@@ -786,11 +786,11 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung zum Wiederherstellen von Backups </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Server ist gesperrt oder Wiederherstellung fehlgeschlagen </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Interner Serverfehler bei der Wiederherstellung </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Backup erfolgreich wiederhergestellt </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Server ist gesperrt oder Wiederherstellung fehlgeschlagen </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung zum Wiederherstellen von Backups </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Backup nicht gefunden </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Serverfehler bei der Wiederherstellung </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call restoreBackupCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String backupid, @jakarta.annotation.Nonnull String volumeReplace, final ApiCallback _callback) throws ApiException {
@@ -873,11 +873,11 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung zum Wiederherstellen von Backups </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Server ist gesperrt oder Wiederherstellung fehlgeschlagen </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Interner Serverfehler bei der Wiederherstellung </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Backup erfolgreich wiederhergestellt </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Server ist gesperrt oder Wiederherstellung fehlgeschlagen </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung zum Wiederherstellen von Backups </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Backup nicht gefunden </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Serverfehler bei der Wiederherstellung </td><td>  -  </td></tr>
      </table>
      */
     public String restoreBackup(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String backupid, @jakarta.annotation.Nonnull String volumeReplace) throws ApiException {
@@ -897,11 +897,11 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung zum Wiederherstellen von Backups </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Server ist gesperrt oder Wiederherstellung fehlgeschlagen </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Interner Serverfehler bei der Wiederherstellung </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Backup erfolgreich wiederhergestellt </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Server ist gesperrt oder Wiederherstellung fehlgeschlagen </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung zum Wiederherstellen von Backups </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Backup nicht gefunden </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Serverfehler bei der Wiederherstellung </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<String> restoreBackupWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String backupid, @jakarta.annotation.Nonnull String volumeReplace) throws ApiException {
@@ -923,11 +923,11 @@ public class BackupManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Keine Berechtigung zum Wiederherstellen von Backups </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Server ist gesperrt oder Wiederherstellung fehlgeschlagen </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Interner Serverfehler bei der Wiederherstellung </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Backup erfolgreich wiederhergestellt </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Server ist gesperrt oder Wiederherstellung fehlgeschlagen </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Keine Berechtigung zum Wiederherstellen von Backups </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Backup nicht gefunden </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Interner Serverfehler bei der Wiederherstellung </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call restoreBackupAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String backupid, @jakarta.annotation.Nonnull String volumeReplace, final ApiCallback<String> _callback) throws ApiException {

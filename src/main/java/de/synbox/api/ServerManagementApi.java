@@ -87,8 +87,8 @@ public class ServerManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully created container </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - Various error codes: USER_NOT_FOUND, NOT_ENOUGH_TOKENS, NOT_ENABLED, HYTALE_FREE_LIMIT, ORGANIZATION_NOT_PRESENT, MEMBER_NOT_IN_ORGANIZATION, ORGANIZATION_NOT_PERMITTET </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createContainerCall(@jakarta.annotation.Nonnull CloudServerCreateDTO cloudServerCreateDTO, final ApiCallback _callback) throws ApiException {
@@ -158,8 +158,8 @@ public class ServerManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully created container </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - Various error codes: USER_NOT_FOUND, NOT_ENOUGH_TOKENS, NOT_ENABLED, HYTALE_FREE_LIMIT, ORGANIZATION_NOT_PRESENT, MEMBER_NOT_IN_ORGANIZATION, ORGANIZATION_NOT_PERMITTET </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
      </table>
      */
     public CloudServerDTO createContainer(@jakarta.annotation.Nonnull CloudServerCreateDTO cloudServerCreateDTO) throws ApiException {
@@ -178,8 +178,8 @@ public class ServerManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully created container </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - Various error codes: USER_NOT_FOUND, NOT_ENOUGH_TOKENS, NOT_ENABLED, HYTALE_FREE_LIMIT, ORGANIZATION_NOT_PRESENT, MEMBER_NOT_IN_ORGANIZATION, ORGANIZATION_NOT_PERMITTET </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CloudServerDTO> createContainerWithHttpInfo(@jakarta.annotation.Nonnull CloudServerCreateDTO cloudServerCreateDTO) throws ApiException {
@@ -200,8 +200,8 @@ public class ServerManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully created container </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - Various error codes: USER_NOT_FOUND, NOT_ENOUGH_TOKENS, NOT_ENABLED, HYTALE_FREE_LIMIT, ORGANIZATION_NOT_PRESENT, MEMBER_NOT_IN_ORGANIZATION, ORGANIZATION_NOT_PERMITTET </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error - Network assignment failed or user blocked </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createContainerAsync(@jakarta.annotation.Nonnull CloudServerCreateDTO cloudServerCreateDTO, final ApiCallback<CloudServerDTO> _callback) throws ApiException {
@@ -221,9 +221,9 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted container </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No delete permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully deleted container </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteContainerCall(@jakarta.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
@@ -292,9 +292,9 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted container </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No delete permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully deleted container </td><td>  -  </td></tr>
      </table>
      */
     public CloudServerModel deleteContainer(@jakarta.annotation.Nonnull String id) throws ApiException {
@@ -312,9 +312,9 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted container </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No delete permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully deleted container </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<CloudServerModel> deleteContainerWithHttpInfo(@jakarta.annotation.Nonnull String id) throws ApiException {
@@ -334,9 +334,9 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully deleted container </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No delete permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully deleted container </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteContainerAsync(@jakarta.annotation.Nonnull String id, final ApiCallback<CloudServerModel> _callback) throws ApiException {
@@ -491,8 +491,8 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved containers </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getContainersCall(@jakarta.annotation.Nullable List<ContainerFilter> filter, final ApiCallback _callback) throws ApiException {
@@ -559,8 +559,8 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved containers </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
      </table>
      */
     public List<CloudServerDTO> getContainers(@jakarta.annotation.Nullable List<ContainerFilter> filter) throws ApiException {
@@ -578,8 +578,8 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved containers </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<CloudServerDTO>> getContainersWithHttpInfo(@jakarta.annotation.Nullable List<ContainerFilter> filter) throws ApiException {
@@ -599,8 +599,8 @@ public class ServerManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved containers </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getContainersAsync(@jakarta.annotation.Nullable List<ContainerFilter> filter, final ApiCallback<List<CloudServerDTO>> _callback) throws ApiException {

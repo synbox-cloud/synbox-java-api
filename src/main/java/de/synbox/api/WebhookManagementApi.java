@@ -85,10 +85,10 @@ public class WebhookManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Webhook successfully added </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request - Invalid URI or missing parameters </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Webhook successfully added </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call addWebhookCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull WebhookRequest webhookRequest, final ApiCallback _callback) throws ApiException {
@@ -164,10 +164,10 @@ public class WebhookManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Webhook successfully added </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request - Invalid URI or missing parameters </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Webhook successfully added </td><td>  -  </td></tr>
      </table>
      */
     public BaseDTO addWebhook(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull WebhookRequest webhookRequest) throws ApiException {
@@ -186,10 +186,10 @@ public class WebhookManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Webhook successfully added </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request - Invalid URI or missing parameters </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Webhook successfully added </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<BaseDTO> addWebhookWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull WebhookRequest webhookRequest) throws ApiException {
@@ -210,10 +210,10 @@ public class WebhookManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Webhook successfully added </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request - Invalid URI or missing parameters </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Webhook successfully added </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call addWebhookAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull WebhookRequest webhookRequest, final ApiCallback<BaseDTO> _callback) throws ApiException {
@@ -233,9 +233,9 @@ public class WebhookManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved webhooks </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved webhooks </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getWebhooksCall(@jakarta.annotation.Nonnull String serverId, final ApiCallback _callback) throws ApiException {
@@ -304,9 +304,9 @@ public class WebhookManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved webhooks </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved webhooks </td><td>  -  </td></tr>
      </table>
      */
     public Object getWebhooks(@jakarta.annotation.Nonnull String serverId) throws ApiException {
@@ -324,9 +324,9 @@ public class WebhookManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved webhooks </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved webhooks </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Object> getWebhooksWithHttpInfo(@jakarta.annotation.Nonnull String serverId) throws ApiException {
@@ -346,9 +346,9 @@ public class WebhookManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved webhooks </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved webhooks </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getWebhooksAsync(@jakarta.annotation.Nonnull String serverId, final ApiCallback<Object> _callback) throws ApiException {
@@ -369,8 +369,8 @@ public class WebhookManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Webhook successfully removed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Server or webhook not found </td><td>  -  </td></tr>
      </table>
      */
@@ -447,8 +447,8 @@ public class WebhookManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Webhook successfully removed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Server or webhook not found </td><td>  -  </td></tr>
      </table>
      */
@@ -468,8 +468,8 @@ public class WebhookManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Webhook successfully removed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Server or webhook not found </td><td>  -  </td></tr>
      </table>
      */
@@ -491,8 +491,8 @@ public class WebhookManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Webhook successfully removed </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - No container permission </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Server or webhook not found </td><td>  -  </td></tr>
      </table>
      */

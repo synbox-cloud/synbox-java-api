@@ -82,8 +82,8 @@ public class StartStopManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved start and stop times </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
      </table>
@@ -154,8 +154,8 @@ public class StartStopManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved start and stop times </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
      </table>
@@ -175,8 +175,8 @@ public class StartStopManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved start and stop times </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
      </table>
@@ -198,8 +198,8 @@ public class StartStopManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved start and stop times </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
      </table>
@@ -222,10 +222,10 @@ public class StartStopManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated start and stop times </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully updated start and stop times </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call putStartCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
@@ -301,10 +301,10 @@ public class StartStopManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated start and stop times </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully updated start and stop times </td><td>  -  </td></tr>
      </table>
      */
     public StartStopTimeDTO putStart(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String body) throws ApiException {
@@ -323,10 +323,10 @@ public class StartStopManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated start and stop times </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully updated start and stop times </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<StartStopTimeDTO> putStartWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String body) throws ApiException {
@@ -347,10 +347,10 @@ public class StartStopManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully updated start and stop times </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully updated start and stop times </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call putStartAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String body, final ApiCallback<StartStopTimeDTO> _callback) throws ApiException {

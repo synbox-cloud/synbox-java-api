@@ -81,8 +81,8 @@ public class SftpManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully generated one-time password </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call generatePasswordCall(@jakarta.annotation.Nonnull String serverId, final ApiCallback _callback) throws ApiException {
@@ -151,8 +151,8 @@ public class SftpManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully generated one-time password </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
      </table>
      */
     public String generatePassword(@jakarta.annotation.Nonnull String serverId) throws ApiException {
@@ -170,8 +170,8 @@ public class SftpManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully generated one-time password </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<String> generatePasswordWithHttpInfo(@jakarta.annotation.Nonnull String serverId) throws ApiException {
@@ -191,8 +191,8 @@ public class SftpManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully generated one-time password </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call generatePasswordAsync(@jakarta.annotation.Nonnull String serverId, final ApiCallback<String> _callback) throws ApiException {

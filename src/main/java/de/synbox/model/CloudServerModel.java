@@ -20,8 +20,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import de.synbox.model.BackupModel;
-import de.synbox.model.CloudServerModelEnvs;
-import de.synbox.model.ContainerProvider;
 import de.synbox.model.Document;
 import de.synbox.model.ScheduleModel;
 import de.synbox.model.Webhook;
@@ -56,7 +54,7 @@ import de.synbox.invoker.JSON;
 /**
  * CloudServerModel
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-28T20:21:57.322351588Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-30T17:21:49.974498957Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerModel {
   public static final String SERIALIZED_NAME_PROVIDER = "provider";
   @SerializedName(SERIALIZED_NAME_PROVIDER)
@@ -67,6 +65,11 @@ public class CloudServerModel {
   @SerializedName(SERIALIZED_NAME_START)
   @jakarta.annotation.Nullable
   private String start;
+
+  public static final String SERIALIZED_NAME_DELETE_ON_STOP = "deleteOnStop";
+  @SerializedName(SERIALIZED_NAME_DELETE_ON_STOP)
+  @jakarta.annotation.Nullable
+  private Boolean deleteOnStop;
 
   public static final String SERIALIZED_NAME_STOP = "stop";
   @SerializedName(SERIALIZED_NAME_STOP)
@@ -207,7 +210,7 @@ public class CloudServerModel {
   public static final String SERIALIZED_NAME_ENVS = "envs";
   @SerializedName(SERIALIZED_NAME_ENVS)
   @jakarta.annotation.Nullable
-  private CloudServerModelEnvs envs;
+  private Document envs;
 
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
@@ -239,10 +242,15 @@ public class CloudServerModel {
   @jakarta.annotation.Nullable
   private String additionalPort;
 
-  public static final String SERIALIZED_NAME_CONTAINER_PROVIDER = "containerProvider";
-  @SerializedName(SERIALIZED_NAME_CONTAINER_PROVIDER)
+  public static final String SERIALIZED_NAME_RESTARTING = "restarting";
+  @SerializedName(SERIALIZED_NAME_RESTARTING)
   @jakarta.annotation.Nullable
-  private ContainerProvider containerProvider;
+  private Boolean restarting;
+
+  public static final String SERIALIZED_NAME_ONE_TME_PASSWORD = "oneTmePassword";
+  @SerializedName(SERIALIZED_NAME_ONE_TME_PASSWORD)
+  @jakarta.annotation.Nullable
+  private String oneTmePassword;
 
   public static final String SERIALIZED_NAME_DELTA_TILL_START = "deltaTillStart";
   @SerializedName(SERIALIZED_NAME_DELTA_TILL_START)
@@ -292,6 +300,25 @@ public class CloudServerModel {
 
   public void setStart(@jakarta.annotation.Nullable String start) {
     this.start = start;
+  }
+
+
+  public CloudServerModel deleteOnStop(@jakarta.annotation.Nullable Boolean deleteOnStop) {
+    this.deleteOnStop = deleteOnStop;
+    return this;
+  }
+
+  /**
+   * Get deleteOnStop
+   * @return deleteOnStop
+   */
+  @jakarta.annotation.Nullable
+  public Boolean getDeleteOnStop() {
+    return deleteOnStop;
+  }
+
+  public void setDeleteOnStop(@jakarta.annotation.Nullable Boolean deleteOnStop) {
+    this.deleteOnStop = deleteOnStop;
   }
 
 
@@ -585,7 +612,7 @@ public class CloudServerModel {
   }
 
 
-  public CloudServerModel envs(@jakarta.annotation.Nullable CloudServerModelEnvs envs) {
+  public CloudServerModel envs(@jakarta.annotation.Nullable Document envs) {
     this.envs = envs;
     return this;
   }
@@ -595,11 +622,11 @@ public class CloudServerModel {
    * @return envs
    */
   @jakarta.annotation.Nullable
-  public CloudServerModelEnvs getEnvs() {
+  public Document getEnvs() {
     return envs;
   }
 
-  public void setEnvs(@jakarta.annotation.Nullable CloudServerModelEnvs envs) {
+  public void setEnvs(@jakarta.annotation.Nullable Document envs) {
     this.envs = envs;
   }
 
@@ -726,22 +753,41 @@ public class CloudServerModel {
   }
 
 
-  public CloudServerModel containerProvider(@jakarta.annotation.Nullable ContainerProvider containerProvider) {
-    this.containerProvider = containerProvider;
+  public CloudServerModel restarting(@jakarta.annotation.Nullable Boolean restarting) {
+    this.restarting = restarting;
     return this;
   }
 
   /**
-   * Get containerProvider
-   * @return containerProvider
+   * Get restarting
+   * @return restarting
    */
   @jakarta.annotation.Nullable
-  public ContainerProvider getContainerProvider() {
-    return containerProvider;
+  public Boolean getRestarting() {
+    return restarting;
   }
 
-  public void setContainerProvider(@jakarta.annotation.Nullable ContainerProvider containerProvider) {
-    this.containerProvider = containerProvider;
+  public void setRestarting(@jakarta.annotation.Nullable Boolean restarting) {
+    this.restarting = restarting;
+  }
+
+
+  public CloudServerModel oneTmePassword(@jakarta.annotation.Nullable String oneTmePassword) {
+    this.oneTmePassword = oneTmePassword;
+    return this;
+  }
+
+  /**
+   * Get oneTmePassword
+   * @return oneTmePassword
+   */
+  @jakarta.annotation.Nullable
+  public String getOneTmePassword() {
+    return oneTmePassword;
+  }
+
+  public void setOneTmePassword(@jakarta.annotation.Nullable String oneTmePassword) {
+    this.oneTmePassword = oneTmePassword;
   }
 
 
@@ -795,6 +841,7 @@ public class CloudServerModel {
     CloudServerModel cloudServerModel = (CloudServerModel) o;
     return Objects.equals(this.provider, cloudServerModel.provider) &&
         Objects.equals(this.start, cloudServerModel.start) &&
+        Objects.equals(this.deleteOnStop, cloudServerModel.deleteOnStop) &&
         Objects.equals(this.stop, cloudServerModel.stop) &&
         Objects.equals(this.enableAutoPowerControl, cloudServerModel.enableAutoPowerControl) &&
         Objects.equals(this.owner, cloudServerModel.owner) &&
@@ -816,14 +863,15 @@ public class CloudServerModel {
         Objects.equals(this.organization, cloudServerModel.organization) &&
         Objects.equals(this.webhooks, cloudServerModel.webhooks) &&
         Objects.equals(this.additionalPort, cloudServerModel.additionalPort) &&
-        Objects.equals(this.containerProvider, cloudServerModel.containerProvider) &&
+        Objects.equals(this.restarting, cloudServerModel.restarting) &&
+        Objects.equals(this.oneTmePassword, cloudServerModel.oneTmePassword) &&
         Objects.equals(this.deltaTillStart, cloudServerModel.deltaTillStart) &&
         Objects.equals(this.accountId, cloudServerModel.accountId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(provider, start, stop, enableAutoPowerControl, owner, displayName, ip, suspended, cpuType, powerLevel, scheduleModels, backups, startVolume, serverId, moneyPoolId, volumes, envs, permissions, port, publicIp, organization, webhooks, additionalPort, containerProvider, deltaTillStart, accountId);
+    return Objects.hash(provider, start, deleteOnStop, stop, enableAutoPowerControl, owner, displayName, ip, suspended, cpuType, powerLevel, scheduleModels, backups, startVolume, serverId, moneyPoolId, volumes, envs, permissions, port, publicIp, organization, webhooks, additionalPort, restarting, oneTmePassword, deltaTillStart, accountId);
   }
 
   @Override
@@ -832,6 +880,7 @@ public class CloudServerModel {
     sb.append("class CloudServerModel {\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
+    sb.append("    deleteOnStop: ").append(toIndentedString(deleteOnStop)).append("\n");
     sb.append("    stop: ").append(toIndentedString(stop)).append("\n");
     sb.append("    enableAutoPowerControl: ").append(toIndentedString(enableAutoPowerControl)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
@@ -853,7 +902,8 @@ public class CloudServerModel {
     sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
     sb.append("    webhooks: ").append(toIndentedString(webhooks)).append("\n");
     sb.append("    additionalPort: ").append(toIndentedString(additionalPort)).append("\n");
-    sb.append("    containerProvider: ").append(toIndentedString(containerProvider)).append("\n");
+    sb.append("    restarting: ").append(toIndentedString(restarting)).append("\n");
+    sb.append("    oneTmePassword: ").append(toIndentedString(oneTmePassword)).append("\n");
     sb.append("    deltaTillStart: ").append(toIndentedString(deltaTillStart)).append("\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("}");
@@ -874,7 +924,7 @@ public class CloudServerModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("provider", "start", "stop", "enableAutoPowerControl", "owner", "displayName", "ip", "suspended", "cpu_type", "powerLevel", "scheduleModels", "backups", "startVolume", "server_id", "money_pool_id", "volumes", "envs", "permissions", "port", "publicIp", "organization", "webhooks", "additionalPort", "containerProvider", "deltaTillStart", "account_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("provider", "start", "deleteOnStop", "stop", "enableAutoPowerControl", "owner", "displayName", "ip", "suspended", "cpu_type", "powerLevel", "scheduleModels", "backups", "startVolume", "server_id", "money_pool_id", "volumes", "envs", "permissions", "port", "publicIp", "organization", "webhooks", "additionalPort", "restarting", "oneTmePassword", "deltaTillStart", "account_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -996,9 +1046,8 @@ public class CloudServerModel {
       if ((jsonObj.get("additionalPort") != null && !jsonObj.get("additionalPort").isJsonNull()) && !jsonObj.get("additionalPort").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `additionalPort` to be a primitive type in the JSON string but got `%s`", jsonObj.get("additionalPort").toString()));
       }
-      // validate the optional field `containerProvider`
-      if (jsonObj.get("containerProvider") != null && !jsonObj.get("containerProvider").isJsonNull()) {
-        ContainerProvider.validateJsonElement(jsonObj.get("containerProvider"));
+      if ((jsonObj.get("oneTmePassword") != null && !jsonObj.get("oneTmePassword").isJsonNull()) && !jsonObj.get("oneTmePassword").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `oneTmePassword` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oneTmePassword").toString()));
       }
       if ((jsonObj.get("account_id") != null && !jsonObj.get("account_id").isJsonNull()) && !jsonObj.get("account_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_id").toString()));

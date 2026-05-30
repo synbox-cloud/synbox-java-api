@@ -93,9 +93,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully changed file permissions </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -172,9 +172,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully changed file permissions </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -194,9 +194,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully changed file permissions </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -218,9 +218,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully changed file permissions </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -242,9 +242,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully compressed files </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -321,9 +321,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully compressed files </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -343,9 +343,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully compressed files </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -367,9 +367,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully compressed files </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -391,9 +391,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully copied file </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -470,9 +470,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully copied file </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -492,9 +492,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully copied file </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -516,9 +516,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully copied file </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -540,9 +540,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully created directory </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -619,9 +619,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully created directory </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -641,9 +641,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully created directory </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -665,9 +665,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully created directory </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -689,9 +689,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully created File </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -768,9 +768,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully created File </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -790,9 +790,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully created File </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -814,9 +814,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully created File </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -838,9 +838,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully decompressed file </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -917,9 +917,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully decompressed file </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -939,9 +939,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully decompressed file </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -963,9 +963,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully decompressed file </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -987,10 +987,10 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully deleted files </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DeleteFilesRequest deleteFilesRequest, final ApiCallback _callback) throws ApiException {
@@ -1066,10 +1066,10 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully deleted files </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public String deleteFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DeleteFilesRequest deleteFilesRequest) throws ApiException {
@@ -1088,10 +1088,10 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully deleted files </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<String> deleteFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DeleteFilesRequest deleteFilesRequest) throws ApiException {
@@ -1112,10 +1112,10 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully deleted files </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call deleteFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DeleteFilesRequest deleteFilesRequest, final ApiCallback<String> _callback) throws ApiException {
@@ -1136,12 +1136,12 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully downloaded file </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call downloadFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DownloadFileRequest downloadFileRequest, final ApiCallback _callback) throws ApiException {
@@ -1217,12 +1217,12 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully downloaded file </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public String downloadFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DownloadFileRequest downloadFileRequest) throws ApiException {
@@ -1241,12 +1241,12 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully downloaded file </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<String> downloadFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DownloadFileRequest downloadFileRequest) throws ApiException {
@@ -1267,12 +1267,12 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully downloaded file </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call downloadFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DownloadFileRequest downloadFileRequest, final ApiCallback<String> _callback) throws ApiException {
@@ -1293,10 +1293,10 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved file contents </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getFileContentsCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String _file, final ApiCallback _callback) throws ApiException {
@@ -1375,10 +1375,10 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved file contents </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public String getFileContents(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String _file) throws ApiException {
@@ -1397,10 +1397,10 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved file contents </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<String> getFileContentsWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String _file) throws ApiException {
@@ -1421,10 +1421,10 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved file contents </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getFileContentsAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String _file, final ApiCallback<String> _callback) throws ApiException {
@@ -1445,9 +1445,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully listed directory contents </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -1527,9 +1527,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully listed directory contents </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -1549,9 +1549,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully listed directory contents </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -1573,9 +1573,9 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully listed directory contents </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -1597,10 +1597,10 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully renamed file </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call renameFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull RenameFilesRequest renameFilesRequest, final ApiCallback _callback) throws ApiException {
@@ -1676,10 +1676,10 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully renamed file </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public String renameFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull RenameFilesRequest renameFilesRequest) throws ApiException {
@@ -1698,10 +1698,10 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully renamed file </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<String> renameFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull RenameFilesRequest renameFilesRequest) throws ApiException {
@@ -1722,10 +1722,10 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully renamed file </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call renameFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull RenameFilesRequest renameFilesRequest, final ApiCallback<String> _callback) throws ApiException {
@@ -1746,10 +1746,10 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully wrote to file </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call saveFileCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull WriteFileRequest writeFileRequest, final ApiCallback _callback) throws ApiException {
@@ -1825,10 +1825,10 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully wrote to file </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public String saveFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull WriteFileRequest writeFileRequest) throws ApiException {
@@ -1847,10 +1847,10 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully wrote to file </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<String> saveFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull WriteFileRequest writeFileRequest) throws ApiException {
@@ -1871,10 +1871,10 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully wrote to file </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call saveFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull WriteFileRequest writeFileRequest, final ApiCallback<String> _callback) throws ApiException {
@@ -1888,7 +1888,7 @@ public class FileManagementApi {
      * Build call for uploadFile
      * @param serverId ID of the container (required)
      * @param directory Directory to upload to (required)
-     * @param _file  (required)
+     * @param _file File to upload (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1896,10 +1896,10 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully uploaded file </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -1983,17 +1983,17 @@ public class FileManagementApi {
      * Uploads a file to a container.
      * @param serverId ID of the container (required)
      * @param directory Directory to upload to (required)
-     * @param _file  (required)
+     * @param _file File to upload (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully uploaded file </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -2007,17 +2007,17 @@ public class FileManagementApi {
      * Uploads a file to a container.
      * @param serverId ID of the container (required)
      * @param directory Directory to upload to (required)
-     * @param _file  (required)
+     * @param _file File to upload (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully uploaded file </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
@@ -2032,7 +2032,7 @@ public class FileManagementApi {
      * Uploads a file to a container.
      * @param serverId ID of the container (required)
      * @param directory Directory to upload to (required)
-     * @param _file  (required)
+     * @param _file File to upload (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2040,10 +2040,10 @@ public class FileManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully uploaded file </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */

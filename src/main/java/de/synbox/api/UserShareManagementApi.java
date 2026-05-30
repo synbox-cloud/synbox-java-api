@@ -72,7 +72,7 @@ public class UserShareManagementApi {
     }
 
     /**
-     * Build call for getUsers1
+     * Build call for getUsers
      * @param serverId ID of the server (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -81,12 +81,12 @@ public class UserShareManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved users and permissions </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUsers1Call(@jakarta.annotation.Nonnull String serverId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUsersCall(@jakarta.annotation.Nonnull String serverId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -132,13 +132,13 @@ public class UserShareManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUsers1ValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUsersValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
-            throw new ApiException("Missing the required parameter 'serverId' when calling getUsers1(Async)");
+            throw new ApiException("Missing the required parameter 'serverId' when calling getUsers(Async)");
         }
 
-        return getUsers1Call(serverId, _callback);
+        return getUsersCall(serverId, _callback);
 
     }
 
@@ -152,13 +152,13 @@ public class UserShareManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved users and permissions </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
      </table>
      */
-    public String getUsers1(@jakarta.annotation.Nonnull String serverId) throws ApiException {
-        ApiResponse<String> localVarResp = getUsers1WithHttpInfo(serverId);
+    public String getUsers(@jakarta.annotation.Nonnull String serverId) throws ApiException {
+        ApiResponse<String> localVarResp = getUsersWithHttpInfo(serverId);
         return localVarResp.getData();
     }
 
@@ -172,13 +172,13 @@ public class UserShareManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved users and permissions </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> getUsers1WithHttpInfo(@jakarta.annotation.Nonnull String serverId) throws ApiException {
-        okhttp3.Call localVarCall = getUsers1ValidateBeforeCall(serverId, null);
+    public ApiResponse<String> getUsersWithHttpInfo(@jakarta.annotation.Nonnull String serverId) throws ApiException {
+        okhttp3.Call localVarCall = getUsersValidateBeforeCall(serverId, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -194,14 +194,14 @@ public class UserShareManagementApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved users and permissions </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUsers1Async(@jakarta.annotation.Nonnull String serverId, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call getUsersAsync(@jakarta.annotation.Nonnull String serverId, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUsers1ValidateBeforeCall(serverId, _callback);
+        okhttp3.Call localVarCall = getUsersValidateBeforeCall(serverId, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -218,8 +218,8 @@ public class UserShareManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully updated user permissions </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateUserPermissionsCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
@@ -296,8 +296,8 @@ public class UserShareManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully updated user permissions </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
      </table>
      */
     public String updateUserPermissions(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
@@ -317,8 +317,8 @@ public class UserShareManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully updated user permissions </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<String> updateUserPermissionsWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body) throws ApiException {
@@ -340,8 +340,8 @@ public class UserShareManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully updated user permissions </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call updateUserPermissionsAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull String body, final ApiCallback<String> _callback) throws ApiException {

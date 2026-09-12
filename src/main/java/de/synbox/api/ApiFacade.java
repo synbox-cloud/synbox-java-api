@@ -23,6 +23,7 @@ import de.synbox.api.PowerLevelControllerApi;
 import de.synbox.api.PriceControllerApi;
 import de.synbox.api.ScheduleManagementApi;
 import de.synbox.api.ServerManagementApi;
+import de.synbox.api.ServerManagementForOrganizationsApi;
 import de.synbox.api.SftpManagementApi;
 import de.synbox.api.StartStopManagementApi;
 import de.synbox.api.TransactionControllerApi;
@@ -56,6 +57,7 @@ public class ApiFacade {
   private PriceControllerApi _priceController;
   private ScheduleManagementApi _scheduleManagement;
   private ServerManagementApi _serverManagement;
+  private ServerManagementForOrganizationsApi _serverManagementForOrganizations;
   private SftpManagementApi _sftpManagement;
   private StartStopManagementApi _startStopManagement;
   private TransactionControllerApi _transactionController;
@@ -161,6 +163,10 @@ public class ApiFacade {
   public ServerManagementApi serverManagement() {
     if (_serverManagement == null) _serverManagement = new ServerManagementApi(client);
     return _serverManagement;
+  }
+  public ServerManagementForOrganizationsApi serverManagementForOrganizations() {
+    if (_serverManagementForOrganizations == null) _serverManagementForOrganizations = new ServerManagementForOrganizationsApi(client);
+    return _serverManagementForOrganizations;
   }
   public SftpManagementApi sftpManagement() {
     if (_sftpManagement == null) _sftpManagement = new SftpManagementApi(client);

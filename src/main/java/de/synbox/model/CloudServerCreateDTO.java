@@ -51,7 +51,7 @@ import de.synbox.invoker.JSON;
 /**
  * DTO for creating a new cloud server container
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T14:11:40.895085737Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T14:55:21.506388183Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerCreateDTO {
   /**
    * Power level configuration for the server
@@ -170,12 +170,12 @@ public class CloudServerCreateDTO {
 
   public static final String SERIALIZED_NAME_START = "start";
   @SerializedName(SERIALIZED_NAME_START)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String start;
 
   public static final String SERIALIZED_NAME_STOP = "stop";
   @SerializedName(SERIALIZED_NAME_STOP)
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   private String stop;
 
   public static final String SERIALIZED_NAME_DISPLAY_NAME = "displayName";
@@ -344,7 +344,7 @@ public class CloudServerCreateDTO {
   }
 
 
-  public CloudServerCreateDTO start(@jakarta.annotation.Nonnull String start) {
+  public CloudServerCreateDTO start(@jakarta.annotation.Nullable String start) {
     this.start = start;
     return this;
   }
@@ -353,17 +353,17 @@ public class CloudServerCreateDTO {
    * Start time for auto power control (HH:mm format)
    * @return start
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getStart() {
     return start;
   }
 
-  public void setStart(@jakarta.annotation.Nonnull String start) {
+  public void setStart(@jakarta.annotation.Nullable String start) {
     this.start = start;
   }
 
 
-  public CloudServerCreateDTO stop(@jakarta.annotation.Nonnull String stop) {
+  public CloudServerCreateDTO stop(@jakarta.annotation.Nullable String stop) {
     this.stop = stop;
     return this;
   }
@@ -372,12 +372,12 @@ public class CloudServerCreateDTO {
    * Stop time for auto power control (HH:mm format)
    * @return stop
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   public String getStop() {
     return stop;
   }
 
-  public void setStop(@jakarta.annotation.Nonnull String stop) {
+  public void setStop(@jakarta.annotation.Nullable String stop) {
     this.stop = stop;
   }
 
@@ -576,7 +576,7 @@ public class CloudServerCreateDTO {
     openapiFields = new HashSet<String>(Arrays.asList("powerLevel", "autoStart", "giftcode", "startVolume", "provider", "deleteOnStop", "envs", "start", "stop", "displayName", "template", "organization", "enableAutoPowerControl", "volumes", "account_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("powerLevel", "provider", "start", "stop", "displayName"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("powerLevel", "provider", "displayName"));
   }
 
   /**
@@ -621,10 +621,10 @@ public class CloudServerCreateDTO {
       if (!jsonObj.get("provider").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("provider").toString()));
       }
-      if (!jsonObj.get("start").isJsonPrimitive()) {
+      if ((jsonObj.get("start") != null && !jsonObj.get("start").isJsonNull()) && !jsonObj.get("start").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `start` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start").toString()));
       }
-      if (!jsonObj.get("stop").isJsonPrimitive()) {
+      if ((jsonObj.get("stop") != null && !jsonObj.get("stop").isJsonNull()) && !jsonObj.get("stop").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `stop` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stop").toString()));
       }
       if (!jsonObj.get("displayName").isJsonPrimitive()) {

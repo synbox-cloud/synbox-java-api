@@ -20,13 +20,14 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import de.synbox.model.BackupModel;
-import de.synbox.model.CloudServerDTOEnvs;
-import de.synbox.model.Document;
+import de.synbox.model.CloudServerDTOPermissions;
 import de.synbox.model.ScheduleModel;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,7 +55,7 @@ import de.synbox.invoker.JSON;
 /**
  * CloudServerDTO
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T15:27:34.055464669Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T16:26:31.118286076Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerDTO {
   public static final String SERIALIZED_NAME_SERVER_ID = "serverId";
   @SerializedName(SERIALIZED_NAME_SERVER_ID)
@@ -159,7 +160,7 @@ public class CloudServerDTO {
   public static final String SERIALIZED_NAME_ENVS = "envs";
   @SerializedName(SERIALIZED_NAME_ENVS)
   @jakarta.annotation.Nullable
-  private CloudServerDTOEnvs envs;
+  private Map<String, Object> envs = new HashMap<>();
 
   public static final String SERIALIZED_NAME_START = "start";
   @SerializedName(SERIALIZED_NAME_START)
@@ -204,7 +205,7 @@ public class CloudServerDTO {
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
   @jakarta.annotation.Nullable
-  private Document permissions;
+  private CloudServerDTOPermissions permissions;
 
   public static final String SERIALIZED_NAME_OWNER = "owner";
   @SerializedName(SERIALIZED_NAME_OWNER)
@@ -315,21 +316,29 @@ public class CloudServerDTO {
   }
 
 
-  public CloudServerDTO envs(@jakarta.annotation.Nullable CloudServerDTOEnvs envs) {
+  public CloudServerDTO envs(@jakarta.annotation.Nullable Map<String, Object> envs) {
     this.envs = envs;
     return this;
   }
 
+  public CloudServerDTO putEnvsItem(String key, Object envsItem) {
+    if (this.envs == null) {
+      this.envs = new HashMap<>();
+    }
+    this.envs.put(key, envsItem);
+    return this;
+  }
+
   /**
-   * Get envs
+   * Environment variables as key-value pairs
    * @return envs
    */
   @jakarta.annotation.Nullable
-  public CloudServerDTOEnvs getEnvs() {
+  public Map<String, Object> getEnvs() {
     return envs;
   }
 
-  public void setEnvs(@jakarta.annotation.Nullable CloudServerDTOEnvs envs) {
+  public void setEnvs(@jakarta.annotation.Nullable Map<String, Object> envs) {
     this.envs = envs;
   }
 
@@ -510,21 +519,21 @@ public class CloudServerDTO {
   }
 
 
-  public CloudServerDTO permissions(@jakarta.annotation.Nullable Document permissions) {
+  public CloudServerDTO permissions(@jakarta.annotation.Nullable CloudServerDTOPermissions permissions) {
     this.permissions = permissions;
     return this;
   }
 
   /**
-   * Permission settings as key-value pairs
+   * Get permissions
    * @return permissions
    */
   @jakarta.annotation.Nullable
-  public Document getPermissions() {
+  public CloudServerDTOPermissions getPermissions() {
     return permissions;
   }
 
-  public void setPermissions(@jakarta.annotation.Nullable Document permissions) {
+  public void setPermissions(@jakarta.annotation.Nullable CloudServerDTOPermissions permissions) {
     this.permissions = permissions;
   }
 

@@ -19,11 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import de.synbox.model.Document;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +52,7 @@ import de.synbox.invoker.JSON;
 /**
  * DTO for creating a new cloud server container
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T15:27:34.055464669Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T16:26:31.118286076Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerCreateDTO {
   /**
    * Power level configuration for the server
@@ -166,7 +167,7 @@ public class CloudServerCreateDTO {
   public static final String SERIALIZED_NAME_ENVS = "envs";
   @SerializedName(SERIALIZED_NAME_ENVS)
   @jakarta.annotation.Nullable
-  private Document envs;
+  private Map<String, Object> envs = new HashMap<>();
 
   public static final String SERIALIZED_NAME_START = "start";
   @SerializedName(SERIALIZED_NAME_START)
@@ -325,8 +326,16 @@ public class CloudServerCreateDTO {
   }
 
 
-  public CloudServerCreateDTO envs(@jakarta.annotation.Nullable Document envs) {
+  public CloudServerCreateDTO envs(@jakarta.annotation.Nullable Map<String, Object> envs) {
     this.envs = envs;
+    return this;
+  }
+
+  public CloudServerCreateDTO putEnvsItem(String key, Object envsItem) {
+    if (this.envs == null) {
+      this.envs = new HashMap<>();
+    }
+    this.envs.put(key, envsItem);
     return this;
   }
 
@@ -335,11 +344,11 @@ public class CloudServerCreateDTO {
    * @return envs
    */
   @jakarta.annotation.Nullable
-  public Document getEnvs() {
+  public Map<String, Object> getEnvs() {
     return envs;
   }
 
-  public void setEnvs(@jakarta.annotation.Nullable Document envs) {
+  public void setEnvs(@jakarta.annotation.Nullable Map<String, Object> envs) {
     this.envs = envs;
   }
 

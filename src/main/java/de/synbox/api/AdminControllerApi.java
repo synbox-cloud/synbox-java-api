@@ -425,6 +425,9 @@ public class AdminControllerApi {
     }
     /**
      * Build call for getServers
+     * @param page Zero-based page number (optional, default to 0)
+     * @param size Number of servers per page (optional, default to 10)
+     * @param search Case-insensitive search in id, user, name, displayname, start, stop and username (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -432,10 +435,12 @@ public class AdminControllerApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Server page loaded successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Page must be non-negative and size must be positive </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The authenticated user is not an admin </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getServersCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getServersCall(@jakarta.annotation.Nullable String page, @jakarta.annotation.Nullable String size, @jakarta.annotation.Nullable String search, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -460,6 +465,18 @@ public class AdminControllerApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (size != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("size", size));
+        }
+
+        if (search != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("search", search));
+        }
+
         final String[] localVarAccepts = {
             "*/*"
         };
@@ -480,49 +497,62 @@ public class AdminControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getServersValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return getServersCall(_callback);
+    private okhttp3.Call getServersValidateBeforeCall(@jakarta.annotation.Nullable String page, @jakarta.annotation.Nullable String size, @jakarta.annotation.Nullable String search, final ApiCallback _callback) throws ApiException {
+        return getServersCall(page, size, search, _callback);
 
     }
 
     /**
-     * 
-     * 
-     * @return String
+     * Get all game servers
+     * Returns a page of game servers. The optional search is applied before pagination to id, user, name, displayname, start, stop and username. Page numbers are zero-based and the default page size is 10.
+     * @param page Zero-based page number (optional, default to 0)
+     * @param size Number of servers per page (optional, default to 10)
+     * @param search Case-insensitive search in id, user, name, displayname, start, stop and username (optional)
+     * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Server page loaded successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Page must be non-negative and size must be positive </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The authenticated user is not an admin </td><td>  -  </td></tr>
      </table>
      */
-    public String getServers() throws ApiException {
-        ApiResponse<String> localVarResp = getServersWithHttpInfo();
+    public Object getServers(@jakarta.annotation.Nullable String page, @jakarta.annotation.Nullable String size, @jakarta.annotation.Nullable String search) throws ApiException {
+        ApiResponse<Object> localVarResp = getServersWithHttpInfo(page, size, search);
         return localVarResp.getData();
     }
 
     /**
-     * 
-     * 
-     * @return ApiResponse&lt;String&gt;
+     * Get all game servers
+     * Returns a page of game servers. The optional search is applied before pagination to id, user, name, displayname, start, stop and username. Page numbers are zero-based and the default page size is 10.
+     * @param page Zero-based page number (optional, default to 0)
+     * @param size Number of servers per page (optional, default to 10)
+     * @param search Case-insensitive search in id, user, name, displayname, start, stop and username (optional)
+     * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Server page loaded successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Page must be non-negative and size must be positive </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The authenticated user is not an admin </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> getServersWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = getServersValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+    public ApiResponse<Object> getServersWithHttpInfo(@jakarta.annotation.Nullable String page, @jakarta.annotation.Nullable String size, @jakarta.annotation.Nullable String search) throws ApiException {
+        okhttp3.Call localVarCall = getServersValidateBeforeCall(page, size, search, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     *  (asynchronously)
-     * 
+     * Get all game servers (asynchronously)
+     * Returns a page of game servers. The optional search is applied before pagination to id, user, name, displayname, start, stop and username. Page numbers are zero-based and the default page size is 10.
+     * @param page Zero-based page number (optional, default to 0)
+     * @param size Number of servers per page (optional, default to 10)
+     * @param search Case-insensitive search in id, user, name, displayname, start, stop and username (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -530,13 +560,15 @@ public class AdminControllerApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Server page loaded successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Page must be non-negative and size must be positive </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The authenticated user is not an admin </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getServersAsync(final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call getServersAsync(@jakarta.annotation.Nullable String page, @jakarta.annotation.Nullable String size, @jakarta.annotation.Nullable String search, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getServersValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        okhttp3.Call localVarCall = getServersValidateBeforeCall(page, size, search, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

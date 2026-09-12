@@ -48,7 +48,7 @@ import de.synbox.invoker.JSON;
 /**
  * Request body for copying a file.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-30T17:21:49.974498957Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T14:11:40.895085737Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CopyFileRequest {
   public static final String SERIALIZED_NAME_LOCATION = "location";
   @SerializedName(SERIALIZED_NAME_LOCATION)

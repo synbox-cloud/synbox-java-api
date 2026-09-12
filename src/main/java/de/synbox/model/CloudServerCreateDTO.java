@@ -51,30 +51,44 @@ import de.synbox.invoker.JSON;
 /**
  * DTO for creating a new cloud server container
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-30T17:21:49.974498957Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T14:11:40.895085737Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerCreateDTO {
   /**
    * Power level configuration for the server
    */
   @JsonAdapter(PowerLevelEnum.Adapter.class)
   public enum PowerLevelEnum {
+    EY_1_3("EY_1_3"),
+    
+    EY_2_4("EY_2_4"),
+    
     SMALL_COMPUTE("SMALL_COMPUTE"),
-    
-    MEDIUM_COMPUTE("MEDIUM_COMPUTE"),
-    
-    LARGE_COMPUTE("LARGE_COMPUTE"),
-    
-    HEAVY_COMPUTE("HEAVY_COMPUTE"),
     
     SMALL_RAM("SMALL_RAM"),
     
+    EY_2_8("EY_2_8"),
+    
+    EY_3_12("EY_3_12"),
+    
+    MEDIUM_COMPUTE("MEDIUM_COMPUTE"),
+    
     MEDIUM_RAM("MEDIUM_RAM"),
+    
+    EY_4_16("EY_4_16"),
+    
+    MEDIUM_PREMIUM("MEDIUM_PREMIUM"),
+    
+    LARGE_COMPUTE("LARGE_COMPUTE"),
     
     LARGE_RAM("LARGE_RAM"),
     
-    SMALL_PREMIUM("SMALL_PREMIUM"),
+    EY_6_24("EY_6_24"),
     
-    MEDIUM_PREMIUM("MEDIUM_PREMIUM");
+    HEAVY_COMPUTE("HEAVY_COMPUTE"),
+    
+    TESTSERVER("TESTSERVER"),
+    
+    SNAPSHOT_FREE("SNAPSHOT_FREE");
 
     private String value;
 
@@ -123,6 +137,16 @@ public class CloudServerCreateDTO {
   @SerializedName(SERIALIZED_NAME_POWER_LEVEL)
   @jakarta.annotation.Nonnull
   private PowerLevelEnum powerLevel;
+
+  public static final String SERIALIZED_NAME_AUTO_START = "autoStart";
+  @SerializedName(SERIALIZED_NAME_AUTO_START)
+  @jakarta.annotation.Nullable
+  private Boolean autoStart = true;
+
+  public static final String SERIALIZED_NAME_GIFTCODE = "giftcode";
+  @SerializedName(SERIALIZED_NAME_GIFTCODE)
+  @jakarta.annotation.Nullable
+  private String giftcode;
 
   public static final String SERIALIZED_NAME_START_VOLUME = "startVolume";
   @SerializedName(SERIALIZED_NAME_START_VOLUME)
@@ -203,6 +227,44 @@ public class CloudServerCreateDTO {
 
   public void setPowerLevel(@jakarta.annotation.Nonnull PowerLevelEnum powerLevel) {
     this.powerLevel = powerLevel;
+  }
+
+
+  public CloudServerCreateDTO autoStart(@jakarta.annotation.Nullable Boolean autoStart) {
+    this.autoStart = autoStart;
+    return this;
+  }
+
+  /**
+   * Start Server after creation
+   * @return autoStart
+   */
+  @jakarta.annotation.Nullable
+  public Boolean getAutoStart() {
+    return autoStart;
+  }
+
+  public void setAutoStart(@jakarta.annotation.Nullable Boolean autoStart) {
+    this.autoStart = autoStart;
+  }
+
+
+  public CloudServerCreateDTO giftcode(@jakarta.annotation.Nullable String giftcode) {
+    this.giftcode = giftcode;
+    return this;
+  }
+
+  /**
+   * Giftcode to apply
+   * @return giftcode
+   */
+  @jakarta.annotation.Nullable
+  public String getGiftcode() {
+    return giftcode;
+  }
+
+  public void setGiftcode(@jakarta.annotation.Nullable String giftcode) {
+    this.giftcode = giftcode;
   }
 
 
@@ -453,6 +515,8 @@ public class CloudServerCreateDTO {
     }
     CloudServerCreateDTO cloudServerCreateDTO = (CloudServerCreateDTO) o;
     return Objects.equals(this.powerLevel, cloudServerCreateDTO.powerLevel) &&
+        Objects.equals(this.autoStart, cloudServerCreateDTO.autoStart) &&
+        Objects.equals(this.giftcode, cloudServerCreateDTO.giftcode) &&
         Objects.equals(this.startVolume, cloudServerCreateDTO.startVolume) &&
         Objects.equals(this.provider, cloudServerCreateDTO.provider) &&
         Objects.equals(this.deleteOnStop, cloudServerCreateDTO.deleteOnStop) &&
@@ -469,7 +533,7 @@ public class CloudServerCreateDTO {
 
   @Override
   public int hashCode() {
-    return Objects.hash(powerLevel, startVolume, provider, deleteOnStop, envs, start, stop, displayName, template, organization, enableAutoPowerControl, volumes, accountId);
+    return Objects.hash(powerLevel, autoStart, giftcode, startVolume, provider, deleteOnStop, envs, start, stop, displayName, template, organization, enableAutoPowerControl, volumes, accountId);
   }
 
   @Override
@@ -477,6 +541,8 @@ public class CloudServerCreateDTO {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudServerCreateDTO {\n");
     sb.append("    powerLevel: ").append(toIndentedString(powerLevel)).append("\n");
+    sb.append("    autoStart: ").append(toIndentedString(autoStart)).append("\n");
+    sb.append("    giftcode: ").append(toIndentedString(giftcode)).append("\n");
     sb.append("    startVolume: ").append(toIndentedString(startVolume)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    deleteOnStop: ").append(toIndentedString(deleteOnStop)).append("\n");
@@ -507,7 +573,7 @@ public class CloudServerCreateDTO {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("powerLevel", "startVolume", "provider", "deleteOnStop", "envs", "start", "stop", "displayName", "template", "organization", "enableAutoPowerControl", "volumes", "account_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("powerLevel", "autoStart", "giftcode", "startVolume", "provider", "deleteOnStop", "envs", "start", "stop", "displayName", "template", "organization", "enableAutoPowerControl", "volumes", "account_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("powerLevel", "provider", "start", "stop", "displayName"));
@@ -546,6 +612,9 @@ public class CloudServerCreateDTO {
       }
       // validate the required field `powerLevel`
       PowerLevelEnum.validateJsonElement(jsonObj.get("powerLevel"));
+      if ((jsonObj.get("giftcode") != null && !jsonObj.get("giftcode").isJsonNull()) && !jsonObj.get("giftcode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `giftcode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("giftcode").toString()));
+      }
       if ((jsonObj.get("startVolume") != null && !jsonObj.get("startVolume").isJsonNull()) && !jsonObj.get("startVolume").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `startVolume` to be a primitive type in the JSON string but got `%s`", jsonObj.get("startVolume").toString()));
       }

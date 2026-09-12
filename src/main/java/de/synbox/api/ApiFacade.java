@@ -2,6 +2,8 @@ package de.synbox.api;
 
 import de.synbox.invoker.ApiClient;
 import de.synbox.api.AdminControllerApi;
+import de.synbox.api.AiGameServerAssistantApi;
+import de.synbox.api.AiServerConfigurationApi;
 import de.synbox.api.ApiKeyControllerApi;
 import de.synbox.api.BackupManagementApi;
 import de.synbox.api.BalanceControllerApi;
@@ -33,6 +35,8 @@ public class ApiFacade {
   private final ApiClient client;
 
   private AdminControllerApi _adminController;
+  private AiGameServerAssistantApi _aiGameServerAssistant;
+  private AiServerConfigurationApi _aiServerConfiguration;
   private ApiKeyControllerApi _keyController;
   private BackupManagementApi _backupManagement;
   private BalanceControllerApi _balanceController;
@@ -73,6 +77,14 @@ public class ApiFacade {
   public AdminControllerApi adminController() {
     if (_adminController == null) _adminController = new AdminControllerApi(client);
     return _adminController;
+  }
+  public AiGameServerAssistantApi aiGameServerAssistant() {
+    if (_aiGameServerAssistant == null) _aiGameServerAssistant = new AiGameServerAssistantApi(client);
+    return _aiGameServerAssistant;
+  }
+  public AiServerConfigurationApi aiServerConfiguration() {
+    if (_aiServerConfiguration == null) _aiServerConfiguration = new AiServerConfigurationApi(client);
+    return _aiServerConfiguration;
   }
   public ApiKeyControllerApi keyController() {
     if (_keyController == null) _keyController = new ApiKeyControllerApi(client);

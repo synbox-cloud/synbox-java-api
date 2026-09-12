@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import de.synbox.model.ToolApproval;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -46,58 +47,58 @@ import java.util.Set;
 import de.synbox.invoker.JSON;
 
 /**
- * BalanceInvoiceModel
+ * Response from the game-server assistant
  */
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T14:11:40.895085737Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
-public class BalanceInvoiceModel {
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
+public class GameServerChatResponse {
+  public static final String SERIALIZED_NAME_MESSAGE = "message";
+  @SerializedName(SERIALIZED_NAME_MESSAGE)
   @jakarta.annotation.Nullable
-  private Integer amount;
+  private String message;
 
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
+  public static final String SERIALIZED_NAME_APPROVAL = "approval";
+  @SerializedName(SERIALIZED_NAME_APPROVAL)
   @jakarta.annotation.Nullable
-  private String url;
+  private ToolApproval approval;
 
-  public BalanceInvoiceModel() {
+  public GameServerChatResponse() {
   }
 
-  public BalanceInvoiceModel amount(@jakarta.annotation.Nullable Integer amount) {
-    this.amount = amount;
+  public GameServerChatResponse message(@jakarta.annotation.Nullable String message) {
+    this.message = message;
     return this;
   }
 
   /**
-   * Get amount
-   * @return amount
+   * Natural-language response after any required tools have been executed
+   * @return message
    */
   @jakarta.annotation.Nullable
-  public Integer getAmount() {
-    return amount;
+  public String getMessage() {
+    return message;
   }
 
-  public void setAmount(@jakarta.annotation.Nullable Integer amount) {
-    this.amount = amount;
+  public void setMessage(@jakarta.annotation.Nullable String message) {
+    this.message = message;
   }
 
 
-  public BalanceInvoiceModel url(@jakarta.annotation.Nullable String url) {
-    this.url = url;
+  public GameServerChatResponse approval(@jakarta.annotation.Nullable ToolApproval approval) {
+    this.approval = approval;
     return this;
   }
 
   /**
-   * Get url
-   * @return url
+   * Pending user approval for a console command, if one is required
+   * @return approval
    */
   @jakarta.annotation.Nullable
-  public String getUrl() {
-    return url;
+  public ToolApproval getApproval() {
+    return approval;
   }
 
-  public void setUrl(@jakarta.annotation.Nullable String url) {
-    this.url = url;
+  public void setApproval(@jakarta.annotation.Nullable ToolApproval approval) {
+    this.approval = approval;
   }
 
 
@@ -110,22 +111,22 @@ public class BalanceInvoiceModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BalanceInvoiceModel balanceInvoiceModel = (BalanceInvoiceModel) o;
-    return Objects.equals(this.amount, balanceInvoiceModel.amount) &&
-        Objects.equals(this.url, balanceInvoiceModel.url);
+    GameServerChatResponse gameServerChatResponse = (GameServerChatResponse) o;
+    return Objects.equals(this.message, gameServerChatResponse.message) &&
+        Objects.equals(this.approval, gameServerChatResponse.approval);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, url);
+    return Objects.hash(message, approval);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BalanceInvoiceModel {\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("class GameServerChatResponse {\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    approval: ").append(toIndentedString(approval)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -144,7 +145,7 @@ public class BalanceInvoiceModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("amount", "url"));
+    openapiFields = new HashSet<String>(Arrays.asList("message", "approval"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -154,25 +155,29 @@ public class BalanceInvoiceModel {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to BalanceInvoiceModel
+   * @throws IOException if the JSON Element is invalid with respect to GameServerChatResponse
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!BalanceInvoiceModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in BalanceInvoiceModel is not found in the empty JSON string", BalanceInvoiceModel.openapiRequiredFields.toString()));
+        if (!GameServerChatResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GameServerChatResponse is not found in the empty JSON string", GameServerChatResponse.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!BalanceInvoiceModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `BalanceInvoiceModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!GameServerChatResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GameServerChatResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+      }
+      // validate the optional field `approval`
+      if (jsonObj.get("approval") != null && !jsonObj.get("approval").isJsonNull()) {
+        ToolApproval.validateJsonElement(jsonObj.get("approval"));
       }
   }
 
@@ -180,22 +185,22 @@ public class BalanceInvoiceModel {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!BalanceInvoiceModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BalanceInvoiceModel' and its subtypes
+       if (!GameServerChatResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'GameServerChatResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<BalanceInvoiceModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(BalanceInvoiceModel.class));
+       final TypeAdapter<GameServerChatResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(GameServerChatResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<BalanceInvoiceModel>() {
+       return (TypeAdapter<T>) new TypeAdapter<GameServerChatResponse>() {
            @Override
-           public void write(JsonWriter out, BalanceInvoiceModel value) throws IOException {
+           public void write(JsonWriter out, GameServerChatResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public BalanceInvoiceModel read(JsonReader in) throws IOException {
+           public GameServerChatResponse read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -206,18 +211,18 @@ public class BalanceInvoiceModel {
   }
 
   /**
-   * Create an instance of BalanceInvoiceModel given an JSON string
+   * Create an instance of GameServerChatResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of BalanceInvoiceModel
-   * @throws IOException if the JSON string is invalid with respect to BalanceInvoiceModel
+   * @return An instance of GameServerChatResponse
+   * @throws IOException if the JSON string is invalid with respect to GameServerChatResponse
    */
-  public static BalanceInvoiceModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BalanceInvoiceModel.class);
+  public static GameServerChatResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, GameServerChatResponse.class);
   }
 
   /**
-   * Convert an instance of BalanceInvoiceModel to an JSON string
+   * Convert an instance of GameServerChatResponse to an JSON string
    *
    * @return JSON string
    */

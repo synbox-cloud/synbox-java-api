@@ -27,6 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import de.synbox.model.GameServerChatRequest;
+import de.synbox.model.GameServerChatResponse;
+import java.util.UUID;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -34,16 +37,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TransactionControllerApi {
+public class AiGameServerAssistantApi {
     private ApiClient localVarApiClient;
     private int localHostIndex;
     private String localCustomBaseUrl;
 
-    public TransactionControllerApi() {
+    public AiGameServerAssistantApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public TransactionControllerApi(ApiClient apiClient) {
+    public AiGameServerAssistantApi(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
     }
 
@@ -72,7 +75,8 @@ public class TransactionControllerApi {
     }
 
     /**
-     * Build call for getTransactions
+     * Build call for chat
+     * @param gameServerChatRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -80,10 +84,14 @@ public class TransactionControllerApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Assistant response returned successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The chat message is empty or too long </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The user is not allowed to access the requested server </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The AI provider returned no response </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTransactionsCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call chatCall(@jakarta.annotation.Nonnull GameServerChatRequest gameServerChatRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -97,10 +105,10 @@ public class TransactionControllerApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = gameServerChatRequest;
 
         // create path and map variables
-        String localVarPath = "/api/user/transaction";
+        String localVarPath = "/api/server/ai/chat";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -109,252 +117,7 @@ public class TransactionControllerApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "*/*"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTransactionsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return getTransactionsCall(_callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public String getTransactions() throws ApiException {
-        ApiResponse<String> localVarResp = getTransactionsWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<String> getTransactionsWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = getTransactionsValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getTransactionsAsync(final ApiCallback<String> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getTransactionsValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getTransactionsForServer
-     * @param serverId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getTransactionsForServerCall(@jakarta.annotation.Nonnull String serverId, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/api/user/transaction/{server_id}"
-            .replace("{" + "server_id" + "}", localVarApiClient.escapeString(serverId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "*/*"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTransactionsForServerValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'serverId' is set
-        if (serverId == null) {
-            throw new ApiException("Missing the required parameter 'serverId' when calling getTransactionsForServer(Async)");
-        }
-
-        return getTransactionsForServerCall(serverId, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param serverId  (required)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public String getTransactionsForServer(@jakarta.annotation.Nonnull String serverId) throws ApiException {
-        ApiResponse<String> localVarResp = getTransactionsForServerWithHttpInfo(serverId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param serverId  (required)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<String> getTransactionsForServerWithHttpInfo(@jakarta.annotation.Nonnull String serverId) throws ApiException {
-        okhttp3.Call localVarCall = getTransactionsForServerValidateBeforeCall(serverId, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param serverId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getTransactionsForServerAsync(@jakarta.annotation.Nonnull String serverId, final ApiCallback<String> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getTransactionsForServerValidateBeforeCall(serverId, _callback);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for giftCard
-     * @param body  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call giftCardCall(@jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = body;
-
-        // create path and map variables
-        String localVarPath = "/api/user/transaction/giftcodeStatus";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "*/*"
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -374,39 +137,160 @@ public class TransactionControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call giftCardValidateBeforeCall(@jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling giftCard(Async)");
+    private okhttp3.Call chatValidateBeforeCall(@jakarta.annotation.Nonnull GameServerChatRequest gameServerChatRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'gameServerChatRequest' is set
+        if (gameServerChatRequest == null) {
+            throw new ApiException("Missing the required parameter 'gameServerChatRequest' when calling chat(Async)");
         }
 
-        return giftCardCall(body, _callback);
+        return chatCall(gameServerChatRequest, _callback);
 
     }
 
     /**
-     * 
-     * 
-     * @param body  (required)
-     * @return String
+     * Chat with the game-server assistant
+     * Answers questions about the authenticated user&#39;s servers and can execute explicitly requested start or stop actions.
+     * @param gameServerChatRequest  (required)
+     * @return GameServerChatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Assistant response returned successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The chat message is empty or too long </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The user is not allowed to access the requested server </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The AI provider returned no response </td><td>  -  </td></tr>
      </table>
      */
-    public String giftCard(@jakarta.annotation.Nonnull String body) throws ApiException {
-        ApiResponse<String> localVarResp = giftCardWithHttpInfo(body);
+    public GameServerChatResponse chat(@jakarta.annotation.Nonnull GameServerChatRequest gameServerChatRequest) throws ApiException {
+        ApiResponse<GameServerChatResponse> localVarResp = chatWithHttpInfo(gameServerChatRequest);
         return localVarResp.getData();
     }
 
     /**
+     * Chat with the game-server assistant
+     * Answers questions about the authenticated user&#39;s servers and can execute explicitly requested start or stop actions.
+     * @param gameServerChatRequest  (required)
+     * @return ApiResponse&lt;GameServerChatResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Assistant response returned successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The chat message is empty or too long </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The user is not allowed to access the requested server </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The AI provider returned no response </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GameServerChatResponse> chatWithHttpInfo(@jakarta.annotation.Nonnull GameServerChatRequest gameServerChatRequest) throws ApiException {
+        okhttp3.Call localVarCall = chatValidateBeforeCall(gameServerChatRequest, null);
+        Type localVarReturnType = new TypeToken<GameServerChatResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Chat with the game-server assistant (asynchronously)
+     * Answers questions about the authenticated user&#39;s servers and can execute explicitly requested start or stop actions.
+     * @param gameServerChatRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Assistant response returned successfully </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> The chat message is empty or too long </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> The user is not allowed to access the requested server </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> The AI provider returned no response </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call chatAsync(@jakarta.annotation.Nonnull GameServerChatRequest gameServerChatRequest, final ApiCallback<GameServerChatResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = chatValidateBeforeCall(gameServerChatRequest, _callback);
+        Type localVarReturnType = new TypeToken<GameServerChatResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for confirmConsoleCommand
+     * @param approvalId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call confirmConsoleCommandCall(@jakarta.annotation.Nonnull UUID approvalId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/server/ai/chat/approvals/{approvalId}/confirm"
+            .replace("{" + "approvalId" + "}", localVarApiClient.escapeString(approvalId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call confirmConsoleCommandValidateBeforeCall(@jakarta.annotation.Nonnull UUID approvalId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'approvalId' is set
+        if (approvalId == null) {
+            throw new ApiException("Missing the required parameter 'approvalId' when calling confirmConsoleCommand(Async)");
+        }
+
+        return confirmConsoleCommandCall(approvalId, _callback);
+
+    }
+
+    /**
+     * Confirm and execute a pending console command
      * 
-     * 
-     * @param body  (required)
-     * @return ApiResponse&lt;String&gt;
+     * @param approvalId  (required)
+     * @return GameServerChatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -415,16 +299,34 @@ public class TransactionControllerApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> giftCardWithHttpInfo(@jakarta.annotation.Nonnull String body) throws ApiException {
-        okhttp3.Call localVarCall = giftCardValidateBeforeCall(body, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+    public GameServerChatResponse confirmConsoleCommand(@jakarta.annotation.Nonnull UUID approvalId) throws ApiException {
+        ApiResponse<GameServerChatResponse> localVarResp = confirmConsoleCommandWithHttpInfo(approvalId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Confirm and execute a pending console command
+     * 
+     * @param approvalId  (required)
+     * @return ApiResponse&lt;GameServerChatResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GameServerChatResponse> confirmConsoleCommandWithHttpInfo(@jakarta.annotation.Nonnull UUID approvalId) throws ApiException {
+        okhttp3.Call localVarCall = confirmConsoleCommandValidateBeforeCall(approvalId, null);
+        Type localVarReturnType = new TypeToken<GameServerChatResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     *  (asynchronously)
+     * Confirm and execute a pending console command (asynchronously)
      * 
-     * @param body  (required)
+     * @param approvalId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -435,10 +337,137 @@ public class TransactionControllerApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call giftCardAsync(@jakarta.annotation.Nonnull String body, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call confirmConsoleCommandAsync(@jakarta.annotation.Nonnull UUID approvalId, final ApiCallback<GameServerChatResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = giftCardValidateBeforeCall(body, _callback);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        okhttp3.Call localVarCall = confirmConsoleCommandValidateBeforeCall(approvalId, _callback);
+        Type localVarReturnType = new TypeToken<GameServerChatResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for rejectConsoleCommand
+     * @param approvalId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call rejectConsoleCommandCall(@jakarta.annotation.Nonnull UUID approvalId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/server/ai/chat/approvals/{approvalId}/reject"
+            .replace("{" + "approvalId" + "}", localVarApiClient.escapeString(approvalId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call rejectConsoleCommandValidateBeforeCall(@jakarta.annotation.Nonnull UUID approvalId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'approvalId' is set
+        if (approvalId == null) {
+            throw new ApiException("Missing the required parameter 'approvalId' when calling rejectConsoleCommand(Async)");
+        }
+
+        return rejectConsoleCommandCall(approvalId, _callback);
+
+    }
+
+    /**
+     * Reject a pending console command
+     * 
+     * @param approvalId  (required)
+     * @return GameServerChatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public GameServerChatResponse rejectConsoleCommand(@jakarta.annotation.Nonnull UUID approvalId) throws ApiException {
+        ApiResponse<GameServerChatResponse> localVarResp = rejectConsoleCommandWithHttpInfo(approvalId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Reject a pending console command
+     * 
+     * @param approvalId  (required)
+     * @return ApiResponse&lt;GameServerChatResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GameServerChatResponse> rejectConsoleCommandWithHttpInfo(@jakarta.annotation.Nonnull UUID approvalId) throws ApiException {
+        okhttp3.Call localVarCall = rejectConsoleCommandValidateBeforeCall(approvalId, null);
+        Type localVarReturnType = new TypeToken<GameServerChatResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Reject a pending console command (asynchronously)
+     * 
+     * @param approvalId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call rejectConsoleCommandAsync(@jakarta.annotation.Nonnull UUID approvalId, final ApiCallback<GameServerChatResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = rejectConsoleCommandValidateBeforeCall(approvalId, _callback);
+        Type localVarReturnType = new TypeToken<GameServerChatResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

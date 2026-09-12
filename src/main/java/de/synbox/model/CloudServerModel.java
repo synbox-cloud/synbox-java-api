@@ -54,7 +54,7 @@ import de.synbox.invoker.JSON;
 /**
  * CloudServerModel
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-30T17:21:49.974498957Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T14:11:40.895085737Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerModel {
   public static final String SERIALIZED_NAME_PROVIDER = "provider";
   @SerializedName(SERIALIZED_NAME_PROVIDER)
@@ -111,23 +111,37 @@ public class CloudServerModel {
    */
   @JsonAdapter(PowerLevelEnum.Adapter.class)
   public enum PowerLevelEnum {
+    EY_1_3("EY_1_3"),
+    
+    EY_2_4("EY_2_4"),
+    
     SMALL_COMPUTE("SMALL_COMPUTE"),
-    
-    MEDIUM_COMPUTE("MEDIUM_COMPUTE"),
-    
-    LARGE_COMPUTE("LARGE_COMPUTE"),
-    
-    HEAVY_COMPUTE("HEAVY_COMPUTE"),
     
     SMALL_RAM("SMALL_RAM"),
     
+    EY_2_8("EY_2_8"),
+    
+    EY_3_12("EY_3_12"),
+    
+    MEDIUM_COMPUTE("MEDIUM_COMPUTE"),
+    
     MEDIUM_RAM("MEDIUM_RAM"),
+    
+    EY_4_16("EY_4_16"),
+    
+    MEDIUM_PREMIUM("MEDIUM_PREMIUM"),
+    
+    LARGE_COMPUTE("LARGE_COMPUTE"),
     
     LARGE_RAM("LARGE_RAM"),
     
-    SMALL_PREMIUM("SMALL_PREMIUM"),
+    EY_6_24("EY_6_24"),
     
-    MEDIUM_PREMIUM("MEDIUM_PREMIUM");
+    HEAVY_COMPUTE("HEAVY_COMPUTE"),
+    
+    TESTSERVER("TESTSERVER"),
+    
+    SNAPSHOT_FREE("SNAPSHOT_FREE");
 
     private String value;
 
@@ -176,6 +190,16 @@ public class CloudServerModel {
   @SerializedName(SERIALIZED_NAME_POWER_LEVEL)
   @jakarta.annotation.Nullable
   private PowerLevelEnum powerLevel;
+
+  public static final String SERIALIZED_NAME_LOCATION = "location";
+  @SerializedName(SERIALIZED_NAME_LOCATION)
+  @jakarta.annotation.Nullable
+  private String location;
+
+  public static final String SERIALIZED_NAME_REQUIRED_NODE_FEATURES = "requiredNodeFeatures";
+  @SerializedName(SERIALIZED_NAME_REQUIRED_NODE_FEATURES)
+  @jakarta.annotation.Nullable
+  private Document requiredNodeFeatures;
 
   public static final String SERIALIZED_NAME_SCHEDULE_MODELS = "scheduleModels";
   @SerializedName(SERIALIZED_NAME_SCHEDULE_MODELS)
@@ -256,6 +280,11 @@ public class CloudServerModel {
   @SerializedName(SERIALIZED_NAME_DELTA_TILL_START)
   @jakarta.annotation.Nullable
   private Long deltaTillStart;
+
+  public static final String SERIALIZED_NAME_FREE = "free";
+  @SerializedName(SERIALIZED_NAME_FREE)
+  @jakarta.annotation.Nullable
+  private Boolean free;
 
   public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
@@ -471,6 +500,44 @@ public class CloudServerModel {
 
   public void setPowerLevel(@jakarta.annotation.Nullable PowerLevelEnum powerLevel) {
     this.powerLevel = powerLevel;
+  }
+
+
+  public CloudServerModel location(@jakarta.annotation.Nullable String location) {
+    this.location = location;
+    return this;
+  }
+
+  /**
+   * Get location
+   * @return location
+   */
+  @jakarta.annotation.Nullable
+  public String getLocation() {
+    return location;
+  }
+
+  public void setLocation(@jakarta.annotation.Nullable String location) {
+    this.location = location;
+  }
+
+
+  public CloudServerModel requiredNodeFeatures(@jakarta.annotation.Nullable Document requiredNodeFeatures) {
+    this.requiredNodeFeatures = requiredNodeFeatures;
+    return this;
+  }
+
+  /**
+   * Required node features; VirtualNode implementations supply the provider-specific representation
+   * @return requiredNodeFeatures
+   */
+  @jakarta.annotation.Nullable
+  public Document getRequiredNodeFeatures() {
+    return requiredNodeFeatures;
+  }
+
+  public void setRequiredNodeFeatures(@jakarta.annotation.Nullable Document requiredNodeFeatures) {
+    this.requiredNodeFeatures = requiredNodeFeatures;
   }
 
 
@@ -810,6 +877,25 @@ public class CloudServerModel {
   }
 
 
+  public CloudServerModel free(@jakarta.annotation.Nullable Boolean free) {
+    this.free = free;
+    return this;
+  }
+
+  /**
+   * Get free
+   * @return free
+   */
+  @jakarta.annotation.Nullable
+  public Boolean getFree() {
+    return free;
+  }
+
+  public void setFree(@jakarta.annotation.Nullable Boolean free) {
+    this.free = free;
+  }
+
+
   public CloudServerModel accountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
     return this;
@@ -850,6 +936,8 @@ public class CloudServerModel {
         Objects.equals(this.suspended, cloudServerModel.suspended) &&
         Objects.equals(this.cpuType, cloudServerModel.cpuType) &&
         Objects.equals(this.powerLevel, cloudServerModel.powerLevel) &&
+        Objects.equals(this.location, cloudServerModel.location) &&
+        Objects.equals(this.requiredNodeFeatures, cloudServerModel.requiredNodeFeatures) &&
         Objects.equals(this.scheduleModels, cloudServerModel.scheduleModels) &&
         Objects.equals(this.backups, cloudServerModel.backups) &&
         Objects.equals(this.startVolume, cloudServerModel.startVolume) &&
@@ -866,12 +954,13 @@ public class CloudServerModel {
         Objects.equals(this.restarting, cloudServerModel.restarting) &&
         Objects.equals(this.oneTmePassword, cloudServerModel.oneTmePassword) &&
         Objects.equals(this.deltaTillStart, cloudServerModel.deltaTillStart) &&
+        Objects.equals(this.free, cloudServerModel.free) &&
         Objects.equals(this.accountId, cloudServerModel.accountId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(provider, start, deleteOnStop, stop, enableAutoPowerControl, owner, displayName, ip, suspended, cpuType, powerLevel, scheduleModels, backups, startVolume, serverId, moneyPoolId, volumes, envs, permissions, port, publicIp, organization, webhooks, additionalPort, restarting, oneTmePassword, deltaTillStart, accountId);
+    return Objects.hash(provider, start, deleteOnStop, stop, enableAutoPowerControl, owner, displayName, ip, suspended, cpuType, powerLevel, location, requiredNodeFeatures, scheduleModels, backups, startVolume, serverId, moneyPoolId, volumes, envs, permissions, port, publicIp, organization, webhooks, additionalPort, restarting, oneTmePassword, deltaTillStart, free, accountId);
   }
 
   @Override
@@ -889,6 +978,8 @@ public class CloudServerModel {
     sb.append("    suspended: ").append(toIndentedString(suspended)).append("\n");
     sb.append("    cpuType: ").append(toIndentedString(cpuType)).append("\n");
     sb.append("    powerLevel: ").append(toIndentedString(powerLevel)).append("\n");
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    requiredNodeFeatures: ").append(toIndentedString(requiredNodeFeatures)).append("\n");
     sb.append("    scheduleModels: ").append(toIndentedString(scheduleModels)).append("\n");
     sb.append("    backups: ").append(toIndentedString(backups)).append("\n");
     sb.append("    startVolume: ").append(toIndentedString(startVolume)).append("\n");
@@ -905,6 +996,7 @@ public class CloudServerModel {
     sb.append("    restarting: ").append(toIndentedString(restarting)).append("\n");
     sb.append("    oneTmePassword: ").append(toIndentedString(oneTmePassword)).append("\n");
     sb.append("    deltaTillStart: ").append(toIndentedString(deltaTillStart)).append("\n");
+    sb.append("    free: ").append(toIndentedString(free)).append("\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -924,7 +1016,7 @@ public class CloudServerModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("provider", "start", "deleteOnStop", "stop", "enableAutoPowerControl", "owner", "displayName", "ip", "suspended", "cpu_type", "powerLevel", "scheduleModels", "backups", "startVolume", "server_id", "money_pool_id", "volumes", "envs", "permissions", "port", "publicIp", "organization", "webhooks", "additionalPort", "restarting", "oneTmePassword", "deltaTillStart", "account_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("provider", "start", "deleteOnStop", "stop", "enableAutoPowerControl", "owner", "displayName", "ip", "suspended", "cpu_type", "powerLevel", "location", "requiredNodeFeatures", "scheduleModels", "backups", "startVolume", "server_id", "money_pool_id", "volumes", "envs", "permissions", "port", "publicIp", "organization", "webhooks", "additionalPort", "restarting", "oneTmePassword", "deltaTillStart", "free", "account_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -981,6 +1073,9 @@ public class CloudServerModel {
       // validate the optional field `powerLevel`
       if (jsonObj.get("powerLevel") != null && !jsonObj.get("powerLevel").isJsonNull()) {
         PowerLevelEnum.validateJsonElement(jsonObj.get("powerLevel"));
+      }
+      if ((jsonObj.get("location") != null && !jsonObj.get("location").isJsonNull()) && !jsonObj.get("location").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `location` to be a primitive type in the JSON string but got `%s`", jsonObj.get("location").toString()));
       }
       if (jsonObj.get("scheduleModels") != null && !jsonObj.get("scheduleModels").isJsonNull()) {
         JsonArray jsonArrayscheduleModels = jsonObj.getAsJsonArray("scheduleModels");

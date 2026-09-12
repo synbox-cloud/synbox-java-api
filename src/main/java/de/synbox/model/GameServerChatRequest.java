@@ -20,8 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.util.Arrays;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,58 +47,58 @@ import java.util.Set;
 import de.synbox.invoker.JSON;
 
 /**
- * Request-DTO zum Anfordern eines Magic-Links für eine E-Mail-Adresse. Die callbackUrl erhält das JSON mit dem Magic-Link.
+ * Natural-language message for the game-server assistant
  */
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T14:11:40.895085737Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
-public class MagicLinkRequestDTO {
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
+public class GameServerChatRequest {
+  public static final String SERIALIZED_NAME_MESSAGE = "message";
+  @SerializedName(SERIALIZED_NAME_MESSAGE)
   @jakarta.annotation.Nonnull
-  private String email;
+  private String message;
 
-  public static final String SERIALIZED_NAME_CALLBACK_URL = "callbackUrl";
-  @SerializedName(SERIALIZED_NAME_CALLBACK_URL)
-  @jakarta.annotation.Nonnull
-  private URI callbackUrl;
+  public static final String SERIALIZED_NAME_SERVER = "server";
+  @SerializedName(SERIALIZED_NAME_SERVER)
+  @jakarta.annotation.Nullable
+  private UUID server;
 
-  public MagicLinkRequestDTO() {
+  public GameServerChatRequest() {
   }
 
-  public MagicLinkRequestDTO email(@jakarta.annotation.Nonnull String email) {
-    this.email = email;
+  public GameServerChatRequest message(@jakarta.annotation.Nonnull String message) {
+    this.message = message;
     return this;
   }
 
   /**
-   * E-Mail-Adresse, für die ein Magic-Link angefordert wird
-   * @return email
+   * Message for the game-server assistant
+   * @return message
    */
   @jakarta.annotation.Nonnull
-  public String getEmail() {
-    return email;
+  public String getMessage() {
+    return message;
   }
 
-  public void setEmail(@jakarta.annotation.Nonnull String email) {
-    this.email = email;
+  public void setMessage(@jakarta.annotation.Nonnull String message) {
+    this.message = message;
   }
 
 
-  public MagicLinkRequestDTO callbackUrl(@jakarta.annotation.Nonnull URI callbackUrl) {
-    this.callbackUrl = callbackUrl;
+  public GameServerChatRequest server(@jakarta.annotation.Nullable UUID server) {
+    this.server = server;
     return this;
   }
 
   /**
-   * Callback-URL, an die SynBox das Ergebnis (inkl. magicLink) sendet
-   * @return callbackUrl
+   * Optional server selected in the client. Used as context for ambiguous references such as &#39;this server&#39;.
+   * @return server
    */
-  @jakarta.annotation.Nonnull
-  public URI getCallbackUrl() {
-    return callbackUrl;
+  @jakarta.annotation.Nullable
+  public UUID getServer() {
+    return server;
   }
 
-  public void setCallbackUrl(@jakarta.annotation.Nonnull URI callbackUrl) {
-    this.callbackUrl = callbackUrl;
+  public void setServer(@jakarta.annotation.Nullable UUID server) {
+    this.server = server;
   }
 
 
@@ -111,22 +111,22 @@ public class MagicLinkRequestDTO {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MagicLinkRequestDTO magicLinkRequestDTO = (MagicLinkRequestDTO) o;
-    return Objects.equals(this.email, magicLinkRequestDTO.email) &&
-        Objects.equals(this.callbackUrl, magicLinkRequestDTO.callbackUrl);
+    GameServerChatRequest gameServerChatRequest = (GameServerChatRequest) o;
+    return Objects.equals(this.message, gameServerChatRequest.message) &&
+        Objects.equals(this.server, gameServerChatRequest.server);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, callbackUrl);
+    return Objects.hash(message, server);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MagicLinkRequestDTO {\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
+    sb.append("class GameServerChatRequest {\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    server: ").append(toIndentedString(server)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -145,45 +145,45 @@ public class MagicLinkRequestDTO {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("email", "callbackUrl"));
+    openapiFields = new HashSet<String>(Arrays.asList("message", "server"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("email", "callbackUrl"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("message"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to MagicLinkRequestDTO
+   * @throws IOException if the JSON Element is invalid with respect to GameServerChatRequest
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!MagicLinkRequestDTO.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MagicLinkRequestDTO is not found in the empty JSON string", MagicLinkRequestDTO.openapiRequiredFields.toString()));
+        if (!GameServerChatRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GameServerChatRequest is not found in the empty JSON string", GameServerChatRequest.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!MagicLinkRequestDTO.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `MagicLinkRequestDTO` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!GameServerChatRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GameServerChatRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : MagicLinkRequestDTO.openapiRequiredFields) {
+      for (String requiredField : GameServerChatRequest.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      if (!jsonObj.get("message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
-      if (!jsonObj.get("callbackUrl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `callbackUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callbackUrl").toString()));
+      if ((jsonObj.get("server") != null && !jsonObj.get("server").isJsonNull()) && !jsonObj.get("server").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `server` to be a primitive type in the JSON string but got `%s`", jsonObj.get("server").toString()));
       }
   }
 
@@ -191,22 +191,22 @@ public class MagicLinkRequestDTO {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!MagicLinkRequestDTO.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'MagicLinkRequestDTO' and its subtypes
+       if (!GameServerChatRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'GameServerChatRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<MagicLinkRequestDTO> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(MagicLinkRequestDTO.class));
+       final TypeAdapter<GameServerChatRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(GameServerChatRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<MagicLinkRequestDTO>() {
+       return (TypeAdapter<T>) new TypeAdapter<GameServerChatRequest>() {
            @Override
-           public void write(JsonWriter out, MagicLinkRequestDTO value) throws IOException {
+           public void write(JsonWriter out, GameServerChatRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public MagicLinkRequestDTO read(JsonReader in) throws IOException {
+           public GameServerChatRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -217,18 +217,18 @@ public class MagicLinkRequestDTO {
   }
 
   /**
-   * Create an instance of MagicLinkRequestDTO given an JSON string
+   * Create an instance of GameServerChatRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of MagicLinkRequestDTO
-   * @throws IOException if the JSON string is invalid with respect to MagicLinkRequestDTO
+   * @return An instance of GameServerChatRequest
+   * @throws IOException if the JSON string is invalid with respect to GameServerChatRequest
    */
-  public static MagicLinkRequestDTO fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, MagicLinkRequestDTO.class);
+  public static GameServerChatRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, GameServerChatRequest.class);
   }
 
   /**
-   * Convert an instance of MagicLinkRequestDTO to an JSON string
+   * Convert an instance of GameServerChatRequest to an JSON string
    *
    * @return JSON string
    */

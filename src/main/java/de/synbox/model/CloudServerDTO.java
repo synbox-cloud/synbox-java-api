@@ -54,7 +54,7 @@ import de.synbox.invoker.JSON;
 /**
  * CloudServerDTO
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-30T17:21:49.974498957Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T14:11:40.895085737Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerDTO {
   public static final String SERIALIZED_NAME_SERVER_ID = "serverId";
   @SerializedName(SERIALIZED_NAME_SERVER_ID)
@@ -66,23 +66,37 @@ public class CloudServerDTO {
    */
   @JsonAdapter(PowerLevelEnum.Adapter.class)
   public enum PowerLevelEnum {
+    EY_1_3("EY_1_3"),
+    
+    EY_2_4("EY_2_4"),
+    
     SMALL_COMPUTE("SMALL_COMPUTE"),
-    
-    MEDIUM_COMPUTE("MEDIUM_COMPUTE"),
-    
-    LARGE_COMPUTE("LARGE_COMPUTE"),
-    
-    HEAVY_COMPUTE("HEAVY_COMPUTE"),
     
     SMALL_RAM("SMALL_RAM"),
     
+    EY_2_8("EY_2_8"),
+    
+    EY_3_12("EY_3_12"),
+    
+    MEDIUM_COMPUTE("MEDIUM_COMPUTE"),
+    
     MEDIUM_RAM("MEDIUM_RAM"),
+    
+    EY_4_16("EY_4_16"),
+    
+    MEDIUM_PREMIUM("MEDIUM_PREMIUM"),
+    
+    LARGE_COMPUTE("LARGE_COMPUTE"),
     
     LARGE_RAM("LARGE_RAM"),
     
-    SMALL_PREMIUM("SMALL_PREMIUM"),
+    EY_6_24("EY_6_24"),
     
-    MEDIUM_PREMIUM("MEDIUM_PREMIUM");
+    HEAVY_COMPUTE("HEAVY_COMPUTE"),
+    
+    TESTSERVER("TESTSERVER"),
+    
+    SNAPSHOT_FREE("SNAPSHOT_FREE");
 
     private String value;
 

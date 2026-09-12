@@ -48,7 +48,7 @@ import de.synbox.invoker.JSON;
 /**
  * DTO für Power-Status eines Servers
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-30T17:21:49.974498957Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T14:11:40.895085737Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class PowerStatusDTO {
   public static final String SERIALIZED_NAME_SUCCESS = "success";
   @SerializedName(SERIALIZED_NAME_SUCCESS)
@@ -69,6 +69,11 @@ public class PowerStatusDTO {
   @SerializedName(SERIALIZED_NAME_IN_QUEUE)
   @jakarta.annotation.Nullable
   private Boolean inQueue;
+
+  public static final String SERIALIZED_NAME_POSITION = "position";
+  @SerializedName(SERIALIZED_NAME_POSITION)
+  @jakarta.annotation.Nullable
+  private Integer position;
 
   public PowerStatusDTO() {
   }
@@ -149,6 +154,25 @@ public class PowerStatusDTO {
   }
 
 
+  public PowerStatusDTO position(@jakarta.annotation.Nullable Integer position) {
+    this.position = position;
+    return this;
+  }
+
+  /**
+   * Aktuelle Position der Warteschlange oder -1
+   * @return position
+   */
+  @jakarta.annotation.Nullable
+  public Integer getPosition() {
+    return position;
+  }
+
+  public void setPosition(@jakarta.annotation.Nullable Integer position) {
+    this.position = position;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -162,12 +186,13 @@ public class PowerStatusDTO {
     return Objects.equals(this.success, powerStatusDTO.success) &&
         Objects.equals(this.errorMessage, powerStatusDTO.errorMessage) &&
         Objects.equals(this.powerStatus, powerStatusDTO.powerStatus) &&
-        Objects.equals(this.inQueue, powerStatusDTO.inQueue);
+        Objects.equals(this.inQueue, powerStatusDTO.inQueue) &&
+        Objects.equals(this.position, powerStatusDTO.position);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(success, errorMessage, powerStatus, inQueue);
+    return Objects.hash(success, errorMessage, powerStatus, inQueue, position);
   }
 
   @Override
@@ -178,6 +203,7 @@ public class PowerStatusDTO {
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    powerStatus: ").append(toIndentedString(powerStatus)).append("\n");
     sb.append("    inQueue: ").append(toIndentedString(inQueue)).append("\n");
+    sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -196,7 +222,7 @@ public class PowerStatusDTO {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("success", "errorMessage", "powerStatus", "inQueue"));
+    openapiFields = new HashSet<String>(Arrays.asList("success", "errorMessage", "powerStatus", "inQueue", "position"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

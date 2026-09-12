@@ -46,58 +46,34 @@ import java.util.Set;
 import de.synbox.invoker.JSON;
 
 /**
- * BalanceInvoiceModel
+ * Natural-language request from which a server configuration is extracted
  */
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T14:11:40.895085737Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
-public class BalanceInvoiceModel {
-  public static final String SERIALIZED_NAME_AMOUNT = "amount";
-  @SerializedName(SERIALIZED_NAME_AMOUNT)
-  @jakarta.annotation.Nullable
-  private Integer amount;
+public class AiServerConfigRequest {
+  public static final String SERIALIZED_NAME_TEXT = "text";
+  @SerializedName(SERIALIZED_NAME_TEXT)
+  @jakarta.annotation.Nonnull
+  private String text;
 
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
-  @jakarta.annotation.Nullable
-  private String url;
-
-  public BalanceInvoiceModel() {
+  public AiServerConfigRequest() {
   }
 
-  public BalanceInvoiceModel amount(@jakarta.annotation.Nullable Integer amount) {
-    this.amount = amount;
+  public AiServerConfigRequest text(@jakarta.annotation.Nonnull String text) {
+    this.text = text;
     return this;
   }
 
   /**
-   * Get amount
-   * @return amount
+   * Natural-language description of the desired game server
+   * @return text
    */
-  @jakarta.annotation.Nullable
-  public Integer getAmount() {
-    return amount;
+  @jakarta.annotation.Nonnull
+  public String getText() {
+    return text;
   }
 
-  public void setAmount(@jakarta.annotation.Nullable Integer amount) {
-    this.amount = amount;
-  }
-
-
-  public BalanceInvoiceModel url(@jakarta.annotation.Nullable String url) {
-    this.url = url;
-    return this;
-  }
-
-  /**
-   * Get url
-   * @return url
-   */
-  @jakarta.annotation.Nullable
-  public String getUrl() {
-    return url;
-  }
-
-  public void setUrl(@jakarta.annotation.Nullable String url) {
-    this.url = url;
+  public void setText(@jakarta.annotation.Nonnull String text) {
+    this.text = text;
   }
 
 
@@ -110,22 +86,20 @@ public class BalanceInvoiceModel {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BalanceInvoiceModel balanceInvoiceModel = (BalanceInvoiceModel) o;
-    return Objects.equals(this.amount, balanceInvoiceModel.amount) &&
-        Objects.equals(this.url, balanceInvoiceModel.url);
+    AiServerConfigRequest aiServerConfigRequest = (AiServerConfigRequest) o;
+    return Objects.equals(this.text, aiServerConfigRequest.text);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, url);
+    return Objects.hash(text);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BalanceInvoiceModel {\n");
-    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("class AiServerConfigRequest {\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -144,35 +118,42 @@ public class BalanceInvoiceModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("amount", "url"));
+    openapiFields = new HashSet<String>(Arrays.asList("text"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("text"));
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to BalanceInvoiceModel
+   * @throws IOException if the JSON Element is invalid with respect to AiServerConfigRequest
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!BalanceInvoiceModel.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in BalanceInvoiceModel is not found in the empty JSON string", BalanceInvoiceModel.openapiRequiredFields.toString()));
+        if (!AiServerConfigRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AiServerConfigRequest is not found in the empty JSON string", AiServerConfigRequest.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!BalanceInvoiceModel.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `BalanceInvoiceModel` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!AiServerConfigRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AiServerConfigRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : AiServerConfigRequest.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+      if (!jsonObj.get("text").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("text").toString()));
       }
   }
 
@@ -180,22 +161,22 @@ public class BalanceInvoiceModel {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!BalanceInvoiceModel.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BalanceInvoiceModel' and its subtypes
+       if (!AiServerConfigRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AiServerConfigRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<BalanceInvoiceModel> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(BalanceInvoiceModel.class));
+       final TypeAdapter<AiServerConfigRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AiServerConfigRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<BalanceInvoiceModel>() {
+       return (TypeAdapter<T>) new TypeAdapter<AiServerConfigRequest>() {
            @Override
-           public void write(JsonWriter out, BalanceInvoiceModel value) throws IOException {
+           public void write(JsonWriter out, AiServerConfigRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public BalanceInvoiceModel read(JsonReader in) throws IOException {
+           public AiServerConfigRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -206,18 +187,18 @@ public class BalanceInvoiceModel {
   }
 
   /**
-   * Create an instance of BalanceInvoiceModel given an JSON string
+   * Create an instance of AiServerConfigRequest given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of BalanceInvoiceModel
-   * @throws IOException if the JSON string is invalid with respect to BalanceInvoiceModel
+   * @return An instance of AiServerConfigRequest
+   * @throws IOException if the JSON string is invalid with respect to AiServerConfigRequest
    */
-  public static BalanceInvoiceModel fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BalanceInvoiceModel.class);
+  public static AiServerConfigRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AiServerConfigRequest.class);
   }
 
   /**
-   * Convert an instance of BalanceInvoiceModel to an JSON string
+   * Convert an instance of AiServerConfigRequest to an JSON string
    *
    * @return JSON string
    */

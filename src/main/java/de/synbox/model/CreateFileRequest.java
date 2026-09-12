@@ -48,7 +48,7 @@ import de.synbox.invoker.JSON;
 /**
  * Request body for creating an empty file.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T15:02:20.147162921Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T15:27:34.055464669Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CreateFileRequest {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

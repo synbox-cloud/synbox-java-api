@@ -482,8 +482,7 @@ public class ServerManagementApi {
         return localVarCall;
     }
     /**
-     * Build call for getContainersFromOrganization
-     * @param organizationId  (required)
+     * Build call for getContainers
      * @param filter Optionaler Filter fuer die Rueckgabe. Mehrfach moeglich. Default: USER und ACCESS. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -496,7 +495,7 @@ public class ServerManagementApi {
         <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getContainersFromOrganizationCall(@jakarta.annotation.Nonnull String organizationId, @jakarta.annotation.Nullable List<ContainerFilter> filter, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getContainersCall(@jakarta.annotation.Nullable List<ContainerFilter> filter, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -520,10 +519,6 @@ public class ServerManagementApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (organizationId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("organizationId", organizationId));
-        }
 
         if (filter != null) {
             localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "filter", filter));
@@ -549,20 +544,14 @@ public class ServerManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getContainersFromOrganizationValidateBeforeCall(@jakarta.annotation.Nonnull String organizationId, @jakarta.annotation.Nullable List<ContainerFilter> filter, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'organizationId' is set
-        if (organizationId == null) {
-            throw new ApiException("Missing the required parameter 'organizationId' when calling getContainersFromOrganization(Async)");
-        }
-
-        return getContainersFromOrganizationCall(organizationId, filter, _callback);
+    private okhttp3.Call getContainersValidateBeforeCall(@jakarta.annotation.Nullable List<ContainerFilter> filter, final ApiCallback _callback) throws ApiException {
+        return getContainersCall(filter, _callback);
 
     }
 
     /**
      * Get all containers
      * Retrieves all containers owned by the authenticated user.
-     * @param organizationId  (required)
      * @param filter Optionaler Filter fuer die Rueckgabe. Mehrfach moeglich. Default: USER und ACCESS. (optional)
      * @return List&lt;CloudServerDTO&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -574,15 +563,14 @@ public class ServerManagementApi {
         <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
      </table>
      */
-    public List<CloudServerDTO> getContainersFromOrganization(@jakarta.annotation.Nonnull String organizationId, @jakarta.annotation.Nullable List<ContainerFilter> filter) throws ApiException {
-        ApiResponse<List<CloudServerDTO>> localVarResp = getContainersFromOrganizationWithHttpInfo(organizationId, filter);
+    public List<CloudServerDTO> getContainers(@jakarta.annotation.Nullable List<ContainerFilter> filter) throws ApiException {
+        ApiResponse<List<CloudServerDTO>> localVarResp = getContainersWithHttpInfo(filter);
         return localVarResp.getData();
     }
 
     /**
      * Get all containers
      * Retrieves all containers owned by the authenticated user.
-     * @param organizationId  (required)
      * @param filter Optionaler Filter fuer die Rueckgabe. Mehrfach moeglich. Default: USER und ACCESS. (optional)
      * @return ApiResponse&lt;List&lt;CloudServerDTO&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -594,8 +582,8 @@ public class ServerManagementApi {
         <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<CloudServerDTO>> getContainersFromOrganizationWithHttpInfo(@jakarta.annotation.Nonnull String organizationId, @jakarta.annotation.Nullable List<ContainerFilter> filter) throws ApiException {
-        okhttp3.Call localVarCall = getContainersFromOrganizationValidateBeforeCall(organizationId, filter, null);
+    public ApiResponse<List<CloudServerDTO>> getContainersWithHttpInfo(@jakarta.annotation.Nullable List<ContainerFilter> filter) throws ApiException {
+        okhttp3.Call localVarCall = getContainersValidateBeforeCall(filter, null);
         Type localVarReturnType = new TypeToken<List<CloudServerDTO>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -603,7 +591,6 @@ public class ServerManagementApi {
     /**
      * Get all containers (asynchronously)
      * Retrieves all containers owned by the authenticated user.
-     * @param organizationId  (required)
      * @param filter Optionaler Filter fuer die Rueckgabe. Mehrfach moeglich. Default: USER und ACCESS. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -616,9 +603,9 @@ public class ServerManagementApi {
         <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getContainersFromOrganizationAsync(@jakarta.annotation.Nonnull String organizationId, @jakarta.annotation.Nullable List<ContainerFilter> filter, final ApiCallback<List<CloudServerDTO>> _callback) throws ApiException {
+    public okhttp3.Call getContainersAsync(@jakarta.annotation.Nullable List<ContainerFilter> filter, final ApiCallback<List<CloudServerDTO>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getContainersFromOrganizationValidateBeforeCall(organizationId, filter, _callback);
+        okhttp3.Call localVarCall = getContainersValidateBeforeCall(filter, _callback);
         Type localVarReturnType = new TypeToken<List<CloudServerDTO>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

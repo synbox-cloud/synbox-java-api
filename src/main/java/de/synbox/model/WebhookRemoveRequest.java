@@ -48,7 +48,7 @@ import de.synbox.invoker.JSON;
 /**
  * Request to remove a webhook from a server
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T14:55:21.506388183Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T15:02:20.147162921Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class WebhookRemoveRequest {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)

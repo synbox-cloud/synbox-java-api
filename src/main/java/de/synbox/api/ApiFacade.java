@@ -19,11 +19,11 @@ import de.synbox.api.HytaleCurseForgeModControllerApi;
 import de.synbox.api.MollieWebhookControllerApi;
 import de.synbox.api.NameManagementApi;
 import de.synbox.api.OrganizationApi;
+import de.synbox.api.OrganizationServerManagementApi;
 import de.synbox.api.PowerLevelControllerApi;
 import de.synbox.api.PriceControllerApi;
 import de.synbox.api.ScheduleManagementApi;
 import de.synbox.api.ServerManagementApi;
-import de.synbox.api.ServerManagementForOrganizationsApi;
 import de.synbox.api.SftpManagementApi;
 import de.synbox.api.StartStopManagementApi;
 import de.synbox.api.TransactionControllerApi;
@@ -53,11 +53,11 @@ public class ApiFacade {
   private MollieWebhookControllerApi _mollieWebhookController;
   private NameManagementApi _nameManagement;
   private OrganizationApi _organization;
+  private OrganizationServerManagementApi _organizationServerManagement;
   private PowerLevelControllerApi _powerLevelController;
   private PriceControllerApi _priceController;
   private ScheduleManagementApi _scheduleManagement;
   private ServerManagementApi _serverManagement;
-  private ServerManagementForOrganizationsApi _serverManagementForOrganizations;
   private SftpManagementApi _sftpManagement;
   private StartStopManagementApi _startStopManagement;
   private TransactionControllerApi _transactionController;
@@ -148,6 +148,10 @@ public class ApiFacade {
     if (_organization == null) _organization = new OrganizationApi(client);
     return _organization;
   }
+  public OrganizationServerManagementApi organizationServerManagement() {
+    if (_organizationServerManagement == null) _organizationServerManagement = new OrganizationServerManagementApi(client);
+    return _organizationServerManagement;
+  }
   public PowerLevelControllerApi powerLevelController() {
     if (_powerLevelController == null) _powerLevelController = new PowerLevelControllerApi(client);
     return _powerLevelController;
@@ -163,10 +167,6 @@ public class ApiFacade {
   public ServerManagementApi serverManagement() {
     if (_serverManagement == null) _serverManagement = new ServerManagementApi(client);
     return _serverManagement;
-  }
-  public ServerManagementForOrganizationsApi serverManagementForOrganizations() {
-    if (_serverManagementForOrganizations == null) _serverManagementForOrganizations = new ServerManagementForOrganizationsApi(client);
-    return _serverManagementForOrganizations;
   }
   public SftpManagementApi sftpManagement() {
     if (_sftpManagement == null) _sftpManagement = new SftpManagementApi(client);

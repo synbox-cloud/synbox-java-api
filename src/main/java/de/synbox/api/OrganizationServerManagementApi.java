@@ -37,16 +37,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ServerManagementForOrganizationsApi {
+public class OrganizationServerManagementApi {
     private ApiClient localVarApiClient;
     private int localHostIndex;
     private String localCustomBaseUrl;
 
-    public ServerManagementForOrganizationsApi() {
+    public OrganizationServerManagementApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public ServerManagementForOrganizationsApi(ApiClient apiClient) {
+    public OrganizationServerManagementApi(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
     }
 

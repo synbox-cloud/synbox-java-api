@@ -69,12 +69,14 @@ void main() {
         // create new server (without organization, user = apikey owner)
         synbox.serverManagement().createContainer(new CloudServerCreateDTO()
                 .displayName("test-server-1")
-                .enableAutoPowerControl(false)
-                .envs(new CloudServerCreateDTOEnvs().putAdditionalProperty("VERSION", "1.21.10"))
-                .powerLevel(CloudServerCreateDTO.PowerLevelEnum.LARGE_COMPUTE)
+                .envs(Map.of("VERSION", "1.21.10"))
+                .powerLevel(CloudServerCreateDTO.PowerLevelEnum.EY_2_4)
                 .provider("papermc")
                 .start("00:00")
                 .stop("00:10")
+                .enableAutoPowerControl(false) // optional, default = true
+                .deleteOnStop(false) // optional, default = false
+                .autoStart(false) // optional, default = true
                 .startVolume("default")
                 .volumes(List.of("default"))
         );
@@ -84,7 +86,9 @@ void main() {
                 .organization("organization-id") // <- server will be assigned to this organization
                 .accountId(userId) // <- server owner must be an organization member
                 .displayName("test-server-1")
-                .enableAutoPowerControl(false)
+                .enableAutoPowerControl(false) // optional, default = true
+                .deleteOnStop(false) // optional, default = false
+                .autoStart(false) // optional, default = true
                 .envs(new CloudServerCreateDTOEnvs().putAdditionalProperty("VERSION", "1.21.10"))
                 .powerLevel(CloudServerCreateDTO.PowerLevelEnum.LARGE_COMPUTE)
                 .provider("papermc")
@@ -108,6 +112,15 @@ void main() {
             //synbox.containerPowerManagement().killContainer(server.getServerId());
 
         }
+        
+        // webhook (start, stop, kill)
+        synbox.webhookManagement().addWebhook(serverId, new WebhookRequest()
+                .secret("secret")
+                .uri("url" + serverId)
+                .event(WebhookRequest.EventEnum.SERVER_START)
+        );
+
+
 
     } catch (Exception e) {
         e.printStackTrace();

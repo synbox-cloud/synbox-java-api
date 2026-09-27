@@ -89,8 +89,8 @@ void main() {
                 .enableAutoPowerControl(false) // optional, default = true
                 .deleteOnStop(false) // optional, default = false
                 .autoStart(false) // optional, default = true
-                .envs(new CloudServerCreateDTOEnvs().putAdditionalProperty("VERSION", "1.21.10"))
-                .powerLevel(CloudServerCreateDTO.PowerLevelEnum.LARGE_COMPUTE)
+                .envs(Map.of("VERSION", "1.21.10"))
+                .powerLevel(CloudServerCreateDTO.PowerLevelEnum.EY_2_4)
                 .provider("papermc")
                 .start("00:00")
                 .stop("00:10")

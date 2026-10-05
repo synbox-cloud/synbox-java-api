@@ -30,6 +30,8 @@ import de.synbox.api.TransactionControllerApi;
 import de.synbox.api.UserManagementApi;
 import de.synbox.api.UserShareManagementApi;
 import de.synbox.api.VersionManagementApi;
+import de.synbox.api.VpsBackupControllerApi;
+import de.synbox.api.VpsManagementApi;
 import de.synbox.api.WebhookManagementApi;
 
 public class ApiFacade {
@@ -64,6 +66,8 @@ public class ApiFacade {
   private UserManagementApi _userManagement;
   private UserShareManagementApi _userShareManagement;
   private VersionManagementApi _versionManagement;
+  private VpsBackupControllerApi _vpsBackupController;
+  private VpsManagementApi _vpsManagement;
   private WebhookManagementApi _webhookManagement;
 
   public ApiFacade(String baseUrl, String bearerToken) {
@@ -191,6 +195,14 @@ public class ApiFacade {
   public VersionManagementApi versionManagement() {
     if (_versionManagement == null) _versionManagement = new VersionManagementApi(client);
     return _versionManagement;
+  }
+  public VpsBackupControllerApi vpsBackupController() {
+    if (_vpsBackupController == null) _vpsBackupController = new VpsBackupControllerApi(client);
+    return _vpsBackupController;
+  }
+  public VpsManagementApi vpsManagement() {
+    if (_vpsManagement == null) _vpsManagement = new VpsManagementApi(client);
+    return _vpsManagement;
   }
   public WebhookManagementApi webhookManagement() {
     if (_webhookManagement == null) _webhookManagement = new WebhookManagementApi(client);

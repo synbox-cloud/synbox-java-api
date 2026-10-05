@@ -21,7 +21,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import de.synbox.model.ToolApproval;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,7 +52,7 @@ import de.synbox.invoker.JSON;
 /**
  * Response from the game-server assistant
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T16:26:31.118286076Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T20:55:47.029221571Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class GameServerChatResponse {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
@@ -60,6 +63,16 @@ public class GameServerChatResponse {
   @SerializedName(SERIALIZED_NAME_APPROVAL)
   @jakarta.annotation.Nullable
   private ToolApproval approval;
+
+  public static final String SERIALIZED_NAME_APPROVALS = "approvals";
+  @SerializedName(SERIALIZED_NAME_APPROVALS)
+  @jakarta.annotation.Nullable
+  private List<ToolApproval> approvals = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_CHAT_ID = "chatId";
+  @SerializedName(SERIALIZED_NAME_CHAT_ID)
+  @jakarta.annotation.Nullable
+  private UUID chatId;
 
   public GameServerChatResponse() {
   }
@@ -89,7 +102,7 @@ public class GameServerChatResponse {
   }
 
   /**
-   * Pending user approval for a console command, if one is required
+   * First queued approval for older clients; new clients must use approvals
    * @return approval
    */
   @jakarta.annotation.Nullable
@@ -99,6 +112,52 @@ public class GameServerChatResponse {
 
   public void setApproval(@jakarta.annotation.Nullable ToolApproval approval) {
     this.approval = approval;
+  }
+
+
+  public GameServerChatResponse approvals(@jakarta.annotation.Nullable List<ToolApproval> approvals) {
+    this.approvals = approvals;
+    return this;
+  }
+
+  public GameServerChatResponse addApprovalsItem(ToolApproval approvalsItem) {
+    if (this.approvals == null) {
+      this.approvals = new ArrayList<>();
+    }
+    this.approvals.add(approvalsItem);
+    return this;
+  }
+
+  /**
+   * All actions staged by this request in queue order, maximum 16. Each requires its own confirmation; empty when no actions were staged.
+   * @return approvals
+   */
+  @jakarta.annotation.Nullable
+  public List<ToolApproval> getApprovals() {
+    return approvals;
+  }
+
+  public void setApprovals(@jakarta.annotation.Nullable List<ToolApproval> approvals) {
+    this.approvals = approvals;
+  }
+
+
+  public GameServerChatResponse chatId(@jakarta.annotation.Nullable UUID chatId) {
+    this.chatId = chatId;
+    return this;
+  }
+
+  /**
+   * Chat to which this response belongs
+   * @return chatId
+   */
+  @jakarta.annotation.Nullable
+  public UUID getChatId() {
+    return chatId;
+  }
+
+  public void setChatId(@jakarta.annotation.Nullable UUID chatId) {
+    this.chatId = chatId;
   }
 
 
@@ -113,12 +172,14 @@ public class GameServerChatResponse {
     }
     GameServerChatResponse gameServerChatResponse = (GameServerChatResponse) o;
     return Objects.equals(this.message, gameServerChatResponse.message) &&
-        Objects.equals(this.approval, gameServerChatResponse.approval);
+        Objects.equals(this.approval, gameServerChatResponse.approval) &&
+        Objects.equals(this.approvals, gameServerChatResponse.approvals) &&
+        Objects.equals(this.chatId, gameServerChatResponse.chatId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, approval);
+    return Objects.hash(message, approval, approvals, chatId);
   }
 
   @Override
@@ -127,6 +188,8 @@ public class GameServerChatResponse {
     sb.append("class GameServerChatResponse {\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    approval: ").append(toIndentedString(approval)).append("\n");
+    sb.append("    approvals: ").append(toIndentedString(approvals)).append("\n");
+    sb.append("    chatId: ").append(toIndentedString(chatId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -145,7 +208,7 @@ public class GameServerChatResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("message", "approval"));
+    openapiFields = new HashSet<String>(Arrays.asList("message", "approval", "approvals", "chatId"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -178,6 +241,23 @@ public class GameServerChatResponse {
       // validate the optional field `approval`
       if (jsonObj.get("approval") != null && !jsonObj.get("approval").isJsonNull()) {
         ToolApproval.validateJsonElement(jsonObj.get("approval"));
+      }
+      if (jsonObj.get("approvals") != null && !jsonObj.get("approvals").isJsonNull()) {
+        JsonArray jsonArrayapprovals = jsonObj.getAsJsonArray("approvals");
+        if (jsonArrayapprovals != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("approvals").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `approvals` to be an array in the JSON string but got `%s`", jsonObj.get("approvals").toString()));
+          }
+
+          // validate the optional field `approvals` (array)
+          for (int i = 0; i < jsonArrayapprovals.size(); i++) {
+            ToolApproval.validateJsonElement(jsonArrayapprovals.get(i));
+          };
+        }
+      }
+      if ((jsonObj.get("chatId") != null && !jsonObj.get("chatId").isJsonNull()) && !jsonObj.get("chatId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `chatId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("chatId").toString()));
       }
   }
 

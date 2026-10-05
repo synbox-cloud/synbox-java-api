@@ -37,6 +37,25 @@ mvn clean install
 </dependency>
 ```
 
+## Helper functions
+
+```java
+public static EnvironmentVariable env(String name, Object value) {
+    return env(name, value, false);
+}
+
+public static EnvironmentVariable env(String name, Object value, boolean ro) {
+    return new EnvironmentVariable()
+            .name(name)
+            .label(name)
+            .value(new EnvironmentValueUpdateValue(value))
+            .type(EnvironmentVariable.TypeEnum.TEXT)
+            .access(ro ? EnvironmentVariable.AccessEnum.READONLY : EnvironmentVariable.AccessEnum.RW)
+            .description(name);
+}
+```
+
+
 ## Getting Started
 
 ```java
@@ -69,7 +88,7 @@ void main() {
         // create new server (without organization, user = apikey owner)
         synbox.serverManagement().createContainer(new CloudServerCreateDTO()
                 .displayName("test-server-1")
-                .envs(Map.of("VERSION", "1.21.10"))
+                .envs(List.of(env("VERSION", "1.21.10")))
                 .powerLevel(CloudServerCreateDTO.PowerLevelEnum.EY_2_4)
                 .provider("papermc")
                 .start("00:00")
@@ -89,7 +108,7 @@ void main() {
                 .enableAutoPowerControl(false) // optional, default = true
                 .deleteOnStop(false) // optional, default = false
                 .autoStart(false) // optional, default = true
-                .envs(Map.of("VERSION", "1.21.10"))
+                .envs(List.of(env("VERSION", "1.21.10")))
                 .powerLevel(CloudServerCreateDTO.PowerLevelEnum.EY_2_4)
                 .provider("papermc")
                 .start("00:00")

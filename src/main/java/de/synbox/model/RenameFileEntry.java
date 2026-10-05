@@ -48,7 +48,7 @@ import de.synbox.invoker.JSON;
 /**
  * Single rename or move operation.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T16:26:31.118286076Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T20:55:47.029221571Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class RenameFileEntry {
   public static final String SERIALIZED_NAME_ROOT = "root";
   @SerializedName(SERIALIZED_NAME_ROOT)
@@ -74,7 +74,7 @@ public class RenameFileEntry {
   }
 
   /**
-   * Root path where the source file is located.
+   * Source directory relative to the server directory, including the volume.
    * @return root
    */
   @jakarta.annotation.Nullable
@@ -112,7 +112,7 @@ public class RenameFileEntry {
   }
 
   /**
-   * Destination directory for the renamed file.
+   * Destination path including the volume when it starts with &#39;/&#39;, otherwise relative to root.
    * @return to
    */
   @jakarta.annotation.Nullable

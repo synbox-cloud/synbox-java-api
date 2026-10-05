@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import de.synbox.model.TransactionPageDTO;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -73,6 +74,8 @@ public class TransactionControllerApi {
 
     /**
      * Build call for getTransactions
+     * @param page Zero-based page number (optional, default to 0)
+     * @param size Number of transactions per page (optional, default to 10)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -80,10 +83,11 @@ public class TransactionControllerApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Transaction page </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid page or size </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTransactionsCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTransactionsCall(@jakarta.annotation.Nullable String page, @jakarta.annotation.Nullable String size, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -108,6 +112,14 @@ public class TransactionControllerApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (size != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("size", size));
+        }
+
         final String[] localVarAccepts = {
             "*/*"
         };
@@ -128,49 +140,57 @@ public class TransactionControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTransactionsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return getTransactionsCall(_callback);
+    private okhttp3.Call getTransactionsValidateBeforeCall(@jakarta.annotation.Nullable String page, @jakarta.annotation.Nullable String size, final ApiCallback _callback) throws ApiException {
+        return getTransactionsCall(page, size, _callback);
 
     }
 
     /**
-     * 
-     * 
-     * @return String
+     * Get transactions
+     * Returns transactions of the authenticated user, newest first.
+     * @param page Zero-based page number (optional, default to 0)
+     * @param size Number of transactions per page (optional, default to 10)
+     * @return TransactionPageDTO
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Transaction page </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid page or size </td><td>  -  </td></tr>
      </table>
      */
-    public String getTransactions() throws ApiException {
-        ApiResponse<String> localVarResp = getTransactionsWithHttpInfo();
+    public TransactionPageDTO getTransactions(@jakarta.annotation.Nullable String page, @jakarta.annotation.Nullable String size) throws ApiException {
+        ApiResponse<TransactionPageDTO> localVarResp = getTransactionsWithHttpInfo(page, size);
         return localVarResp.getData();
     }
 
     /**
-     * 
-     * 
-     * @return ApiResponse&lt;String&gt;
+     * Get transactions
+     * Returns transactions of the authenticated user, newest first.
+     * @param page Zero-based page number (optional, default to 0)
+     * @param size Number of transactions per page (optional, default to 10)
+     * @return ApiResponse&lt;TransactionPageDTO&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Transaction page </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid page or size </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> getTransactionsWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = getTransactionsValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+    public ApiResponse<TransactionPageDTO> getTransactionsWithHttpInfo(@jakarta.annotation.Nullable String page, @jakarta.annotation.Nullable String size) throws ApiException {
+        okhttp3.Call localVarCall = getTransactionsValidateBeforeCall(page, size, null);
+        Type localVarReturnType = new TypeToken<TransactionPageDTO>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     *  (asynchronously)
-     * 
+     * Get transactions (asynchronously)
+     * Returns transactions of the authenticated user, newest first.
+     * @param page Zero-based page number (optional, default to 0)
+     * @param size Number of transactions per page (optional, default to 10)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -178,19 +198,22 @@ public class TransactionControllerApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Transaction page </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid page or size </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTransactionsAsync(final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call getTransactionsAsync(@jakarta.annotation.Nullable String page, @jakarta.annotation.Nullable String size, final ApiCallback<TransactionPageDTO> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTransactionsValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        okhttp3.Call localVarCall = getTransactionsValidateBeforeCall(page, size, _callback);
+        Type localVarReturnType = new TypeToken<TransactionPageDTO>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getTransactionsForServer
-     * @param serverId  (required)
+     * @param serverId Server ID (required)
+     * @param page Zero-based page number (optional, default to 0)
+     * @param size Number of transactions per page (optional, default to 10)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -198,10 +221,11 @@ public class TransactionControllerApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Transaction page </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid page or size </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTransactionsForServerCall(@jakarta.annotation.Nonnull String serverId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getTransactionsForServerCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nullable String page, @jakarta.annotation.Nullable String size, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -227,6 +251,14 @@ public class TransactionControllerApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (size != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("size", size));
+        }
+
         final String[] localVarAccepts = {
             "*/*"
         };
@@ -247,57 +279,65 @@ public class TransactionControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTransactionsForServerValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTransactionsForServerValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nullable String page, @jakarta.annotation.Nullable String size, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'serverId' is set
         if (serverId == null) {
             throw new ApiException("Missing the required parameter 'serverId' when calling getTransactionsForServer(Async)");
         }
 
-        return getTransactionsForServerCall(serverId, _callback);
+        return getTransactionsForServerCall(serverId, page, size, _callback);
 
     }
 
     /**
-     * 
-     * 
-     * @param serverId  (required)
-     * @return String
+     * Get server transactions
+     * Returns transactions for one server of the authenticated user, newest first.
+     * @param serverId Server ID (required)
+     * @param page Zero-based page number (optional, default to 0)
+     * @param size Number of transactions per page (optional, default to 10)
+     * @return TransactionPageDTO
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Transaction page </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid page or size </td><td>  -  </td></tr>
      </table>
      */
-    public String getTransactionsForServer(@jakarta.annotation.Nonnull String serverId) throws ApiException {
-        ApiResponse<String> localVarResp = getTransactionsForServerWithHttpInfo(serverId);
+    public TransactionPageDTO getTransactionsForServer(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nullable String page, @jakarta.annotation.Nullable String size) throws ApiException {
+        ApiResponse<TransactionPageDTO> localVarResp = getTransactionsForServerWithHttpInfo(serverId, page, size);
         return localVarResp.getData();
     }
 
     /**
-     * 
-     * 
-     * @param serverId  (required)
-     * @return ApiResponse&lt;String&gt;
+     * Get server transactions
+     * Returns transactions for one server of the authenticated user, newest first.
+     * @param serverId Server ID (required)
+     * @param page Zero-based page number (optional, default to 0)
+     * @param size Number of transactions per page (optional, default to 10)
+     * @return ApiResponse&lt;TransactionPageDTO&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Transaction page </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid page or size </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> getTransactionsForServerWithHttpInfo(@jakarta.annotation.Nonnull String serverId) throws ApiException {
-        okhttp3.Call localVarCall = getTransactionsForServerValidateBeforeCall(serverId, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+    public ApiResponse<TransactionPageDTO> getTransactionsForServerWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nullable String page, @jakarta.annotation.Nullable String size) throws ApiException {
+        okhttp3.Call localVarCall = getTransactionsForServerValidateBeforeCall(serverId, page, size, null);
+        Type localVarReturnType = new TypeToken<TransactionPageDTO>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     *  (asynchronously)
-     * 
-     * @param serverId  (required)
+     * Get server transactions (asynchronously)
+     * Returns transactions for one server of the authenticated user, newest first.
+     * @param serverId Server ID (required)
+     * @param page Zero-based page number (optional, default to 0)
+     * @param size Number of transactions per page (optional, default to 10)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -305,13 +345,14 @@ public class TransactionControllerApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Transaction page </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid page or size </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getTransactionsForServerAsync(@jakarta.annotation.Nonnull String serverId, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call getTransactionsForServerAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nullable String page, @jakarta.annotation.Nullable String size, final ApiCallback<TransactionPageDTO> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTransactionsForServerValidateBeforeCall(serverId, _callback);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        okhttp3.Call localVarCall = getTransactionsForServerValidateBeforeCall(serverId, page, size, _callback);
+        Type localVarReturnType = new TypeToken<TransactionPageDTO>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

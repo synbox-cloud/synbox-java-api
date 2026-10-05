@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import de.synbox.model.BackupModel;
 import de.synbox.model.Document;
+import de.synbox.model.EnvModel;
 import de.synbox.model.ScheduleModel;
 import de.synbox.model.Webhook;
 import java.io.IOException;
@@ -54,7 +55,7 @@ import de.synbox.invoker.JSON;
 /**
  * CloudServerModel
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T16:26:31.118286076Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T20:55:47.029221571Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerModel {
   public static final String SERIALIZED_NAME_PROVIDER = "provider";
   @SerializedName(SERIALIZED_NAME_PROVIDER)
@@ -270,6 +271,11 @@ public class CloudServerModel {
   @SerializedName(SERIALIZED_NAME_RESTARTING)
   @jakarta.annotation.Nullable
   private Boolean restarting;
+
+  public static final String SERIALIZED_NAME_ENVS_AS_LIST = "envsAsList";
+  @SerializedName(SERIALIZED_NAME_ENVS_AS_LIST)
+  @jakarta.annotation.Nullable
+  private List<EnvModel> envsAsList = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ONE_TME_PASSWORD = "oneTmePassword";
   @SerializedName(SERIALIZED_NAME_ONE_TME_PASSWORD)
@@ -839,6 +845,33 @@ public class CloudServerModel {
   }
 
 
+  public CloudServerModel envsAsList(@jakarta.annotation.Nullable List<EnvModel> envsAsList) {
+    this.envsAsList = envsAsList;
+    return this;
+  }
+
+  public CloudServerModel addEnvsAsListItem(EnvModel envsAsListItem) {
+    if (this.envsAsList == null) {
+      this.envsAsList = new ArrayList<>();
+    }
+    this.envsAsList.add(envsAsListItem);
+    return this;
+  }
+
+  /**
+   * Get envsAsList
+   * @return envsAsList
+   */
+  @jakarta.annotation.Nullable
+  public List<EnvModel> getEnvsAsList() {
+    return envsAsList;
+  }
+
+  public void setEnvsAsList(@jakarta.annotation.Nullable List<EnvModel> envsAsList) {
+    this.envsAsList = envsAsList;
+  }
+
+
   public CloudServerModel oneTmePassword(@jakarta.annotation.Nullable String oneTmePassword) {
     this.oneTmePassword = oneTmePassword;
     return this;
@@ -952,6 +985,7 @@ public class CloudServerModel {
         Objects.equals(this.webhooks, cloudServerModel.webhooks) &&
         Objects.equals(this.additionalPort, cloudServerModel.additionalPort) &&
         Objects.equals(this.restarting, cloudServerModel.restarting) &&
+        Objects.equals(this.envsAsList, cloudServerModel.envsAsList) &&
         Objects.equals(this.oneTmePassword, cloudServerModel.oneTmePassword) &&
         Objects.equals(this.deltaTillStart, cloudServerModel.deltaTillStart) &&
         Objects.equals(this.free, cloudServerModel.free) &&
@@ -960,7 +994,7 @@ public class CloudServerModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(provider, start, deleteOnStop, stop, enableAutoPowerControl, owner, displayName, ip, suspended, cpuType, powerLevel, location, requiredNodeFeatures, scheduleModels, backups, startVolume, serverId, moneyPoolId, volumes, envs, permissions, port, publicIp, organization, webhooks, additionalPort, restarting, oneTmePassword, deltaTillStart, free, accountId);
+    return Objects.hash(provider, start, deleteOnStop, stop, enableAutoPowerControl, owner, displayName, ip, suspended, cpuType, powerLevel, location, requiredNodeFeatures, scheduleModels, backups, startVolume, serverId, moneyPoolId, volumes, envs, permissions, port, publicIp, organization, webhooks, additionalPort, restarting, envsAsList, oneTmePassword, deltaTillStart, free, accountId);
   }
 
   @Override
@@ -994,6 +1028,7 @@ public class CloudServerModel {
     sb.append("    webhooks: ").append(toIndentedString(webhooks)).append("\n");
     sb.append("    additionalPort: ").append(toIndentedString(additionalPort)).append("\n");
     sb.append("    restarting: ").append(toIndentedString(restarting)).append("\n");
+    sb.append("    envsAsList: ").append(toIndentedString(envsAsList)).append("\n");
     sb.append("    oneTmePassword: ").append(toIndentedString(oneTmePassword)).append("\n");
     sb.append("    deltaTillStart: ").append(toIndentedString(deltaTillStart)).append("\n");
     sb.append("    free: ").append(toIndentedString(free)).append("\n");
@@ -1016,7 +1051,7 @@ public class CloudServerModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("provider", "start", "deleteOnStop", "stop", "enableAutoPowerControl", "owner", "displayName", "ip", "suspended", "cpu_type", "powerLevel", "location", "requiredNodeFeatures", "scheduleModels", "backups", "startVolume", "server_id", "money_pool_id", "volumes", "envs", "permissions", "port", "publicIp", "organization", "webhooks", "additionalPort", "restarting", "oneTmePassword", "deltaTillStart", "free", "account_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("provider", "start", "deleteOnStop", "stop", "enableAutoPowerControl", "owner", "displayName", "ip", "suspended", "cpu_type", "powerLevel", "location", "requiredNodeFeatures", "scheduleModels", "backups", "startVolume", "server_id", "money_pool_id", "volumes", "envs", "permissions", "port", "publicIp", "organization", "webhooks", "additionalPort", "restarting", "envsAsList", "oneTmePassword", "deltaTillStart", "free", "account_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -1140,6 +1175,20 @@ public class CloudServerModel {
       }
       if ((jsonObj.get("additionalPort") != null && !jsonObj.get("additionalPort").isJsonNull()) && !jsonObj.get("additionalPort").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `additionalPort` to be a primitive type in the JSON string but got `%s`", jsonObj.get("additionalPort").toString()));
+      }
+      if (jsonObj.get("envsAsList") != null && !jsonObj.get("envsAsList").isJsonNull()) {
+        JsonArray jsonArrayenvsAsList = jsonObj.getAsJsonArray("envsAsList");
+        if (jsonArrayenvsAsList != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("envsAsList").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `envsAsList` to be an array in the JSON string but got `%s`", jsonObj.get("envsAsList").toString()));
+          }
+
+          // validate the optional field `envsAsList` (array)
+          for (int i = 0; i < jsonArrayenvsAsList.size(); i++) {
+            EnvModel.validateJsonElement(jsonArrayenvsAsList.get(i));
+          };
+        }
       }
       if ((jsonObj.get("oneTmePassword") != null && !jsonObj.get("oneTmePassword").isJsonNull()) && !jsonObj.get("oneTmePassword").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `oneTmePassword` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oneTmePassword").toString()));

@@ -27,6 +27,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import de.synbox.model.EnvironmentError;
+import de.synbox.model.EnvironmentResponse;
+import de.synbox.model.EnvironmentUpdateRequest;
+import de.synbox.model.EnvironmentVariable;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -72,9 +76,9 @@ public class ContainerEnvironmentApi {
     }
 
     /**
-     * Build call for setEnvironment
+     * Build call for createEnvironment
      * @param id ID of the container (required)
-     * @param requestBody  (required)
+     * @param environmentVariable  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -82,13 +86,14 @@ public class ContainerEnvironmentApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Environment variables replaced successfully </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request body </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Variable created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid variable </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Creation forbidden </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Name already exists </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call setEnvironmentCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Map<String, Object> requestBody, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createEnvironmentCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull EnvironmentVariable environmentVariable, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -102,7 +107,290 @@ public class ContainerEnvironmentApi {
             basePath = null;
         }
 
-        Object localVarPostBody = requestBody;
+        Object localVarPostBody = environmentVariable;
+
+        // create path and map variables
+        String localVarPath = "/api/containers/{id}/environment"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createEnvironmentValidateBeforeCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull EnvironmentVariable environmentVariable, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling createEnvironment(Async)");
+        }
+
+        // verify the required parameter 'environmentVariable' is set
+        if (environmentVariable == null) {
+            throw new ApiException("Missing the required parameter 'environmentVariable' when calling createEnvironment(Async)");
+        }
+
+        return createEnvironmentCall(id, environmentVariable, _callback);
+
+    }
+
+    /**
+     * Create environment variable
+     * Checks permission, name conflicts, type metadata and value before creating a writable variable.
+     * @param id ID of the container (required)
+     * @param environmentVariable  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Variable created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid variable </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Creation forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Name already exists </td><td>  -  </td></tr>
+     </table>
+     */
+    public void createEnvironment(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull EnvironmentVariable environmentVariable) throws ApiException {
+        createEnvironmentWithHttpInfo(id, environmentVariable);
+    }
+
+    /**
+     * Create environment variable
+     * Checks permission, name conflicts, type metadata and value before creating a writable variable.
+     * @param id ID of the container (required)
+     * @param environmentVariable  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Variable created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid variable </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Creation forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Name already exists </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> createEnvironmentWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull EnvironmentVariable environmentVariable) throws ApiException {
+        okhttp3.Call localVarCall = createEnvironmentValidateBeforeCall(id, environmentVariable, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Create environment variable (asynchronously)
+     * Checks permission, name conflicts, type metadata and value before creating a writable variable.
+     * @param id ID of the container (required)
+     * @param environmentVariable  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Variable created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid variable </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Creation forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Name already exists </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createEnvironmentAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull EnvironmentVariable environmentVariable, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createEnvironmentValidateBeforeCall(id, environmentVariable, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getEnvironment
+     * @param id ID of the container (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Environment </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEnvironmentCall(@jakarta.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/containers/{id}/environment"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getEnvironmentValidateBeforeCall(@jakarta.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getEnvironment(Async)");
+        }
+
+        return getEnvironmentCall(id, _callback);
+
+    }
+
+    /**
+     * Get environment variables
+     * Returns visible variables and effective permissions for the current user.
+     * @param id ID of the container (required)
+     * @return EnvironmentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Environment </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public EnvironmentResponse getEnvironment(@jakarta.annotation.Nonnull String id) throws ApiException {
+        ApiResponse<EnvironmentResponse> localVarResp = getEnvironmentWithHttpInfo(id);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get environment variables
+     * Returns visible variables and effective permissions for the current user.
+     * @param id ID of the container (required)
+     * @return ApiResponse&lt;EnvironmentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Environment </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EnvironmentResponse> getEnvironmentWithHttpInfo(@jakarta.annotation.Nonnull String id) throws ApiException {
+        okhttp3.Call localVarCall = getEnvironmentValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<EnvironmentResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get environment variables (asynchronously)
+     * Returns visible variables and effective permissions for the current user.
+     * @param id ID of the container (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Environment </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEnvironmentAsync(@jakarta.annotation.Nonnull String id, final ApiCallback<EnvironmentResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getEnvironmentValidateBeforeCall(id, _callback);
+        Type localVarReturnType = new TypeToken<EnvironmentResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for setEnvironment
+     * @param id ID of the container (required)
+     * @param environmentUpdateRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> All values saved </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request or value </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden or readonly variable </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setEnvironmentCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull EnvironmentUpdateRequest environmentUpdateRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = environmentUpdateRequest;
 
         // create path and map variables
         String localVarPath = "/api/containers/{id}/environment"
@@ -135,71 +423,68 @@ public class ContainerEnvironmentApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call setEnvironmentValidateBeforeCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Map<String, Object> requestBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call setEnvironmentValidateBeforeCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull EnvironmentUpdateRequest environmentUpdateRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling setEnvironment(Async)");
         }
 
-        // verify the required parameter 'requestBody' is set
-        if (requestBody == null) {
-            throw new ApiException("Missing the required parameter 'requestBody' when calling setEnvironment(Async)");
+        // verify the required parameter 'environmentUpdateRequest' is set
+        if (environmentUpdateRequest == null) {
+            throw new ApiException("Missing the required parameter 'environmentUpdateRequest' when calling setEnvironment(Async)");
         }
 
-        return setEnvironmentCall(id, requestBody, _callback);
+        return setEnvironmentCall(id, environmentUpdateRequest, _callback);
 
     }
 
     /**
-     * Set environment variables
-     * Replaces all environment variables of a specific container.
+     * Update environment values
+     * Atomically updates supplied existing variables, retaining all others. Metadata cannot be changed.
      * @param id ID of the container (required)
-     * @param requestBody  (required)
-     * @return String
+     * @param environmentUpdateRequest  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Environment variables replaced successfully </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request body </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> All values saved </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request or value </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden or readonly variable </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
      </table>
      */
-    public String setEnvironment(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Map<String, Object> requestBody) throws ApiException {
-        ApiResponse<String> localVarResp = setEnvironmentWithHttpInfo(id, requestBody);
-        return localVarResp.getData();
+    public void setEnvironment(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull EnvironmentUpdateRequest environmentUpdateRequest) throws ApiException {
+        setEnvironmentWithHttpInfo(id, environmentUpdateRequest);
     }
 
     /**
-     * Set environment variables
-     * Replaces all environment variables of a specific container.
+     * Update environment values
+     * Atomically updates supplied existing variables, retaining all others. Metadata cannot be changed.
      * @param id ID of the container (required)
-     * @param requestBody  (required)
-     * @return ApiResponse&lt;String&gt;
+     * @param environmentUpdateRequest  (required)
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Environment variables replaced successfully </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request body </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> All values saved </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request or value </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden or readonly variable </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> setEnvironmentWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Map<String, Object> requestBody) throws ApiException {
-        okhttp3.Call localVarCall = setEnvironmentValidateBeforeCall(id, requestBody, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    public ApiResponse<Void> setEnvironmentWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull EnvironmentUpdateRequest environmentUpdateRequest) throws ApiException {
+        okhttp3.Call localVarCall = setEnvironmentValidateBeforeCall(id, environmentUpdateRequest, null);
+        return localVarApiClient.execute(localVarCall);
     }
 
     /**
-     * Set environment variables (asynchronously)
-     * Replaces all environment variables of a specific container.
+     * Update environment values (asynchronously)
+     * Atomically updates supplied existing variables, retaining all others. Metadata cannot be changed.
      * @param id ID of the container (required)
-     * @param requestBody  (required)
+     * @param environmentUpdateRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -207,166 +492,16 @@ public class ContainerEnvironmentApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Environment variables replaced successfully </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request body </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> All values saved </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request or value </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden or readonly variable </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call setEnvironmentAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Map<String, Object> requestBody, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call setEnvironmentAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull EnvironmentUpdateRequest environmentUpdateRequest, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = setEnvironmentValidateBeforeCall(id, requestBody, _callback);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for updateEnvironment
-     * @param id ID of the container (required)
-     * @param requestBody  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Environment variables updated successfully </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request body </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateEnvironmentCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Map<String, Object> requestBody, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = requestBody;
-
-        // create path and map variables
-        String localVarPath = "/api/containers/{id}/environment"
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "*/*"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateEnvironmentValidateBeforeCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Map<String, Object> requestBody, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling updateEnvironment(Async)");
-        }
-
-        // verify the required parameter 'requestBody' is set
-        if (requestBody == null) {
-            throw new ApiException("Missing the required parameter 'requestBody' when calling updateEnvironment(Async)");
-        }
-
-        return updateEnvironmentCall(id, requestBody, _callback);
-
-    }
-
-    /**
-     * Update environment variables
-     * Updates or adds environment variables of a specific container.
-     * @param id ID of the container (required)
-     * @param requestBody  (required)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Environment variables updated successfully </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request body </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
-     </table>
-     */
-    public String updateEnvironment(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Map<String, Object> requestBody) throws ApiException {
-        ApiResponse<String> localVarResp = updateEnvironmentWithHttpInfo(id, requestBody);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Update environment variables
-     * Updates or adds environment variables of a specific container.
-     * @param id ID of the container (required)
-     * @param requestBody  (required)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Environment variables updated successfully </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request body </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<String> updateEnvironmentWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Map<String, Object> requestBody) throws ApiException {
-        okhttp3.Call localVarCall = updateEnvironmentValidateBeforeCall(id, requestBody, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Update environment variables (asynchronously)
-     * Updates or adds environment variables of a specific container.
-     * @param id ID of the container (required)
-     * @param requestBody  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Environment variables updated successfully </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request body </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Container not found </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateEnvironmentAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull Map<String, Object> requestBody, final ApiCallback<String> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = updateEnvironmentValidateBeforeCall(id, requestBody, _callback);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        okhttp3.Call localVarCall = setEnvironmentValidateBeforeCall(id, environmentUpdateRequest, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
 }

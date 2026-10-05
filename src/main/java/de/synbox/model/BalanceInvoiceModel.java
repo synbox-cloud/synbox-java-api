@@ -48,7 +48,7 @@ import de.synbox.invoker.JSON;
 /**
  * BalanceInvoiceModel
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T16:26:31.118286076Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T20:55:47.029221571Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class BalanceInvoiceModel {
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
@@ -59,6 +59,11 @@ public class BalanceInvoiceModel {
   @SerializedName(SERIALIZED_NAME_URL)
   @jakarta.annotation.Nullable
   private String url;
+
+  public static final String SERIALIZED_NAME_SUBJECT = "subject";
+  @SerializedName(SERIALIZED_NAME_SUBJECT)
+  @jakarta.annotation.Nullable
+  private String subject;
 
   public BalanceInvoiceModel() {
   }
@@ -101,6 +106,25 @@ public class BalanceInvoiceModel {
   }
 
 
+  public BalanceInvoiceModel subject(@jakarta.annotation.Nullable String subject) {
+    this.subject = subject;
+    return this;
+  }
+
+  /**
+   * Get subject
+   * @return subject
+   */
+  @jakarta.annotation.Nullable
+  public String getSubject() {
+    return subject;
+  }
+
+  public void setSubject(@jakarta.annotation.Nullable String subject) {
+    this.subject = subject;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -112,12 +136,13 @@ public class BalanceInvoiceModel {
     }
     BalanceInvoiceModel balanceInvoiceModel = (BalanceInvoiceModel) o;
     return Objects.equals(this.amount, balanceInvoiceModel.amount) &&
-        Objects.equals(this.url, balanceInvoiceModel.url);
+        Objects.equals(this.url, balanceInvoiceModel.url) &&
+        Objects.equals(this.subject, balanceInvoiceModel.subject);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, url);
+    return Objects.hash(amount, url, subject);
   }
 
   @Override
@@ -126,6 +151,7 @@ public class BalanceInvoiceModel {
     sb.append("class BalanceInvoiceModel {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -144,7 +170,7 @@ public class BalanceInvoiceModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("amount", "url"));
+    openapiFields = new HashSet<String>(Arrays.asList("amount", "url", "subject"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -173,6 +199,9 @@ public class BalanceInvoiceModel {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+      }
+      if ((jsonObj.get("subject") != null && !jsonObj.get("subject").isJsonNull()) && !jsonObj.get("subject").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subject` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subject").toString()));
       }
   }
 

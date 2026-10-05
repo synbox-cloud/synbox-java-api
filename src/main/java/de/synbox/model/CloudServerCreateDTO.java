@@ -19,12 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import de.synbox.model.EnvironmentVariable;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +51,7 @@ import de.synbox.invoker.JSON;
 /**
  * DTO for creating a new cloud server container
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T16:26:31.118286076Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T20:55:47.029221571Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerCreateDTO {
   /**
    * Power level configuration for the server
@@ -167,7 +166,7 @@ public class CloudServerCreateDTO {
   public static final String SERIALIZED_NAME_ENVS = "envs";
   @SerializedName(SERIALIZED_NAME_ENVS)
   @jakarta.annotation.Nullable
-  private Map<String, Object> envs = new HashMap<>();
+  private List<EnvironmentVariable> envs = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_START = "start";
   @SerializedName(SERIALIZED_NAME_START)
@@ -326,16 +325,16 @@ public class CloudServerCreateDTO {
   }
 
 
-  public CloudServerCreateDTO envs(@jakarta.annotation.Nullable Map<String, Object> envs) {
+  public CloudServerCreateDTO envs(@jakarta.annotation.Nullable List<EnvironmentVariable> envs) {
     this.envs = envs;
     return this;
   }
 
-  public CloudServerCreateDTO putEnvsItem(String key, Object envsItem) {
+  public CloudServerCreateDTO addEnvsItem(EnvironmentVariable envsItem) {
     if (this.envs == null) {
-      this.envs = new HashMap<>();
+      this.envs = new ArrayList<>();
     }
-    this.envs.put(key, envsItem);
+    this.envs.add(envsItem);
     return this;
   }
 
@@ -344,11 +343,11 @@ public class CloudServerCreateDTO {
    * @return envs
    */
   @jakarta.annotation.Nullable
-  public Map<String, Object> getEnvs() {
+  public List<EnvironmentVariable> getEnvs() {
     return envs;
   }
 
-  public void setEnvs(@jakarta.annotation.Nullable Map<String, Object> envs) {
+  public void setEnvs(@jakarta.annotation.Nullable List<EnvironmentVariable> envs) {
     this.envs = envs;
   }
 
@@ -629,6 +628,20 @@ public class CloudServerCreateDTO {
       }
       if (!jsonObj.get("provider").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("provider").toString()));
+      }
+      if (jsonObj.get("envs") != null && !jsonObj.get("envs").isJsonNull()) {
+        JsonArray jsonArrayenvs = jsonObj.getAsJsonArray("envs");
+        if (jsonArrayenvs != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("envs").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `envs` to be an array in the JSON string but got `%s`", jsonObj.get("envs").toString()));
+          }
+
+          // validate the optional field `envs` (array)
+          for (int i = 0; i < jsonArrayenvs.size(); i++) {
+            EnvironmentVariable.validateJsonElement(jsonArrayenvs.get(i));
+          };
+        }
       }
       if ((jsonObj.get("start") != null && !jsonObj.get("start").isJsonNull()) && !jsonObj.get("start").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `start` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start").toString()));

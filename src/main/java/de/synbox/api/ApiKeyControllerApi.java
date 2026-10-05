@@ -317,7 +317,7 @@ public class ApiKeyControllerApi {
         return localVarCall;
     }
     /**
-     * Build call for delete
+     * Build call for delete1
      * @param id  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -329,7 +329,7 @@ public class ApiKeyControllerApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCall(@jakarta.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call delete1Call(@jakarta.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -375,13 +375,13 @@ public class ApiKeyControllerApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteValidateBeforeCall(@jakarta.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call delete1ValidateBeforeCall(@jakarta.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling delete(Async)");
+            throw new ApiException("Missing the required parameter 'id' when calling delete1(Async)");
         }
 
-        return deleteCall(id, _callback);
+        return delete1Call(id, _callback);
 
     }
 
@@ -398,8 +398,8 @@ public class ApiKeyControllerApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public Object delete(@jakarta.annotation.Nonnull String id) throws ApiException {
-        ApiResponse<Object> localVarResp = deleteWithHttpInfo(id);
+    public Object delete1(@jakarta.annotation.Nonnull String id) throws ApiException {
+        ApiResponse<Object> localVarResp = delete1WithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -416,8 +416,8 @@ public class ApiKeyControllerApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> deleteWithHttpInfo(@jakarta.annotation.Nonnull String id) throws ApiException {
-        okhttp3.Call localVarCall = deleteValidateBeforeCall(id, null);
+    public ApiResponse<Object> delete1WithHttpInfo(@jakarta.annotation.Nonnull String id) throws ApiException {
+        okhttp3.Call localVarCall = delete1ValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -436,9 +436,9 @@ public class ApiKeyControllerApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteAsync(@jakarta.annotation.Nonnull String id, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call delete1Async(@jakarta.annotation.Nonnull String id, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteValidateBeforeCall(id, _callback);
+        okhttp3.Call localVarCall = delete1ValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

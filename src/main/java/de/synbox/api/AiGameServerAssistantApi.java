@@ -27,8 +27,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import de.synbox.model.AiChatEvent;
+import de.synbox.model.ConversationInfo;
 import de.synbox.model.GameServerChatRequest;
 import de.synbox.model.GameServerChatResponse;
+import de.synbox.model.HistoryPage;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
@@ -84,11 +87,7 @@ public class AiGameServerAssistantApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Assistant response returned successfully </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> The chat message is empty or too long </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> The user is not allowed to access the requested server </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> The AI provider returned no response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call chatCall(@jakarta.annotation.Nonnull GameServerChatRequest gameServerChatRequest, final ApiCallback _callback) throws ApiException {
@@ -149,7 +148,7 @@ public class AiGameServerAssistantApi {
 
     /**
      * Chat with the game-server assistant
-     * Answers questions about the authenticated user&#39;s servers and can execute explicitly requested start or stop actions.
+     * Returns a complete response. Uses the same server-side history and conversation as the WebSocket.
      * @param gameServerChatRequest  (required)
      * @return GameServerChatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -157,11 +156,7 @@ public class AiGameServerAssistantApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Assistant response returned successfully </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> The chat message is empty or too long </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> The user is not allowed to access the requested server </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> The AI provider returned no response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
     public GameServerChatResponse chat(@jakarta.annotation.Nonnull GameServerChatRequest gameServerChatRequest) throws ApiException {
@@ -171,7 +166,7 @@ public class AiGameServerAssistantApi {
 
     /**
      * Chat with the game-server assistant
-     * Answers questions about the authenticated user&#39;s servers and can execute explicitly requested start or stop actions.
+     * Returns a complete response. Uses the same server-side history and conversation as the WebSocket.
      * @param gameServerChatRequest  (required)
      * @return ApiResponse&lt;GameServerChatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -179,11 +174,7 @@ public class AiGameServerAssistantApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Assistant response returned successfully </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> The chat message is empty or too long </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> The user is not allowed to access the requested server </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> The AI provider returned no response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<GameServerChatResponse> chatWithHttpInfo(@jakarta.annotation.Nonnull GameServerChatRequest gameServerChatRequest) throws ApiException {
@@ -194,7 +185,7 @@ public class AiGameServerAssistantApi {
 
     /**
      * Chat with the game-server assistant (asynchronously)
-     * Answers questions about the authenticated user&#39;s servers and can execute explicitly requested start or stop actions.
+     * Returns a complete response. Uses the same server-side history and conversation as the WebSocket.
      * @param gameServerChatRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -203,11 +194,7 @@ public class AiGameServerAssistantApi {
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Assistant response returned successfully </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> The chat message is empty or too long </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Authentication is required </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> The user is not allowed to access the requested server </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> The AI provider returned no response </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call chatAsync(@jakarta.annotation.Nonnull GameServerChatRequest gameServerChatRequest, final ApiCallback<GameServerChatResponse> _callback) throws ApiException {
@@ -220,6 +207,7 @@ public class AiGameServerAssistantApi {
     /**
      * Build call for confirmConsoleCommand
      * @param approvalId  (required)
+     * @param chatId  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -230,7 +218,7 @@ public class AiGameServerAssistantApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call confirmConsoleCommandCall(@jakarta.annotation.Nonnull UUID approvalId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call confirmConsoleCommandCall(@jakarta.annotation.Nonnull UUID approvalId, @jakarta.annotation.Nullable UUID chatId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -256,6 +244,10 @@ public class AiGameServerAssistantApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (chatId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("chatId", chatId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -276,20 +268,21 @@ public class AiGameServerAssistantApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call confirmConsoleCommandValidateBeforeCall(@jakarta.annotation.Nonnull UUID approvalId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call confirmConsoleCommandValidateBeforeCall(@jakarta.annotation.Nonnull UUID approvalId, @jakarta.annotation.Nullable UUID chatId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'approvalId' is set
         if (approvalId == null) {
             throw new ApiException("Missing the required parameter 'approvalId' when calling confirmConsoleCommand(Async)");
         }
 
-        return confirmConsoleCommandCall(approvalId, _callback);
+        return confirmConsoleCommandCall(approvalId, chatId, _callback);
 
     }
 
     /**
-     * Confirm and execute a pending console command
+     * Confirm and execute a pending AI tool action
      * 
      * @param approvalId  (required)
+     * @param chatId  (optional)
      * @return GameServerChatResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -299,15 +292,16 @@ public class AiGameServerAssistantApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public GameServerChatResponse confirmConsoleCommand(@jakarta.annotation.Nonnull UUID approvalId) throws ApiException {
-        ApiResponse<GameServerChatResponse> localVarResp = confirmConsoleCommandWithHttpInfo(approvalId);
+    public GameServerChatResponse confirmConsoleCommand(@jakarta.annotation.Nonnull UUID approvalId, @jakarta.annotation.Nullable UUID chatId) throws ApiException {
+        ApiResponse<GameServerChatResponse> localVarResp = confirmConsoleCommandWithHttpInfo(approvalId, chatId);
         return localVarResp.getData();
     }
 
     /**
-     * Confirm and execute a pending console command
+     * Confirm and execute a pending AI tool action
      * 
      * @param approvalId  (required)
+     * @param chatId  (optional)
      * @return ApiResponse&lt;GameServerChatResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -317,16 +311,17 @@ public class AiGameServerAssistantApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GameServerChatResponse> confirmConsoleCommandWithHttpInfo(@jakarta.annotation.Nonnull UUID approvalId) throws ApiException {
-        okhttp3.Call localVarCall = confirmConsoleCommandValidateBeforeCall(approvalId, null);
+    public ApiResponse<GameServerChatResponse> confirmConsoleCommandWithHttpInfo(@jakarta.annotation.Nonnull UUID approvalId, @jakarta.annotation.Nullable UUID chatId) throws ApiException {
+        okhttp3.Call localVarCall = confirmConsoleCommandValidateBeforeCall(approvalId, chatId, null);
         Type localVarReturnType = new TypeToken<GameServerChatResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Confirm and execute a pending console command (asynchronously)
+     * Confirm and execute a pending AI tool action (asynchronously)
      * 
      * @param approvalId  (required)
+     * @param chatId  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -337,16 +332,16 @@ public class AiGameServerAssistantApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call confirmConsoleCommandAsync(@jakarta.annotation.Nonnull UUID approvalId, final ApiCallback<GameServerChatResponse> _callback) throws ApiException {
+    public okhttp3.Call confirmConsoleCommandAsync(@jakarta.annotation.Nonnull UUID approvalId, @jakarta.annotation.Nullable UUID chatId, final ApiCallback<GameServerChatResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = confirmConsoleCommandValidateBeforeCall(approvalId, _callback);
+        okhttp3.Call localVarCall = confirmConsoleCommandValidateBeforeCall(approvalId, chatId, _callback);
         Type localVarReturnType = new TypeToken<GameServerChatResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for rejectConsoleCommand
-     * @param approvalId  (required)
+     * Build call for conversations
+     * @param limit  (optional, default to 50)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -357,7 +352,7 @@ public class AiGameServerAssistantApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call rejectConsoleCommandCall(@jakarta.annotation.Nonnull UUID approvalId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call conversationsCall(@jakarta.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -374,8 +369,131 @@ public class AiGameServerAssistantApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/api/server/ai/chat/approvals/{approvalId}/reject"
-            .replace("{" + "approvalId" + "}", localVarApiClient.escapeString(approvalId.toString()));
+        String localVarPath = "/api/server/ai/chat/conversations";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call conversationsValidateBeforeCall(@jakarta.annotation.Nullable Integer limit, final ApiCallback _callback) throws ApiException {
+        return conversationsCall(limit, _callback);
+
+    }
+
+    /**
+     * List owned chats
+     * Newest created chats first. Limit 1–100, default 50.
+     * @param limit  (optional, default to 50)
+     * @return List&lt;ConversationInfo&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<ConversationInfo> conversations(@jakarta.annotation.Nullable Integer limit) throws ApiException {
+        ApiResponse<List<ConversationInfo>> localVarResp = conversationsWithHttpInfo(limit);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List owned chats
+     * Newest created chats first. Limit 1–100, default 50.
+     * @param limit  (optional, default to 50)
+     * @return ApiResponse&lt;List&lt;ConversationInfo&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<ConversationInfo>> conversationsWithHttpInfo(@jakarta.annotation.Nullable Integer limit) throws ApiException {
+        okhttp3.Call localVarCall = conversationsValidateBeforeCall(limit, null);
+        Type localVarReturnType = new TypeToken<List<ConversationInfo>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List owned chats (asynchronously)
+     * Newest created chats first. Limit 1–100, default 50.
+     * @param limit  (optional, default to 50)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call conversationsAsync(@jakarta.annotation.Nullable Integer limit, final ApiCallback<List<ConversationInfo>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = conversationsValidateBeforeCall(limit, _callback);
+        Type localVarReturnType = new TypeToken<List<ConversationInfo>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createConversation
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Chat created </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createConversationCall(final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/server/ai/chat/conversations";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -403,39 +521,150 @@ public class AiGameServerAssistantApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call rejectConsoleCommandValidateBeforeCall(@jakarta.annotation.Nonnull UUID approvalId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'approvalId' is set
-        if (approvalId == null) {
-            throw new ApiException("Missing the required parameter 'approvalId' when calling rejectConsoleCommand(Async)");
-        }
-
-        return rejectConsoleCommandCall(approvalId, _callback);
+    private okhttp3.Call createConversationValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        return createConversationCall(_callback);
 
     }
 
     /**
-     * Reject a pending console command
-     * 
-     * @param approvalId  (required)
-     * @return GameServerChatResponse
+     * Create a new chat
+     * No request body. Creates an empty chat with independent model context; existing chats remain available.
+     * @return ConversationInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Chat created </td><td>  -  </td></tr>
      </table>
      */
-    public GameServerChatResponse rejectConsoleCommand(@jakarta.annotation.Nonnull UUID approvalId) throws ApiException {
-        ApiResponse<GameServerChatResponse> localVarResp = rejectConsoleCommandWithHttpInfo(approvalId);
+    public ConversationInfo createConversation() throws ApiException {
+        ApiResponse<ConversationInfo> localVarResp = createConversationWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
-     * Reject a pending console command
-     * 
-     * @param approvalId  (required)
-     * @return ApiResponse&lt;GameServerChatResponse&gt;
+     * Create a new chat
+     * No request body. Creates an empty chat with independent model context; existing chats remain available.
+     * @return ApiResponse&lt;ConversationInfo&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Chat created </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ConversationInfo> createConversationWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = createConversationValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<ConversationInfo>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create a new chat (asynchronously)
+     * No request body. Creates an empty chat with independent model context; existing chats remain available.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Chat created </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createConversationAsync(final ApiCallback<ConversationInfo> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createConversationValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<ConversationInfo>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for history
+     * @param before  (optional)
+     * @param limit  (optional, default to 50)
+     * @param chatId  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call historyCall(@jakarta.annotation.Nullable String before, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable UUID chatId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/server/ai/chat/history";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (before != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (chatId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("chatId", chatId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call historyValidateBeforeCall(@jakarta.annotation.Nullable String before, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable UUID chatId, final ApiCallback _callback) throws ApiException {
+        return historyCall(before, limit, chatId, _callback);
+
+    }
+
+    /**
+     * Get persistent history for a chat
+     * Without chatId returns the newest created chat, even when empty. With chatId loads that owned chat. Use chatId and nextBefore together for older pages.
+     * @param before  (optional)
+     * @param limit  (optional, default to 50)
+     * @param chatId  (optional)
+     * @return HistoryPage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -444,16 +673,38 @@ public class AiGameServerAssistantApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GameServerChatResponse> rejectConsoleCommandWithHttpInfo(@jakarta.annotation.Nonnull UUID approvalId) throws ApiException {
-        okhttp3.Call localVarCall = rejectConsoleCommandValidateBeforeCall(approvalId, null);
-        Type localVarReturnType = new TypeToken<GameServerChatResponse>(){}.getType();
+    public HistoryPage history(@jakarta.annotation.Nullable String before, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable UUID chatId) throws ApiException {
+        ApiResponse<HistoryPage> localVarResp = historyWithHttpInfo(before, limit, chatId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get persistent history for a chat
+     * Without chatId returns the newest created chat, even when empty. With chatId loads that owned chat. Use chatId and nextBefore together for older pages.
+     * @param before  (optional)
+     * @param limit  (optional, default to 50)
+     * @param chatId  (optional)
+     * @return ApiResponse&lt;HistoryPage&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<HistoryPage> historyWithHttpInfo(@jakarta.annotation.Nullable String before, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable UUID chatId) throws ApiException {
+        okhttp3.Call localVarCall = historyValidateBeforeCall(before, limit, chatId, null);
+        Type localVarReturnType = new TypeToken<HistoryPage>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Reject a pending console command (asynchronously)
-     * 
-     * @param approvalId  (required)
+     * Get persistent history for a chat (asynchronously)
+     * Without chatId returns the newest created chat, even when empty. With chatId loads that owned chat. Use chatId and nextBefore together for older pages.
+     * @param before  (optional)
+     * @param limit  (optional, default to 50)
+     * @param chatId  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -464,11 +715,276 @@ public class AiGameServerAssistantApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call rejectConsoleCommandAsync(@jakarta.annotation.Nonnull UUID approvalId, final ApiCallback<GameServerChatResponse> _callback) throws ApiException {
+    public okhttp3.Call historyAsync(@jakarta.annotation.Nullable String before, @jakarta.annotation.Nullable Integer limit, @jakarta.annotation.Nullable UUID chatId, final ApiCallback<HistoryPage> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = rejectConsoleCommandValidateBeforeCall(approvalId, _callback);
+        okhttp3.Call localVarCall = historyValidateBeforeCall(before, limit, chatId, _callback);
+        Type localVarReturnType = new TypeToken<HistoryPage>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for rejectConsoleCommand
+     * @param approvalId  (required)
+     * @param chatId  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call rejectConsoleCommandCall(@jakarta.annotation.Nonnull UUID approvalId, @jakarta.annotation.Nullable UUID chatId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/server/ai/chat/approvals/{approvalId}/reject"
+            .replace("{" + "approvalId" + "}", localVarApiClient.escapeString(approvalId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (chatId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("chatId", chatId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call rejectConsoleCommandValidateBeforeCall(@jakarta.annotation.Nonnull UUID approvalId, @jakarta.annotation.Nullable UUID chatId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'approvalId' is set
+        if (approvalId == null) {
+            throw new ApiException("Missing the required parameter 'approvalId' when calling rejectConsoleCommand(Async)");
+        }
+
+        return rejectConsoleCommandCall(approvalId, chatId, _callback);
+
+    }
+
+    /**
+     * Reject a pending AI tool action
+     * 
+     * @param approvalId  (required)
+     * @param chatId  (optional)
+     * @return GameServerChatResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public GameServerChatResponse rejectConsoleCommand(@jakarta.annotation.Nonnull UUID approvalId, @jakarta.annotation.Nullable UUID chatId) throws ApiException {
+        ApiResponse<GameServerChatResponse> localVarResp = rejectConsoleCommandWithHttpInfo(approvalId, chatId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Reject a pending AI tool action
+     * 
+     * @param approvalId  (required)
+     * @param chatId  (optional)
+     * @return ApiResponse&lt;GameServerChatResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GameServerChatResponse> rejectConsoleCommandWithHttpInfo(@jakarta.annotation.Nonnull UUID approvalId, @jakarta.annotation.Nullable UUID chatId) throws ApiException {
+        okhttp3.Call localVarCall = rejectConsoleCommandValidateBeforeCall(approvalId, chatId, null);
+        Type localVarReturnType = new TypeToken<GameServerChatResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Reject a pending AI tool action (asynchronously)
+     * 
+     * @param approvalId  (required)
+     * @param chatId  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call rejectConsoleCommandAsync(@jakarta.annotation.Nonnull UUID approvalId, @jakarta.annotation.Nullable UUID chatId, final ApiCallback<GameServerChatResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = rejectConsoleCommandValidateBeforeCall(approvalId, chatId, _callback);
         Type localVarReturnType = new TypeToken<GameServerChatResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for websocket
+     * @param exclamationUpgrade  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 101 </td><td> WebSocket connected; JSON events follow </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Missing, invalid or expired JWT </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Disallowed Origin or URL query </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call websocketCall(@jakarta.annotation.Nullable String exclamationUpgrade, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/server/ai/chat/ws";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        if (exclamationUpgrade != null) {
+            localVarHeaderParams.put("!Upgrade", localVarApiClient.parameterToString(exclamationUpgrade));
+        }
+
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call websocketValidateBeforeCall(@jakarta.annotation.Nullable String exclamationUpgrade, final ApiCallback _callback) throws ApiException {
+        return websocketCall(exclamationUpgrade, _callback);
+
+    }
+
+    /**
+     * Upgrade to the AI chat WebSocket
+     * Connect using subprotocols [&#39;synbox-chat.v1&#39;, &#39;synbox-auth.&#39; + accessToken]. JSON commands: {type:&#39;chat&#39;,requestId:UUID,chatId?:UUID,message:string,server?:UUID}, or {type:&#39;confirm&#39;|&#39;reject&#39;,requestId:UUID,chatId?:UUID,approvalId:UUID}. Accepted-turn events contain chatId. See docs/ai-chat-websocket.md. Upgrade requests are handled by the WebSocket handler; this MVC fallback only handles requests without an Upgrade header.
+     * @param exclamationUpgrade  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 101 </td><td> WebSocket connected; JSON events follow </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Missing, invalid or expired JWT </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Disallowed Origin or URL query </td><td>  -  </td></tr>
+     </table>
+     */
+    public void websocket(@jakarta.annotation.Nullable String exclamationUpgrade) throws ApiException {
+        websocketWithHttpInfo(exclamationUpgrade);
+    }
+
+    /**
+     * Upgrade to the AI chat WebSocket
+     * Connect using subprotocols [&#39;synbox-chat.v1&#39;, &#39;synbox-auth.&#39; + accessToken]. JSON commands: {type:&#39;chat&#39;,requestId:UUID,chatId?:UUID,message:string,server?:UUID}, or {type:&#39;confirm&#39;|&#39;reject&#39;,requestId:UUID,chatId?:UUID,approvalId:UUID}. Accepted-turn events contain chatId. See docs/ai-chat-websocket.md. Upgrade requests are handled by the WebSocket handler; this MVC fallback only handles requests without an Upgrade header.
+     * @param exclamationUpgrade  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 101 </td><td> WebSocket connected; JSON events follow </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Missing, invalid or expired JWT </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Disallowed Origin or URL query </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> websocketWithHttpInfo(@jakarta.annotation.Nullable String exclamationUpgrade) throws ApiException {
+        okhttp3.Call localVarCall = websocketValidateBeforeCall(exclamationUpgrade, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Upgrade to the AI chat WebSocket (asynchronously)
+     * Connect using subprotocols [&#39;synbox-chat.v1&#39;, &#39;synbox-auth.&#39; + accessToken]. JSON commands: {type:&#39;chat&#39;,requestId:UUID,chatId?:UUID,message:string,server?:UUID}, or {type:&#39;confirm&#39;|&#39;reject&#39;,requestId:UUID,chatId?:UUID,approvalId:UUID}. Accepted-turn events contain chatId. See docs/ai-chat-websocket.md. Upgrade requests are handled by the WebSocket handler; this MVC fallback only handles requests without an Upgrade header.
+     * @param exclamationUpgrade  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 101 </td><td> WebSocket connected; JSON events follow </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Missing, invalid or expired JWT </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Disallowed Origin or URL query </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call websocketAsync(@jakarta.annotation.Nullable String exclamationUpgrade, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = websocketValidateBeforeCall(exclamationUpgrade, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
 }

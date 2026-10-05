@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import de.synbox.model.PluginInstallation;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -48,19 +49,75 @@ import java.util.Set;
 import de.synbox.invoker.JSON;
 
 /**
- * ToolApproval
+ * Saved action awaiting explicit user confirmation; deletion uses tool&#x3D;deleteFile and the exact file path
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T16:26:31.118286076Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T20:55:47.029221571Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class ToolApproval {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @jakarta.annotation.Nullable
   private UUID id;
 
+  /**
+   * Action name
+   */
+  @JsonAdapter(ToolEnum.Adapter.class)
+  public enum ToolEnum {
+    SEND_CONSOLE_COMMAND("sendConsoleCommand"),
+    
+    UPDATE_FILE_CONTENTS("updateFileContents"),
+    
+    DELETE_FILE("deleteFile"),
+    
+    INSTALL_PLUGIN("installPlugin");
+
+    private String value;
+
+    ToolEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ToolEnum fromValue(String value) {
+      for (ToolEnum b : ToolEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<ToolEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ToolEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ToolEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ToolEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ToolEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_TOOL = "tool";
   @SerializedName(SERIALIZED_NAME_TOOL)
   @jakarta.annotation.Nullable
-  private String tool;
+  private ToolEnum tool;
 
   public static final String SERIALIZED_NAME_SERVER_ID = "serverId";
   @SerializedName(SERIALIZED_NAME_SERVER_ID)
@@ -82,10 +139,20 @@ public class ToolApproval {
   @jakarta.annotation.Nullable
   private String patchText;
 
+  public static final String SERIALIZED_NAME_PLUGIN_INSTALLATION = "pluginInstallation";
+  @SerializedName(SERIALIZED_NAME_PLUGIN_INSTALLATION)
+  @jakarta.annotation.Nullable
+  private PluginInstallation pluginInstallation;
+
   public static final String SERIALIZED_NAME_EXPIRES_AT = "expiresAt";
   @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
   @jakarta.annotation.Nullable
   private OffsetDateTime expiresAt;
+
+  public static final String SERIALIZED_NAME_CHAT_ID = "chatId";
+  @SerializedName(SERIALIZED_NAME_CHAT_ID)
+  @jakarta.annotation.Nullable
+  private UUID chatId;
 
   public ToolApproval() {
   }
@@ -109,21 +176,21 @@ public class ToolApproval {
   }
 
 
-  public ToolApproval tool(@jakarta.annotation.Nullable String tool) {
+  public ToolApproval tool(@jakarta.annotation.Nullable ToolEnum tool) {
     this.tool = tool;
     return this;
   }
 
   /**
-   * Get tool
+   * Action name
    * @return tool
    */
   @jakarta.annotation.Nullable
-  public String getTool() {
+  public ToolEnum getTool() {
     return tool;
   }
 
-  public void setTool(@jakarta.annotation.Nullable String tool) {
+  public void setTool(@jakarta.annotation.Nullable ToolEnum tool) {
     this.tool = tool;
   }
 
@@ -204,6 +271,25 @@ public class ToolApproval {
   }
 
 
+  public ToolApproval pluginInstallation(@jakarta.annotation.Nullable PluginInstallation pluginInstallation) {
+    this.pluginInstallation = pluginInstallation;
+    return this;
+  }
+
+  /**
+   * Get pluginInstallation
+   * @return pluginInstallation
+   */
+  @jakarta.annotation.Nullable
+  public PluginInstallation getPluginInstallation() {
+    return pluginInstallation;
+  }
+
+  public void setPluginInstallation(@jakarta.annotation.Nullable PluginInstallation pluginInstallation) {
+    this.pluginInstallation = pluginInstallation;
+  }
+
+
   public ToolApproval expiresAt(@jakarta.annotation.Nullable OffsetDateTime expiresAt) {
     this.expiresAt = expiresAt;
     return this;
@@ -223,6 +309,25 @@ public class ToolApproval {
   }
 
 
+  public ToolApproval chatId(@jakarta.annotation.Nullable UUID chatId) {
+    this.chatId = chatId;
+    return this;
+  }
+
+  /**
+   * Original chat containing this action
+   * @return chatId
+   */
+  @jakarta.annotation.Nullable
+  public UUID getChatId() {
+    return chatId;
+  }
+
+  public void setChatId(@jakarta.annotation.Nullable UUID chatId) {
+    this.chatId = chatId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -239,12 +344,14 @@ public class ToolApproval {
         Objects.equals(this.command, toolApproval.command) &&
         Objects.equals(this._file, toolApproval._file) &&
         Objects.equals(this.patchText, toolApproval.patchText) &&
-        Objects.equals(this.expiresAt, toolApproval.expiresAt);
+        Objects.equals(this.pluginInstallation, toolApproval.pluginInstallation) &&
+        Objects.equals(this.expiresAt, toolApproval.expiresAt) &&
+        Objects.equals(this.chatId, toolApproval.chatId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tool, serverId, command, _file, patchText, expiresAt);
+    return Objects.hash(id, tool, serverId, command, _file, patchText, pluginInstallation, expiresAt, chatId);
   }
 
   @Override
@@ -257,7 +364,9 @@ public class ToolApproval {
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
     sb.append("    _file: ").append(toIndentedString(_file)).append("\n");
     sb.append("    patchText: ").append(toIndentedString(patchText)).append("\n");
+    sb.append("    pluginInstallation: ").append(toIndentedString(pluginInstallation)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+    sb.append("    chatId: ").append(toIndentedString(chatId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -276,7 +385,7 @@ public class ToolApproval {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "tool", "serverId", "command", "file", "patchText", "expiresAt"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "tool", "serverId", "command", "file", "patchText", "pluginInstallation", "expiresAt", "chatId"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -309,6 +418,10 @@ public class ToolApproval {
       if ((jsonObj.get("tool") != null && !jsonObj.get("tool").isJsonNull()) && !jsonObj.get("tool").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tool` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tool").toString()));
       }
+      // validate the optional field `tool`
+      if (jsonObj.get("tool") != null && !jsonObj.get("tool").isJsonNull()) {
+        ToolEnum.validateJsonElement(jsonObj.get("tool"));
+      }
       if ((jsonObj.get("serverId") != null && !jsonObj.get("serverId").isJsonNull()) && !jsonObj.get("serverId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `serverId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serverId").toString()));
       }
@@ -320,6 +433,13 @@ public class ToolApproval {
       }
       if ((jsonObj.get("patchText") != null && !jsonObj.get("patchText").isJsonNull()) && !jsonObj.get("patchText").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `patchText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("patchText").toString()));
+      }
+      // validate the optional field `pluginInstallation`
+      if (jsonObj.get("pluginInstallation") != null && !jsonObj.get("pluginInstallation").isJsonNull()) {
+        PluginInstallation.validateJsonElement(jsonObj.get("pluginInstallation"));
+      }
+      if ((jsonObj.get("chatId") != null && !jsonObj.get("chatId").isJsonNull()) && !jsonObj.get("chatId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `chatId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("chatId").toString()));
       }
   }
 

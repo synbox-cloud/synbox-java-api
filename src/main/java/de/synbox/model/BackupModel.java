@@ -48,7 +48,7 @@ import de.synbox.invoker.JSON;
 /**
  * Backup configuration for a server volume
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T16:26:31.118286076Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T20:55:47.029221571Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class BackupModel {
   public static final String SERIALIZED_NAME_UID = "uid";
   @SerializedName(SERIALIZED_NAME_UID)
@@ -69,6 +69,67 @@ public class BackupModel {
   @SerializedName(SERIALIZED_NAME_DATE)
   @jakarta.annotation.Nullable
   private String date;
+
+  /**
+   * Current status of the backup
+   */
+  @JsonAdapter(StatusEnum.Adapter.class)
+  public enum StatusEnum {
+    PENDING("PENDING"),
+    
+    IN_PROGRESS("IN_PROGRESS"),
+    
+    COMPLETED("COMPLETED"),
+    
+    FAILED("FAILED");
+
+    private String value;
+
+    StatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static StatusEnum fromValue(String value) {
+      for (StatusEnum b : StatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<StatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final StatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return StatusEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      StatusEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  @jakarta.annotation.Nullable
+  private StatusEnum status;
 
   public static final String SERIALIZED_NAME_LOCKED = "locked";
   @SerializedName(SERIALIZED_NAME_LOCKED)
@@ -159,6 +220,25 @@ public class BackupModel {
   }
 
 
+  public BackupModel status(@jakarta.annotation.Nullable StatusEnum status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Current status of the backup
+   * @return status
+   */
+  @jakarta.annotation.Nullable
+  public StatusEnum getStatus() {
+    return status;
+  }
+
+  public void setStatus(@jakarta.annotation.Nullable StatusEnum status) {
+    this.status = status;
+  }
+
+
   public BackupModel locked(@jakarta.annotation.Nullable Boolean locked) {
     this.locked = locked;
     return this;
@@ -211,13 +291,14 @@ public class BackupModel {
         Objects.equals(this.gameServerId, backupModel.gameServerId) &&
         Objects.equals(this.volume, backupModel.volume) &&
         Objects.equals(this.date, backupModel.date) &&
+        Objects.equals(this.status, backupModel.status) &&
         Objects.equals(this.locked, backupModel.locked) &&
         Objects.equals(this.suspendBackup, backupModel.suspendBackup);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uid, gameServerId, volume, date, locked, suspendBackup);
+    return Objects.hash(uid, gameServerId, volume, date, status, locked, suspendBackup);
   }
 
   @Override
@@ -228,6 +309,7 @@ public class BackupModel {
     sb.append("    gameServerId: ").append(toIndentedString(gameServerId)).append("\n");
     sb.append("    volume: ").append(toIndentedString(volume)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    locked: ").append(toIndentedString(locked)).append("\n");
     sb.append("    suspendBackup: ").append(toIndentedString(suspendBackup)).append("\n");
     sb.append("}");
@@ -248,7 +330,7 @@ public class BackupModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("uid", "gameServerId", "volume", "date", "locked", "suspendBackup"));
+    openapiFields = new HashSet<String>(Arrays.asList("uid", "gameServerId", "volume", "date", "status", "locked", "suspendBackup"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -286,6 +368,13 @@ public class BackupModel {
       }
       if ((jsonObj.get("date") != null && !jsonObj.get("date").isJsonNull()) && !jsonObj.get("date").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("date").toString()));
+      }
+      if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      }
+      // validate the optional field `status`
+      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
+        StatusEnum.validateJsonElement(jsonObj.get("status"));
       }
   }
 

@@ -49,7 +49,7 @@ import de.synbox.invoker.JSON;
 /**
  * Natural-language message for the game-server assistant
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T16:26:31.118286076Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T20:55:47.029221571Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class GameServerChatRequest {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
@@ -60,6 +60,11 @@ public class GameServerChatRequest {
   @SerializedName(SERIALIZED_NAME_SERVER)
   @jakarta.annotation.Nullable
   private UUID server;
+
+  public static final String SERIALIZED_NAME_CHAT_ID = "chatId";
+  @SerializedName(SERIALIZED_NAME_CHAT_ID)
+  @jakarta.annotation.Nullable
+  private UUID chatId;
 
   public GameServerChatRequest() {
   }
@@ -102,6 +107,25 @@ public class GameServerChatRequest {
   }
 
 
+  public GameServerChatRequest chatId(@jakarta.annotation.Nullable UUID chatId) {
+    this.chatId = chatId;
+    return this;
+  }
+
+  /**
+   * Owned chat id. Omitted means the newest created chat.
+   * @return chatId
+   */
+  @jakarta.annotation.Nullable
+  public UUID getChatId() {
+    return chatId;
+  }
+
+  public void setChatId(@jakarta.annotation.Nullable UUID chatId) {
+    this.chatId = chatId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -113,12 +137,13 @@ public class GameServerChatRequest {
     }
     GameServerChatRequest gameServerChatRequest = (GameServerChatRequest) o;
     return Objects.equals(this.message, gameServerChatRequest.message) &&
-        Objects.equals(this.server, gameServerChatRequest.server);
+        Objects.equals(this.server, gameServerChatRequest.server) &&
+        Objects.equals(this.chatId, gameServerChatRequest.chatId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, server);
+    return Objects.hash(message, server, chatId);
   }
 
   @Override
@@ -127,6 +152,7 @@ public class GameServerChatRequest {
     sb.append("class GameServerChatRequest {\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    server: ").append(toIndentedString(server)).append("\n");
+    sb.append("    chatId: ").append(toIndentedString(chatId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -145,7 +171,7 @@ public class GameServerChatRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("message", "server"));
+    openapiFields = new HashSet<String>(Arrays.asList("message", "server", "chatId"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("message"));
@@ -184,6 +210,9 @@ public class GameServerChatRequest {
       }
       if ((jsonObj.get("server") != null && !jsonObj.get("server").isJsonNull()) && !jsonObj.get("server").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `server` to be a primitive type in the JSON string but got `%s`", jsonObj.get("server").toString()));
+      }
+      if ((jsonObj.get("chatId") != null && !jsonObj.get("chatId").isJsonNull()) && !jsonObj.get("chatId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `chatId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("chatId").toString()));
       }
   }
 

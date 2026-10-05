@@ -84,7 +84,9 @@ public class VersionManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully changed server version </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Missing or blank version/type, unknown provider, or missing Modrinth modpack </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call changeVersionCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ChangeVersionDTO changeVersionDTO, final ApiCallback _callback) throws ApiException {
@@ -114,7 +116,6 @@ public class VersionManagementApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -154,19 +155,19 @@ public class VersionManagementApi {
      * Changes the version of a specific server.
      * @param serverId ID of the server (required)
      * @param changeVersionDTO  (required)
-     * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully changed server version </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Missing or blank version/type, unknown provider, or missing Modrinth modpack </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
      </table>
      */
-    public Object changeVersion(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ChangeVersionDTO changeVersionDTO) throws ApiException {
-        ApiResponse<Object> localVarResp = changeVersionWithHttpInfo(serverId, changeVersionDTO);
-        return localVarResp.getData();
+    public void changeVersion(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ChangeVersionDTO changeVersionDTO) throws ApiException {
+        changeVersionWithHttpInfo(serverId, changeVersionDTO);
     }
 
     /**
@@ -174,20 +175,21 @@ public class VersionManagementApi {
      * Changes the version of a specific server.
      * @param serverId ID of the server (required)
      * @param changeVersionDTO  (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully changed server version </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Missing or blank version/type, unknown provider, or missing Modrinth modpack </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> changeVersionWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ChangeVersionDTO changeVersionDTO) throws ApiException {
+    public ApiResponse<Void> changeVersionWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ChangeVersionDTO changeVersionDTO) throws ApiException {
         okhttp3.Call localVarCall = changeVersionValidateBeforeCall(serverId, changeVersionDTO, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
+        return localVarApiClient.execute(localVarCall);
     }
 
     /**
@@ -203,14 +205,15 @@ public class VersionManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully changed server version </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Missing or blank version/type, unknown provider, or missing Modrinth modpack </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call changeVersionAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ChangeVersionDTO changeVersionDTO, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call changeVersionAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull ChangeVersionDTO changeVersionDTO, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = changeVersionValidateBeforeCall(serverId, changeVersionDTO, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
 }

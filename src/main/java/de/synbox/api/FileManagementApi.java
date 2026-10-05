@@ -988,7 +988,9 @@ public class FileManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully deleted files </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid file path </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
         <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
@@ -1067,7 +1069,9 @@ public class FileManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully deleted files </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid file path </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
         <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
@@ -1089,7 +1093,9 @@ public class FileManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully deleted files </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid file path </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
         <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
@@ -1113,7 +1119,9 @@ public class FileManagementApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Successfully deleted files </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid file path </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> File not found </td><td>  -  </td></tr>
         <tr><td> 412 </td><td> Precondition Failed - Server is suspended </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
@@ -1171,7 +1179,6 @@ public class FileManagementApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "*/*"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1211,7 +1218,6 @@ public class FileManagementApi {
      * Downloads a file from a container.
      * @param serverId ID of the container (required)
      * @param downloadFileRequest Payload for downloading one file. (required)
-     * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1225,9 +1231,8 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public String downloadFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DownloadFileRequest downloadFileRequest) throws ApiException {
-        ApiResponse<String> localVarResp = downloadFileWithHttpInfo(serverId, downloadFileRequest);
-        return localVarResp.getData();
+    public void downloadFile(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DownloadFileRequest downloadFileRequest) throws ApiException {
+        downloadFileWithHttpInfo(serverId, downloadFileRequest);
     }
 
     /**
@@ -1235,7 +1240,7 @@ public class FileManagementApi {
      * Downloads a file from a container.
      * @param serverId ID of the container (required)
      * @param downloadFileRequest Payload for downloading one file. (required)
-     * @return ApiResponse&lt;String&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1249,10 +1254,9 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> downloadFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DownloadFileRequest downloadFileRequest) throws ApiException {
+    public ApiResponse<Void> downloadFileWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DownloadFileRequest downloadFileRequest) throws ApiException {
         okhttp3.Call localVarCall = downloadFileValidateBeforeCall(serverId, downloadFileRequest, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
+        return localVarApiClient.execute(localVarCall);
     }
 
     /**
@@ -1275,11 +1279,10 @@ public class FileManagementApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call downloadFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DownloadFileRequest downloadFileRequest, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call downloadFileAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull DownloadFileRequest downloadFileRequest, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = downloadFileValidateBeforeCall(serverId, downloadFileRequest, _callback);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**

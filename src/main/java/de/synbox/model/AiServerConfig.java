@@ -49,7 +49,7 @@ import de.synbox.invoker.JSON;
 /**
  * AI-generated configuration for a game server
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T20:55:47.029221571Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-08T14:41:04.758682586Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class AiServerConfig {
   /**
    * Configuration schema version

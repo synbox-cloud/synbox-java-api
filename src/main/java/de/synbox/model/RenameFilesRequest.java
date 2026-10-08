@@ -51,7 +51,7 @@ import de.synbox.invoker.JSON;
 /**
  * Request body for renaming or moving files.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T20:55:47.029221571Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-08T14:41:04.758682586Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class RenameFilesRequest {
   public static final String SERIALIZED_NAME_FILES = "files";
   @SerializedName(SERIALIZED_NAME_FILES)

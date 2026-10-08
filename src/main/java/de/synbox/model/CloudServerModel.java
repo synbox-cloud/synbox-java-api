@@ -27,7 +27,9 @@ import de.synbox.model.Webhook;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -55,7 +57,7 @@ import de.synbox.invoker.JSON;
 /**
  * CloudServerModel
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T20:55:47.029221571Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-08T14:41:04.758682586Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerModel {
   public static final String SERIALIZED_NAME_PROVIDER = "provider";
   @SerializedName(SERIALIZED_NAME_PROVIDER)
@@ -236,6 +238,11 @@ public class CloudServerModel {
   @SerializedName(SERIALIZED_NAME_ENVS)
   @jakarta.annotation.Nullable
   private Document envs;
+
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  @jakarta.annotation.Nullable
+  private Map<String, Object> metadata = new HashMap<>();
 
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
@@ -704,6 +711,33 @@ public class CloudServerModel {
   }
 
 
+  public CloudServerModel metadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+  public CloudServerModel putMetadataItem(String key, Object metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new HashMap<>();
+    }
+    this.metadata.put(key, metadataItem);
+    return this;
+  }
+
+  /**
+   * Get metadata
+   * @return metadata
+   */
+  @jakarta.annotation.Nullable
+  public Map<String, Object> getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
+    this.metadata = metadata;
+  }
+
+
   public CloudServerModel permissions(@jakarta.annotation.Nullable Document permissions) {
     this.permissions = permissions;
     return this;
@@ -978,6 +1012,7 @@ public class CloudServerModel {
         Objects.equals(this.moneyPoolId, cloudServerModel.moneyPoolId) &&
         Objects.equals(this.volumes, cloudServerModel.volumes) &&
         Objects.equals(this.envs, cloudServerModel.envs) &&
+        Objects.equals(this.metadata, cloudServerModel.metadata) &&
         Objects.equals(this.permissions, cloudServerModel.permissions) &&
         Objects.equals(this.port, cloudServerModel.port) &&
         Objects.equals(this.publicIp, cloudServerModel.publicIp) &&
@@ -994,7 +1029,7 @@ public class CloudServerModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(provider, start, deleteOnStop, stop, enableAutoPowerControl, owner, displayName, ip, suspended, cpuType, powerLevel, location, requiredNodeFeatures, scheduleModels, backups, startVolume, serverId, moneyPoolId, volumes, envs, permissions, port, publicIp, organization, webhooks, additionalPort, restarting, envsAsList, oneTmePassword, deltaTillStart, free, accountId);
+    return Objects.hash(provider, start, deleteOnStop, stop, enableAutoPowerControl, owner, displayName, ip, suspended, cpuType, powerLevel, location, requiredNodeFeatures, scheduleModels, backups, startVolume, serverId, moneyPoolId, volumes, envs, metadata, permissions, port, publicIp, organization, webhooks, additionalPort, restarting, envsAsList, oneTmePassword, deltaTillStart, free, accountId);
   }
 
   @Override
@@ -1021,6 +1056,7 @@ public class CloudServerModel {
     sb.append("    moneyPoolId: ").append(toIndentedString(moneyPoolId)).append("\n");
     sb.append("    volumes: ").append(toIndentedString(volumes)).append("\n");
     sb.append("    envs: ").append(toIndentedString(envs)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    publicIp: ").append(toIndentedString(publicIp)).append("\n");
@@ -1051,7 +1087,7 @@ public class CloudServerModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("provider", "start", "deleteOnStop", "stop", "enableAutoPowerControl", "owner", "displayName", "ip", "suspended", "cpu_type", "powerLevel", "location", "requiredNodeFeatures", "scheduleModels", "backups", "startVolume", "server_id", "money_pool_id", "volumes", "envs", "permissions", "port", "publicIp", "organization", "webhooks", "additionalPort", "restarting", "envsAsList", "oneTmePassword", "deltaTillStart", "free", "account_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("provider", "start", "deleteOnStop", "stop", "enableAutoPowerControl", "owner", "displayName", "ip", "suspended", "cpu_type", "powerLevel", "location", "requiredNodeFeatures", "scheduleModels", "backups", "startVolume", "server_id", "money_pool_id", "volumes", "envs", "metadata", "permissions", "port", "publicIp", "organization", "webhooks", "additionalPort", "restarting", "envsAsList", "oneTmePassword", "deltaTillStart", "free", "account_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

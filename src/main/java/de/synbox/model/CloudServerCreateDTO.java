@@ -23,7 +23,9 @@ import de.synbox.model.EnvironmentVariable;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,8 +53,13 @@ import de.synbox.invoker.JSON;
 /**
  * DTO for creating a new cloud server container
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-05T20:55:47.029221571Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-08T14:41:04.758682586Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerCreateDTO {
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  @jakarta.annotation.Nullable
+  private Map<String, Object> metadata = new HashMap<>();
+
   /**
    * Power level configuration for the server
    */
@@ -210,6 +217,33 @@ public class CloudServerCreateDTO {
 
   public CloudServerCreateDTO() {
   }
+
+  public CloudServerCreateDTO metadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+  public CloudServerCreateDTO putMetadataItem(String key, Object metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new HashMap<>();
+    }
+    this.metadata.put(key, metadataItem);
+    return this;
+  }
+
+  /**
+   * Metadata for the server as key-value pairs
+   * @return metadata
+   */
+  @jakarta.annotation.Nullable
+  public Map<String, Object> getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
+    this.metadata = metadata;
+  }
+
 
   public CloudServerCreateDTO powerLevel(@jakarta.annotation.Nonnull PowerLevelEnum powerLevel) {
     this.powerLevel = powerLevel;
@@ -522,7 +556,8 @@ public class CloudServerCreateDTO {
       return false;
     }
     CloudServerCreateDTO cloudServerCreateDTO = (CloudServerCreateDTO) o;
-    return Objects.equals(this.powerLevel, cloudServerCreateDTO.powerLevel) &&
+    return Objects.equals(this.metadata, cloudServerCreateDTO.metadata) &&
+        Objects.equals(this.powerLevel, cloudServerCreateDTO.powerLevel) &&
         Objects.equals(this.autoStart, cloudServerCreateDTO.autoStart) &&
         Objects.equals(this.giftcode, cloudServerCreateDTO.giftcode) &&
         Objects.equals(this.startVolume, cloudServerCreateDTO.startVolume) &&
@@ -541,13 +576,14 @@ public class CloudServerCreateDTO {
 
   @Override
   public int hashCode() {
-    return Objects.hash(powerLevel, autoStart, giftcode, startVolume, provider, deleteOnStop, envs, start, stop, displayName, template, organization, enableAutoPowerControl, volumes, accountId);
+    return Objects.hash(metadata, powerLevel, autoStart, giftcode, startVolume, provider, deleteOnStop, envs, start, stop, displayName, template, organization, enableAutoPowerControl, volumes, accountId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CloudServerCreateDTO {\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    powerLevel: ").append(toIndentedString(powerLevel)).append("\n");
     sb.append("    autoStart: ").append(toIndentedString(autoStart)).append("\n");
     sb.append("    giftcode: ").append(toIndentedString(giftcode)).append("\n");
@@ -581,7 +617,7 @@ public class CloudServerCreateDTO {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("powerLevel", "autoStart", "giftcode", "startVolume", "provider", "deleteOnStop", "envs", "start", "stop", "displayName", "template", "organization", "enableAutoPowerControl", "volumes", "account_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("metadata", "powerLevel", "autoStart", "giftcode", "startVolume", "provider", "deleteOnStop", "envs", "start", "stop", "displayName", "template", "organization", "enableAutoPowerControl", "volumes", "account_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("powerLevel", "provider", "displayName"));

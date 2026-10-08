@@ -93,6 +93,7 @@ void main() {
                 .provider("papermc")
                 .start("00:00")
                 .stop("00:10")
+                .metadata(Map.of("internalId", "1234567890"))
                 .enableAutoPowerControl(false) // optional, default = true
                 .deleteOnStop(false) // optional, default = false
                 .autoStart(false) // optional, default = true
@@ -113,6 +114,7 @@ void main() {
                 .provider("papermc")
                 .start("00:00")
                 .stop("00:10")
+                .metadata(Map.of("internalId", "1234567890"))
                 .startVolume("default")
                 .volumes(List.of("default"))
         );

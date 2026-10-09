@@ -48,7 +48,7 @@ import de.synbox.invoker.JSON;
 /**
  * Backup configuration for a server volume
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-08T14:41:04.758682586Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-09T17:05:38.143220079Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class BackupModel {
   public static final String SERIALIZED_NAME_UID = "uid";
   @SerializedName(SERIALIZED_NAME_UID)
@@ -131,6 +131,16 @@ public class BackupModel {
   @jakarta.annotation.Nullable
   private StatusEnum status;
 
+  public static final String SERIALIZED_NAME_SIZE = "size";
+  @SerializedName(SERIALIZED_NAME_SIZE)
+  @jakarta.annotation.Nullable
+  private Long size;
+
+  public static final String SERIALIZED_NAME_CHECKSUM = "checksum";
+  @SerializedName(SERIALIZED_NAME_CHECKSUM)
+  @jakarta.annotation.Nullable
+  private String checksum;
+
   public static final String SERIALIZED_NAME_LOCKED = "locked";
   @SerializedName(SERIALIZED_NAME_LOCKED)
   @jakarta.annotation.Nullable
@@ -140,6 +150,11 @@ public class BackupModel {
   @SerializedName(SERIALIZED_NAME_SUSPEND_BACKUP)
   @jakarta.annotation.Nullable
   private Boolean suspendBackup;
+
+  public static final String SERIALIZED_NAME_CHECKSUM_TYPE = "checksum_type";
+  @SerializedName(SERIALIZED_NAME_CHECKSUM_TYPE)
+  @jakarta.annotation.Nullable
+  private String checksumType;
 
   public BackupModel() {
   }
@@ -239,6 +254,44 @@ public class BackupModel {
   }
 
 
+  public BackupModel size(@jakarta.annotation.Nullable Long size) {
+    this.size = size;
+    return this;
+  }
+
+  /**
+   * Size of the backup archive in bytes, if available
+   * @return size
+   */
+  @jakarta.annotation.Nullable
+  public Long getSize() {
+    return size;
+  }
+
+  public void setSize(@jakarta.annotation.Nullable Long size) {
+    this.size = size;
+  }
+
+
+  public BackupModel checksum(@jakarta.annotation.Nullable String checksum) {
+    this.checksum = checksum;
+    return this;
+  }
+
+  /**
+   * Checksum of the backup archive, if available
+   * @return checksum
+   */
+  @jakarta.annotation.Nullable
+  public String getChecksum() {
+    return checksum;
+  }
+
+  public void setChecksum(@jakarta.annotation.Nullable String checksum) {
+    this.checksum = checksum;
+  }
+
+
   public BackupModel locked(@jakarta.annotation.Nullable Boolean locked) {
     this.locked = locked;
     return this;
@@ -277,6 +330,25 @@ public class BackupModel {
   }
 
 
+  public BackupModel checksumType(@jakarta.annotation.Nullable String checksumType) {
+    this.checksumType = checksumType;
+    return this;
+  }
+
+  /**
+   * Algorithm used for the backup checksum, if available
+   * @return checksumType
+   */
+  @jakarta.annotation.Nullable
+  public String getChecksumType() {
+    return checksumType;
+  }
+
+  public void setChecksumType(@jakarta.annotation.Nullable String checksumType) {
+    this.checksumType = checksumType;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -292,13 +364,16 @@ public class BackupModel {
         Objects.equals(this.volume, backupModel.volume) &&
         Objects.equals(this.date, backupModel.date) &&
         Objects.equals(this.status, backupModel.status) &&
+        Objects.equals(this.size, backupModel.size) &&
+        Objects.equals(this.checksum, backupModel.checksum) &&
         Objects.equals(this.locked, backupModel.locked) &&
-        Objects.equals(this.suspendBackup, backupModel.suspendBackup);
+        Objects.equals(this.suspendBackup, backupModel.suspendBackup) &&
+        Objects.equals(this.checksumType, backupModel.checksumType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uid, gameServerId, volume, date, status, locked, suspendBackup);
+    return Objects.hash(uid, gameServerId, volume, date, status, size, checksum, locked, suspendBackup, checksumType);
   }
 
   @Override
@@ -310,8 +385,11 @@ public class BackupModel {
     sb.append("    volume: ").append(toIndentedString(volume)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    checksum: ").append(toIndentedString(checksum)).append("\n");
     sb.append("    locked: ").append(toIndentedString(locked)).append("\n");
     sb.append("    suspendBackup: ").append(toIndentedString(suspendBackup)).append("\n");
+    sb.append("    checksumType: ").append(toIndentedString(checksumType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -330,7 +408,7 @@ public class BackupModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("uid", "gameServerId", "volume", "date", "status", "locked", "suspendBackup"));
+    openapiFields = new HashSet<String>(Arrays.asList("uid", "gameServerId", "volume", "date", "status", "size", "checksum", "locked", "suspendBackup", "checksum_type"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -375,6 +453,12 @@ public class BackupModel {
       // validate the optional field `status`
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
         StatusEnum.validateJsonElement(jsonObj.get("status"));
+      }
+      if ((jsonObj.get("checksum") != null && !jsonObj.get("checksum").isJsonNull()) && !jsonObj.get("checksum").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `checksum` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checksum").toString()));
+      }
+      if ((jsonObj.get("checksum_type") != null && !jsonObj.get("checksum_type").isJsonNull()) && !jsonObj.get("checksum_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `checksum_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("checksum_type").toString()));
       }
   }
 

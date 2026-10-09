@@ -48,7 +48,7 @@ import de.synbox.invoker.JSON;
 /**
  * OrganizationAddMemberDTO
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-08T14:41:04.758682586Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-09T17:05:38.143220079Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class OrganizationAddMemberDTO {
   public static final String SERIALIZED_NAME_ROLE = "role";
   @SerializedName(SERIALIZED_NAME_ROLE)

@@ -75,6 +75,7 @@ public class BackupManagementApi {
      * Build call for backupContainer
      * @param id Server-ID (required)
      * @param volume Volume-Name (required)
+     * @param body  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -87,7 +88,7 @@ public class BackupManagementApi {
         <tr><td> 403 </td><td> Keine Berechtigung zum Erstellen von Backups </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call backupContainerCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String volume, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call backupContainerCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String volume, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -101,7 +102,7 @@ public class BackupManagementApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/api/containers/{id}/backup/{volume}/create"
@@ -124,6 +125,7 @@ public class BackupManagementApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -135,7 +137,7 @@ public class BackupManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call backupContainerValidateBeforeCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String volume, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call backupContainerValidateBeforeCall(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String volume, @jakarta.annotation.Nonnull String body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling backupContainer(Async)");
@@ -146,7 +148,12 @@ public class BackupManagementApi {
             throw new ApiException("Missing the required parameter 'volume' when calling backupContainer(Async)");
         }
 
-        return backupContainerCall(id, volume, _callback);
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling backupContainer(Async)");
+        }
+
+        return backupContainerCall(id, volume, body, _callback);
 
     }
 
@@ -155,6 +162,7 @@ public class BackupManagementApi {
      * Erstellt ein neues Backup eines bestimmten Volumes
      * @param id Server-ID (required)
      * @param volume Volume-Name (required)
+     * @param body  (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -166,8 +174,8 @@ public class BackupManagementApi {
         <tr><td> 403 </td><td> Keine Berechtigung zum Erstellen von Backups </td><td>  -  </td></tr>
      </table>
      */
-    public String backupContainer(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String volume) throws ApiException {
-        ApiResponse<String> localVarResp = backupContainerWithHttpInfo(id, volume);
+    public String backupContainer(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String volume, @jakarta.annotation.Nonnull String body) throws ApiException {
+        ApiResponse<String> localVarResp = backupContainerWithHttpInfo(id, volume, body);
         return localVarResp.getData();
     }
 
@@ -176,6 +184,7 @@ public class BackupManagementApi {
      * Erstellt ein neues Backup eines bestimmten Volumes
      * @param id Server-ID (required)
      * @param volume Volume-Name (required)
+     * @param body  (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -187,8 +196,8 @@ public class BackupManagementApi {
         <tr><td> 403 </td><td> Keine Berechtigung zum Erstellen von Backups </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<String> backupContainerWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String volume) throws ApiException {
-        okhttp3.Call localVarCall = backupContainerValidateBeforeCall(id, volume, null);
+    public ApiResponse<String> backupContainerWithHttpInfo(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String volume, @jakarta.annotation.Nonnull String body) throws ApiException {
+        okhttp3.Call localVarCall = backupContainerValidateBeforeCall(id, volume, body, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -198,6 +207,7 @@ public class BackupManagementApi {
      * Erstellt ein neues Backup eines bestimmten Volumes
      * @param id Server-ID (required)
      * @param volume Volume-Name (required)
+     * @param body  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -210,9 +220,9 @@ public class BackupManagementApi {
         <tr><td> 403 </td><td> Keine Berechtigung zum Erstellen von Backups </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call backupContainerAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String volume, final ApiCallback<String> _callback) throws ApiException {
+    public okhttp3.Call backupContainerAsync(@jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String volume, @jakarta.annotation.Nonnull String body, final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = backupContainerValidateBeforeCall(id, volume, _callback);
+        okhttp3.Call localVarCall = backupContainerValidateBeforeCall(id, volume, body, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

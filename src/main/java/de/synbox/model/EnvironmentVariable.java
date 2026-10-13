@@ -52,7 +52,7 @@ import de.synbox.invoker.JSON;
 /**
  * Environment variable; POST requires access rw, but permissions are determined by the server
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T17:10:59.154918434Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T20:50:09.355788227Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class EnvironmentVariable {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

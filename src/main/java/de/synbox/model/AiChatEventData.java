@@ -71,7 +71,7 @@ import com.google.gson.JsonParseException;
 
 import de.synbox.invoker.JSON;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T17:10:59.154918434Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T20:50:09.355788227Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class AiChatEventData extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(AiChatEventData.class.getName());
 

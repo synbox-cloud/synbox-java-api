@@ -48,12 +48,17 @@ import de.synbox.invoker.JSON;
 /**
  * Backup configuration for a server volume
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T17:10:59.154918434Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T20:50:09.355788227Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class BackupModel {
   public static final String SERIALIZED_NAME_UID = "uid";
   @SerializedName(SERIALIZED_NAME_UID)
   @jakarta.annotation.Nullable
   private String uid;
+
+  public static final String SERIALIZED_NAME_COMMENT = "comment";
+  @SerializedName(SERIALIZED_NAME_COMMENT)
+  @jakarta.annotation.Nullable
+  private String comment;
 
   public static final String SERIALIZED_NAME_GAME_SERVER_ID = "gameServerId";
   @SerializedName(SERIALIZED_NAME_GAME_SERVER_ID)
@@ -175,6 +180,25 @@ public class BackupModel {
 
   public void setUid(@jakarta.annotation.Nullable String uid) {
     this.uid = uid;
+  }
+
+
+  public BackupModel comment(@jakarta.annotation.Nullable String comment) {
+    this.comment = comment;
+    return this;
+  }
+
+  /**
+   * Optional comment or description for the backup
+   * @return comment
+   */
+  @jakarta.annotation.Nullable
+  public String getComment() {
+    return comment;
+  }
+
+  public void setComment(@jakarta.annotation.Nullable String comment) {
+    this.comment = comment;
   }
 
 
@@ -360,6 +384,7 @@ public class BackupModel {
     }
     BackupModel backupModel = (BackupModel) o;
     return Objects.equals(this.uid, backupModel.uid) &&
+        Objects.equals(this.comment, backupModel.comment) &&
         Objects.equals(this.gameServerId, backupModel.gameServerId) &&
         Objects.equals(this.volume, backupModel.volume) &&
         Objects.equals(this.date, backupModel.date) &&
@@ -373,7 +398,7 @@ public class BackupModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uid, gameServerId, volume, date, status, size, checksum, locked, suspendBackup, checksumType);
+    return Objects.hash(uid, comment, gameServerId, volume, date, status, size, checksum, locked, suspendBackup, checksumType);
   }
 
   @Override
@@ -381,6 +406,7 @@ public class BackupModel {
     StringBuilder sb = new StringBuilder();
     sb.append("class BackupModel {\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
+    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    gameServerId: ").append(toIndentedString(gameServerId)).append("\n");
     sb.append("    volume: ").append(toIndentedString(volume)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
@@ -408,7 +434,7 @@ public class BackupModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("uid", "gameServerId", "volume", "date", "status", "size", "checksum", "locked", "suspendBackup", "checksum_type"));
+    openapiFields = new HashSet<String>(Arrays.asList("uid", "comment", "gameServerId", "volume", "date", "status", "size", "checksum", "locked", "suspendBackup", "checksum_type"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -437,6 +463,9 @@ public class BackupModel {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("uid") != null && !jsonObj.get("uid").isJsonNull()) && !jsonObj.get("uid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid").toString()));
+      }
+      if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
       }
       if ((jsonObj.get("gameServerId") != null && !jsonObj.get("gameServerId").isJsonNull()) && !jsonObj.get("gameServerId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gameServerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gameServerId").toString()));

@@ -55,7 +55,7 @@ import de.synbox.invoker.JSON;
 /**
  * CloudServerDTO
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-09T17:05:38.143220079Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T17:10:59.154918434Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerDTO {
   public static final String SERIALIZED_NAME_SERVER_ID = "serverId";
   @SerializedName(SERIALIZED_NAME_SERVER_ID)
@@ -236,6 +236,11 @@ public class CloudServerDTO {
   @SerializedName(SERIALIZED_NAME_STATUS)
   @jakarta.annotation.Nullable
   private String status;
+
+  public static final String SERIALIZED_NAME_REINSTALLING = "reinstalling";
+  @SerializedName(SERIALIZED_NAME_REINSTALLING)
+  @jakarta.annotation.Nullable
+  private Boolean reinstalling;
 
   public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
@@ -665,6 +670,25 @@ public class CloudServerDTO {
   }
 
 
+  public CloudServerDTO reinstalling(@jakarta.annotation.Nullable Boolean reinstalling) {
+    this.reinstalling = reinstalling;
+    return this;
+  }
+
+  /**
+   * Whether the server is currently being reinstalled
+   * @return reinstalling
+   */
+  @jakarta.annotation.Nullable
+  public Boolean getReinstalling() {
+    return reinstalling;
+  }
+
+  public void setReinstalling(@jakarta.annotation.Nullable Boolean reinstalling) {
+    this.reinstalling = reinstalling;
+  }
+
+
   public CloudServerDTO accountId(@jakarta.annotation.Nullable String accountId) {
     this.accountId = accountId;
     return this;
@@ -714,12 +738,13 @@ public class CloudServerDTO {
         Objects.equals(this.ip, cloudServerDTO.ip) &&
         Objects.equals(this.metrics, cloudServerDTO.metrics) &&
         Objects.equals(this.status, cloudServerDTO.status) &&
+        Objects.equals(this.reinstalling, cloudServerDTO.reinstalling) &&
         Objects.equals(this.accountId, cloudServerDTO.accountId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serverId, metadata, powerLevel, startVolume, provider, envs, start, stop, displayName, organization, enableAutoPowerControl, volumes, schedules, backups, permissions, owner, port, ip, metrics, status, accountId);
+    return Objects.hash(serverId, metadata, powerLevel, startVolume, provider, envs, start, stop, displayName, organization, enableAutoPowerControl, volumes, schedules, backups, permissions, owner, port, ip, metrics, status, reinstalling, accountId);
   }
 
   @Override
@@ -746,6 +771,7 @@ public class CloudServerDTO {
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    reinstalling: ").append(toIndentedString(reinstalling)).append("\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -765,7 +791,7 @@ public class CloudServerDTO {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("serverId", "metadata", "powerLevel", "startVolume", "provider", "envs", "start", "stop", "displayName", "organization", "enableAutoPowerControl", "volumes", "schedules", "backups", "permissions", "owner", "port", "ip", "metrics", "status", "account_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("serverId", "metadata", "powerLevel", "startVolume", "provider", "envs", "start", "stop", "displayName", "organization", "enableAutoPowerControl", "volumes", "schedules", "backups", "permissions", "owner", "port", "ip", "metrics", "status", "reinstalling", "account_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("powerLevel"));

@@ -31,6 +31,7 @@ import de.synbox.model.BaseDTO;
 import de.synbox.model.CloudServerCreateDTO;
 import de.synbox.model.CloudServerDTO;
 import de.synbox.model.CloudServerModel;
+import de.synbox.model.CloudServerReinstallDTO;
 import de.synbox.model.ContainerFilter;
 
 import java.lang.reflect.Type;
@@ -616,6 +617,154 @@ public class ServerManagementApi {
         okhttp3.Call localVarCall = getContainersValidateBeforeCall(filter, metadataFilter, _callback);
         Type localVarReturnType = new TypeToken<List<CloudServerDTO>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for reinstallServer
+     * @param serverId ID of the server (required)
+     * @param cloudServerReinstallDTO Reinstallation parameters (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Reinstallation accepted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request or unknown provider </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Missing volume/version/delete permission or provider not allowed by tariff </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Server running, reinstallation already in progress, or volume already exists without wipeServer </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call reinstallServerCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CloudServerReinstallDTO cloudServerReinstallDTO, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = cloudServerReinstallDTO;
+
+        // create path and map variables
+        String localVarPath = "/api/containers/{serverId}/reinstall"
+            .replace("{" + "serverId" + "}", localVarApiClient.escapeString(serverId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call reinstallServerValidateBeforeCall(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CloudServerReinstallDTO cloudServerReinstallDTO, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'serverId' is set
+        if (serverId == null) {
+            throw new ApiException("Missing the required parameter 'serverId' when calling reinstallServer(Async)");
+        }
+
+        // verify the required parameter 'cloudServerReinstallDTO' is set
+        if (cloudServerReinstallDTO == null) {
+            throw new ApiException("Missing the required parameter 'cloudServerReinstallDTO' when calling reinstallServer(Async)");
+        }
+
+        return reinstallServerCall(serverId, cloudServerReinstallDTO, _callback);
+
+    }
+
+    /**
+     * Reinstall a server
+     * Requires a stopped server. Asynchronously deletes all existing volumes if wipeServer is true, then creates and selects a new volume and updates provider and version. Does not automatically start the server.
+     * @param serverId ID of the server (required)
+     * @param cloudServerReinstallDTO Reinstallation parameters (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Reinstallation accepted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request or unknown provider </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Missing volume/version/delete permission or provider not allowed by tariff </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Server running, reinstallation already in progress, or volume already exists without wipeServer </td><td>  -  </td></tr>
+     </table>
+     */
+    public void reinstallServer(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CloudServerReinstallDTO cloudServerReinstallDTO) throws ApiException {
+        reinstallServerWithHttpInfo(serverId, cloudServerReinstallDTO);
+    }
+
+    /**
+     * Reinstall a server
+     * Requires a stopped server. Asynchronously deletes all existing volumes if wipeServer is true, then creates and selects a new volume and updates provider and version. Does not automatically start the server.
+     * @param serverId ID of the server (required)
+     * @param cloudServerReinstallDTO Reinstallation parameters (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Reinstallation accepted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request or unknown provider </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Missing volume/version/delete permission or provider not allowed by tariff </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Server running, reinstallation already in progress, or volume already exists without wipeServer </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> reinstallServerWithHttpInfo(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CloudServerReinstallDTO cloudServerReinstallDTO) throws ApiException {
+        okhttp3.Call localVarCall = reinstallServerValidateBeforeCall(serverId, cloudServerReinstallDTO, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Reinstall a server (asynchronously)
+     * Requires a stopped server. Asynchronously deletes all existing volumes if wipeServer is true, then creates and selects a new volume and updates provider and version. Does not automatically start the server.
+     * @param serverId ID of the server (required)
+     * @param cloudServerReinstallDTO Reinstallation parameters (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Reinstallation accepted </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid request or unknown provider </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Missing volume/version/delete permission or provider not allowed by tariff </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Server not found </td><td>  -  </td></tr>
+        <tr><td> 409 </td><td> Server running, reinstallation already in progress, or volume already exists without wipeServer </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call reinstallServerAsync(@jakarta.annotation.Nonnull String serverId, @jakarta.annotation.Nonnull CloudServerReinstallDTO cloudServerReinstallDTO, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = reinstallServerValidateBeforeCall(serverId, cloudServerReinstallDTO, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**

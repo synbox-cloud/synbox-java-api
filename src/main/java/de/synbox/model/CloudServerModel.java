@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import de.synbox.model.BackupModel;
+import de.synbox.model.CloudNetworkPort;
 import de.synbox.model.Document;
 import de.synbox.model.EnvModel;
 import de.synbox.model.ScheduleModel;
@@ -57,7 +58,7 @@ import de.synbox.invoker.JSON;
 /**
  * CloudServerModel
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T20:50:09.355788227Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-14T15:48:48.046755694Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerModel {
   public static final String SERIALIZED_NAME_PROVIDER = "provider";
   @SerializedName(SERIALIZED_NAME_PROVIDER)
@@ -93,6 +94,11 @@ public class CloudServerModel {
   @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
   @jakarta.annotation.Nullable
   private String displayName;
+
+  public static final String SERIALIZED_NAME_CLOUD_NETWORK_PORTS = "cloudNetworkPorts";
+  @SerializedName(SERIALIZED_NAME_CLOUD_NETWORK_PORTS)
+  @jakarta.annotation.Nullable
+  private List<CloudNetworkPort> cloudNetworkPorts = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_IP = "ip";
   @SerializedName(SERIALIZED_NAME_IP)
@@ -437,6 +443,33 @@ public class CloudServerModel {
 
   public void setDisplayName(@jakarta.annotation.Nullable String displayName) {
     this.displayName = displayName;
+  }
+
+
+  public CloudServerModel cloudNetworkPorts(@jakarta.annotation.Nullable List<CloudNetworkPort> cloudNetworkPorts) {
+    this.cloudNetworkPorts = cloudNetworkPorts;
+    return this;
+  }
+
+  public CloudServerModel addCloudNetworkPortsItem(CloudNetworkPort cloudNetworkPortsItem) {
+    if (this.cloudNetworkPorts == null) {
+      this.cloudNetworkPorts = new ArrayList<>();
+    }
+    this.cloudNetworkPorts.add(cloudNetworkPortsItem);
+    return this;
+  }
+
+  /**
+   * Get cloudNetworkPorts
+   * @return cloudNetworkPorts
+   */
+  @jakarta.annotation.Nullable
+  public List<CloudNetworkPort> getCloudNetworkPorts() {
+    return cloudNetworkPorts;
+  }
+
+  public void setCloudNetworkPorts(@jakarta.annotation.Nullable List<CloudNetworkPort> cloudNetworkPorts) {
+    this.cloudNetworkPorts = cloudNetworkPorts;
   }
 
 
@@ -999,6 +1032,7 @@ public class CloudServerModel {
         Objects.equals(this.enableAutoPowerControl, cloudServerModel.enableAutoPowerControl) &&
         Objects.equals(this.owner, cloudServerModel.owner) &&
         Objects.equals(this.displayName, cloudServerModel.displayName) &&
+        Objects.equals(this.cloudNetworkPorts, cloudServerModel.cloudNetworkPorts) &&
         Objects.equals(this.ip, cloudServerModel.ip) &&
         Objects.equals(this.suspended, cloudServerModel.suspended) &&
         Objects.equals(this.cpuType, cloudServerModel.cpuType) &&
@@ -1029,7 +1063,7 @@ public class CloudServerModel {
 
   @Override
   public int hashCode() {
-    return Objects.hash(provider, start, deleteOnStop, stop, enableAutoPowerControl, owner, displayName, ip, suspended, cpuType, powerLevel, location, requiredNodeFeatures, scheduleModels, backups, startVolume, serverId, moneyPoolId, volumes, envs, metadata, permissions, port, publicIp, organization, webhooks, additionalPort, restarting, envsAsList, oneTmePassword, deltaTillStart, free, accountId);
+    return Objects.hash(provider, start, deleteOnStop, stop, enableAutoPowerControl, owner, displayName, cloudNetworkPorts, ip, suspended, cpuType, powerLevel, location, requiredNodeFeatures, scheduleModels, backups, startVolume, serverId, moneyPoolId, volumes, envs, metadata, permissions, port, publicIp, organization, webhooks, additionalPort, restarting, envsAsList, oneTmePassword, deltaTillStart, free, accountId);
   }
 
   @Override
@@ -1043,6 +1077,7 @@ public class CloudServerModel {
     sb.append("    enableAutoPowerControl: ").append(toIndentedString(enableAutoPowerControl)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    cloudNetworkPorts: ").append(toIndentedString(cloudNetworkPorts)).append("\n");
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
     sb.append("    suspended: ").append(toIndentedString(suspended)).append("\n");
     sb.append("    cpuType: ").append(toIndentedString(cpuType)).append("\n");
@@ -1087,7 +1122,7 @@ public class CloudServerModel {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("provider", "start", "deleteOnStop", "stop", "enableAutoPowerControl", "owner", "displayName", "ip", "suspended", "cpu_type", "powerLevel", "location", "requiredNodeFeatures", "scheduleModels", "backups", "startVolume", "server_id", "money_pool_id", "volumes", "envs", "metadata", "permissions", "port", "publicIp", "organization", "webhooks", "additionalPort", "restarting", "envsAsList", "oneTmePassword", "deltaTillStart", "free", "account_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("provider", "start", "deleteOnStop", "stop", "enableAutoPowerControl", "owner", "displayName", "cloudNetworkPorts", "ip", "suspended", "cpu_type", "powerLevel", "location", "requiredNodeFeatures", "scheduleModels", "backups", "startVolume", "server_id", "money_pool_id", "volumes", "envs", "metadata", "permissions", "port", "publicIp", "organization", "webhooks", "additionalPort", "restarting", "envsAsList", "oneTmePassword", "deltaTillStart", "free", "account_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -1128,6 +1163,20 @@ public class CloudServerModel {
       }
       if ((jsonObj.get("displayName") != null && !jsonObj.get("displayName").isJsonNull()) && !jsonObj.get("displayName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `displayName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayName").toString()));
+      }
+      if (jsonObj.get("cloudNetworkPorts") != null && !jsonObj.get("cloudNetworkPorts").isJsonNull()) {
+        JsonArray jsonArraycloudNetworkPorts = jsonObj.getAsJsonArray("cloudNetworkPorts");
+        if (jsonArraycloudNetworkPorts != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("cloudNetworkPorts").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cloudNetworkPorts` to be an array in the JSON string but got `%s`", jsonObj.get("cloudNetworkPorts").toString()));
+          }
+
+          // validate the optional field `cloudNetworkPorts` (array)
+          for (int i = 0; i < jsonArraycloudNetworkPorts.size(); i++) {
+            CloudNetworkPort.validateJsonElement(jsonArraycloudNetworkPorts.get(i));
+          };
+        }
       }
       if ((jsonObj.get("ip") != null && !jsonObj.get("ip").isJsonNull()) && !jsonObj.get("ip").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ip").toString()));

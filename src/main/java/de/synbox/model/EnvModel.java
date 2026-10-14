@@ -52,7 +52,7 @@ import de.synbox.invoker.JSON;
 /**
  * EnvModel
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T20:50:09.355788227Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-14T15:48:48.046755694Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class EnvModel {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

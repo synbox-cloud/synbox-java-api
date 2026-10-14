@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import de.synbox.model.BackupModel;
+import de.synbox.model.CloudNetworkPort;
 import de.synbox.model.CloudServerDTOPermissions;
 import de.synbox.model.ScheduleModel;
 import java.io.IOException;
@@ -55,7 +56,7 @@ import de.synbox.invoker.JSON;
 /**
  * CloudServerDTO
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T20:50:09.355788227Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-14T15:48:48.046755694Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class CloudServerDTO {
   public static final String SERIALIZED_NAME_SERVER_ID = "serverId";
   @SerializedName(SERIALIZED_NAME_SERVER_ID)
@@ -226,6 +227,11 @@ public class CloudServerDTO {
   @SerializedName(SERIALIZED_NAME_IP)
   @jakarta.annotation.Nullable
   private String ip;
+
+  public static final String SERIALIZED_NAME_CLOUDS = "clouds";
+  @SerializedName(SERIALIZED_NAME_CLOUDS)
+  @jakarta.annotation.Nullable
+  private List<CloudNetworkPort> clouds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_METRICS = "metrics";
   @SerializedName(SERIALIZED_NAME_METRICS)
@@ -632,6 +638,33 @@ public class CloudServerDTO {
   }
 
 
+  public CloudServerDTO clouds(@jakarta.annotation.Nullable List<CloudNetworkPort> clouds) {
+    this.clouds = clouds;
+    return this;
+  }
+
+  public CloudServerDTO addCloudsItem(CloudNetworkPort cloudsItem) {
+    if (this.clouds == null) {
+      this.clouds = new ArrayList<>();
+    }
+    this.clouds.add(cloudsItem);
+    return this;
+  }
+
+  /**
+   * List of network ports for the server
+   * @return clouds
+   */
+  @jakarta.annotation.Nullable
+  public List<CloudNetworkPort> getClouds() {
+    return clouds;
+  }
+
+  public void setClouds(@jakarta.annotation.Nullable List<CloudNetworkPort> clouds) {
+    this.clouds = clouds;
+  }
+
+
   public CloudServerDTO metrics(@jakarta.annotation.Nullable String metrics) {
     this.metrics = metrics;
     return this;
@@ -736,6 +769,7 @@ public class CloudServerDTO {
         Objects.equals(this.owner, cloudServerDTO.owner) &&
         Objects.equals(this.port, cloudServerDTO.port) &&
         Objects.equals(this.ip, cloudServerDTO.ip) &&
+        Objects.equals(this.clouds, cloudServerDTO.clouds) &&
         Objects.equals(this.metrics, cloudServerDTO.metrics) &&
         Objects.equals(this.status, cloudServerDTO.status) &&
         Objects.equals(this.reinstalling, cloudServerDTO.reinstalling) &&
@@ -744,7 +778,7 @@ public class CloudServerDTO {
 
   @Override
   public int hashCode() {
-    return Objects.hash(serverId, metadata, powerLevel, startVolume, provider, envs, start, stop, displayName, organization, enableAutoPowerControl, volumes, schedules, backups, permissions, owner, port, ip, metrics, status, reinstalling, accountId);
+    return Objects.hash(serverId, metadata, powerLevel, startVolume, provider, envs, start, stop, displayName, organization, enableAutoPowerControl, volumes, schedules, backups, permissions, owner, port, ip, clouds, metrics, status, reinstalling, accountId);
   }
 
   @Override
@@ -769,6 +803,7 @@ public class CloudServerDTO {
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
+    sb.append("    clouds: ").append(toIndentedString(clouds)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    reinstalling: ").append(toIndentedString(reinstalling)).append("\n");
@@ -791,7 +826,7 @@ public class CloudServerDTO {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("serverId", "metadata", "powerLevel", "startVolume", "provider", "envs", "start", "stop", "displayName", "organization", "enableAutoPowerControl", "volumes", "schedules", "backups", "permissions", "owner", "port", "ip", "metrics", "status", "reinstalling", "account_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("serverId", "metadata", "powerLevel", "startVolume", "provider", "envs", "start", "stop", "displayName", "organization", "enableAutoPowerControl", "volumes", "schedules", "backups", "permissions", "owner", "port", "ip", "clouds", "metrics", "status", "reinstalling", "account_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("powerLevel"));
@@ -888,6 +923,20 @@ public class CloudServerDTO {
       }
       if ((jsonObj.get("ip") != null && !jsonObj.get("ip").isJsonNull()) && !jsonObj.get("ip").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ip").toString()));
+      }
+      if (jsonObj.get("clouds") != null && !jsonObj.get("clouds").isJsonNull()) {
+        JsonArray jsonArrayclouds = jsonObj.getAsJsonArray("clouds");
+        if (jsonArrayclouds != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("clouds").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `clouds` to be an array in the JSON string but got `%s`", jsonObj.get("clouds").toString()));
+          }
+
+          // validate the optional field `clouds` (array)
+          for (int i = 0; i < jsonArrayclouds.size(); i++) {
+            CloudNetworkPort.validateJsonElement(jsonArrayclouds.get(i));
+          };
+        }
       }
       if ((jsonObj.get("metrics") != null && !jsonObj.get("metrics").isJsonNull()) && !jsonObj.get("metrics").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `metrics` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metrics").toString()));

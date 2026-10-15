@@ -74,6 +74,160 @@ public class OrganizationServerManagementApi {
     }
 
     /**
+     * Build call for getContainersByMetadata
+     * @param organizationId Organization ID (required)
+     * @param metadataFilter JSON object containing metadata fields and their expected values (optional, default to {})
+     * @param preferCache Search the cache first; use the database only when no cached containers match (optional, default to false)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved matching containers </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid organization ID or metadata filter </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getContainersByMetadataCall(@jakarta.annotation.Nonnull String organizationId, @jakarta.annotation.Nullable String metadataFilter, @jakarta.annotation.Nullable Boolean preferCache, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/organization/containers/metadata";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (organizationId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("organizationId", organizationId));
+        }
+
+        if (metadataFilter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("metadataFilter", metadataFilter));
+        }
+
+        if (preferCache != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("preferCache", preferCache));
+        }
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getContainersByMetadataValidateBeforeCall(@jakarta.annotation.Nonnull String organizationId, @jakarta.annotation.Nullable String metadataFilter, @jakarta.annotation.Nullable Boolean preferCache, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'organizationId' is set
+        if (organizationId == null) {
+            throw new ApiException("Missing the required parameter 'organizationId' when calling getContainersByMetadata(Async)");
+        }
+
+        return getContainersByMetadataCall(organizationId, metadataFilter, preferCache, _callback);
+
+    }
+
+    /**
+     * Get containers by metadata
+     * Retrieves organization containers matching all fields in the JSON metadata filter. Requires admin or owner membership. With preferCache enabled, returns matching cached containers and queries the database only if there are no cache matches.
+     * @param organizationId Organization ID (required)
+     * @param metadataFilter JSON object containing metadata fields and their expected values (optional, default to {})
+     * @param preferCache Search the cache first; use the database only when no cached containers match (optional, default to false)
+     * @return List&lt;CloudServerDTO&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved matching containers </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid organization ID or metadata filter </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<CloudServerDTO> getContainersByMetadata(@jakarta.annotation.Nonnull String organizationId, @jakarta.annotation.Nullable String metadataFilter, @jakarta.annotation.Nullable Boolean preferCache) throws ApiException {
+        ApiResponse<List<CloudServerDTO>> localVarResp = getContainersByMetadataWithHttpInfo(organizationId, metadataFilter, preferCache);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get containers by metadata
+     * Retrieves organization containers matching all fields in the JSON metadata filter. Requires admin or owner membership. With preferCache enabled, returns matching cached containers and queries the database only if there are no cache matches.
+     * @param organizationId Organization ID (required)
+     * @param metadataFilter JSON object containing metadata fields and their expected values (optional, default to {})
+     * @param preferCache Search the cache first; use the database only when no cached containers match (optional, default to false)
+     * @return ApiResponse&lt;List&lt;CloudServerDTO&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved matching containers </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid organization ID or metadata filter </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<CloudServerDTO>> getContainersByMetadataWithHttpInfo(@jakarta.annotation.Nonnull String organizationId, @jakarta.annotation.Nullable String metadataFilter, @jakarta.annotation.Nullable Boolean preferCache) throws ApiException {
+        okhttp3.Call localVarCall = getContainersByMetadataValidateBeforeCall(organizationId, metadataFilter, preferCache, null);
+        Type localVarReturnType = new TypeToken<List<CloudServerDTO>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get containers by metadata (asynchronously)
+     * Retrieves organization containers matching all fields in the JSON metadata filter. Requires admin or owner membership. With preferCache enabled, returns matching cached containers and queries the database only if there are no cache matches.
+     * @param organizationId Organization ID (required)
+     * @param metadataFilter JSON object containing metadata fields and their expected values (optional, default to {})
+     * @param preferCache Search the cache first; use the database only when no cached containers match (optional, default to false)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved matching containers </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid organization ID or metadata filter </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - User not enabled or blocked </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getContainersByMetadataAsync(@jakarta.annotation.Nonnull String organizationId, @jakarta.annotation.Nullable String metadataFilter, @jakarta.annotation.Nullable Boolean preferCache, final ApiCallback<List<CloudServerDTO>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getContainersByMetadataValidateBeforeCall(organizationId, metadataFilter, preferCache, _callback);
+        Type localVarReturnType = new TypeToken<List<CloudServerDTO>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getContainersFromOrganization
      * @param organizationId  (required)
      * @param _callback Callback for upload/download progress

@@ -48,7 +48,7 @@ import de.synbox.invoker.JSON;
 /**
  * Basis-DTO für API-Antworten
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T15:40:27.987140860Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T16:16:15.738501635Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class BaseDTO {
   public static final String SERIALIZED_NAME_SUCCESS = "success";
   @SerializedName(SERIALIZED_NAME_SUCCESS)
